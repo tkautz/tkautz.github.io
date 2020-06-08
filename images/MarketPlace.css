@@ -8,7 +8,7 @@
 
 body {
 	background: #fff;
-	font: 11px/1.75em Verdana, Tahoma, arial, sans-serif;
+	font: 14px/1.75em Verdana, Tahoma, arial, sans-serif;
 	color: #666666; 
 	text-align: center;
 	margin: 0 0 15px 0;	
@@ -337,10 +337,10 @@ input.button {
 
 /* Main Column */
 .three-col #main {
-	margin: 10px 190px 0 200px;
+	margin: 10px 140px 0 150px;
 }
 .two-col #main {
-	margin: 10px 5px 0 200px;
+	margin: 10px 5px 0 150px;
 }
 
 #main h1 {
@@ -359,13 +359,13 @@ input.button {
 /* Sidebar */	
 #sidebar {
 	float: left;
-	width: 195px;	
+	width: 150px;	
 	margin-top: 10px;	
 }	
 /* right column */
 #rightcolumn {
 	float: right;
-	width: 190px;
+	width: 145px;
 	margin-top: 10px;	
 }
 #rightcolumn h1, #sidebar h1 {
