@@ -73,7 +73,8 @@ ul, ol {
 /* images */
 img {
 	background: #FAFAFA;
-    border: 1px solid #DCDCDC;
+  border: 1px solid #DCDCDC;
+	max-width: 100%;
 	padding: 8px;
 }
 img.float-right {
@@ -111,7 +112,8 @@ blockquote {
 table {
 	border-collapse: collapse;
   table-layout: fixed;
-	margin: 0px;	
+	margin: 0px;
+	display: flex;
 }
 
 
@@ -154,7 +156,8 @@ tr.row-b {
 /* form elements */
 form {
 	margin:10px; padding: 0 5px;
-	background: #F5F5F5;	
+	background: #F5F5F5;
+	display: flex;
 }
 label {
 	display:block;
