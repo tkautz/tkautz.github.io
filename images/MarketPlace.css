@@ -16,13 +16,13 @@ body {
 
 @media (min-width: 360px) {
   body {
-    font-size: 18px;
+    font-size: 10.75pt;
   }
 }
 
 @media (min-width: 600px) {
   body {
-    font-size: 14px;
+    font-size: 10.75pt;
   }
 }
 
