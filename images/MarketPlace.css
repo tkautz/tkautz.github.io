@@ -8,23 +8,16 @@
 
 body {
 	background: #fff;
-	font: 10.75pt/1.75em Verdana, Tahoma, arial, sans-serif;
+	font: Verdana, Tahoma, arial, sans-serif;
+	font-size: 10.75pt;
+	min-width:1130px;
+	_width: expression(document.body.clientWidth>1130) ? "1130px": auto);
 	color: #666666; 
 	text-align: center;
 	margin: 0 0 15px 0;	
 }
 
-@media (min-width: 360px) {
-  body {
-    font-size: 10.75pt;
-  }
-}
 
-@media (min-width: 600px) {
-  body {
-    font-size: 10.75pt;
-  }
-}
 
 
 /* links */
