@@ -173,7 +173,8 @@ input {
 	color:#777;
 }
 textarea {
-	width:400px;
+	max-width:400px;
+	width:100%;
 	padding:2px;
 	font: normal 1em Verdana, sans-serif;
 	border:1px solid #eee;
@@ -196,11 +197,13 @@ input.button {
 	background-color: transparent;
 	border: none;	
 	margin: 0 5px 0 10px; padding: 5px 0 15px 0;	
-	width: 190px;	
+	max-width: 190px;	
+	width: 100%;	
 }
 .searchform p { margin: 0; padding: 0; }
 .searchform input.textbox { 
-	width: 100px;
+	max-width: 100px;
+	width: 100%;
 	color: #777; 
 	height: 18px;
 	padding: 2px;	
@@ -208,7 +211,8 @@ input.button {
 	vertical-align: top;
 }
 .searchform input.button { 
-	width: 60px;
+	max-width: 60px;
+	width: 100%;
 	height: 24px;
 	padding: 2px 5px;
 	vertical-align: top;
@@ -219,14 +223,16 @@ input.button {
 ********************************************/ 
 #wrap {
 	position: relative;
-	width: 910px;	
+	max-width: 910px;	
+	width: 100%;	
 	margin: 0 auto;
 	text-align: left;
 	background: #fff url(content.jpg) repeat-y center top;
 }
 #content-wrap {
 	float: left;
-	width: 850px;
+	max-width: 850px;
+	width: 100%;
 	margin-left: 30px;
 	display: inline;
 	padding: 0; 	
@@ -237,7 +243,8 @@ input.button {
 	position: relative;
 	background: url(header-bg.jpg) repeat-y center top;
 	height: 35px;
-	width:910px;	
+	max-width:910px;	
+	width:100%;	
 	padding: 0;	
 	color: #fff;	
 }
@@ -266,7 +273,8 @@ input.button {
 	clear: both;
 	margin: 5px auto;
 	height: 120px;
-	width: 850px;
+	max-width: 850px;
+	width: 100%;
 	background: #0b2949;
 	background-position: 30px center;
 }
@@ -307,7 +315,8 @@ input.button {
 	float: left;
 	list-style: inside;
 	background: #E4E4E4 url(nav.jpg) repeat-x;	
-	width: 850px;		
+	max-width: 850px;		
+	width: 100%;		
 	padding: 0;	margin: 0 0 0 30px;
 	height: 45px;
 	display: inline;
@@ -364,13 +373,15 @@ input.button {
 /* Sidebar */	
 #sidebar {
 	float: left;
-	width: 150px;	
+	max-width: 150px;	
+	width: 100%;	
 	margin-top: 10px;	
 }	
 /* right column */
 #rightcolumn {
 	float: right;
-	width: 145px;
+	max-width: 145px;
+	width: 100%;
 	margin-top: 10px;	
 }
 #rightcolumn h1, #sidebar h1 {
@@ -409,7 +420,8 @@ ul.sidemenu li a:hover {
 /* footer-wrap */
 #footer-wrap {
 	clear: both;
-	width: 910px;
+	max-width: 910px;
+	width: 100%;
 	font-size: 95%;
 	padding: 20px 0;
 	text-align: left;	
@@ -437,7 +449,8 @@ ul.sidemenu li a:hover {
 	clear: both;
 	color: #666;	
 	margin: 0 auto 10px auto; 
-	width: 850px;
+	max-width: 850px;
+	width: 100%;
 	padding: 5px 0;
 	text-align: center;
 	background: #F8F7F7;
@@ -472,4 +485,61 @@ ul.sidemenu li a:hover {
 }
 .post-footer a.readmore {
 	margin: 0 10px 0 5px;	
+}
+
+@media only screen and (max-width: 910px) {
+	#header-photo-new h2#slogan {
+		width: 100%;
+		text-align: center;
+		left: 0;
+	}
+
+	#content-wrap{
+		margin-left: 0;
+		float: none;
+	}
+	#sidebar {
+		float: none;
+		margin: auto;
+		max-width: 100%;
+	}
+
+	#sidebar h1 {
+		width: 90%;
+		margin: 0;
+		padding: 5px 0;
+		margin-left: 10px;
+	}
+
+	ul.sidemenu li{
+		padding-right: 10px;
+	}
+	
+	.two-col #main {
+		margin: auto;
+		width: 100%;
+	}
+	
+	img.float-right {
+		margin: auto;
+		float: none;
+		width: 100%;
+		height: auto;
+		padding: 0;
+	}
+	#nav ul {
+		float: none;
+	}
+
+	h4 {
+		padding: 0 10px;
+	}
+
+	.cv table{
+		padding: 0 10px;
+	}
+
+	li {
+		padding: 0 10px;
+	}
 }
