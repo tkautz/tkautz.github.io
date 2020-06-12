@@ -76,7 +76,7 @@ ul, ol {
 img {
 	background: #FAFAFA;
   border: 1px solid #DCDCDC;
-	max-width: 80%;
+	max-width: 100%;
 	padding: 8px;
 }
 img.float-right {
@@ -523,9 +523,9 @@ ul.sidemenu li a:hover {
 	img.float-right {
 		margin: auto;
 		float: none;
-		width: 100%;
+		width: 90%;
 		height: auto;
-		padding: 0;
+		padding: 10px;
 	}
 	#nav ul {
 		float: none;
