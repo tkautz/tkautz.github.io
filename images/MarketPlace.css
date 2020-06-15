@@ -490,7 +490,7 @@ ul.sidemenu li a:hover {
 @media only screen and (max-width: 910px) {
 	
 	body {
-		font: 1em/1.75em Verdana, Tahoma, arial, sans-serif;
+		font: 1.2em/1.75em Verdana, Tahoma, arial, sans-serif;
 		color: #666666; 
 		text-align: center;
 		margin: 0 0 15px 0;		
@@ -550,7 +550,7 @@ ul.sidemenu li a:hover {
 		border-left: 1px solid #fafafa;	
 		border-bottom: none;
 		color: #555;
-		font: bold 1em/2em "Century Gothic", "Trebuchet MS", Helvetica, Arial, Geneva, sans-serif;
+		font: bold 1.2em/2em "Century Gothic", "Trebuchet MS", Helvetica, Arial, Geneva, sans-serif;
 		text-transform: uppercase;
 		text-decoration: none;	
 		letter-spacing: 1px;
