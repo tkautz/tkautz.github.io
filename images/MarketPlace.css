@@ -331,7 +331,7 @@ input.button {
 	float: left;
 	width: auto;
 	margin: 0;
-	padding: 10px 20px;	
+	padding: 15px 25px;	
 	border-right: 1px solid #dadada;
 	border-left: 1px solid #fafafa;	
 	border-bottom: none;
@@ -488,6 +488,14 @@ ul.sidemenu li a:hover {
 }
 
 @media only screen and (max-width: 910px) {
+	body {
+		font: 16px/1.75em Verdana, Tahoma, arial, sans-serif;
+		color: #666666; 
+		text-align: center;
+		margin: 0 0 15px 0;		
+	}
+
+	
 	#header-photo-new h2#slogan {
 		width: 100%;
 		text-align: center;
