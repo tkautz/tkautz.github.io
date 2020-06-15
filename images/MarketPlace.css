@@ -532,21 +532,6 @@ ul.sidemenu li a:hover {
 		float: none;
 	}
 	
-	#nav ul li a {
-	display: block;
-	float: left;
-	width: auto;
-	margin: 0;
-	padding: 15px 25px;	
-	border-right: 1px solid #dadada;
-	border-left: 1px solid #fafafa;	
-	border-bottom: none;
-	color: #555;
-	font: bold 16px/45px "Century Gothic", "Trebuchet MS", Helvetica, Arial, Geneva, sans-serif;
-	text-transform: uppercase;
-	text-decoration: none;	
-	letter-spacing: 1px;
-	}
 
 	h4 {
 		padding: 0 10px;
