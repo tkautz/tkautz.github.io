@@ -1,15 +1,5 @@
 
 User-agent: *
-User-agent: NinjaBot
-Allow: /
-User-agent: Mediapartners-Google*
-Allow: /
-User-agent: Googlebot-Image
-Allow: /images
-User-agent: Adsbot-Google
-Allow: /
-User-agent: Googlebot-Mobile
-Allow: /
 
 Allow: /*.js*
 Allow: /*.css*
