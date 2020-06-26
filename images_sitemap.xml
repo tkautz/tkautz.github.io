@@ -9,18 +9,6 @@
         <image:loc>https://tkautz.github.io/images/headshot-2.jpg</image:loc>
         <image:title>Tim Kautz</image:title>
       </image:image>
-      <image:image>
-        <image:loc>https://tkautz.github.io/images/button.jpg</image:loc>
-        <image:title>Button</image:title>
-      </image:image>
-      <image:image>
-        <image:loc>https://tkautz.github.io/images/content.jpg</image:loc>
-        <image:title>Content</image:title>
-      </image:image>
-      <image:image>
-        <image:loc>https://tkautz.github.io/images/content.jpg</image:loc>
-        <image:title>Content</image:title>
-      </image:image>
   </url>
   <url>
     <loc>https://tkautz.github.io/index-2.html</loc>
