@@ -123,7 +123,7 @@ th strong {
 	color: #fff;
 }
 th {
-	background: #e7e6e6 url(https://tkautz.github.io/images/button.jpg) repeat-x;
+	background: #e7e6e6 url(button.jpg) repeat-x;
 	height: 30px;
 	padding-left: 12px;
 	padding-right: 12px;	
@@ -173,8 +173,7 @@ input {
 	color:#777;
 }
 textarea {
-	max-width:400px;
-	width:100%;
+	width:400px;
 	padding:2px;
 	font: normal 1em Verdana, sans-serif;
 	border:1px solid #eee;
@@ -188,7 +187,7 @@ input.button {
 	margin: 0;
 	padding: 2px 3px; 
 	color: #333;
-	background: #e7e6e6 url(https://tkautz.github.io/images/button.jpg) repeat-x;
+	background: #e7e6e6 url(button.jpg) repeat-x;
 	border: 1px solid #dadada;
 }
 
@@ -197,13 +196,11 @@ input.button {
 	background-color: transparent;
 	border: none;	
 	margin: 0 5px 0 10px; padding: 5px 0 15px 0;	
-	max-width: 190px;	
-	width: 100%;	
+	width: 190px;	
 }
 .searchform p { margin: 0; padding: 0; }
 .searchform input.textbox { 
-	max-width: 100px;
-	width: 100%;
+	width: 100px;
 	color: #777; 
 	height: 18px;
 	padding: 2px;	
@@ -211,8 +208,7 @@ input.button {
 	vertical-align: top;
 }
 .searchform input.button { 
-	max-width: 60px;
-	width: 100%;
+	width: 60px;
 	height: 24px;
 	padding: 2px 5px;
 	vertical-align: top;
@@ -223,28 +219,25 @@ input.button {
 ********************************************/ 
 #wrap {
 	position: relative;
-	max-width: 910px;	
-	width: 100%;	
+	width: 910px;	
 	margin: 0 auto;
 	text-align: left;
-	background: #fff url(https://tkautz.github.io/images/content.jpg) repeat-y center top;
+	background: #fff url(content.jpg) repeat-y center top;
 }
 #content-wrap {
 	float: left;
-	max-width: 850px;
-	width: 100%;
+	width: 850px;
 	margin-left: 30px;
 	display: inline;
 	padding: 0; 	
 	border-top: 5px solid #fff;
-  background: #fff url(https://tkautz.github.io/images/content-wrap.jpg) repeat-x;
+	background: #fff url(content-wrap.jpg) repeat-x; 
 }
 #header {
 	position: relative;
-	background: url(https://tkautz.github.io/images/header-bg.jpg) repeat-y center top;
+	background: url(header-bg.jpg) repeat-y center top;
 	height: 35px;
-	max-width:910px;	
-	width:100%;	
+	width:910px;	
 	padding: 0;	
 	color: #fff;	
 }
@@ -273,8 +266,7 @@ input.button {
 	clear: both;
 	margin: 5px auto;
 	height: 120px;
-	max-width: 850px;
-	width: 100%;
+	width: 850px;
 	background: #0b2949;
 	background-position: 30px center;
 }
@@ -314,9 +306,8 @@ input.button {
 #nav ul {
 	float: left;
 	list-style: inside;
-	background: #E4E4E4 url(https://tkautz.github.io/images/nav.jpg) repeat-x;	
-	max-width: 850px;		
-	width: 100%;		
+	background: #E4E4E4 url(nav.jpg) repeat-x;	
+	width: 850px;		
 	padding: 0;	margin: 0 0 0 30px;
 	height: 45px;
 	display: inline;
@@ -346,7 +337,7 @@ input.button {
 	color: #326ea1;
 }
 #nav ul li#current a {	
-	background: #DBDBDB url(https://tkautz.github.io/images/nav-current.jpg) repeat-x;		
+	background: #DBDBDB url(nav-current.jpg) repeat-x;		
 }
 
 /* Main Column */
@@ -373,15 +364,13 @@ input.button {
 /* Sidebar */	
 #sidebar {
 	float: left;
-	max-width: 150px;	
-	width: 100%;	
+	width: 150px;	
 	margin-top: 10px;	
 }	
 /* right column */
 #rightcolumn {
 	float: right;
-	max-width: 145px;
-	width: 100%;
+	width: 145px;
 	margin-top: 10px;	
 }
 #rightcolumn h1, #sidebar h1 {
@@ -420,12 +409,11 @@ ul.sidemenu li a:hover {
 /* footer-wrap */
 #footer-wrap {
 	clear: both;
-	max-width: 910px;
-	width: 100%;
+	width: 910px;
 	font-size: 95%;
 	padding: 20px 0;
 	text-align: left;	
-	background: url(https://tkautz.github.io/images/footer-bottom.jpg) no-repeat center bottom;	
+	background: url(footer-bottom.jpg) no-repeat center bottom;	
 }
 #footer-wrap a {
 	text-decoration: none;
@@ -449,8 +437,7 @@ ul.sidemenu li a:hover {
 	clear: both;
 	color: #666;	
 	margin: 0 auto 10px auto; 
-	max-width: 850px;
-	width: 100%;
+	width: 850px;
 	padding: 5px 0;
 	text-align: center;
 	background: #F8F7F7;
@@ -485,86 +472,4 @@ ul.sidemenu li a:hover {
 }
 .post-footer a.readmore {
 	margin: 0 10px 0 5px;	
-}
-
-@media only screen and (max-width: 910px) {
-	
-	body {
-		font: 1.2em/1.75em Verdana, Tahoma, arial, sans-serif;
-		color: #666666; 
-		text-align: center;
-		margin: 0 0 15px 0;		
-	}
-
-
-	#header-photo-new h2#slogan {
-		width: 100%;
-		text-align: center;
-		left: 0;
-	}
-
-	#content-wrap{
-		margin-left: 0;
-		float: none;
-	}
-	#sidebar {
-		float: none;
-		margin: auto;
-		max-width: 100%;
-	}
-
-	#sidebar h1 {
-		width: 90%;
-		margin: 0;
-		padding: 5px 0;
-		margin-left: 10px;
-	}
-
-	ul.sidemenu li{
-		padding-right: 10px;
-	}
-	
-	.two-col #main {
-		margin: auto;
-		width: 100%;
-	}
-	
-	img.float-right {
-		margin: auto;
-		float: none;
-		width: 90%;
-		height: auto;
-		padding: 15px;
-	}
-	#nav ul {
-		float: none;
-	}
-	
-	#nav ul li a {
-		display: block;
-		float: left;
-		width: auto;
-		margin: 0;
-		padding: 10px 20px;	
-		border-right: 1px solid #dadada;
-		border-left: 1px solid #fafafa;	
-		border-bottom: none;
-		color: #555;
-		font: bold 1.2em/2em "Century Gothic", "Trebuchet MS", Helvetica, Arial, Geneva, sans-serif;
-		text-transform: uppercase;
-		text-decoration: none;	
-		letter-spacing: 1px;
-	}
-
-	h4 {
-		padding: 0 10px;
-	}
-
-	.cv table{
-		padding: 0 10px;
-	}
-
-	li {
-		padding: 0 10px;
-	}
 }
