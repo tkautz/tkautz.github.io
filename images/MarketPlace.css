@@ -237,7 +237,7 @@ input.button {
 	display: inline;
 	padding: 0; 	
 	border-top: 5px solid #fff;
-	background: #fff url(https://tkautz.github.io/images/content-wrap.jpg) repeat-x; 
+	/* background: #fff url(https://tkautz.github.io/images/content-wrap.jpg) repeat-x;*/ 
 }
 #header {
 	position: relative;
