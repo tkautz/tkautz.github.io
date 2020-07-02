@@ -238,7 +238,8 @@ input.button {
 	display: inline;
 	padding: 0; 	
 	border-top: 5px solid #fff;
-	background: #FEFEFE url(https://tkautz.github.io/images/content-wrap.jpg) repeat-x;*/ 
+	background-image: linear-gradient(#F1F1F1, #fff);
+	/*background: #FEFEFE url(https://tkautz.github.io/images/content-wrap.jpg) repeat-x;*/ 
 }
 #header {
 	position: relative;
