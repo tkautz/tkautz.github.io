@@ -227,7 +227,7 @@ input.button {
 	width: 100%;	
 	margin: 0 auto;
 	text-align: left;
-	background: #fff url(https://tkautz.github.io/images/content.jpg) repeat-y center top;
+	/* background: #fff url(https://tkautz.github.io/images/content.jpg) repeat-y center top;*/
 }
 #content-wrap {
 	float: left;
