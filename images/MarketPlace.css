@@ -232,7 +232,7 @@ input.button {
 #content-wrap {
 	float: left;
 	max-width: 850px;
-	height: 500px;
+	height: auto;
 	width: 100%;
 	margin-left: 30px;
 	display: inline;
