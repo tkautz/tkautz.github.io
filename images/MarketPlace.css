@@ -238,7 +238,7 @@ input.button {
 	display: inline;
 	padding: 0; 	
 	border-top: 5px solid #fff;
-	background-image: linear-gradient(#F1F1F1, #fff);
+	background-image: linear-gradient(#F4F4F4, #fff);
 }
 #header {
 	position: relative;
