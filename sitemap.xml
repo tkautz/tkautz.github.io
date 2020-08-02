@@ -2,17 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tkautz.github.io/</loc>
-    <lastmod>2020-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-      <image:image>
-        <image:loc>https://tkautz.github.io/images/headshot-2.jpg</image:loc>
-        <image:title>Tim Kautz</image:title>
-      </image:image>
-  </url>
-  <url>
-    <loc>https://tkautz.github.io/index-2.html</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
       <image:image>
@@ -22,146 +12,162 @@
   </url>
   <url>
     <loc>https://tkautz.github.io/cv.html</loc>
-    <lastmod>2020-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://tkautz.github.io/documents/Herrmann_etal_2019_The%20Effects.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tkautz.github.io/documents/Moore_etal_2019_Evaluation%20of%20Employment%20Coaching.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/research.html</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tkautz.github.io/index-2.html</loc>
+    <lastmod>2020-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+      <image:image>
+        <image:loc>https://tkautz.github.io/images/headshot-2.jpg</image:loc>
+        <image:title>Tim Kautz</image:title>
+      </image:image>
+  </url>
+  <url>
+    <loc>https://tkautz.github.io/documents/Herrmann_etal_2019_The%20Effects.pdf</loc>
+    <lastmod>2020-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkautz.github.io/documents/Moore_etal_2019_Evaluation%20of%20Employment%20Coaching.pdf</loc>
+    <lastmod>2020-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Almlund_etal_2011_Personality%20Psychology.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Heckman_Kautz_2014_Fostering%20Measuring.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Kautz_Cole_2017_Selecting%20Benchmark.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Kautz_etal_2020_Development.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tkautz.github.io/documents/Hock_etal_2017_Improving.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Kautz_Moore_2018_Measuring%20Self-Regulation.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkautz.github.io/documents/Hock_etal_2017_Improving.pdf</loc>
+    <lastmod>2020-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Kautz_etal_2017_Comparing%20Impact.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Heckman_etal_2014_Who%20GEDs.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://tkautz.github.io/documents/cv_2020-05-31_tdk.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Deke_etal_2017_Asymdystopia.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Heckman_etal_2019_Some%20Contributions.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Heckman_etal_2014_Economic%20Social.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/MaCurdy_etal_2009_Geographic%20Price.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Heckman_Kautz_2014_Achievement%20Tests.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Kautz_etal_2010_AIDS%20Declining.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Heckman_etal_2014_What%20Should.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Kautz_etal_2014_Fostering.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkautz.github.io/documents/cv_2020-08-02.pdf</loc>
+    <lastmod>2020-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Heckman_Kautz_2012_Hard%20Evidence.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tkautz.github.io/documents/Goldring_etal_2020_Changing.pdf</loc>
+    <lastmod>2020-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Chen_etal_2020_Sensitivity.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tkautz.github.io/documents/Schochet_etal_2020_Design-Based%20Ratio.pdf</loc>
-    <lastmod>2020-06-28</lastmod>
+    <lastmod>2020-08-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
