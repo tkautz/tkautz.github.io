@@ -271,18 +271,18 @@ header {
 
 .hero-content {
   display: flex;
-  align-items: center; /* Changed from flex-start to center for better vertical alignment */
-  gap: 2.5rem; /* Increased gap for better spacing */
+  align-items: flex-start; /* Changed back to flex-start for better text-image alignment */
+  gap: 2.5rem; /* Maintained increased gap for better spacing */
 }
 
 .profile-image {
-  flex: 0 0 280px; /* Reduced from 300px to 280px */
-  max-width: 280px; /* Reduced from 300px to 280px */
+  flex: 0 0 260px; /* Reduced from 300px to 260px to match text height */
+  max-width: 260px; /* Reduced from 300px to 260px to match text height */
 }
 
 .profile-info {
   flex: 1;
-  padding-top: 0.5rem; /* Reduced top padding */
+  padding-top: 0.75rem; /* Adjusted top padding for better alignment */
   /* Allow text to wrap properly */
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -306,8 +306,8 @@ header {
 
 .profile-info p {
   font-size: 1.1rem;
-  margin-bottom: 1.5rem; /* Increased from 1.25rem */
-  line-height: 1.75; /* Increased from 1.6 */
+  margin-bottom: 1.3rem; /* Adjusted for perfect height match */
+  line-height: 1.7; /* Slightly adjusted for better text block height */
   max-width: 100%; /* Ensure text doesn't overflow */
 }
 
