@@ -1,43 +1,46 @@
-/* Replace the profile image styles in your styles.css file with these */
+/* Replace the hero and profile image sections in your CSS with this */
 
-/* Hero Section with better image handling */
+/* Hero Section - More reliable spacing approach */
 .hero {
   padding: 4rem 0;
   background-color: white;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .hero-content {
   display: flex;
-  align-items: flex-start; /* Align at top instead of center */
-  gap: 2.5rem; /* Slightly increased gap */
+  align-items: flex-start; /* Changed back to flex-start to avoid distorting the image */
+  gap: 2.5rem; /* Slightly increased gap for better spacing */
 }
 
-/* Updated profile image styles - preserves aspect ratio without cropping */
+/* Updated profile image styles - no cropping */
 .profile-image {
-  flex: 0 0 260px; /* Slightly smaller width */
+  flex: 0 0 260px; /* Slightly reduced width */
   max-width: 260px;
-  margin-top: 0.5rem; /* Small top margin for alignment */
+  /* Removed max-height constraint */
+  /* Removed overflow:hidden */
+  margin-top: 0.5rem; /* Add slight top margin to align better with text */
 }
 
 .profile-image img.portrait {
   width: 100%;
-  height: auto; /* Maintains original aspect ratio */
+  height: auto; /* Natural height based on aspect ratio */
+  /* Removed object-fit and object-position that were causing cropping */
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: block;
 }
 
-/* Improved profile info spacing */
 .profile-info {
   flex: 1;
   padding-top: 0; /* Removed top padding */
+  /* Text wrapping properties */
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
 }
 
-/* Responsive adjustments */
+/* Update responsive styles */
 @media (max-width: 992px) {
   .hero-content {
     flex-direction: column;
@@ -47,15 +50,21 @@
   }
   
   .profile-image {
-    width: 70%; /* Slightly smaller on tablets */
+    width: 70%; /* More controlled width on tablets */
     max-width: 260px;
     margin: 0 auto;
+  }
+  
+  .profile-info {
+    margin-left: 0;
+    width: 100%;
+    padding: 0 15px;
   }
 }
 
 @media (max-width: 480px) {
   .profile-image {
-    width: 85%; /* Adjust for mobile */
+    width: 85%; /* Better width for mobile */
     max-width: 240px;
   }
 }
