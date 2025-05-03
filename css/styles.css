@@ -1,10 +1,10 @@
-/* Modern CSS for Tim Kautz's Academic Website - Inspired by Katy Milkman's site */
+/* Modern CSS for Tim Kautz's Academic Website */
 
 /* Base Styles and CSS Reset */
 :root {
-  --primary-color: #2e5d8c; /* Darker blue from Milkman site */
-  --secondary-color: #4d95d3; /* Lighter blue from Milkman site */
-  --accent-color: #6ab0a3; /* Teal accent from Milkman site */
+  --primary-color: #2e5d8c; 
+  --secondary-color: #4d95d3; 
+  --accent-color: #6ab0a3; 
   --text-color: #333;
   --text-light: #666;
   --bg-color: #fff;
