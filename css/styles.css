@@ -1,10 +1,10 @@
-/* Modern CSS for Tim Kautz's Academic Website */
+/* Modern CSS for Tim Kautz's Academic Website - Inspired by Katy Milkman's site */
 
 /* Base Styles and CSS Reset */
 :root {
-  --primary-color: #2e5d8c; 
-  --secondary-color: #4d95d3; 
-  --accent-color: #6ab0a3; 
+  --primary-color: #2e5d8c; /* Darker blue from Milkman site */
+  --secondary-color: #4d95d3; /* Lighter blue from Milkman site */
+  --accent-color: #6ab0a3; /* Teal accent from Milkman site */
   --text-color: #333;
   --text-light: #666;
   --bg-color: #fff;
@@ -262,61 +262,58 @@ header {
   transition: var(--transition);
 }
 
-/* Hero Section */
+/* Hero Section - More reliable spacing approach */
 .hero {
   padding: 4rem 0;
   background-color: white;
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* New layout structure for hero section */
 .hero-content {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-/* Heading that appears above both elements */
-.profile-info h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: var(--primary-color);
-  line-height: 1.2;
-}
-
-/* Content container for photo and paragraphs */
-.content-container {
-  display: flex;
-  gap: 2.5rem;
-  align-items: flex-start;
+  align-items: flex-start; /* Changed back to flex-start for better text-image alignment */
+  gap: 2.5rem; /* Maintained increased gap for better spacing */
 }
 
 .profile-image {
-  flex: 0 0 210px; /* Fixed width to match paragraph height */
-  max-width: 210px;
+  flex: 0 0 230px; /* Further reduced width to match only paragraph height */
+  max-width: 230px; 
+  margin-top: 3.5rem; /* Added margin-top to align with paragraph start */
 }
 
-.profile-text {
+.profile-info {
   flex: 1;
+  padding-top: 0.75rem; /* Adjusted top padding for better alignment */
+  /* Allow text to wrap properly */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .profile-image img.portrait {
   width: 100%;
-  height: auto;
+  height: auto; /* Let height adjust naturally */
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: block;
+  display: block; /* Ensures proper rendering */
+}
+
+.profile-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem; /* Increased from 1.25rem */
+  color: var(--primary-color);
+  line-height: 1.2;
 }
 
 .profile-info p {
   font-size: 1.1rem;
-  margin-bottom: 1.3rem;
-  line-height: 1.7;
-  max-width: 100%;
+  margin-bottom: 1.3rem; /* Adjusted for perfect height match */
+  line-height: 1.7; /* Slightly adjusted for better text block height */
+  max-width: 100%; /* Ensure text doesn't overflow */
 }
 
 .profile-info p:last-of-type {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem; /* Increased from 1.75rem */
 }
 
 .profile-links {
@@ -640,28 +637,29 @@ footer {
     padding: 5rem 0 3rem;
   }
   
-  .content-container {
+  .hero-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2rem;
+    gap: 2rem; /* Adjusted gap */
   }
   
   .profile-image {
     flex: 0 0 auto;
     width: 80%;
-    max-width: 280px;
+    max-width: 320px;
     margin: 0 auto;
   }
   
-  .profile-text {
-    width: 100%;
-    padding: 0 15px;
+  .profile-info {
+    margin-left: 0; /* Explicitly reset the margin that might have been set */
+    width: 100%; /* Ensure full width */
+    padding: 0 15px; /* Add padding for text */
   }
   
   .profile-links {
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow buttons to wrap on very small screens */
   }
   
   .section-title::after {
@@ -672,7 +670,7 @@ footer {
 @media (max-width: 768px) {
   :root {
     --section-spacing: 50px;
-    --container-padding: 15px;
+    --container-padding: 15px; /* Reduce padding for smaller screens */
   }
   
   .container {
@@ -725,17 +723,17 @@ footer {
   }
   
   .profile-info h2 {
-    font-size: 2.25rem;
+    font-size: 2.25rem; /* Slightly smaller heading */
   }
   
   .profile-info p {
-    font-size: 1rem;
+    font-size: 1rem; /* Slightly smaller text */
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --container-padding: 12px;
+    --container-padding: 12px; /* Even smaller padding for very small screens */
   }
   
   .container {
@@ -752,22 +750,22 @@ footer {
   }
   
   .profile-info h2 {
-    font-size: 1.875rem;
+    font-size: 1.875rem; /* Further reduce heading size */
   }
   
   .profile-info p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.95rem; /* Smaller text for very small screens */
+    line-height: 1.5; /* Tighten line height a bit */
   }
   
   .profile-links {
     flex-direction: column;
     gap: 0.75rem;
-    width: 100%;
+    width: 100%; /* Full width for the container */
   }
   
   .profile-links .btn {
-    width: 100%;
+    width: 100%; /* Full width buttons on small screens */
     box-sizing: border-box;
   }
   
