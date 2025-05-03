@@ -29,6 +29,7 @@ body {
   line-height: 1.7;
   background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -80,9 +81,11 @@ ul, ol {
 }
 
 .container {
+  width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -263,12 +266,13 @@ header {
 .hero {
   padding: 4rem 0;
   background-color: white;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .hero-content {
   display: flex;
   align-items: flex-start;
-  gap: 0; /* Remove gap property */
+  gap: 2rem; /* Add gap for better spacing */
 }
 
 .profile-image {
@@ -279,7 +283,11 @@ header {
 .profile-info {
   flex: 1;
   padding-top: 1rem;
-  margin-left: 4rem; /* Add explicit left margin instead of using gap */
+  /* Remove the explicit left margin that was causing issues */
+  /* Allow text to wrap properly */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .profile-image img.portrait {
@@ -288,11 +296,6 @@ header {
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: block; /* Ensures proper rendering */
-}
-
-.profile-info {
-  flex: 1;
-  padding-top: 0.75rem;
 }
 
 .profile-info h2 {
@@ -306,6 +309,7 @@ header {
   font-size: 1.1rem;
   margin-bottom: 1.25rem;
   line-height: 1.6;
+  max-width: 100%; /* Ensure text doesn't overflow */
 }
 
 .profile-info p:last-of-type {
@@ -637,7 +641,7 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 3rem;
+    gap: 2rem; /* Adjusted gap */
   }
   
   .profile-image {
@@ -647,8 +651,15 @@ footer {
     margin: 0 auto;
   }
   
-  .profile-buttons {
+  .profile-info {
+    margin-left: 0; /* Explicitly reset the margin that might have been set */
+    width: 100%; /* Ensure full width */
+    padding: 0 15px; /* Add padding for text */
+  }
+  
+  .profile-links {
     justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap on very small screens */
   }
   
   .section-title::after {
@@ -659,6 +670,12 @@ footer {
 @media (max-width: 768px) {
   :root {
     --section-spacing: 50px;
+    --container-padding: 15px; /* Reduce padding for smaller screens */
+  }
+  
+  .container {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
   }
   
   .mobile-menu-toggle {
@@ -706,17 +723,22 @@ footer {
   }
   
   .profile-info h2 {
-    font-size: 2.5rem;
+    font-size: 2.25rem; /* Slightly smaller heading */
   }
   
-  .profile-info .lead {
-    font-size: 1.2rem;
+  .profile-info p {
+    font-size: 1rem; /* Slightly smaller text */
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --container-padding: 15px;
+    --container-padding: 12px; /* Even smaller padding for very small screens */
+  }
+  
+  .container {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
   }
   
   h1 {
@@ -728,20 +750,23 @@ footer {
   }
   
   .profile-info h2 {
-    font-size: 2rem;
+    font-size: 1.875rem; /* Further reduce heading size */
   }
   
-  .profile-info .lead {
-    font-size: 1.1rem;
+  .profile-info p {
+    font-size: 0.95rem; /* Smaller text for very small screens */
+    line-height: 1.5; /* Tighten line height a bit */
   }
   
-  .profile-buttons {
+  .profile-links {
     flex-direction: column;
     gap: 0.75rem;
+    width: 100%; /* Full width for the container */
   }
   
-  .btn {
-    width: 100%;
+  .profile-links .btn {
+    width: 100%; /* Full width buttons on small screens */
+    box-sizing: border-box;
   }
   
   .research-filter {
