@@ -276,8 +276,9 @@ header {
 }
 
 .profile-image {
-  flex: 0 0 260px; /* Reduced from 300px to 260px to match text height */
-  max-width: 260px; /* Reduced from 300px to 260px to match text height */
+  flex: 0 0 230px; /* Further reduced width to match only paragraph height */
+  max-width: 230px; 
+  margin-top: 3.5rem; /* Added margin-top to align with paragraph start */
 }
 
 .profile-info {
