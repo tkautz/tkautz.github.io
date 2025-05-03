@@ -271,31 +271,36 @@ header {
 
 .hero-content {
   display: flex;
-  align-items: flex-start;
-  gap: 2rem; /* Add gap for better spacing */
+  align-items: center; /* Changed from flex-start to center for better vertical alignment */
+  gap: 2rem;
 }
 
+/* Updated profile image styles */
 .profile-image {
-  flex: 0 0 300px;
-  max-width: 300px;
+  flex: 0 0 280px; /* Reduced from 300px to 280px */
+  max-width: 280px;
+  max-height: 320px; /* Added max-height */
+  overflow: hidden; /* Ensure image doesn't overflow */
+  position: relative; /* For positioning */
+}
+
+.profile-image img.portrait {
+  width: 100%;
+  height: 100%; /* Fill container */
+  object-fit: cover; /* Maintain aspect ratio while filling */
+  object-position: top center; /* Position face at top of image */
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
 .profile-info {
   flex: 1;
   padding-top: 1rem;
-  /* Remove the explicit left margin that was causing issues */
   /* Allow text to wrap properly */
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-}
-
-.profile-image img.portrait {
-  width: 100%;
-  height: auto; /* Let height adjust naturally */
-  border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: block; /* Ensures proper rendering */
 }
 
 .profile-info h2 {
@@ -647,7 +652,8 @@ footer {
   .profile-image {
     flex: 0 0 auto;
     width: 80%;
-    max-width: 320px;
+    max-width: 280px; /* Reduced from 320px */
+    max-height: 280px; /* Add max-height for mobile */
     margin: 0 auto;
   }
   
