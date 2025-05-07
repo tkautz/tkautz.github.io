@@ -166,7 +166,7 @@
                     <div class="research-item" data-type="journal" style="--item-index: 5;">
                         <div class="research-content">
                             <h3 class="paper-title">Megastudies Improve the Impact of Applied Behavioural Science</h3>
-                            <p class="paper-authors">Milkman, Katherine L., Dena Gromet, Hung Ho, Joseph S. Kay, ... <strong>Tim Kautz</strong>, ... and Angela L. Duckworth. (2021)</p>
+                            <p class="paper-authors">Milkman, Katherine L., Dena Gromet, Hung Ho, Joseph S. Kay,..., <strong>Tim Kautz</strong>,..., and Angela L. Duckworth. (2021)</p>
                             <p class="paper-journal">Nature, 600: 478-483</p>
                             <div class="paper-actions">
                                 <button class="btn-abstract" onclick="toggleAbstract('abstract_mega')" aria-expanded="false" aria-controls="abstract_mega">Abstract</button>
@@ -644,7 +644,7 @@
             abstractElement.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
         }
         
-        // Filter functionality - FIXED
+        // Filter functionality - FIXED VERSION
         document.querySelectorAll('.filter-button').forEach(button => {
             button.addEventListener('click', function() {
                 // Update active button
@@ -656,27 +656,29 @@
                 // Get filter value
                 const filter = this.getAttribute('data-filter');
                 
-                // Filter research items - FIXED to use 'grid' instead of 'block'
+                // Filter research items - Improved display handling
                 const items = document.querySelectorAll('.research-item');
                 items.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-type') === filter) {
-                        item.style.display = 'grid'; // Changed from 'block' to 'grid'
+                        item.style.display = 'block'; // Use block for consistent display
                     } else {
                         item.style.display = 'none';
                     }
                 });
                 
-                // Show/hide sections - FIXED to use better visibility check
+                // Improved section visibility check
                 document.querySelectorAll('.research-section').forEach(section => {
-                    if (filter === 'all') {
-                        section.style.display = 'block';
-                    } else {
-                        // Check if any items in this section are visible after applying the filter
-                        const hasVisibleItems = Array.from(section.querySelectorAll('.research-item')).some(
-                            item => item.style.display !== 'none'
-                        );
-                        section.style.display = hasVisibleItems ? 'block' : 'none';
-                    }
+                    const sectionItems = section.querySelectorAll('.research-item');
+                    let visibleCount = 0;
+                    
+                    sectionItems.forEach(item => {
+                        if (item.style.display !== 'none') {
+                            visibleCount++;
+                        }
+                    });
+                    
+                    // Only show sections with visible items
+                    section.style.display = (visibleCount > 0 || filter === 'all') ? 'block' : 'none';
                 });
             });
         });

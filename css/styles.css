@@ -19,7 +19,7 @@
   --border-radius: 8px;
 }
 
-/* Font imports with modern options */
+/* Font imports with optimization */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 
 /* Accessibility improvements */
@@ -611,29 +611,26 @@ footer {
   scroll-margin-top: 100px; /* Added for smooth scrolling */
 }
 
+/* Fix for research items on the research page */
 .research-list .research-item {
   margin-bottom: 2rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  padding: 2rem;
+  display: block; /* Changed from grid to block for filtering to work properly */
 }
 
-/* Modified paper actions for research page */
+/* Research actions improved layout */
 .research-list .paper-actions {
+  display: flex;
   justify-content: flex-start;
-  margin-top: 0.5rem;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .research-list .btn-abstract,
 .research-list .btn-download,
 .research-list .btn-cite {
   flex: 0 0 auto;
-}
-
-@media (min-width: 768px) {
-  .research-list .research-item {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* CV Page Styles */
@@ -920,16 +917,8 @@ footer {
     white-space: nowrap;
   }
   
-  .research-list .research-item {
-    grid-template-columns: 1fr;
-  }
-  
   .paper-actions {
     flex-wrap: wrap;
-  }
-  
-  .btn-abstract, .btn-download, .btn-cite {
-    text-align: center;
   }
   
   .footer-links {
