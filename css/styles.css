@@ -1,4 +1,4 @@
-/* Modern CSS for Tim Kautz's Academic Website */
+/* Modern CSS for Tim Kautz's Academic Website with Accessibility Improvements */
 
 /* Base Styles and CSS Reset */
 :root {
@@ -17,12 +17,17 @@
   --container-padding: 20px;
   --section-spacing: 80px;
   --border-radius: 8px;
+  --focus-outline: 3px solid rgba(77, 149, 211, 0.5);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -37,7 +42,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Roboto', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   margin-bottom: 1rem;
   line-height: 1.3;
   color: var(--primary-color);
@@ -47,16 +52,19 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2.75rem;
   letter-spacing: -0.5px;
+  margin-top: 0;
 }
 
 h2 {
   font-size: 2.25rem;
   letter-spacing: -0.3px;
+  margin-top: 2rem;
 }
 
 h3 {
   font-size: 1.75rem;
   letter-spacing: -0.2px;
+  margin-top: 1.5rem;
 }
 
 p {
@@ -71,11 +79,13 @@ a {
 
 a:hover {
   color: var(--primary-color);
+  text-decoration: underline;
 }
 
 a:focus {
-  outline: 3px solid rgba(77, 149, 211, 0.4);
+  outline: var(--focus-outline);
   outline-offset: 2px;
+  text-decoration: underline;
 }
 
 img {
@@ -120,6 +130,23 @@ ul, ol {
   text-align: center;
 }
 
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  z-index: 999;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: var(--focus-outline);
+}
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -131,12 +158,12 @@ ul, ol {
   transition: var(--transition);
   text-decoration: none;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 0.9rem;
 }
 
 .btn:focus {
-  outline: 3px solid rgba(77, 149, 211, 0.4);
+  outline: var(--focus-outline);
   outline-offset: 2px;
 }
 
@@ -180,8 +207,9 @@ ul, ol {
   border: 1px solid var(--primary-color);
 }
 
-.btn-abstract:hover {
+.btn-abstract:hover, .btn-abstract:focus {
   background-color: rgba(46, 93, 140, 0.05);
+  text-decoration: none;
 }
 
 .btn-download {
@@ -191,10 +219,15 @@ ul, ol {
   text-decoration: none;
 }
 
-.btn-download:hover {
+.btn-download:hover, .btn-download:focus {
   background-color: #254b73;
   border-color: #254b73;
   text-decoration: none;
+}
+
+.btn:focus, .btn-abstract:focus, .btn-download:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
 }
 
 /* Header and Navigation */
@@ -235,7 +268,6 @@ header {
   text-decoration: none;
   position: relative;
   font-size: 1rem;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
 }
@@ -258,6 +290,10 @@ header {
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--secondary-color);
 }
 
 .mobile-menu-toggle {
@@ -313,6 +349,7 @@ header {
 
 .profile-text {
   flex: 1;
+  max-width: 60ch; /* Limit line length for better readability */
 }
 
 .profile-image img.portrait {
@@ -470,6 +507,12 @@ header {
   font-size: 2.75rem;
 }
 
+/* ARIA Tabs - Improved Accessibility and Visual Cues */
+.research-tabs {
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
 .research-filter {
   display: flex;
   flex-wrap: wrap;
@@ -488,13 +531,60 @@ header {
   font-weight: 600;
   font-size: 0.9rem;
   color: var(--primary-color);
+  position: relative;
 }
 
-.filter-button:hover,
+.filter-button:hover {
+  background-color: rgba(46, 93, 140, 0.1);
+  color: var(--primary-color);
+}
+
 .filter-button.active {
   background-color: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
+}
+
+.filter-button:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+/* Add visual affordance to indicate buttons are clickable */
+.filter-button::after {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.filter-button:hover::after {
+  width: 80%;
+}
+
+.filter-button.active::after {
+  display: none;
+}
+
+/* Use cursor: pointer to indicate clickable elements */
+.filter-button, .btn, .btn-abstract, .btn-download {
+  cursor: pointer;
+}
+
+/* Tab Content Styling */
+.tab-content {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-content.active {
+  opacity: 1;
 }
 
 .research-section {
@@ -538,6 +628,9 @@ header {
 
 .cv-section {
   margin-bottom: 3.5rem;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cv-section h3 {
@@ -638,6 +731,31 @@ footer {
   color: white;
   padding: 2.5rem 0;
   text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  margin-bottom: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: white;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  opacity: 0.8;
+  transform: translateY(-3px);
 }
 
 /* Animation Keyframes */
@@ -777,20 +895,23 @@ footer {
     font-size: 1rem;
   }
   
+  /* Responsive Research Filter Tabs */
   .research-filter {
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    -webkit-overflow-scrolling: touch;
     display: flex;
-    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
     justify-content: flex-start;
-    width: 100%;
-    margin-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    gap: 0.5rem;
   }
   
   .filter-button {
     flex: 0 0 auto;
     white-space: nowrap;
+    scroll-snap-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
   
   .research-list .research-item {
@@ -799,12 +920,23 @@ footer {
   
   .paper-actions {
     flex-wrap: wrap;
+    gap: 0.5rem;
   }
   
   .btn-abstract, .btn-download {
     width: 100%;
     margin-bottom: 0.5rem;
     text-align: center;
+    margin-right: 0;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .social-links {
+    justify-content: center;
   }
 }
 

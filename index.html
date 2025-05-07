@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Tim Kautz - Economist and Researcher">
+    <meta name="description" content="Tim Kautz - Economist and Researcher specializing in non-cognitive skills measurement and development">
     <title>Tim Kautz | Home</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
+    <link rel="canonical" href="https://timkautz.example.com/index.html">
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Tim Kautz | Economist & Researcher">
+    <meta property="og:description" content="Tim Kautz is a Senior Researcher at Mathematica focusing on non-cognitive skills measurement and development">
+    <meta property="og:url" content="https://timkautz.example.com/">
+    <meta property="og:type" content="website">
     <!-- Google Analytics code (kept from original) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168736672-1"></script>
     <script>
@@ -21,32 +27,35 @@
     <!-- Font imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <h1>Tim Kautz</h1>
                 </div>
-                <nav class="main-nav">
-                    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <nav class="main-nav" aria-label="Main navigation">
+                    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
                     </button>
                     <ul class="nav-links">
-                        <li><a href="index.html" class="active">HOME</a></li>
-                        <li><a href="research.html">RESEARCH</a></li>
+                        <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="cv.html">CV</a></li>
+                        <li><a href="research.html">Research</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     
-    <main>
+    <main id="main-content">
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -54,7 +63,7 @@
                         <h2>Economist & Researcher</h2>
                         <div class="content-container">
                             <div class="profile-image">
-                                <img src="images/headshot-2.jpg" alt="Tim Kautz - Professional headshot photograph" class="portrait">
+                                <img src="images/headshot-2.jpg" alt="Tim Kautz - Professional headshot photograph" class="portrait" loading="lazy">
                             </div>
                             <div class="profile-text">
                                 <p>I am a Senior Researcher (Economist and Data Scientist) at <a href="https://www.mathematica.org/">Mathematica</a> with extensive experience in causal inference and advanced statistical modeling. I design experiments, analyze complex datasets, communicate findings to broad audiences, and lead teams.</p>
@@ -64,8 +73,8 @@
                                 <p>I'm affiliated with the <a href="https://bcfg.wharton.upenn.edu/">Behavior Change for Good Initiative</a> at the University of Pennsylvania, the <a href="https://iesr.jnu.edu.cn/Home/main.htm">Institute for Economic and Social Research</a> at Jinan University, and the <a href="https://hceconomics.uchicago.edu/">Human Capital and Economic Opportunity Global Working Group</a> at the University of Chicago.</p>
                                 
                                 <div class="profile-links">
-                                    <a href="research.html" class="btn primary">VIEW MY RESEARCH</a>
-                                    <a href="documents/TimKautz_CV.pdf" class="btn secondary">DOWNLOAD CV</a>
+                                    <a href="research.html" class="btn primary">View my research</a>
+                                    <a href="documents/TimKautz_CV.pdf" class="btn secondary">Download CV</a>
                                 </div>
                             </div>
                         </div>
@@ -83,10 +92,10 @@
                         <p class="paper-authors">Kautz, Tim and Wladimir Zanoni (2024)</p>
                         <p class="paper-journal">Journal of Human Capital, 18(2): 272-303</p>
                         <div class="paper-actions">
-                            <button class="btn-abstract" onclick="toggleAbstract('abstract_onegoal')">Abstract</button>
+                            <button class="btn-abstract" onclick="toggleAbstract('abstract_onegoal')" aria-expanded="false" aria-controls="abstract_onegoal">Abstract</button>
                             <a href="documents/Kautz_Zanoni_2024_Measurement and Development.pdf" class="btn-download">Download PDF</a>
                         </div>
-                        <div id="abstract_onegoal" class="abstract-content hidden">
+                        <div id="abstract_onegoal" class="abstract-content hidden" aria-hidden="true">
                             <p>Using administrative data, we develop measures of noncognitive skills and evaluate OneGoal, an intervention designed to help disadvantaged students complete college by teaching them noncognitive skills. We (1) compare the outcomes of participants and nonparticipants with similar characteristics and (2) use a difference-in-differences approach exploiting that OneGoal was introduced into different schools at different times. We estimate that OneGoal increases college enrollment by 10–20 percentage points for males and females and reduces arrest rates by 5 percentage points for males. Through a mediation analysis, we find that improvements in noncognitive skills account for 13%–32% of these effects.</p>
                         </div>
                     </div>
@@ -96,10 +105,10 @@
                         <p class="paper-authors">Feng, Shuaizhang, Yujie Han, James J. Heckman, and Tim Kautz (2022)</p>
                         <p class="paper-journal">Proceedings of the National Academy of Sciences, 119(6)</p>
                         <div class="paper-actions">
-                            <button class="btn-abstract" onclick="toggleAbstract('abstract_compns')">Abstract</button>
+                            <button class="btn-abstract" onclick="toggleAbstract('abstract_compns')" aria-expanded="false" aria-controls="abstract_compns">Abstract</button>
                             <a href="documents/Feng_etal_2022_Comparing the reliability and predictive power.pdf" class="btn-download">Download PDF</a>
                         </div>
-                        <div id="abstract_compns" class="abstract-content hidden">
+                        <div id="abstract_compns" class="abstract-content hidden" aria-hidden="true">
                             <p>Children's noncognitive skills are typically measured using surveys in which either children rate their own skills or adults rate the skills of children. For many purposes—including program evaluation and monitoring school systems—ratings are often collected from multiple perspectives about a single child. Collecting data from multiple perspectives is costly, and there is limited evidence on the benefits of this approach. Using a longitudinal survey, this study compares children's noncognitive skills as reported by themselves, their guardians, and their teachers. Teacher reports have the highest internal consistency and are the most predictive of children's later cognitive outcomes and behavior in school.</p>
                         </div>
                     </div>
@@ -109,16 +118,16 @@
                         <p class="paper-authors">Milkman, Katherine L., et al. (including Tim Kautz) (2021)</p>
                         <p class="paper-journal">Nature, 600: 478-483</p>
                         <div class="paper-actions">
-                            <button class="btn-abstract" onclick="toggleAbstract('abstract_mega')">Abstract</button>
+                            <button class="btn-abstract" onclick="toggleAbstract('abstract_mega')" aria-expanded="false" aria-controls="abstract_mega">Abstract</button>
                             <a href="documents/Milkman_etal_2021_Megastudies Improve.pdf" class="btn-download">Download PDF</a>
                         </div>
-                        <div id="abstract_mega" class="abstract-content hidden">
+                        <div id="abstract_mega" class="abstract-content hidden" aria-hidden="true">
                             <p>This study introduces the megastudy—a massive field experiment in which the effects of many different interventions are compared in the same population on the same objectively measured outcome for the same duration. In a megastudy targeting physical exercise among 61,293 members of an American fitness chain, 30 scientists from 15 different US universities worked in small independent teams to design a total of 54 different four-week digital programmes encouraging exercise. The top-performing intervention offered microrewards for returning to the gym after a missed workout.</p>
                         </div>
                     </div>
                 </div>
                 <div class="view-all">
-                    <a href="research.html" class="btn primary">VIEW ALL RESEARCH</a>
+                    <a href="research.html" class="btn primary">View all research</a>
                 </div>
             </div>
         </section>
@@ -126,15 +135,32 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Tim Kautz</p>
+            <div class="footer-content">
+                <p class="copyright">&copy; 2025 Tim Kautz</p>
+                <div class="social-links">
+                    <a href="mailto:tkautz@example.com" aria-label="Email Tim Kautz">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Tim Kautz on GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Tim Kautz on LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
         // Toggle mobile navigation
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+            const navLinks = document.querySelector('.nav-links');
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            
+            navLinks.classList.toggle('active');
             this.classList.toggle('active');
+            this.setAttribute('aria-expanded', !expanded);
         });
         
         // Abstract toggle functionality
@@ -144,13 +170,15 @@
             
             abstractElement.classList.toggle('hidden');
             
+            // Update aria attributes for accessibility
+            const button = document.querySelector(`[onclick="toggleAbstract('${id}')"]`);
+            if (button) {
+                button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            }
+            abstractElement.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
+            
             // Find the button that triggered this and update its text
-            const buttons = document.querySelectorAll('.btn-abstract');
-            buttons.forEach(button => {
-                if (button.getAttribute('onclick') === `toggleAbstract('${id}')`) {
-                    button.textContent = isHidden ? 'Hide Abstract' : 'Abstract';
-                }
-            });
+            button.textContent = isHidden ? 'Hide Abstract' : 'Abstract';
         }
     </script>
 </body>
