@@ -146,45 +146,7 @@ ul, ol {
   text-align: center;
 }
 
-/* Table of Contents for CV */
-.toc {
-  background-color: var(--bg-light);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 3rem;
-  border-left: 4px solid var(--secondary-color);
-  box-shadow: var(--shadow);
-}
-
-.toc-title {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-}
-
-.toc ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.75rem;
-}
-
-.toc li a {
-  display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  transition: all 0.2s;
-  font-weight: 500;
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.toc li a:hover, 
-.toc li a:focus {
-  background-color: rgba(46, 93, 140, 0.1);
-}
+/* Table of Contents for CV - Removed as requested */
 
 /* Back to top button */
 #back-to-top {
@@ -316,14 +278,15 @@ ul, ol {
   text-decoration: none;
 }
 
+/* Updated cite button to better match color scheme */
 .btn-cite {
-  background-color: rgba(106, 176, 163, 0.1);
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
+  background-color: rgba(77, 149, 211, 0.1);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
 }
 
 .btn-cite:hover {
-  background-color: rgba(106, 176, 163, 0.2);
+  background-color: rgba(77, 149, 211, 0.2);
 }
 
 /* Header and Navigation */

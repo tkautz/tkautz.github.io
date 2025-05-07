@@ -76,30 +76,9 @@
                     <polyline points="7 10 12 15 17 10"></polyline>
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                   </svg>
-                  DOWNLOAD CV (PDF, 650 KB)
+                  DOWNLOAD CV
                 </a>
             </div>
-            
-            <!-- Table of Contents -->
-            <nav class="toc" aria-labelledby="toc-heading">
-                <h2 id="toc-heading" class="toc-title">Contents</h2>
-                <ul>
-                    <li><a href="#current-position">Current Position</a></li>
-                    <li><a href="#affiliations">Affiliations</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#journal-articles">Journal Articles</a></li>
-                    <li><a href="#book-chapters">Book Chapters</a></li>
-                    <li><a href="#policy-reports">Policy Reports</a></li>
-                    <li><a href="#works-in-progress">Works in Progress</a></li>
-                    <li><a href="#edited-volumes">Edited Volumes</a></li>
-                    <li><a href="#funding">Funding & Awards</a></li>
-                    <li><a href="#presentations">Presentations</a></li>
-                    <li><a href="#media">Media & Blogs</a></li>
-                    <li><a href="#service">Professional Service</a></li>
-                    <li><a href="#previous-positions">Previous Positions</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                </ul>
-            </nav>
             
             <!-- Current Position Section -->
             <section id="current-position" class="cv-section">
@@ -436,27 +415,6 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
-            });
-        });
-        
-        // Smooth scrolling for table of contents links
-        document.querySelectorAll('.toc a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Adjust for header
-                        behavior: 'smooth'
-                    });
-                    
-                    // Set focus to the target section for accessibility
-                    targetElement.setAttribute('tabindex', '-1');
-                    targetElement.focus();
-                }
             });
         });
     </script>
