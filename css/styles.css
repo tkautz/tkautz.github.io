@@ -149,8 +149,6 @@ ul, ol {
   text-align: center;
 }
 
-/* Table of Contents for CV - Removed as requested */
-
 /* Back to top button */
 #back-to-top {
   position: fixed;
@@ -254,7 +252,6 @@ ul, ol {
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
-  width: 100%;
 }
 
 .btn-abstract, .btn-download, .btn-cite {
@@ -269,6 +266,7 @@ ul, ol {
   font-weight: 600;
   white-space: nowrap;
   flex: 0 0 auto;
+  height: 38px; /* Fixed height for consistency */
 }
 
 .btn-abstract {
@@ -395,6 +393,45 @@ header {
   transition: var(--transition);
 }
 
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2.5rem 0;
+}
+
+/* Added footer content styles for the new links */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-link {
+  color: white;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+  color: white;
+}
+
+.footer-link svg {
+  margin-right: 0.5rem;
+}
+
+.footer-link-text {
+  margin-left: 0.5rem;
+}
+
 /* Hero Section */
 .hero {
   padding: 4rem 0;
@@ -456,57 +493,6 @@ header {
 .profile-links {
   display: flex;
   gap: 1rem;
-}
-
-/* About Section */
-.about {
-  padding: var(--section-spacing) 0;
-}
-
-.fields {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.field-tag {
-  background-color: var(--bg-light);
-  color: var(--primary-color);
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  border: 1px solid var(--border-color);
-  font-weight: 600;
-}
-
-.affiliations-list {
-  list-style: none;
-  margin: 2rem 0 0 0;
-}
-
-.affiliations-list li {
-  margin-bottom: 1.5rem;
-  padding-left: 1.75rem;
-  position: relative;
-}
-
-.affiliations-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.75rem;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--secondary-color);
-}
-
-.affiliation-title {
-  font-weight: 600;
-  display: block;
-  color: var(--primary-color);
-  margin-bottom: 0.25rem;
 }
 
 /* Featured Research Section */
@@ -628,7 +614,7 @@ header {
 
 @media (min-width: 768px) {
   .research-list .research-item {
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -743,45 +729,6 @@ header {
 .skill-category h4 {
   color: var(--primary-color);
   margin-bottom: 0.75rem;
-}
-
-/* Footer */
-footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 2.5rem 0;
-}
-
-/* Added footer content styles for the new links */
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.footer-links a {
-  color: white;
-  transition: opacity 0.3s ease;
-  display: flex;
-  align-items: center;
-}
-
-.footer-links a:hover {
-  opacity: 0.8;
-  color: white;
-}
-
-.footer-links svg {
-  margin-right: 0.5rem;
-}
-
-.footer-link-text {
-  margin-left: 0.5rem;
 }
 
 /* Animation Keyframes */
