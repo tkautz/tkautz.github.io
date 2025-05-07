@@ -644,7 +644,7 @@
             abstractElement.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
         }
         
-        // Filter functionality
+        // Filter functionality - FIXED
         document.querySelectorAll('.filter-button').forEach(button => {
             button.addEventListener('click', function() {
                 // Update active button
@@ -656,24 +656,26 @@
                 // Get filter value
                 const filter = this.getAttribute('data-filter');
                 
-                // Filter research items
+                // Filter research items - FIXED to use 'grid' instead of 'block'
                 const items = document.querySelectorAll('.research-item');
                 items.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-type') === filter) {
-                        item.style.display = 'block';
+                        item.style.display = 'grid'; // Changed from 'block' to 'grid'
                     } else {
                         item.style.display = 'none';
                     }
                 });
                 
-                // Show/hide sections
+                // Show/hide sections - FIXED to use better visibility check
                 document.querySelectorAll('.research-section').forEach(section => {
                     if (filter === 'all') {
                         section.style.display = 'block';
                     } else {
-                        // Check if section contains items of the selected filter type
-                        const sectionItems = section.querySelectorAll(`.research-item[data-type="${filter}"]`);
-                        section.style.display = sectionItems.length > 0 ? 'block' : 'none';
+                        // Check if any items in this section are visible after applying the filter
+                        const hasVisibleItems = Array.from(section.querySelectorAll('.research-item')).some(
+                            item => item.style.display !== 'none'
+                        );
+                        section.style.display = hasVisibleItems ? 'block' : 'none';
                     }
                 });
             });
