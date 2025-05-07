@@ -657,9 +657,10 @@
                 const filter = this.getAttribute('data-filter');
                 
                 // Filter research items
-                document.querySelectorAll('.research-item').forEach(item => {
+                const items = document.querySelectorAll('.research-item');
+                items.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-type') === filter) {
-                        item.style.display = 'grid';
+                        item.style.display = 'block';
                     } else {
                         item.style.display = 'none';
                     }
@@ -670,11 +671,9 @@
                     if (filter === 'all') {
                         section.style.display = 'block';
                     } else {
-                        // Check if this section has visible items
-                        const hasVisibleItems = Array.from(section.querySelectorAll('.research-item')).some(
-                            item => item.getAttribute('data-type') === filter
-                        );
-                        section.style.display = hasVisibleItems ? 'block' : 'none';
+                        // Check if section contains items of the selected filter type
+                        const sectionItems = section.querySelectorAll(`.research-item[data-type="${filter}"]`);
+                        section.style.display = sectionItems.length > 0 ? 'block' : 'none';
                     }
                 });
             });

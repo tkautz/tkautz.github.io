@@ -245,64 +245,6 @@ ul, ol {
   text-decoration: none;
 }
 
-/* Updated buttons to fix alignment issues - Fixed for featured research */
-.paper-actions {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.btn-abstract, .btn-download, .btn-cite {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: var(--transition);
-  font-weight: 600;
-  white-space: nowrap;
-  flex: 0 0 auto;
-  height: 38px; /* Fixed height for consistency */
-}
-
-.btn-abstract {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-}
-
-.btn-abstract:hover {
-  background-color: rgba(46, 93, 140, 0.05);
-}
-
-.btn-download {
-  background-color: var(--primary-color);
-  color: white;
-  border: 1px solid var(--primary-color);
-  text-decoration: none;
-}
-
-.btn-download:hover {
-  background-color: #254b73;
-  border-color: #254b73;
-  text-decoration: none;
-}
-
-/* Updated cite button to better match color scheme */
-.btn-cite {
-  background-color: rgba(77, 149, 211, 0.1);
-  color: var(--secondary-color);
-  border: 1px solid var(--secondary-color);
-}
-
-.btn-cite:hover {
-  background-color: rgba(77, 149, 211, 0.2);
-}
-
 /* Header and Navigation */
 header {
   background-color: white;
@@ -501,9 +443,10 @@ footer {
   background-color: var(--bg-light);
 }
 
+/* Updated research grid - fixed width columns for better layout */
 .research-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
   margin-bottom: 3rem;
 }
@@ -519,6 +462,8 @@ footer {
   animation: fadeInUp 0.5s ease forwards;
   animation-delay: calc(var(--item-index, 0) * 0.1s);
   opacity: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .research-item:hover {
@@ -543,6 +488,67 @@ footer {
   font-style: italic;
   color: var(--text-light);
   margin-bottom: 1.5rem;
+}
+
+/* Improved paper actions styling for featured research cards */
+.paper-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  width: 100%;
+}
+
+.btn-abstract, .btn-download, .btn-cite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  white-space: nowrap;
+  flex: 1;
+  height: 38px; /* Fixed height for consistency */
+  text-align: center;
+}
+
+.btn-abstract {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-abstract:hover {
+  background-color: rgba(46, 93, 140, 0.05);
+}
+
+.btn-download {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid var(--primary-color);
+  text-decoration: none;
+}
+
+.btn-download:hover {
+  background-color: #254b73;
+  border-color: #254b73;
+  text-decoration: none;
+}
+
+/* Updated cite button to better match color scheme */
+.btn-cite {
+  background-color: rgba(77, 149, 211, 0.1);
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.btn-cite:hover {
+  background-color: rgba(77, 149, 211, 0.2);
 }
 
 /* Improved abstract styling */
@@ -610,6 +616,18 @@ footer {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+}
+
+/* Modified paper actions for research page */
+.research-list .paper-actions {
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+}
+
+.research-list .btn-abstract,
+.research-list .btn-download,
+.research-list .btn-cite {
+  flex: 0 0 auto;
 }
 
 @media (min-width: 768px) {
@@ -744,6 +762,12 @@ footer {
 }
 
 /* Responsive Styles */
+@media (max-width: 1140px) {
+  .research-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 992px) {
   :root {
     --section-spacing: 60px;
@@ -905,8 +929,6 @@ footer {
   }
   
   .btn-abstract, .btn-download, .btn-cite {
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.75rem;
     text-align: center;
   }
   
