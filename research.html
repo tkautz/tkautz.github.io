@@ -18,6 +18,11 @@
         gtag('js', new Date());
         gtag('config', 'UA-168736672-1');
     </script>
+    <!-- Font imports with optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap">
     
     <!-- Structured Data for Academic Profile -->
     <script type="application/ld+json">
@@ -43,7 +48,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <h1><a href="index.html">Tim Kautz</a></h1>
+                    <h1>Tim Kautz</h1>
                 </div>
                 <nav class="main-nav">
                     <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
@@ -189,6 +194,86 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="research-item" data-type="journal" style="--item-index: 7;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Improving the Outcomes of Youth with Medical Limitations: Evidence from the National Job Corps Study</h3>
+                            <p class="paper-authors">Hock, Heinrich, Dara Lee Luca, <strong>Tim Kautz</strong>, and David Stapleton. (2021)</p>
+                            <p class="paper-journal">Journal of Economics & Management Strategy, 32(3): 636-656</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_jobcorps')" aria-expanded="false" aria-controls="abstract_jobcorps">Abstract</button>
+                                <a href="documents/Hock_etal_2021_Improving the outcomes of youth.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Hock_etal_2021">Cite</button>
+                            </div>
+                            <div id="abstract_jobcorps" class="abstract-content hidden" aria-hidden="true">
+                                <p>Improving work outcomes for youth with disabilities and reducing their reliance on disability benefits are important policy priorities, but existing interventions have shown limited promise. We provide new evidence to inform this discussion by re-analyzing data from the 1990s National Job Corps Study, a randomized field experiment conducted nationwide in the United States. Job Corps, which provides comprehensive training to economically disadvantaged youth, is the nation's largest youth program outside of the school system. We examine youth who had medical limitations when they enrolled in the experiment, a group that has not previously been studied. During the 4 years after random assignment, participation in Job Corps increased the earnings of youth with medical limitations—substantially more so than for youth without medical limitations—and additionally reduced their receipt of disability cash benefits. Interventions designed specifically for such youth have not typically demonstrated reductions in benefit receipt. Hence, our re-analysis of the field experiment suggests that Job Corps could be a promising model for helping some youth with disabilities gain a foothold in the labor market and achieve greater self-sufficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="journal" style="--item-index: 8;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts</h3>
+                            <p class="paper-authors">Deke, John, Thomas Wei, and <strong>Tim Kautz</strong>. (2021)</p>
+                            <p class="paper-journal">Journal of Research on Educational Effectiveness, 14(1): 207-240</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_asymjree')" aria-expanded="false" aria-controls="abstract_asymjree">Abstract</button>
+                                <a href="documents/Deke_Wei_Kautz_2021_Asymdystopia.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Deke_Wei_Kautz_2021">Cite</button>
+                            </div>
+                            <div id="abstract_asymjree" class="abstract-content hidden" aria-hidden="true">
+                                <p>Evaluators of education interventions are increasingly designing studies to detect impacts much smaller than the 0.20 standard deviations that Cohen characterized as "small." While the need to detect smaller impacts is based on compelling arguments that such impacts are substantively meaningful, the drive to detect smaller impacts may create a new challenge for researchers: the need to guard against smaller biases. The purpose of this article is twofold. First, we examine the potential for small biases to increase the risk of making false inferences as studies are powered to detect smaller impacts, a phenomenon we refer to as asymdystopia. We examine this potential for two of the most rigorous designs commonly used in education research—randomized controlled trials and regression discontinuity designs. Second, we recommend strategies researchers can use to avoid or mitigate these biases.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="journal" style="--item-index: 9;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Sensitivity of Self-Reported Non-Cognitive Skills to Survey Administration Conditions</h3>
+                            <p class="paper-authors">Chen, Yuanyuan, Shuaizhang Feng, James J. Heckman, and <strong>Tim Kautz</strong>. (2020)</p>
+                            <p class="paper-journal">Proceedings of the National Academy of Sciences, 117(2): 931-935</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_survey')" aria-expanded="false" aria-controls="abstract_survey">Abstract</button>
+                                <a href="documents/Chen_etal_2020_Sensitivity.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Chen_etal_2020">Cite</button>
+                            </div>
+                            <div id="abstract_survey" class="abstract-content hidden" aria-hidden="true">
+                                <p>Noncognitive skills (e.g., persistence and self-control) are typically measured using self-reported questionnaires in which respondents rate their own skills. In many applications—including program evaluation and school accountability systems—such reports are assumed to measure only the skill of interest. However, self-reports might also capture other dimensions aside from the skill, such as aspects of a respondent's situation, which could include incentives and the conditions in which they complete the questionnaire. To explore this possibility, this study conducted 2 experiments to estimate the extent to which survey administration conditions can affect student responses on noncognitive skill questionnaires. The first experiment tested whether providing information about the importance of noncognitive skills to students directly affects their responses, and the second experiment tested whether incentives tied to performance on another task indirectly affect responses. Both experiments suggest that self-reports of noncognitive skills are sensitive to survey conditions. The effects of the conditions are relatively large compared with those found in the program evaluation literature, ranging from 0.05 to 0.11 SDs. These findings suggest that the effects of interventions or other social policies on self-reported noncognitive skills should be interpreted with caution.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="journal" style="--item-index: 10;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Hard Evidence on Soft Skills</h3>
+                            <p class="paper-authors">Heckman, James J. and <strong>Tim Kautz</strong>. (2012)</p>
+                            <p class="paper-journal">Labour Economics, 19(4): 451-64</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_he')" aria-expanded="false" aria-controls="abstract_he">Abstract</button>
+                                <a href="documents/Heckman_Kautz_2012_Hard Evidence.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Heckman_Kautz_2012">Cite</button>
+                            </div>
+                            <div id="abstract_he" class="abstract-content hidden" aria-hidden="true">
+                                <p>This paper summarizes recent evidence on what achievement tests measure; how achievement tests relate to other measures of "cognitive ability" like IQ and grades; the important skills that achievement tests miss or mismeasure, and how much these skills matter in life. Achievement tests miss, or perhaps more accurately, do not adequately capture, soft skills—personality traits, goals, motivations, and preferences—that are valued in the labor market, in school, and in many other domains. The larger message of this paper is that soft skills predict success in life, that they causally produce that success, and that programs that enhance soft skills have an important place in an effective portfolio of public policies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="journal" style="--item-index: 11;">
+                        <div class="research-content">
+                            <h3 class="paper-title">AIDS and Declining Support for Dependent Elderly People in Africa: Retrospective Analysis Using Demographic and Health Surveys</h3>
+                            <p class="paper-authors"><strong>Kautz, Tim</strong>, Eran Bendavid, Jay Bhattacharya, and Grant Miller. (2010)</p>
+                            <p class="paper-journal">British Medical Journal, 340: c2841</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_eo')" aria-expanded="false" aria-controls="abstract_eo">Abstract</button>
+                                <a href="documents/Kautz_etal_2010_AIDS Declining.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Kautz_etal_2010">Cite</button>
+                            </div>
+                            <div id="abstract_eo" class="abstract-content hidden" aria-hidden="true">
+                                <p><i>Objectives:</i> To determine the relation between the HIV/AIDS epidemic and support for dependent elderly people in Africa. <i>Design:</i> Retrospective analysis using data from Demographic and Health Surveys. <i>Setting:</i> 22 African countries between 1991 and 2006. <i>Participants:</i> 123,176 individuals over the age of 60. <i>Main outcome measures:</i> We investigated how three measures of the living arrangements of older people have been affected by the HIV/AIDS epidemic: the number of older individuals living alone (that is, the number of unattended elderly people); the number of older individuals living with only dependent children under the age of 10 (that is, in missing generation households); and the number of adults age 18-59 (that is, prime age adults) per household where an older person lives.</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 
                 <!-- Book Chapters Section -->
@@ -210,6 +295,102 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="research-item" data-type="book" style="--item-index: 1;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Achievement Tests and the Role of Character in American Life</h3>
+                            <p class="paper-authors">Heckman, James J. and <strong>Tim Kautz</strong>. (2014)</p>
+                            <p class="paper-journal">In <em>The Myth of Achievement Tests: The GED and the Role of Character in American Life</em>, edited by J.J. Heckman, J.E. Humphries, and T. Kautz. Chicago, IL: University of Chicago Press. pp. 3-56</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_ged1')" aria-expanded="false" aria-controls="abstract_ged1">Abstract</button>
+                                <a href="documents/Heckman_Kautz_2014_Achievement Tests.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Heckman_Kautz_2014a">Cite</button>
+                            </div>
+                            <div id="abstract_ged1" class="abstract-content hidden" aria-hidden="true">
+                                <p>This chapter discusses the predictive power of achievement tests. It shows that achievement tests do not explain much variation in meaningful later-life outcomes, partly because achievement tests miss character skills, such as persistence, curiosity, and self-control. It reviews the history of achievement tests and the role of character in American education. It discusses the GED, a prominent achievement test that is used to certify high school equivalency. It provides an overview of the characteristics of GED recipients and the returns to the GED.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="book" style="--item-index: 2;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Who Are The GEDs</h3>
+                            <p class="paper-authors">Heckman, James J., John Eric Humphries, and <strong>Tim Kautz</strong>. (2014)</p>
+                            <p class="paper-journal">In <em>The Myth of Achievement Tests: The GED and the Role of Character in American Life</em>, edited by J.J. Heckman, J.E. Humphries, and T. Kautz. Chicago, IL: University of Chicago Press. pp. 139-170</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_ged4')" aria-expanded="false" aria-controls="abstract_ged4">Abstract</button>
+                                <a href="documents/Heckman_etal_2014_Who GEDs.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Heckman_etal_2014a">Cite</button>
+                            </div>
+                            <div id="abstract_ged4" class="abstract-content hidden" aria-hidden="true">
+                                <p>This chapter discusses the characteristics of GED recipients. It shows that they are smart (relative to high school graduates who do not go on to college) but lack character skills. They come from more disadvantaged backgrounds than ordinary high school graduates. Their deficits in character emerge as early as age six. It also examines the life events surrounding GED certification.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="book" style="--item-index: 3;">
+                        <div class="research-content">
+                            <h3 class="paper-title">The Economic and Social Benefits of GED Certification</h3>
+                            <p class="paper-authors">Heckman, James J., John Eric Humphries, and <strong>Tim Kautz</strong>. (2014)</p>
+                            <p class="paper-journal">In <em>The Myth of Achievement Tests: The GED and the Role of Character in American Life</em>, edited by J.J. Heckman, J.E. Humphries, and T. Kautz. Chicago, IL: University of Chicago Press. pp. 171-267</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_ged5')" aria-expanded="false" aria-controls="abstract_ged5">Abstract</button>
+                                <a href="documents/Heckman_etal_2014_Economic Social.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Heckman_etal_2014b">Cite</button>
+                            </div>
+                            <div id="abstract_ged5" class="abstract-content hidden" aria-hidden="true">
+                                <p>This chapter surveys the previous literature on the effectiveness of the GED. It also conducts original empirical studies using seven data sets collected in different time periods to evaluate the effectiveness of the GED testing program using a variety of outcome measures. All data show that GED recipients do not perform at the level of high school graduates. After controlling for cognition and background, the vast majority of male GED recipients do no better than uncertified dropouts. For some women, there is evidence of an apparent benefit, but the interpretation to be placed on these estimates is ambiguous. We argue that it is primarily due to uncontrolled selective factors and is not a causal benefit of GED certification. Any gain appears to come from their greater labor force attachment and not because of higher hourly wages compared to those of other dropouts. Their life-cycle wage growth is the same as that of dropouts. For both men and women, skills present before certification receive the same market wages and earnings before and after GED certification, so the GED does not serve a signaling function.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="book" style="--item-index: 4;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Fostering and Measuring Skills: Interventions that Improve Character and Cognition</h3>
+                            <p class="paper-authors">Heckman, James J. and <strong>Tim Kautz</strong>. (2014)</p>
+                            <p class="paper-journal">In <em>The Myth of Achievement Tests: The GED and the Role of Character in American Life</em>, edited by J.J. Heckman, J.E. Humphries, and T. Kautz. Chicago, IL: University of Chicago Press. pp. 293-317</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_ged9')" aria-expanded="false" aria-controls="abstract_ged9">Abstract</button>
+                                <a href="documents/Heckman_Kautz_2014_Fostering Measuring.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Heckman_Kautz_2014b">Cite</button>
+                            </div>
+                            <div id="abstract_ged9" class="abstract-content hidden" aria-hidden="true">
+                                <p>This chapter reviews the recent literature on measuring and boosting cognitive and noncognitive skills. The literature establishes that achievement tests do not adequately capture character skills-personality traits, goals, motivations, and preferences-that are valued in the labor market, in school, and in many other domains. Their predictive power rivals that of cognitive skills. Reliable measures of character have been developed. All measures of character and cognition are measures of performance on some task. In order to reliably estimate skills from tasks, it is necessary to standardize for incentives, effort, and other skills when measuring any particular skill. Character is a skill, not a trait. At any age, character skills are stable across different tasks, but skills can change over the life cycle. Character is shaped by families, schools, and social environments. Skill development is a dynamic process, in which the early years lay the foundation for successful investment in later years. High-quality early childhood and elementary school programs improve character skills in a lasting and cost-effective way. Many of them beneficially affect later-life outcomes without improving cognition. There are fewer long-term evaluations of adolescent interventions, but workplace-based programs that teach character skills are promising. The common feature of successful interventions across all stages of the life cycle through adulthood is that they promote attachment and provide a secure base for exploration and learning for the child. Successful interventions emulate the mentoring environments offered by successful families.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="book" style="--item-index: 5;">
+                        <div class="research-content">
+                            <h3 class="paper-title">What Should be Done?</h3>
+                            <p class="paper-authors">Heckman, James J., John Eric Humphries, and <strong>Tim Kautz</strong>. (2014)</p>
+                            <p class="paper-journal">In <em>The Myth of Achievement Tests: The GED and the Role of Character in American Life</em>, edited by J.J. Heckman, J.E. Humphries, and T. Kautz. Chicago, IL: University of Chicago Press. pp. 431-436</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_ged10')" aria-expanded="false" aria-controls="abstract_ged10">Abstract</button>
+                                <a href="documents/Heckman_etal_2014_What Should.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Heckman_etal_2014c">Cite</button>
+                            </div>
+                            <div id="abstract_ged10" class="abstract-content hidden" aria-hidden="true">
+                                <p>This chapter presents policy recommendations about the GED program and the more general problem of promoting skills in the American economy. It argues that any successful approach going forward should recognize the power of character skills. They can be measured, and effective interventions are available to shape them.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="book" style="--item-index: 6;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Personality Psychology and Economics</h3>
+                            <p class="paper-authors">Almlund, Mathilde, Angela Lee Duckworth, James J. Heckman, and <strong>Tim Kautz</strong>. (2011)</p>
+                            <p class="paper-journal">In <em>Handbook of the Economics of Education</em>, Vol. 4, edited by E. Hanushek, S. Machin, and L. Woessman. Amsterdam: Elsevier. pp. 1-181</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_ppe')" aria-expanded="false" aria-controls="abstract_ppe">Abstract</button>
+                                <a href="documents/Almlund_etal_2011_Personality Psychology.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Almlund_etal_2011">Cite</button>
+                            </div>
+                            <div id="abstract_ppe" class="abstract-content hidden" aria-hidden="true">
+                                <p>This chapter explores the power of personality traits both as predictors and as causes of academic and economic success, health, and criminal activity. Measured personality is interpreted as a construct derived from an economic model of preferences, constraints, and information. Evidence is reviewed about the "situational specificity" of personality traits and preferences. An extreme version of the situationist view claims that there are no stable personality traits or preference parameters that persons carry across different situations. Those who hold this view claim that personality psychology has little relevance for economics. The biological and evolutionary origins of personality traits are explored. Personality measurement systems and relationships among the measures used by psychologists are examined. The predictive power of personality measures is compared with the predictive power of measures of cognition captured by IQ and achievement tests. For many outcomes, personality measures are just as predictive as cognitive measures, even after controlling for family background and cognition. Moreover, standard measures of cognition are heavily influenced by personality traits and incentives. Measured personality traits are positively correlated over the life cycle. However, they are not fixed and can be altered by experience and investment. Intervention studies, along with studies in biology and neuroscience, establish a causal basis for the observed effect of personality traits on economic and social outcomes. Personality traits are more malleable over the life cycle compared to cognition, which becomes highly rank stable around age 10. Interventions that change personality are promising avenues for addressing poverty and disadvantage.</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 
                 <!-- Policy Reports Section -->
@@ -228,6 +409,166 @@
                             </div>
                             <div id="abstract_integratingemp" class="abstract-content hidden" aria-hidden="true">
                                 <p>Individual Placement and Support (IPS) is an evidence-based model that aims to help people with serious mental illness find and work at competitive jobs of their choosing. Given the success of IPS for adults with serious mental illness and the prevalence of mental health issues among adults with justice involvement, the Next Generation of Enhanced Employment Strategies (NextGen) Project is examining the implementation and effectiveness of IPS for adults with justice involvement (IPS-AJI). This report describes the design of the IPS-AJI program; the context in which it has been implemented; who it serves; key aspects of its implementation; and the cost of the program. The purpose of this report is to help policymakers interpret forthcoming findings about the effectiveness of IPS-AJI, and help other programs interested in replicating it understand the program and its operations. It presents aggregate findings from an analysis of data collected in five mental health centers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 1;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Exploring How People's Characteristics, Contexts, and Life Events Predict Early Adult Participation in Supplemental Security Income</h3>
+                            <p class="paper-authors"><strong>Kautz, Tim</strong>, Charles Tilley, and David Stapleton. (2024)</p>
+                            <p class="paper-journal">OPRE Report 2024-076. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_exploring')" aria-expanded="false" aria-controls="abstract_exploring">Abstract</button>
+                                <a href="documents/Kautz_etal_2024_Exploring How Peoples.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Kautz_etal_2024a">Cite</button>
+                            </div>
+                            <div id="abstract_exploring" class="abstract-content hidden" aria-hidden="true">
+                                <p>This research aims to inform those who study, develop, or provide technical assistance to programs offering employment services to young adults who are potential SSI participants. We used long-term longitudinal data for youth and young adults to determine which factors predict their later participation in SSI. Several aspects of people's lives stood out as especially predictive, including low scores on an achievement test in adolescence, fair or poor health, recent unemployment, SSI participation as a child, mother's education, and family structure.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 2;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Using Bayesian Methods to Conduct Subgroup Analysis in Evaluations of Employment Programs</h3>
+                            <p class="paper-authors"><strong>Kautz, Tim</strong>, Christina Kent, and Dan Thal. (2024)</p>
+                            <p class="paper-journal">OPRE Report 2024-027. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_bayesiansub')" aria-expanded="false" aria-controls="abstract_bayesiansub">Abstract</button>
+                                <a href="documents/Kautz_etal_2024_Using Bayesian Methods.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Kautz_etal_2024b">Cite</button>
+                            </div>
+                            <div id="abstract_bayesiansub" class="abstract-content hidden" aria-hidden="true">
+                                <p>Many Temporary Assistance for Needy Families (TANF) recipients and other individuals with low incomes seek employment and training programs to help them find jobs or improve their earnings, which could, in turn, allow them to better support their families. However, these programs do not necessarily benefit all participants equally. Program evaluations that include subgroup analysis can inform how employment programs provide their services and help them improve equity by identifying who needs more tailored services. This report details new and promising approaches to subgroup analysis for evaluators of employment programs. It discusses how two Bayesian methods—a Bayesian hierarchical linear model and a Bayesian causal forest—can potentially address limitations of standard subgroup analysis. The report uses data from four experimental evaluations of employment programs in the Evaluation of Employment Coaching for TANF and Related Populations, a project sponsored by the Office of Planning, Research, and Evaluation in the Administration for Children and Families, U.S. Department of Health and Human Services. The results suggest that Bayesian methods can complement traditional methods of conducting subgroup analyses in impact evaluations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 3;">
+                        <div class="research-content">
+                            <h3 class="paper-title">The Predictive Power of Measures of Self-Regulation Skills Among Adults with Low Incomes</h3>
+                            <p class="paper-authors"><strong>Kautz, Tim</strong> and Julius Anastasio. (2024)</p>
+                            <p class="paper-journal">OPRE Report 2024-008. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_predictselfreg')" aria-expanded="false" aria-controls="abstract_predictselfreg">Abstract</button>
+                                <a href="documents/Kautz_Anastasio_2024_The Predictive Power.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Kautz_Anastasio_2024">Cite</button>
+                            </div>
+                            <div id="abstract_predictselfreg" class="abstract-content hidden" aria-hidden="true">
+                                <p>The purpose of this study is to examine how measures of self-regulation skills relate to future outcomes. The results can inform researchers who work with employment programs on how to promote self-regulation skills or who plan to use measures of self-regulation skills in evaluations of employment programs. The study provides evidence on (1) how individual self-regulation measures relate to longer-term outcomes; (2) how using multiple self-regulation measures predicts longer-term outcomes compared to using individual measures; and (3) the extent to which using self-regulation measures can improve the prediction of longer-term outcomes above and beyond using only sociodemographic characteristics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 4;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Can a Participant-Centered Approach to Setting and Pursuing Goals Help Adults with Low Incomes Become Economically Stable?</h3>
+                            <p class="paper-authors">Moore, Quinn, <strong>Tim Kautz</strong>, Sheena McConnell, Owen Schochet, and April Wu. (2023)</p>
+                            <p class="paper-journal">OPRE Report 2023-139. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_employcoaching1')" aria-expanded="false" aria-controls="abstract_employcoaching1">Abstract</button>
+                                <a href="documents/Moore_etal_2023_Can a Participant-Centered Approach.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Moore_etal_2023">Cite</button>
+                            </div>
+                            <div id="abstract_employcoaching1" class="abstract-content hidden" aria-hidden="true">
+                                <p>Policy makers, practitioners, researchers, and others are interested in the potential of employment coaching to help Temporary Assistance for Needy Families (TANF) recipients and other adults with low incomes to become economically secure. Employment coaching is based on the idea that coaches can help people use and strengthen the skills that enable them to stay organized, finish tasks, and control emotions. Improving these skills, which we refer to as self-regulation skills, can in turn help them improve their economic security. Coaches work collaboratively with participants to help them set individualized goals directly or indirectly related to employment and provide motivation, support, and feedback as participants work toward those goals. Unlike most traditional case managers, coaches work in partnership with participants and do not tell participants what goals to set or what actions to take to work toward them. Despite growing interest in employment coaching programs for adults with low incomes, there is no rigorous evidence of their effectiveness.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 5;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Using a Survey of Social and Emotional Learning and School Climate to Inform Decisionmaking</h3>
+                            <p class="paper-authors"><strong>Kautz, Tim</strong>, Kathleen Feeney, Hanley Chiang, Sarah Lauffer, Maria Bartlett, and Charles Tilley. (2021)</p>
+                            <p class="paper-journal">OPRE Report 2020-138. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_selsurvey')" aria-expanded="false" aria-controls="abstract_selsurvey">Abstract</button>
+                                <a href="documents/Kautz_etal_2021_Using A Survey.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Kautz_etal_2021">Cite</button>
+                            </div>
+                            <div id="abstract_selsurvey" class="abstract-content hidden" aria-hidden="true">
+                                <p>The District of Columbia Public Schools (DCPS) has prioritized efforts to support students' social and emotional learning (SEL) competencies, such as perseverance and social awareness. To measure students' SEL competencies and the school experiences that promote SEL competencies (school climate), DCPS began administering annual surveys to students, teachers, and parents in 2017/18. DCPS partnered with the Mid-Atlantic Regional Educational Laboratory to study how the district could use these surveys to improve students' outcomes. The study found the following: Students' SEL competencies and school experiences are the most favorable in elementary school and the least favorable in middle school and the beginning of high school. This pattern suggests that schools might provide targeted supports before or during grades 6–10 to promote SEL competencies and school experiences when students need the most support.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 6;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Selecting and Testing Measures of Self-Regulation Skills Among Low-Income Populations</h3>
+                            <p class="paper-authors"><strong>Kautz, Tim</strong>, and Quinn Moore. (2020)</p>
+                            <p class="paper-journal">OPRE Report 2020-138. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_selecting')" aria-expanded="false" aria-controls="abstract_selecting">Abstract</button>
+                                <a href="documents/Kautz_Moore_2020_Selecting and Testing.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Kautz_Moore_2020">Cite</button>
+                            </div>
+                            <div id="abstract_selecting" class="abstract-content hidden" aria-hidden="true">
+                                <p>This report discusses issues related to selecting and testing measures of self-regulation skills in evaluations of employment programs for low-income populations. First, it presents an overview of criteria for selecting measures of self-regulation skills. Second, through a presentation of empirical evidence, this report demonstrates a process for developing and testing self-regulation measures in the context of an impact evaluation of employment coaching programs for low-income populations. Third, it discusses how the process could be adapted to other studies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 7;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Changing the Principal Supervisor Role to Better Support Principals: Evidence from the Principal Supervisor Initiative</h3>
+                            <p class="paper-authors">Goldring, Ellen, Melissa A. Clark, Mollie Rubin, Laura K. Rogers, Jason A. Grissom, Brian Gill, <strong>Tim Kautz</strong>, Moira McCullough, Michael Neel, and Alyson Burnett. (2020)</p>
+                            <p class="paper-journal">Princeton, NJ: Mathematica</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_psi')" aria-expanded="false" aria-controls="abstract_psi">Abstract</button>
+                                <a href="documents/Goldring_etal_2020_Changing.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Goldring_etal_2020">Cite</button>
+                            </div>
+                            <div id="abstract_psi" class="abstract-content hidden" aria-hidden="true">
+                                <p>In 2014, The Wallace Foundation launched the Principal Supervisor Initiative (PSI), a four-year, $24 million effort to redefine principal supervision in six urban school districts. The PSI aimed to help districts overhaul a position traditionally focused on administration, operations, and compliance to one dedicated to developing and supporting principals to be effective instructional leaders who had the skills to foster high quality instruction and learning. In this study report, researchers from Mathematica and Vanderbilt University describe the PSI experiences of districts, principal supervisors, and principals; the PSI's effects on teachers' perceptions of principals' performance; and lessons learned from the initiative.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 8;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Development of a School Survey and Index as a School Performance Measure in Maryland: A REL-MSDE Research Partnership</h3>
+                            <p class="paper-authors"><strong>Kautz, Tim</strong>, Charles Tilley, Christine Ross, and Natalie Larkin. (2020)</p>
+                            <p class="paper-journal">Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_mss')" aria-expanded="false" aria-controls="abstract_mss">Abstract</button>
+                                <a href="documents/Kautz_etal_2020_Development.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Kautz_etal_2020">Cite</button>
+                            </div>
+                            <div id="abstract_mss" class="abstract-content hidden" aria-hidden="true">
+                                <p>Fueled by evidence on the strong relationships between school climate and academic achievement, teacher satisfaction, health outcomes, and social-emotional skills, states and districts are increasingly trying to measure school climate (Brand, Felner, Shim, Seitsinger, & Dumas, 2003; Gase et al., 2017; Lacireno-Paquet, Bocala, & Bailey, 2016; Voight & Hanson, 2017). School climate encompasses both tangible and intangible attributes, including relationships among students and staff, school discipline, student engagement, and safety. The Maryland State Department of Education (MSDE) partnered with Regional Educational Laboratory (REL) Mid-Atlantic to co-develop, validate, and benchmark a school climate index based upon the Maryland School Survey. The climate index will serve as a measure of school quality and student success in Maryland's school accountability framework. MSDE administered the survey statewide for accountability purposes beginning in spring 2019 following a field test in fall 2018.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 9;">
+                        <div class="research-content">
+                            <h3 class="paper-title">The Effects of a Principal Professional Development Program Focused on Instructional Leadership</h3>
+                            <p class="paper-authors">Herrmann, Mariesa, Melissa Clark, Susanne James-Burdumy, Christina Tuttle, <strong>Tim Kautz</strong>, Virginia Knechtel, Dallas Dotter, Claire Smither Wulsin, and John Deke. (2019)</p>
+                            <p class="paper-journal">NCEE Report 2020-0002. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_ppd')" aria-expanded="false" aria-controls="abstract_ppd">Abstract</button>
+                                <a href="documents/Herrmann_etal_2019_The Effects.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Herrmann_etal_2019">Cite</button>
+                            </div>
+                            <div id="abstract_ppd" class="abstract-content hidden" aria-hidden="true">
+                                <p>Principals can play a key role in improving instruction and student achievement. The Institute of Education Sciences conducted a random assignment study of a professional development program for elementary school principals to support state and local efforts to improve school leadership. The program focused on helping principals conduct structured observations of teachers' classroom instruction and provide targeted feedback. It provided nearly 200 hours of professional development over two years, half of it through individualized coaching. Key findings include: (1) Despite substantially increasing the amount of professional development principals received, the program did not affect student achievement or most teacher or school outcomes. For example, the professional development did not affect school climate or principal retention. (2) The program did not have the intended effects on principal practices that it targeted, which may explain its lack of effects on key student, teacher, and school outcomes. For example, it decreased the frequency of instructional support and feedback teachers received from principals, and it did not affect the number of teacher observations principals conducted or the usefulness of the feedback as reported by teachers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-item" data-type="report" style="--item-index: 10;">
+                        <div class="research-content">
+                            <h3 class="paper-title">Fostering and Measuring Skills: Improving Cognitive and Non-Cognitive Skills to Promote Lifetime Success</h3>
+                            <p class="paper-authors"><strong>Kautz, Tim</strong>, James J. Heckman, Ron Diris, Bas ter Weel, and Lex Borghans. (2014)</p>
+                            <p class="paper-journal">Paris, France: Organisation of Economic Co-operation and Development</p>
+                            <div class="paper-actions">
+                                <button class="btn-abstract" onclick="toggleAbstract('abstract_oecd')" aria-expanded="false" aria-controls="abstract_oecd">Abstract</button>
+                                <a href="documents/Kautz_etal_2014_Fostering.pdf" class="btn-download">PDF</a>
+                                <button class="btn-cite" data-id="Kautz_etal_2014">Cite</button>
+                            </div>
+                            <div id="abstract_oecd" class="abstract-content hidden" aria-hidden="true">
+                                <p>IQ tests and achievement tests do not adequately capture non-cognitive skills — personality traits, goals, character, motivations, and preferences that are valued in the labor market, in school, and in many other domains. For many outcomes, their predictive power rivals or exceeds that of cognitive skills. Skills are stable across situations with different incentives, although manifestations of skills vary with incentives. Skills are not immutable over the life cycle; they have a genetic basis but are also shaped by environments, including families, schools, and peers. Skill development is a dynamic process. The early years are important in shaping all skills and in laying the foundations for successful investment and intervention in the later years. During the early years, both cognitive and noncognitive skills are highly malleable. During the adolescent years, non-cognitive skills are more malleable than cognitive skills. The differential plasticity of different skills by age has important implications for the design of effective policies.</p>
                             </div>
                         </div>
                     </div>
@@ -254,23 +595,7 @@
     
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <p class="copyright">&copy; 2025 Tim Kautz</p>
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/tkautz" target="_blank" aria-label="LinkedIn Profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        <span class="footer-link-text">LinkedIn</span>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en" target="_blank" aria-label="Google Scholar Profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9M6.5 9h11M6.5 15h11M9 6.5v11M15 6.5v11"></path></svg>
-                        <span class="footer-link-text">Google Scholar</span>
-                    </a>
-                    <a href="mailto:tkautz@mathematica-mpr.com" aria-label="Email Contact">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span class="footer-link-text">tkautz@mathematica-mpr.com</span>
-                    </a>
-                </div>
-            </div>
+            <p>&copy; 2025 Tim Kautz</p>
         </div>
     </footer>
 
@@ -373,8 +698,29 @@
             'Schochet_etal_2022': 'Schochet, Peter Z., Nicole E. Pashley, Luke W. Miratrix, and Tim Kautz. 2022. "Design-Based Ratio Estimators and Central Limit Theorems for Clustered, Blocked RCTs." Journal of the American Statistical Association 117 (540): 2135-2146.',
             'Milkman_etal_2021': 'Milkman, Katherine L., et al. (including Tim Kautz). 2021. "Megastudies Improve the Impact of Applied Behavioural Science." Nature 600: 478-483.',
             'Duckworth_etal_2021': 'Duckworth, Angela L., Tim Kautz, Amy Defnet, Emma Satlof-Bedrick, Sean Talamas, Benjamin Lira Luttges, and Laurence Steinberg. 2021. "Students Attending School Remotely Suffer Socially, Emotionally, and Academically." Educational Researcher 50 (7): 479-482.',
+            'Hock_etal_2021': 'Hock, Heinrich, Dara Lee Luca, Tim Kautz, and David Stapleton. 2021. "Improving the Outcomes of Youth with Medical Limitations: Evidence from the National Job Corps Study." Journal of Economics & Management Strategy 32 (3): 636-656.',
+            'Deke_Wei_Kautz_2021': 'Deke, John, Thomas Wei, and Tim Kautz. 2021. "Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts." Journal of Research on Educational Effectiveness 14 (1): 207-240.',
+            'Chen_etal_2020': 'Chen, Yuanyuan, Shuaizhang Feng, James J. Heckman, and Tim Kautz. 2020. "Sensitivity of Self-Reported Non-Cognitive Skills to Survey Administration Conditions." Proceedings of the National Academy of Sciences 117 (2): 931-935.',
+            'Heckman_Kautz_2012': 'Heckman, James J. and Tim Kautz. 2012. "Hard Evidence on Soft Skills." Labour Economics 19 (4): 451-464.',
+            'Kautz_etal_2010': 'Kautz, Tim, Eran Bendavid, Jay Bhattacharya, and Grant Miller. 2010. "AIDS and Declining Support for Dependent Elderly People in Africa: Retrospective Analysis Using Demographic and Health Surveys." British Medical Journal 340: c2841.',
             'Heckman_etal_2021': 'Heckman, James J., Tomas Jagelka, and Tim Kautz. 2021. "Some Contributions of Economics to the Study of Personality." In Handbook of Personality, Vol. 4, edited by O.P. John and R.W. Robins, 853-892. New York, NY: Guilford Press.',
+            'Heckman_Kautz_2014a': 'Heckman, James J. and Tim Kautz. 2014. "Achievement Tests and the Role of Character in American Life." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 3-56. Chicago, IL: University of Chicago Press.',
+            'Heckman_etal_2014a': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "Who Are The GEDs." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 139-170. Chicago, IL: University of Chicago Press.',
+            'Heckman_etal_2014b': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "The Economic and Social Benefits of GED Certification." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 171-267. Chicago, IL: University of Chicago Press.',
+            'Heckman_Kautz_2014b': 'Heckman, James J. and Tim Kautz. 2014. "Fostering and Measuring Skills: Interventions that Improve Character and Cognition." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 293-317. Chicago, IL: University of Chicago Press.',
+            'Heckman_etal_2014c': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "What Should be Done?" In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 431-436. Chicago, IL: University of Chicago Press.',
+            'Almlund_etal_2011': 'Almlund, Mathilde, Angela Lee Duckworth, James J. Heckman, and Tim Kautz. 2011. "Personality Psychology and Economics." In Handbook of the Economics of Education, Vol. 4, edited by E. Hanushek, S. Machin, and L. Woessman, 1-181. Amsterdam: Elsevier.',
             'Kauff_etal_2024': 'Kauff, Jacqueline, Jennifer Herard, Tim Kautz, Julia Lyskawa, Gina Lewis, Leah Pranschke, and Martine Reynolds. 2024. "Integrating Employment and Mental Health Services: Implementation of the Individual Placement and Support Model for Adults with Justice Involvement." OPRE Report 2024-155. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+            'Kautz_etal_2024a': 'Kautz, Tim, Charles Tilley, and David Stapleton. 2024. "Exploring How People's Characteristics, Contexts, and Life Events Predict Early Adult Participation in Supplemental Security Income." OPRE Report 2024-076. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+            'Kautz_etal_2024b': 'Kautz, Tim, Christina Kent, and Dan Thal. 2024. "Using Bayesian Methods to Conduct Subgroup Analysis in Evaluations of Employment Programs." OPRE Report 2024-027. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+            'Kautz_Anastasio_2024': 'Kautz, Tim and Julius Anastasio. 2024. "The Predictive Power of Measures of Self-Regulation Skills Among Adults with Low Incomes." OPRE Report 2024-008. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+            'Moore_etal_2023': 'Moore, Quinn, Tim Kautz, Sheena McConnell, Owen Schochet, and April Wu. 2023. "Can a Participant-Centered Approach to Setting and Pursuing Goals Help Adults with Low Incomes Become Economically Stable?" OPRE Report 2023-139. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+            'Kautz_etal_2021': 'Kautz, Tim, Kathleen Feeney, Hanley Chiang, Sarah Lauffer, Maria Bartlett, and Charles Tilley. 2021. "Using a Survey of Social and Emotional Learning and School Climate to Inform Decisionmaking." Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
+            'Kautz_Moore_2020': 'Kautz, Tim, and Quinn Moore. 2020. "Selecting and Testing Measures of Self-Regulation Skills Among Low-Income Populations." OPRE Report 2020-138. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+            'Goldring_etal_2020': 'Goldring, Ellen, Melissa A. Clark, Mollie Rubin, Laura K. Rogers, Jason A. Grissom, Brian Gill, Tim Kautz, Moira McCullough, Michael Neel, and Alyson Burnett. 2020. "Changing the Principal Supervisor Role to Better Support Principals: Evidence from the Principal Supervisor Initiative." Princeton, NJ: Mathematica.',
+            'Kautz_etal_2020': 'Kautz, Tim, Charles Tilley, Christine Ross, and Natalie Larkin. 2020. "Development of a School Survey and Index as a School Performance Measure in Maryland: A REL-MSDE Research Partnership." Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
+            'Herrmann_etal_2019': 'Herrmann, Mariesa, Melissa Clark, Susanne James-Burdumy, Christina Tuttle, Tim Kautz, Virginia Knechtel, Dallas Dotter, Claire Smither Wulsin, and John Deke. 2019. "The Effects of a Principal Professional Development Program Focused on Instructional Leadership." NCEE Report 2020-0002. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
+            'Kautz_etal_2014': 'Kautz, Tim, James J. Heckman, Ron Diris, Bas ter Weel, and Lex Borghans. 2014. "Fostering and Measuring Skills: Improving Cognitive and Non-Cognitive Skills to Promote Lifetime Success." Paris, France: Organisation of Economic Co-operation and Development.',
             'Lira_etal_inreview': 'Lira, Benjamin, Maria Bartlett, Tim Kautz, and Angela L. Duckworth. "Remote Schooling Depresses Course Grades for the Most Vulnerable Students." Unpublished manuscript, under review.'
         };
         
