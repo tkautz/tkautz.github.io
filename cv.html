@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Tim Kautz - Curriculum Vitae, Senior Researcher at Mathematica specializing in economics, education and labor">
+    <meta name="description" content="Tim Kautz - Curriculum Vitae, Senior Researcher at Mathematica specializing in economics, education and labor with publications from 2010-2024">
     <title>Tim Kautz | CV</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -18,12 +18,32 @@
         gtag('js', new Date());
         gtag('config', 'UA-168736672-1');
     </script>
-    <!-- Font imports -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Font imports with optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap">
+    
+    <!-- Structured Data for Academic Profile -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tim Kautz",
+      "jobTitle": "Senior Researcher",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Mathematica"
+      },
+      "url": "https://tkautz.github.io/",
+      "knowsAbout": ["Economics", "Education", "Labor", "Non-cognitive skills", "Statistical modeling"]
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
     <header>
         <div class="container">
             <div class="header-content">
@@ -39,14 +59,14 @@
                     <ul class="nav-links">
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="research.html">RESEARCH</a></li>
-                        <li><a href="cv.html" class="active">CV</a></li>
+                        <li><a href="cv.html" class="active" aria-current="page">CV</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     
-    <main class="cv-page">
+    <main id="main-content" class="cv-page">
         <div class="container">
             <div class="cv-header">
                 <h1 class="page-title">Curriculum Vitae</h1>
@@ -56,12 +76,33 @@
                     <polyline points="7 10 12 15 17 10"></polyline>
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                   </svg>
-                  DOWNLOAD CV
+                  DOWNLOAD CV (PDF, 650 KB)
                 </a>
             </div>
             
+            <!-- Table of Contents -->
+            <nav class="toc" aria-labelledby="toc-heading">
+                <h2 id="toc-heading" class="toc-title">Contents</h2>
+                <ul>
+                    <li><a href="#current-position">Current Position</a></li>
+                    <li><a href="#affiliations">Affiliations</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#journal-articles">Journal Articles</a></li>
+                    <li><a href="#book-chapters">Book Chapters</a></li>
+                    <li><a href="#policy-reports">Policy Reports</a></li>
+                    <li><a href="#works-in-progress">Works in Progress</a></li>
+                    <li><a href="#edited-volumes">Edited Volumes</a></li>
+                    <li><a href="#funding">Funding & Awards</a></li>
+                    <li><a href="#presentations">Presentations</a></li>
+                    <li><a href="#media">Media & Blogs</a></li>
+                    <li><a href="#service">Professional Service</a></li>
+                    <li><a href="#previous-positions">Previous Positions</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </nav>
+            
             <!-- Current Position Section -->
-            <section class="cv-section">
+            <section id="current-position" class="cv-section">
                 <h3>Current Position</h3>
                 <div class="cv-item">
                     <div class="cv-item-details">
@@ -72,7 +113,7 @@
             </section>
             
             <!-- Affiliations Section -->
-            <section class="cv-section">
+            <section id="affiliations" class="cv-section">
                 <h3>Affiliations</h3>
                 <div class="cv-item">
                     <div class="cv-item-details">
@@ -101,7 +142,7 @@
             </section>
             
             <!-- Education Section -->
-            <section class="cv-section">
+            <section id="education" class="cv-section">
                 <h3>Education</h3>
                 <div class="cv-item">
                     <div class="cv-item-details">
@@ -124,7 +165,7 @@
             </section>
             
             <!-- Journal Articles Section (expanded) -->
-            <section class="cv-section">
+            <section id="journal-articles" class="cv-section">
                 <h3>Journal Articles</h3>
                 <ul class="cv-publications">
                     <li class="cv-publication">
@@ -167,7 +208,7 @@
             </section>
             
             <!-- Book Chapters Section (expanded) -->
-            <section class="cv-section">
+            <section id="book-chapters" class="cv-section">
                 <h3>Book Chapters</h3>
                 <ul class="cv-publications">
                     <li class="cv-publication">
@@ -195,7 +236,7 @@
             </section>
             
             <!-- Selected Policy Reports and Briefs Section (new) -->
-            <section class="cv-section">
+            <section id="policy-reports" class="cv-section">
                 <h3>Selected Policy Reports and Briefs</h3>
                 <ul class="cv-publications">
                     <li class="cv-publication">
@@ -229,7 +270,7 @@
             </section>
             
             <!-- Works in Progress Section (new) -->
-            <section class="cv-section">
+            <section id="works-in-progress" class="cv-section">
                 <h3>Works in Progress</h3>
                 <ul class="cv-publications">
                     <li class="cv-publication">
@@ -239,7 +280,7 @@
             </section>
             
             <!-- Edited Volumes Section (new) -->
-            <section class="cv-section">
+            <section id="edited-volumes" class="cv-section">
                 <h3>Edited Volumes</h3>
                 <ul class="cv-publications">
                     <li class="cv-publication">
@@ -250,7 +291,7 @@
             </section>
             
             <!-- Funding, Fellowships, and Awards Section -->
-            <section class="cv-section">
+            <section id="funding" class="cv-section">
                 <h3>Funding, Fellowships, and Awards</h3>
                 <ul class="cv-list">
                     <li>Spencer Foundation Grant (Co-PI), "Advancing the Measurement of Non-Cognitive skills" ($490k)</li>
@@ -265,7 +306,7 @@
             </section>
             
             <!-- Presentations Section (new) -->
-            <section class="cv-section">
+            <section id="presentations" class="cv-section">
                 <h3>Presentations</h3>
                 <ul class="cv-list">
                     <li><strong>2023:</strong> Association for Public Policy Analysis & Management Conference</li>
@@ -283,7 +324,7 @@
             </section>
             
             <!-- Interviews, Opinion Pieces, and Blogs Section (new) -->
-            <section class="cv-section">
+            <section id="media" class="cv-section">
                 <h3>Interviews, Opinion Pieces, and Blogs</h3>
                 <ul class="cv-publications">
                     <li class="cv-publication">
@@ -314,14 +355,14 @@
             </section>
             
             <!-- Professional Service Section -->
-            <section class="cv-section">
+            <section id="service" class="cv-section">
                 <h3>Professional Service</h3>
                 <p><strong>Referee:</strong> American Economic Journal: Economic Policy, Education Finance and Policy, Forum for Health Economics and Policy, Journal of Applied Econometrics, Journal of Economic Behavior and Organization, Journal of Health Economics, Journal of Human Capital, Journal of Labor Economics, Journal of Policy Analysis and Management, Journal of Political Economy, Labour Economics, Learning and Individual Differences, Oxford Bulletin of Economics and Statistics, Proceedings of the National Academy of Sciences, SAGE Open, Science</p>
                 <p><strong>Member:</strong> Council of Distinguished Scientists, National Commission on Social, Emotional, and Academic Development</p>
             </section>
             
             <!-- Previous Positions Section (new) -->
-            <section class="cv-section">
+            <section id="previous-positions" class="cv-section">
                 <h3>Previous Positions</h3>
                 <div class="cv-item">
                     <div class="cv-item-details">
@@ -344,7 +385,7 @@
             </section>
             
             <!-- Skills Section -->
-            <section class="cv-section">
+            <section id="skills" class="cv-section">
                 <h3>Skills</h3>
                 <div class="skills-grid">
                     <div class="skill-category">
@@ -370,11 +411,53 @@
         </div>
     </footer>
 
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+
     <script>
         // Toggle mobile navigation
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
             this.classList.toggle('active');
+        });
+        
+        // Back to top functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for table of contents links
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for header
+                        behavior: 'smooth'
+                    });
+                    
+                    // Set focus to the target section for accessibility
+                    targetElement.setAttribute('tabindex', '-1');
+                    targetElement.focus();
+                }
+            });
         });
     </script>
 </body>

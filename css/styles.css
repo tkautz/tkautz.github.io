@@ -19,6 +19,31 @@
   --border-radius: 8px;
 }
 
+/* Accessibility improvements */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  z-index: 1000;
+  transition: top 0.3s;
+  border-radius: 0 0 4px 0;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+/* Enhanced keyboard focus */
+:focus-visible {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 4px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +59,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   overflow-x: hidden; /* Prevent horizontal scroll */
+  scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -120,6 +146,99 @@ ul, ol {
   text-align: center;
 }
 
+/* Table of Contents for CV */
+.toc {
+  background-color: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  border-left: 4px solid var(--secondary-color);
+  box-shadow: var(--shadow);
+}
+
+.toc-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.toc li a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.toc li a:hover, 
+.toc li a:focus {
+  background-color: rgba(46, 93, 140, 0.1);
+}
+
+/* Back to top button */
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 99;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(20px);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background-color: #254b73;
+}
+
+/* Toast notification for copy functionality */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toast.visible {
+  opacity: 1;
+}
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -163,7 +282,7 @@ ul, ol {
   text-decoration: none;
 }
 
-.btn-abstract, .btn-download {
+.btn-abstract, .btn-download, .btn-cite {
   display: inline-block;
   padding: 0.5rem 1rem;
   font-size: 0.85rem;
@@ -195,6 +314,16 @@ ul, ol {
   background-color: #254b73;
   border-color: #254b73;
   text-decoration: none;
+}
+
+.btn-cite {
+  background-color: rgba(106, 176, 163, 0.1);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.btn-cite:hover {
+  background-color: rgba(106, 176, 163, 0.2);
 }
 
 /* Header and Navigation */
@@ -444,14 +573,16 @@ header {
   margin-bottom: 1rem;
 }
 
+/* Improved abstract styling */
 .abstract-content {
   background-color: var(--bg-light);
-  padding: 1.25rem;
-  border-radius: 6px;
+  padding: 1.5rem;
+  border-radius: 8px;
   font-size: 0.95rem;
   margin-top: 1.25rem;
-  line-height: 1.6;
-  border-left: 3px solid var(--secondary-color);
+  line-height: 1.7;
+  border-left: 4px solid var(--secondary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .view-all {
@@ -538,6 +669,7 @@ header {
 
 .cv-section {
   margin-bottom: 3.5rem;
+  scroll-margin-top: 100px; /* Added for smooth scrolling to sections */
 }
 
 .cv-section h3 {
@@ -745,6 +877,12 @@ footer {
     margin: 0;
     width: 80%;
     text-align: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .nav-links li:last-child {
+    border-bottom: none;
   }
   
   .nav-links a {
@@ -801,9 +939,9 @@ footer {
     flex-wrap: wrap;
   }
   
-  .btn-abstract, .btn-download {
-    width: 100%;
-    margin-bottom: 0.5rem;
+  .btn-abstract, .btn-download, .btn-cite {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
     text-align: center;
   }
 }
@@ -848,7 +986,7 @@ footer {
 
 /* Print Styles */
 @media print {
-  header, footer, .hero, .btn {
+  header, footer, .hero, .btn, #back-to-top, .toc {
     display: none;
   }
   

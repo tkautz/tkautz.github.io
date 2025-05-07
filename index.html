@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Tim Kautz - Economist and Researcher">
+    <meta name="description" content="Tim Kautz - Senior Researcher at Mathematica specializing in economics, education and labor with expertise in non-cognitive skills measurement and development">
     <title>Tim Kautz | Home</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -18,12 +18,49 @@
         gtag('js', new Date());
         gtag('config', 'UA-168736672-1');
     </script>
-    <!-- Font imports -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Font imports with optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap">
+    
+    <!-- Structured Data for Academic Profile -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tim Kautz",
+      "jobTitle": "Senior Researcher",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Mathematica"
+      },
+      "url": "https://tkautz.github.io/",
+      "knowsAbout": ["Economics", "Education", "Labor", "Non-cognitive skills", "Statistical modeling"],
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Behavior Change for Good Initiative",
+          "url": "https://bcfg.wharton.upenn.edu/"
+        },
+        {
+          "@type": "Organization",
+          "name": "Institute for Economic and Social Research",
+          "url": "https://iesr.jnu.edu.cn/Home/main.htm"
+        },
+        {
+          "@type": "Organization",
+          "name": "Human Capital and Economic Opportunity Global Working Group",
+          "url": "https://hceconomics.uchicago.edu/"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
     <header>
         <div class="container">
             <div class="header-content">
@@ -37,7 +74,7 @@
                         <span class="bar"></span>
                     </button>
                     <ul class="nav-links">
-                        <li><a href="index.html" class="active">HOME</a></li>
+                        <li><a href="index.html" class="active" aria-current="page">HOME</a></li>
                         <li><a href="research.html">RESEARCH</a></li>
                         <li><a href="cv.html">CV</a></li>
                     </ul>
@@ -46,7 +83,7 @@
         </div>
     </header>
     
-    <main>
+    <main id="main-content">
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -54,7 +91,7 @@
                         <h2>Economist & Researcher</h2>
                         <div class="content-container">
                             <div class="profile-image">
-                                <img src="images/headshot-2.jpg" alt="Tim Kautz - Professional headshot photograph" class="portrait">
+                                <img src="images/headshot-2.jpg" alt="Tim Kautz - Professional headshot photograph" class="portrait" loading="lazy">
                             </div>
                             <div class="profile-text">
                                 <p>I am a Senior Researcher (Economist and Data Scientist) at <a href="https://www.mathematica.org/">Mathematica</a> with extensive experience in causal inference and advanced statistical modeling. I design experiments, analyze complex datasets, communicate findings to broad audiences, and lead teams.</p>
@@ -84,7 +121,8 @@
                         <p class="paper-journal">Journal of Human Capital, 18(2): 272-303</p>
                         <div class="paper-actions">
                             <button class="btn-abstract" onclick="toggleAbstract('abstract_onegoal')">Abstract</button>
-                            <a href="documents/Kautz_Zanoni_2024_Measurement and Development.pdf" class="btn-download">Download PDF</a>
+                            <a href="documents/Kautz_Zanoni_2024_Measurement and Development.pdf" class="btn-download">Download PDF (1.2 MB)</a>
+                            <button class="btn-cite" data-id="Kautz_Zanoni_2024">Cite</button>
                         </div>
                         <div id="abstract_onegoal" class="abstract-content hidden">
                             <p>Using administrative data, we develop measures of noncognitive skills and evaluate OneGoal, an intervention designed to help disadvantaged students complete college by teaching them noncognitive skills. We (1) compare the outcomes of participants and nonparticipants with similar characteristics and (2) use a difference-in-differences approach exploiting that OneGoal was introduced into different schools at different times. We estimate that OneGoal increases college enrollment by 10–20 percentage points for males and females and reduces arrest rates by 5 percentage points for males. Through a mediation analysis, we find that improvements in noncognitive skills account for 13%–32% of these effects.</p>
@@ -97,7 +135,8 @@
                         <p class="paper-journal">Proceedings of the National Academy of Sciences, 119(6)</p>
                         <div class="paper-actions">
                             <button class="btn-abstract" onclick="toggleAbstract('abstract_compns')">Abstract</button>
-                            <a href="documents/Feng_etal_2022_Comparing the reliability and predictive power.pdf" class="btn-download">Download PDF</a>
+                            <a href="documents/Feng_etal_2022_Comparing the reliability and predictive power.pdf" class="btn-download">Download PDF (950 KB)</a>
+                            <button class="btn-cite" data-id="Feng_etal_2022">Cite</button>
                         </div>
                         <div id="abstract_compns" class="abstract-content hidden">
                             <p>Children's noncognitive skills are typically measured using surveys in which either children rate their own skills or adults rate the skills of children. For many purposes—including program evaluation and monitoring school systems—ratings are often collected from multiple perspectives about a single child. Collecting data from multiple perspectives is costly, and there is limited evidence on the benefits of this approach. Using a longitudinal survey, this study compares children's noncognitive skills as reported by themselves, their guardians, and their teachers. Teacher reports have the highest internal consistency and are the most predictive of children's later cognitive outcomes and behavior in school.</p>
@@ -110,7 +149,8 @@
                         <p class="paper-journal">Nature, 600: 478-483</p>
                         <div class="paper-actions">
                             <button class="btn-abstract" onclick="toggleAbstract('abstract_mega')">Abstract</button>
-                            <a href="documents/Milkman_etal_2021_Megastudies Improve.pdf" class="btn-download">Download PDF</a>
+                            <a href="documents/Milkman_etal_2021_Megastudies Improve.pdf" class="btn-download">Download PDF (1.4 MB)</a>
+                            <button class="btn-cite" data-id="Milkman_etal_2021">Cite</button>
                         </div>
                         <div id="abstract_mega" class="abstract-content hidden">
                             <p>This study introduces the megastudy—a massive field experiment in which the effects of many different interventions are compared in the same population on the same objectively measured outcome for the same duration. In a megastudy targeting physical exercise among 61,293 members of an American fitness chain, 30 scientists from 15 different US universities worked in small independent teams to design a total of 54 different four-week digital programmes encouraging exercise. The top-performing intervention offered microrewards for returning to the gym after a missed workout.</p>
@@ -129,6 +169,12 @@
             <p>&copy; 2025 Tim Kautz</p>
         </div>
     </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    
+    <!-- Toast notification for citation copying -->
+    <div id="toast" class="toast">Citation copied to clipboard</div>
 
     <script>
         // Toggle mobile navigation
@@ -149,9 +195,57 @@
             buttons.forEach(button => {
                 if (button.getAttribute('onclick') === `toggleAbstract('${id}')`) {
                     button.textContent = isHidden ? 'Hide Abstract' : 'Abstract';
+                    // Update aria attributes for accessibility
+                    button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+                    abstractElement.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
                 }
             });
         }
+        
+        // Back to top functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Citation copying functionality
+        const citations = {
+            'Kautz_Zanoni_2024': 'Kautz, Tim, and Wladimir Zanoni. 2024. "Measurement and Development of Noncognitive Skills in Adolescence: Evidence from Chicago Public Schools and the OneGoal Program." Journal of Human Capital 18 (2): 272-303.',
+            'Feng_etal_2022': 'Feng, Shuaizhang, Yujie Han, James J. Heckman, and Tim Kautz. 2022. "Comparing the Reliability and Predictive Power of Child, Teacher, and Guardian Reports of Noncognitive Skills." Proceedings of the National Academy of Sciences 119 (6): e2113992119.',
+            'Milkman_etal_2021': 'Milkman, Katherine L., Dena Gromet, Hung Ho, Joseph S. Kay, Timothy W. Lee, Pepi Pandiloski, Yeji Park, Aneesh Rai, Max Bazerman, John Beshears, Lauri Bohm, Alison Buttenheim, Shlomi Censor, Eugen Dimant, Katy Milkman, Silvia Saccardo, Marta Serra-Garcia, Dilip Soman, Jehan Sparks, Caleb Warren, Megan Weber, Ron Berman, Chalanda N. Evans, Christopher K. Snider, Eli Tsukayama, Christophe Van den Bulte, Kathleen D. Vohs, Janet Schwartz, Tim Kautz, and Angela L. Duckworth. 2021. "Megastudies Improve the Impact of Applied Behavioural Science." Nature 600: 478-483.'
+        };
+        
+        document.querySelectorAll('.btn-cite').forEach(button => {
+            button.addEventListener('click', function() {
+                const citationId = this.getAttribute('data-id');
+                const citation = citations[citationId];
+                
+                if (citation) {
+                    navigator.clipboard.writeText(citation).then(function() {
+                        // Show toast notification
+                        const toast = document.getElementById('toast');
+                        toast.classList.add('visible');
+                        
+                        // Hide toast after 3 seconds
+                        setTimeout(function() {
+                            toast.classList.remove('visible');
+                        }, 3000);
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
