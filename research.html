@@ -622,139 +622,145 @@
     <div id="toast" class="toast">Citation copied to clipboard</div>
 
     <script>
-        // Toggle mobile navigation
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.classList.toggle('active');
+        / Toggle mobile navigation
+document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+    this.classList.toggle('active');
+});
+
+// Abstract toggle functionality
+function toggleAbstract(id) {
+    const abstractElement = document.getElementById(id);
+    const isHidden = abstractElement.classList.contains('hidden');
+    
+    abstractElement.classList.toggle('hidden');
+    
+    // Update aria attributes for accessibility
+    const button = document.querySelector(`[onclick="toggleAbstract('${id}')"]`);
+    if (button) {
+        button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        button.textContent = isHidden ? 'Hide Abstract' : 'Abstract';
+    }
+    abstractElement.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
+}
+
+// FIXED Filter functionality with forced styling
+document.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Update active button
+        document.querySelectorAll('.filter-button').forEach(btn => {
+            btn.classList.remove('active');
         });
+        this.classList.add('active');
         
-        // Abstract toggle functionality
-        function toggleAbstract(id) {
-            const abstractElement = document.getElementById(id);
-            const isHidden = abstractElement.classList.contains('hidden');
-            
-            abstractElement.classList.toggle('hidden');
-            
-            // Update aria attributes for accessibility
-            const button = document.querySelector(`[onclick="toggleAbstract('${id}')"]`);
-            if (button) {
-                button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-                button.textContent = isHidden ? 'Hide Abstract' : 'Abstract';
-            }
-            abstractElement.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
-        }
+        // Get filter value
+        const filter = this.getAttribute('data-filter');
         
-        // Filter functionality - FIXED VERSION
-        document.querySelectorAll('.filter-button').forEach(button => {
-            button.addEventListener('click', function() {
-                // Update active button
-                document.querySelectorAll('.filter-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // Get filter value
-                const filter = this.getAttribute('data-filter');
-                
-                // Filter research items - Improved display handling
-                const items = document.querySelectorAll('.research-item');
-                items.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-type') === filter) {
-                        item.style.display = 'block'; // Use block for consistent display
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-                
-                // Improved section visibility check
-                document.querySelectorAll('.research-section').forEach(section => {
-                    const sectionItems = section.querySelectorAll('.research-item');
-                    let visibleCount = 0;
-                    
-                    sectionItems.forEach(item => {
-                        if (item.style.display !== 'none') {
-                            visibleCount++;
-                        }
-                    });
-                    
-                    // Only show sections with visible items
-                    section.style.display = (visibleCount > 0 || filter === 'all') ? 'block' : 'none';
-                });
-            });
-        });
-        
-        // Back to top functionality
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('visible');
+        // Filter research items - CRITICAL FIX: Using !important to override CSS
+        document.querySelectorAll('.research-item').forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-type') === filter) {
+                // Force display with !important to override any CSS specificity issues
+                item.setAttribute('style', 'display: block !important');
             } else {
-                backToTopButton.classList.remove('visible');
+                item.setAttribute('style', 'display: none !important');
             }
         });
         
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Citation copying functionality
-        const citations = {
-            'Kautz_Zanoni_2024': 'Kautz, Tim, and Wladimir Zanoni. 2024. "Measurement and Development of Noncognitive Skills in Adolescence: Evidence from Chicago Public Schools and the OneGoal Program." Journal of Human Capital 18 (2): 272-303.',
-            'Feng_etal_2024': 'Feng, Shuaizhang, Yu Gan, Yujie Han, and Tim Kautz. 2024. "Shorter Can Be Better: Balancing Length and Predictive Power when Measuring Noncognitive Skills to Predict Academic Outcomes." Economics Letters 236: 111598.',
-            'Lira_etal_2022': 'Lira, Benjamin, Joseph M. O\'Brien, Pablo A. Peña, Brian M. Galla, Sidney D\'Mello, David S. Yeager, Amy Defnet, Tim Kautz, Kate Munkacsy, and Angela L. Duckworth. 2022. "Large Studies Reveal How Reference Bias Limits Policy Applications of Self-Report Measures." Scientific Reports 12: 19189.',
-            'Feng_etal_2022': 'Feng, Shuaizhang, Yujie Han, James J. Heckman, and Tim Kautz. 2022. "Comparing the Reliability and Predictive Power of Child, Teacher, and Guardian Reports of Noncognitive Skills." Proceedings of the National Academy of Sciences 119 (6): e2113992119.',
-            'Schochet_etal_2022': 'Schochet, Peter Z., Nicole E. Pashley, Luke W. Miratrix, and Tim Kautz. 2022. "Design-Based Ratio Estimators and Central Limit Theorems for Clustered, Blocked RCTs." Journal of the American Statistical Association 117 (540): 2135-2146.',
-            'Milkman_etal_2021': 'Milkman, Katherine L., et al. (including Tim Kautz). 2021. "Megastudies Improve the Impact of Applied Behavioural Science." Nature 600: 478-483.',
-            'Duckworth_etal_2021': 'Duckworth, Angela L., Tim Kautz, Amy Defnet, Emma Satlof-Bedrick, Sean Talamas, Benjamin Lira Luttges, and Laurence Steinberg. 2021. "Students Attending School Remotely Suffer Socially, Emotionally, and Academically." Educational Researcher 50 (7): 479-482.',
-            'Hock_etal_2021': 'Hock, Heinrich, Dara Lee Luca, Tim Kautz, and David Stapleton. 2021. "Improving the Outcomes of Youth with Medical Limitations: Evidence from the National Job Corps Study." Journal of Economics & Management Strategy 32 (3): 636-656.',
-            'Deke_Wei_Kautz_2021': 'Deke, John, Thomas Wei, and Tim Kautz. 2021. "Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts." Journal of Research on Educational Effectiveness 14 (1): 207-240.',
-            'Chen_etal_2020': 'Chen, Yuanyuan, Shuaizhang Feng, James J. Heckman, and Tim Kautz. 2020. "Sensitivity of Self-Reported Non-Cognitive Skills to Survey Administration Conditions." Proceedings of the National Academy of Sciences 117 (2): 931-935.',
-            'Heckman_Kautz_2012': 'Heckman, James J. and Tim Kautz. 2012. "Hard Evidence on Soft Skills." Labour Economics 19 (4): 451-464.',
-            'Kautz_etal_2010': 'Kautz, Tim, Eran Bendavid, Jay Bhattacharya, and Grant Miller. 2010. "AIDS and Declining Support for Dependent Elderly People in Africa: Retrospective Analysis Using Demographic and Health Surveys." British Medical Journal 340: c2841.',
-            'Heckman_etal_2021': 'Heckman, James J., Tomas Jagelka, and Tim Kautz. 2021. "Some Contributions of Economics to the Study of Personality." In Handbook of Personality, Vol. 4, edited by O.P. John and R.W. Robins, 853-892. New York, NY: Guilford Press.',
-            'Heckman_Kautz_2014a': 'Heckman, James J. and Tim Kautz. 2014. "Achievement Tests and the Role of Character in American Life." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 3-56. Chicago, IL: University of Chicago Press.',
-            'Heckman_etal_2014a': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "Who Are The GEDs." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 139-170. Chicago, IL: University of Chicago Press.',
-            'Heckman_etal_2014b': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "The Economic and Social Benefits of GED Certification." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 171-267. Chicago, IL: University of Chicago Press.',
-            'Heckman_Kautz_2014b': 'Heckman, James J. and Tim Kautz. 2014. "Fostering and Measuring Skills: Interventions that Improve Character and Cognition." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 293-317. Chicago, IL: University of Chicago Press.',
-            'Heckman_etal_2014c': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "What Should be Done?" In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 431-436. Chicago, IL: University of Chicago Press.',
-            'Almlund_etal_2011': 'Almlund, Mathilde, Angela Lee Duckworth, James J. Heckman, and Tim Kautz. 2011. "Personality Psychology and Economics." In Handbook of the Economics of Education, Vol. 4, edited by E. Hanushek, S. Machin, and L. Woessman, 1-181. Amsterdam: Elsevier.',
-            'Kauff_etal_2024': 'Kauff, Jacqueline, Jennifer Herard, Tim Kautz, Julia Lyskawa, Gina Lewis, Leah Pranschke, and Martine Reynolds. 2024. "Integrating Employment and Mental Health Services: Implementation of the Individual Placement and Support Model for Adults with Justice Involvement." OPRE Report 2024-155. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
-            'Kautz_etal_2024a': 'Kautz, Tim, Charles Tilley, and David Stapleton. 2024. "Exploring How People's Characteristics, Contexts, and Life Events Predict Early Adult Participation in Supplemental Security Income." OPRE Report 2024-076. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
-            'Kautz_etal_2024b': 'Kautz, Tim, Christina Kent, and Dan Thal. 2024. "Using Bayesian Methods to Conduct Subgroup Analysis in Evaluations of Employment Programs." OPRE Report 2024-027. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
-            'Kautz_Anastasio_2024': 'Kautz, Tim and Julius Anastasio. 2024. "The Predictive Power of Measures of Self-Regulation Skills Among Adults with Low Incomes." OPRE Report 2024-008. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
-            'Moore_etal_2023': 'Moore, Quinn, Tim Kautz, Sheena McConnell, Owen Schochet, and April Wu. 2023. "Can a Participant-Centered Approach to Setting and Pursuing Goals Help Adults with Low Incomes Become Economically Stable?" OPRE Report 2023-139. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
-            'Kautz_etal_2021': 'Kautz, Tim, Kathleen Feeney, Hanley Chiang, Sarah Lauffer, Maria Bartlett, and Charles Tilley. 2021. "Using a Survey of Social and Emotional Learning and School Climate to Inform Decisionmaking." Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
-            'Kautz_Moore_2020': 'Kautz, Tim, and Quinn Moore. 2020. "Selecting and Testing Measures of Self-Regulation Skills Among Low-Income Populations." OPRE Report 2020-138. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
-            'Goldring_etal_2020': 'Goldring, Ellen, Melissa A. Clark, Mollie Rubin, Laura K. Rogers, Jason A. Grissom, Brian Gill, Tim Kautz, Moira McCullough, Michael Neel, and Alyson Burnett. 2020. "Changing the Principal Supervisor Role to Better Support Principals: Evidence from the Principal Supervisor Initiative." Princeton, NJ: Mathematica.',
-            'Kautz_etal_2020': 'Kautz, Tim, Charles Tilley, Christine Ross, and Natalie Larkin. 2020. "Development of a School Survey and Index as a School Performance Measure in Maryland: A REL-MSDE Research Partnership." Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
-            'Herrmann_etal_2019': 'Herrmann, Mariesa, Melissa Clark, Susanne James-Burdumy, Christina Tuttle, Tim Kautz, Virginia Knechtel, Dallas Dotter, Claire Smither Wulsin, and John Deke. 2019. "The Effects of a Principal Professional Development Program Focused on Instructional Leadership." NCEE Report 2020-0002. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
-            'Kautz_etal_2014': 'Kautz, Tim, James J. Heckman, Ron Diris, Bas ter Weel, and Lex Borghans. 2014. "Fostering and Measuring Skills: Improving Cognitive and Non-Cognitive Skills to Promote Lifetime Success." Paris, France: Organisation of Economic Co-operation and Development.',
-            'Lira_etal_inreview': 'Lira, Benjamin, Maria Bartlett, Tim Kautz, and Angela L. Duckworth. "Remote Schooling Depresses Course Grades for the Most Vulnerable Students." Unpublished manuscript, under review.'
-        };
-        
-        document.querySelectorAll('.btn-cite').forEach(button => {
-            button.addEventListener('click', function() {
-                const citationId = this.getAttribute('data-id');
-                const citation = citations[citationId];
+        // Show/hide sections with improved visibility detection
+        document.querySelectorAll('.research-section').forEach(section => {
+            if (filter === 'all') {
+                section.style.display = 'block';
+            } else {
+                // Better visibility check using computed styles
+                const items = section.querySelectorAll('.research-item');
+                let hasVisibleItems = false;
                 
-                if (citation) {
-                    navigator.clipboard.writeText(citation).then(function() {
-                        // Show toast notification
-                        const toast = document.getElementById('toast');
-                        toast.classList.add('visible');
-                        
-                        // Hide toast after 3 seconds
-                        setTimeout(function() {
-                            toast.classList.remove('visible');
-                        }, 3000);
-                    });
+                for (let i = 0; i < items.length; i++) {
+                    const computedStyle = window.getComputedStyle(items[i]);
+                    if (computedStyle.getPropertyValue('display') !== 'none') {
+                        hasVisibleItems = true;
+                        break;
+                    }
                 }
-            });
+                
+                section.style.display = hasVisibleItems ? 'block' : 'none';
+            }
         });
+    });
+});
+
+// Back to top functionality
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+});
+
+backToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Citation copying functionality
+const citations = {
+    'Kautz_Zanoni_2024': 'Kautz, Tim, and Wladimir Zanoni. 2024. "Measurement and Development of Noncognitive Skills in Adolescence: Evidence from Chicago Public Schools and the OneGoal Program." Journal of Human Capital 18 (2): 272-303.',
+    'Feng_etal_2024': 'Feng, Shuaizhang, Yu Gan, Yujie Han, and Tim Kautz. 2024. "Shorter Can Be Better: Balancing Length and Predictive Power when Measuring Noncognitive Skills to Predict Academic Outcomes." Economics Letters 236: 111598.',
+    'Lira_etal_2022': 'Lira, Benjamin, Joseph M. O\'Brien, Pablo A. Peña, Brian M. Galla, Sidney D\'Mello, David S. Yeager, Amy Defnet, Tim Kautz, Kate Munkacsy, and Angela L. Duckworth. 2022. "Large Studies Reveal How Reference Bias Limits Policy Applications of Self-Report Measures." Scientific Reports 12: 19189.',
+    'Feng_etal_2022': 'Feng, Shuaizhang, Yujie Han, James J. Heckman, and Tim Kautz. 2022. "Comparing the Reliability and Predictive Power of Child, Teacher, and Guardian Reports of Noncognitive Skills." Proceedings of the National Academy of Sciences 119 (6): e2113992119.',
+    'Schochet_etal_2022': 'Schochet, Peter Z., Nicole E. Pashley, Luke W. Miratrix, and Tim Kautz. 2022. "Design-Based Ratio Estimators and Central Limit Theorems for Clustered, Blocked RCTs." Journal of the American Statistical Association 117 (540): 2135-2146.',
+    'Milkman_etal_2021': 'Milkman, Katherine L., et al. (including Tim Kautz). 2021. "Megastudies Improve the Impact of Applied Behavioural Science." Nature 600: 478-483.',
+    'Duckworth_etal_2021': 'Duckworth, Angela L., Tim Kautz, Amy Defnet, Emma Satlof-Bedrick, Sean Talamas, Benjamin Lira Luttges, and Laurence Steinberg. 2021. "Students Attending School Remotely Suffer Socially, Emotionally, and Academically." Educational Researcher 50 (7): 479-482.',
+    'Hock_etal_2021': 'Hock, Heinrich, Dara Lee Luca, Tim Kautz, and David Stapleton. 2021. "Improving the Outcomes of Youth with Medical Limitations: Evidence from the National Job Corps Study." Journal of Economics & Management Strategy 32 (3): 636-656.',
+    'Deke_Wei_Kautz_2021': 'Deke, John, Thomas Wei, and Tim Kautz. 2021. "Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts." Journal of Research on Educational Effectiveness 14 (1): 207-240.',
+    'Chen_etal_2020': 'Chen, Yuanyuan, Shuaizhang Feng, James J. Heckman, and Tim Kautz. 2020. "Sensitivity of Self-Reported Non-Cognitive Skills to Survey Administration Conditions." Proceedings of the National Academy of Sciences 117 (2): 931-935.',
+    'Heckman_Kautz_2012': 'Heckman, James J. and Tim Kautz. 2012. "Hard Evidence on Soft Skills." Labour Economics 19 (4): 451-464.',
+    'Kautz_etal_2010': 'Kautz, Tim, Eran Bendavid, Jay Bhattacharya, and Grant Miller. 2010. "AIDS and Declining Support for Dependent Elderly People in Africa: Retrospective Analysis Using Demographic and Health Surveys." British Medical Journal 340: c2841.',
+    'Heckman_etal_2021': 'Heckman, James J., Tomas Jagelka, and Tim Kautz. 2021. "Some Contributions of Economics to the Study of Personality." In Handbook of Personality, Vol. 4, edited by O.P. John and R.W. Robins, 853-892. New York, NY: Guilford Press.',
+    'Heckman_Kautz_2014a': 'Heckman, James J. and Tim Kautz. 2014. "Achievement Tests and the Role of Character in American Life." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 3-56. Chicago, IL: University of Chicago Press.',
+    'Heckman_etal_2014a': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "Who Are The GEDs." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 139-170. Chicago, IL: University of Chicago Press.',
+    'Heckman_etal_2014b': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "The Economic and Social Benefits of GED Certification." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 171-267. Chicago, IL: University of Chicago Press.',
+    'Heckman_Kautz_2014b': 'Heckman, James J. and Tim Kautz. 2014. "Fostering and Measuring Skills: Interventions that Improve Character and Cognition." In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 293-317. Chicago, IL: University of Chicago Press.',
+    'Heckman_etal_2014c': 'Heckman, James J., John Eric Humphries, and Tim Kautz. 2014. "What Should be Done?" In The Myth of Achievement Tests: The GED and the Role of Character in American Life, edited by J.J. Heckman, J.E. Humphries, and T. Kautz, 431-436. Chicago, IL: University of Chicago Press.',
+    'Almlund_etal_2011': 'Almlund, Mathilde, Angela Lee Duckworth, James J. Heckman, and Tim Kautz. 2011. "Personality Psychology and Economics." In Handbook of the Economics of Education, Vol. 4, edited by E. Hanushek, S. Machin, and L. Woessman, 1-181. Amsterdam: Elsevier.',
+    'Kauff_etal_2024': 'Kauff, Jacqueline, Jennifer Herard, Tim Kautz, Julia Lyskawa, Gina Lewis, Leah Pranschke, and Martine Reynolds. 2024. "Integrating Employment and Mental Health Services: Implementation of the Individual Placement and Support Model for Adults with Justice Involvement." OPRE Report 2024-155. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+    'Kautz_etal_2024a': 'Kautz, Tim, Charles Tilley, and David Stapleton. 2024. "Exploring How People's Characteristics, Contexts, and Life Events Predict Early Adult Participation in Supplemental Security Income." OPRE Report 2024-076. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+    'Kautz_etal_2024b': 'Kautz, Tim, Christina Kent, and Dan Thal. 2024. "Using Bayesian Methods to Conduct Subgroup Analysis in Evaluations of Employment Programs." OPRE Report 2024-027. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+    'Kautz_Anastasio_2024': 'Kautz, Tim and Julius Anastasio. 2024. "The Predictive Power of Measures of Self-Regulation Skills Among Adults with Low Incomes." OPRE Report 2024-008. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+    'Moore_etal_2023': 'Moore, Quinn, Tim Kautz, Sheena McConnell, Owen Schochet, and April Wu. 2023. "Can a Participant-Centered Approach to Setting and Pursuing Goals Help Adults with Low Incomes Become Economically Stable?" OPRE Report 2023-139. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+    'Kautz_etal_2021': 'Kautz, Tim, Kathleen Feeney, Hanley Chiang, Sarah Lauffer, Maria Bartlett, and Charles Tilley. 2021. "Using a Survey of Social and Emotional Learning and School Climate to Inform Decisionmaking." Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
+    'Kautz_Moore_2020': 'Kautz, Tim, and Quinn Moore. 2020. "Selecting and Testing Measures of Self-Regulation Skills Among Low-Income Populations." OPRE Report 2020-138. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.',
+    'Goldring_etal_2020': 'Goldring, Ellen, Melissa A. Clark, Mollie Rubin, Laura K. Rogers, Jason A. Grissom, Brian Gill, Tim Kautz, Moira McCullough, Michael Neel, and Alyson Burnett. 2020. "Changing the Principal Supervisor Role to Better Support Principals: Evidence from the Principal Supervisor Initiative." Princeton, NJ: Mathematica.',
+    'Kautz_etal_2020': 'Kautz, Tim, Charles Tilley, Christine Ross, and Natalie Larkin. 2020. "Development of a School Survey and Index as a School Performance Measure in Maryland: A REL-MSDE Research Partnership." Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
+    'Herrmann_etal_2019': 'Herrmann, Mariesa, Melissa Clark, Susanne James-Burdumy, Christina Tuttle, Tim Kautz, Virginia Knechtel, Dallas Dotter, Claire Smither Wulsin, and John Deke. 2019. "The Effects of a Principal Professional Development Program Focused on Instructional Leadership." NCEE Report 2020-0002. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.',
+    'Kautz_etal_2014': 'Kautz, Tim, James J. Heckman, Ron Diris, Bas ter Weel, and Lex Borghans. 2014. "Fostering and Measuring Skills: Improving Cognitive and Non-Cognitive Skills to Promote Lifetime Success." Paris, France: Organisation of Economic Co-operation and Development.',
+    'Lira_etal_inreview': 'Lira, Benjamin, Maria Bartlett, Tim Kautz, and Angela L. Duckworth. "Remote Schooling Depresses Course Grades for the Most Vulnerable Students." Unpublished manuscript, under review.'
+};
+
+document.querySelectorAll('.btn-cite').forEach(button => {
+    button.addEventListener('click', function() {
+        const citationId = this.getAttribute('data-id');
+        const citation = citations[citationId];
+        
+        if (citation) {
+            navigator.clipboard.writeText(citation).then(function() {
+                // Show toast notification
+                const toast = document.getElementById('toast');
+                toast.classList.add('visible');
+                
+                // Hide toast after 3 seconds
+                setTimeout(function() {
+                    toast.classList.remove('visible');
+                }, 3000);
+            });
+        }
+    });
+});
     </script>
 </body>
 </html>
