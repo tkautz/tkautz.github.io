@@ -342,15 +342,21 @@ footer {
   padding: 2.5rem 0;
 }
 
-/* Added footer content styles for the new links */
+/* Footer content styles with new social links */
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  margin-bottom: 1rem;
 }
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 
@@ -364,14 +370,11 @@ footer {
 .footer-link:hover {
   opacity: 0.8;
   color: white;
+  text-decoration: underline;
 }
 
 .footer-link svg {
   margin-right: 0.5rem;
-}
-
-.footer-link-text {
-  margin-left: 0.5rem;
 }
 
 /* Hero Section */
@@ -969,10 +972,6 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-  }
-  
-  .footer-link-text {
-    font-size: 0.9rem;
   }
 }
 
