@@ -77,11 +77,12 @@
 
             <div class="contact-layout">
                 <div class="contact-details">
-                    <p><strong>Email:</strong> <a href="mailto:tdkautz@gmail.com">tdkautz@gmail.com</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:tkautz@mathematica-mpr.com">tkautz@mathematica-mpr.com</a></p>
                     <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tkautz" target="_blank" rel="noopener noreferrer">linkedin.com/in/tkautz</a></p>
                 </div>
                 <!-- Contact form styled as a card to match the site's design system -->
-                <form id="contact-form" class="contact-form" method="POST">
+                <!-- Use the Formsubmit alias endpoint to send form data to your Gmail address without exposing it. -->
+                <form id="contact-form" class="contact-form" action="https://formsubmit.co/5a0501f1385173863b023f3f881b15c3" method="POST">
                     <!-- Hidden inputs for Formsubmit configuration -->
                     <input type="hidden" name="_subject" value="New message from your website">
                     <input type="hidden" name="_captcha" value="false">
@@ -105,33 +106,7 @@
                 </form>
             </div>
 
-            <!-- AJAX submission script for the contact form -->
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const form = document.getElementById('contact-form');
-                form.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    const formData = new FormData(form);
-                    // Use the formsubmit AJAX endpoint to send the message without opening an email client
-                    fetch('https://formsubmit.co/ajax/tdkautz@gmail.com', {
-                        method: 'POST',
-                        headers: { 'Accept': 'application/json' },
-                        body: formData
-                    })
-                    .then(function(response) {
-                        return response.json();
-                    })
-                    .then(function(data) {
-                        // Replace the form content with a confirmation message on success
-                        form.innerHTML = '<p>Thank you! Your message has been sent successfully.</p>';
-                    })
-                    .catch(function(error) {
-                        // Display an error message if something goes wrong
-                        form.innerHTML = '<p>Sorry, there was an error sending your message. Please try again later.</p>';
-                    });
-                });
-            });
-            </script>
+            <!-- The AJAX script has been removed to allow Formsubmit to handle submissions via its HTML endpoint. -->
         </div>
     </main>
 
