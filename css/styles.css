@@ -102,9 +102,19 @@ a:hover {
   color: var(--primary-color);
 }
 
+/*
+ * Improve focus styles for links. The previous implementation applied a thick outline
+ * around the element which sometimes overflowed outside of its bounding box,
+ * creating a horizontal bar effect when the focused element spanned the full
+ * width of the navigation bar. To ensure focus indication remains visible
+ * without bleeding outside of the element, we remove the default outline and
+ * instead apply a subtle box-shadow on focus. The border‑radius ensures the
+ * shadow follows the shape of pill or button elements.
+ */
 a:focus {
-  outline: 3px solid rgba(77, 149, 211, 0.4);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(77, 149, 211, 0.4);
+  border-radius: 4px;
 }
 
 img {
@@ -143,6 +153,19 @@ ul, ol {
 
 .hidden {
   display: none !important;
+}
+
+/* Utility class to visually hide elements but keep them accessible to screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .text-center {
@@ -247,8 +270,18 @@ ul, ol {
 
 /* Header and Navigation */
 header {
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  /*
+   * Use a very light background colour for the header so it stands apart from
+   * the rest of the page. The slight tint distinguishes the navigation area
+   * without being distracting. A stronger drop shadow improves separation and
+   * ensures the header remains visible when scrolling. Sticky positioning
+   * keeps the header fixed to the top of the viewport.
+   */
+  background-color: var(--bg-light);
+  /* Add a subtle border and slightly stronger shadow to ensure the header
+     stands out from the page content. */
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -590,6 +623,78 @@ footer {
   justify-content: center;
 }
 
+/* Year filter dropdown styles */
+.year-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.year-filter select {
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  background-color: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.year-filter select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(14, 40, 81, 0.25);
+}
+
+/* Layout container for search bar and year filter within the research header */
+.research-header .research-tools {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* push tools to the right on wider screens */
+  margin-left: auto;
+}
+
+/* Remove extra bottom margin on search bar when inside research header */
+.research-header .search-bar {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* Override year filter styles when inside research header */
+.research-header .year-filter {
+  margin-bottom: 0;
+}
+
+.research-header .year-filter select {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: var(--text-color);
+  cursor: pointer;
+  max-width: 140px;
+}
+
+.research-header .year-filter select:focus {
+  outline: 3px solid rgba(77, 149, 211, 0.4);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Year headings inserted when grouping research items by year */
+.year-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.25rem;
+}
+
 .filter-button {
   background-color: transparent;
   border: 2px solid var(--primary-color);
@@ -636,6 +741,119 @@ footer {
   flex: 0 0 auto;
 }
 
+/* Search bar for research page */
+.search-bar {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.search-bar input:focus {
+  outline: 3px solid rgba(77, 149, 211, 0.4);
+  outline-offset: 2px;
+}
+
+/* Header for research page: aligns title and search bar */
+.research-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Remove bottom margin when search bar is inside the research header */
+.research-header .search-bar {
+  margin-bottom: 0;
+}
+
+/* Contact page styles */
+.contact-page {
+  padding: 4rem 0 6rem;
+}
+
+/* Accordion styles for CV sections using <details> */
+.details-cv {
+  /* Further reduce spacing between accordion panels. */
+  margin-bottom: 0.9rem;
+}
+.details-cv summary {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  list-style: none;
+  outline: none;
+}
+.details-cv summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Align the page title to the left on the contact page to match the layout of other sections */
+.contact-page .page-title {
+  text-align: left;
+}
+
+.contact-info {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--bg-light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-form button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.contact-form button:hover {
+  background-color: #254b73;
+}
+
 /* CV Page Styles */
 .cv-page {
   padding: 4rem 0 6rem;
@@ -652,23 +870,54 @@ footer {
   margin-left: auto;
 }
 
+/* Table of contents for CV sections */
+.cv-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.cv-toc a {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.cv-toc a:hover {
+  background-color: rgba(46, 93, 140, 0.05);
+}
+
+/* Remove default browser focus outline and provide custom focus style for CV TOC links */
+.cv-toc a:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(77, 149, 211, 0.4);
+}
+
 .cv-section {
-  margin-bottom: 3.5rem;
+  /* Reduce the vertical spacing between CV sections to shorten the page. */
+  /* Further reduce vertical spacing between CV sections. */
+  margin-bottom: 1.6rem;
   scroll-margin-top: 100px; /* Added for smooth scrolling to sections */
 }
 
 .cv-section h3 {
   border-bottom: 2px solid var(--secondary-color);
   padding-bottom: 0.75rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1rem;
   color: var(--primary-color);
 }
 
 .cv-item {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.5rem;
-  margin-bottom: 1.75rem;
+  gap: 0.3rem;
+  /* Further reduce vertical spacing between CV items (e.g., positions and affiliations). */
+  margin-bottom: 0.6rem;
 }
 
 @media (min-width: 768px) {
@@ -699,9 +948,13 @@ footer {
 }
 
 .cv-publication {
-  margin-bottom: 1.75rem;
+  /* Further reduce vertical spacing between publication entries. */
+  margin-bottom: 0.6rem;
   padding-left: 1.75rem;
   position: relative;
+  /* Slightly tighter line height for publication entries to reduce vertical space
+     within multi-line citations without sacrificing readability. */
+  line-height: 1.5;
 }
 
 .cv-publication::before {
@@ -721,9 +974,12 @@ footer {
 }
 
 .cv-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
   padding-left: 1.5rem;
   position: relative;
+  /* Reduce line height for list items in funding and presentation sections to
+     minimize vertical space while keeping text legible. */
+  line-height: 1.5;
 }
 
 .cv-list li::before {
@@ -972,6 +1228,87 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+  }
+}
+
+/* Additional mobile enhancements to improve usability on narrow screens */
+@media (max-width: 576px) {
+  /* Stack the research header elements vertically and allow full‑width inputs */
+  .research-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* Reset margin to align tools under the title */
+  .research-header .research-tools {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Make search bar and year dropdown span the full width */
+  .research-header .search-bar,
+  .research-header .year-filter {
+    width: 100%;
+  }
+
+  .research-header .search-bar input {
+    width: 100%;
+  }
+
+  /* Ensure research filter buttons remain accessible with horizontal scroll */
+  .research-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .filter-button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  /* Allow the CV table of contents to scroll horizontally when too many items are present */
+  .cv-toc {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cv-toc a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  /* Slightly reduce the size of summary headings in CV details */
+  .details-cv summary {
+    font-size: 1.25rem;
+  }
+
+  /* Reduce heading size for CV section titles */
+  .cv-section h3 {
+    font-size: 1.4rem;
+  }
+
+  /* Reduce vertical spacing between publication entries and list items */
+  .cv-publication {
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Reduce spacing between general CV items */
+  .cv-item {
+    margin-bottom: 0.5rem;
   }
 }
 

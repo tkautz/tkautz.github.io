@@ -60,6 +60,7 @@
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="research.html">RESEARCH</a></li>
                         <li><a href="cv.html" class="active" aria-current="page">CV</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
                     </ul>
                 </nav>
             </div>
@@ -69,7 +70,26 @@
     <main id="main-content" class="cv-page">
         <div class="container">
             <div class="cv-header">
-                <h1 class="page-title">Curriculum Vitae</h1>
+            <h1 class="page-title">Curriculum Vitae</h1>
+
+            <!-- Table of contents for quick navigation between CV sections -->
+            <nav class="cv-toc" aria-label="CV sections navigation">
+                <!-- Consolidate the first three sections into a single link and
+                     reorder the remaining links to follow the order of the CV. -->
+                <!-- Simplify the navigation bar by combining related sections.
+                     The Position & Education link scrolls to the top of the
+                     current position section and covers affiliations and education.
+                     Publications jumps to the journal articles section. Funding & Awards
+                     remains its own link. Presentations & Interviews links to the
+                     presentations section and covers the media section. Finally,
+                     the Other link directs to the service section and encompasses
+                     service, previous positions, and skills. -->
+                <a href="#current-position">Position &amp; Education</a>
+                <a href="#journal-articles">Publications</a>
+                <a href="#funding">Funding &amp; Awards</a>
+                <a href="#presentations">Presentations &amp; Interviews</a>
+                <a href="#service">Other</a>
+            </nav>
                 <a href="documents/TimKautz_CV.pdf" class="btn primary cv-download">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: text-bottom;">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -82,114 +102,124 @@
             
             <!-- Current Position Section -->
             <section id="current-position" class="cv-section">
-                <h3>Current Position</h3>
-                <div class="cv-item">
-                    <div class="cv-item-details">
-                        <span class="cv-item-title">Senior Researcher, <a href="https://www.mathematica.org/">Mathematica</a>, Princeton, NJ</span>
+                <!-- Convert to accordion for better navigation -->
+                <details class="details-cv" open>
+                    <summary>Current Position</summary>
+                    <div class="cv-item">
+                        <div class="cv-item-details">
+                            <span class="cv-item-title">Senior Researcher, <a href="https://www.mathematica.org/">Mathematica</a>, Princeton, NJ</span>
+                        </div>
+                        <div class="cv-item-date">Sep. 2015 - Present</div>
                     </div>
-                    <div class="cv-item-date">Sep. 2015 - Present</div>
-                </div>
+                </details>
             </section>
             
             <!-- Affiliations Section -->
             <section id="affiliations" class="cv-section">
-                <h3>Affiliations</h3>
-                <div class="cv-item">
-                    <div class="cv-item-details">
-                        <span class="cv-item-title">Senior Fellow, <a href="https://bcfg.wharton.upenn.edu/">Behavior Change for Good Initiative</a>, University of Pennsylvania, Philadelphia, PA</span>
+                <details class="details-cv" open>
+                    <summary>Affiliations</summary>
+                    <div class="cv-item">
+                        <div class="cv-item-details">
+                            <span class="cv-item-title">Senior Fellow, <a href="https://bcfg.wharton.upenn.edu/">Behavior Change for Good Initiative</a>, University of Pennsylvania, Philadelphia, PA</span>
+                        </div>
+                        <div class="cv-item-date">Aug. 2019 - Present</div>
                     </div>
-                    <div class="cv-item-date">Aug. 2019 - Present</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-details">
-                        <span class="cv-item-title">Adjunct Professor, <a href="https://iesr.jnu.edu.cn/Home/main.htm">Institute for Economic and Social Research</a>, Jinan University, Guangzhou, China</span>
+                    <div class="cv-item">
+                        <div class="cv-item-details">
+                            <span class="cv-item-title">Adjunct Professor, <a href="https://iesr.jnu.edu.cn/Home/main.htm">Institute for Economic and Social Research</a>, Jinan University, Guangzhou, China</span>
+                        </div>
+                        <div class="cv-item-date">Sep. 2016 - Present</div>
                     </div>
-                    <div class="cv-item-date">Sep. 2016 - Present</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-details">
-                        <span class="cv-item-title">Network Leader, <a href="https://hceconomics.uchicago.edu/">Human Capital and Economic Opportunity Global Working Group</a>, University of Chicago, Chicago, IL</span>
+                    <div class="cv-item">
+                        <div class="cv-item-details">
+                            <span class="cv-item-title">Network Leader, <a href="https://hceconomics.uchicago.edu/">Human Capital and Economic Opportunity Global Working Group</a>, University of Chicago, Chicago, IL</span>
+                        </div>
+                        <div class="cv-item-date">Jun. 2015 - Present</div>
                     </div>
-                    <div class="cv-item-date">Jun. 2015 - Present</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-details">
-                        <span class="cv-item-title">Senior Visiting Fellow, <a href="https://www.briq-institute.org/">briq - Institute on Behavior & Inequality</a>, Bonn, Germany</span>
+                    <div class="cv-item">
+                        <div class="cv-item-details">
+                            <span class="cv-item-title">Senior Visiting Fellow, <a href="https://www.briq-institute.org/">briq - Institute on Behavior & Inequality</a>, Bonn, Germany</span>
+                        </div>
+                        <div class="cv-item-date">Apr. 2019</div>
                     </div>
-                    <div class="cv-item-date">Apr. 2019</div>
-                </div>
+                </details>
             </section>
             
             <!-- Education Section -->
             <section id="education" class="cv-section">
-                <h3>Education</h3>
-                <div class="cv-item">
-                    <div class="cv-item-details">
-                        <span class="cv-item-title">Ph.D. Economics, University of Chicago</span>
+                <details class="details-cv" open>
+                    <summary>Education</summary>
+                    <div class="cv-item">
+                        <div class="cv-item-details">
+                            <span class="cv-item-title">Ph.D. Economics, University of Chicago</span>
+                        </div>
+                        <div class="cv-item-date">Jun. 2015</div>
                     </div>
-                    <div class="cv-item-date">Jun. 2015</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-details">
-                        <span class="cv-item-title">M.A. Economics, University of Chicago</span>
+                    <div class="cv-item">
+                        <div class="cv-item-details">
+                            <span class="cv-item-title">M.A. Economics, University of Chicago</span>
+                        </div>
+                        <div class="cv-item-date">Jun. 2012</div>
                     </div>
-                    <div class="cv-item-date">Jun. 2012</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-details">
-                        <span class="cv-item-title">B.A. Economics (with Honors), Stanford University</span>
+                    <div class="cv-item">
+                        <div class="cv-item-details">
+                            <span class="cv-item-title">B.A. Economics (with Honors), Stanford University</span>
+                        </div>
+                        <div class="cv-item-date">Jun. 2008</div>
                     </div>
-                    <div class="cv-item-date">Jun. 2008</div>
-                </div>
+                </details>
             </section>
             
             <!-- Journal Articles Section (expanded) -->
             <section id="journal-articles" class="cv-section">
-                <h3>Journal Articles</h3>
-                <ul class="cv-publications">
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong> and Wladimir Zanoni. (2024). <a href="documents/Kautz_Zanoni_2024_Measurement and Development.pdf">"Measurement and Development of Noncognitive Skills in Adolescence: Evidence from Chicago Public Schools and the OneGoal Program."</a> <em>Journal of Human Capital</em>, 18(2): 272-303.
-                    </li>
-                    <li class="cv-publication">
-                        Feng, Shuaizhang, Yu Gan, Yujie Han, and <strong>Tim Kautz</strong>. (2024). <a href="documents/Feng_etal_2024_Shorter Can Be Better.pdf">"Shorter Can Be Better: Balancing Length and Predictive Power when Measuring Noncognitive Skills to Predict Academic Outcomes."</a> <em>Economics Letters</em>, 236: 111598.
-                    </li>
-                    <li class="cv-publication">
-                        Lira, Benjamin, Joseph M. O'Brien, Pablo A. Peña, Brian M. Galla, Sidney D'Mello, David S. Yeager, Amy Defnet, <strong>Tim Kautz</strong>, Kate Munkacsy, and Angela L. Duckworth. (2022). <a href="documents/Lira_etal_2022_Large Studies Reveal.pdf">"Large Studies Reveal How Reference Bias Limits Policy Applications of Self-Report Measures.''</a> <em>Scientific Reports</em>, 12: 19189.
-                    </li>
-                    <li class="cv-publication">
-                        Feng, Shuaizhang, Yujie Han, James J. Heckman, and <strong>Tim Kautz</strong>. (2022). <a href="documents/Feng_etal_2022_Comparing the reliability and predictive power.pdf">"Comparing the Reliability and Predictive Power of Child, Teacher, and Guardian Reports of Noncognitive Skills."</a> <em>Proceedings of the National Academy of Sciences</em>, 119(6): e2113992119.
-                    </li>
-                    <li class="cv-publication">
-                        Schochet, Peter Z., Nicole E. Pashley, Luke W. Miratrix, and <strong>Tim Kautz</strong>. (2022). <a href="documents/Schochet_etal_2022_Design-Based Ratio Estimators.pdf">"Design-Based Ratio Estimators and Central Limit Theorems for Clustered, Blocked RCTs."</a> <em>Journal of the American Statistical Association</em>, 117(540): 2135-2146.
-                    </li>
-                    <li class="cv-publication">
-                        Milkman, Katherine L., Dena Gromet, Hung Ho, Joseph S. Kay,..., <strong>Tim Kautz</strong>,..., and Angela L. Duckworth. (2021). <a href="documents/Milkman_etal_2021_Megastudies Improve.pdf">"Megastudies Improve the Impact of Applied Behavioural Science."</a> <em>Nature</em>, 600: 478-483.
-                    </li>
-                    <li class="cv-publication">
-                        Duckworth, Angela L., <strong>Tim Kautz</strong>, Amy Defnet, Emma Satlof-Bedrick, Sean Talamas, Benjamin Lira Luttges, and Laurence Steinberg. (2021). <a href="documents/Duckworth_etal_2021_Students Attending.pdf">"Students Attending School Remotely Suffer Socially, Emotionally, and Academically."</a> <em>Educational Researcher</em>, 50(7): 479-482.
-                    </li>
-                    <li class="cv-publication">
-                        Hock, Heinrich, Dara Lee Luca, <strong>Tim Kautz</strong>, and David Stapleton. (2021). <a href="documents/Hock_etal_2021_Improving the outcomes of youth.pdf">"Improving the Outcomes of Youth with Medical Limitations: Evidence from the National Job Corps Study."</a> <em>Journal of Economics & Management Strategy</em>, 32(3): 636-656.
-                    </li>
-                    <li class="cv-publication">
-                        Deke, John, Thomas Wei, and <strong>Tim Kautz</strong>. (2021). <a href="documents/Deke_Wei_Kautz_2021_Asymdystopia.pdf">"Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts."</a> <em>Journal of Research on Educational Effectiveness</em>, 14(1): 207-240.
-                    </li>
-                    <li class="cv-publication">
-                        Chen, Yuanyuan, Shuaizhang Feng, James J. Heckman, and <strong>Tim Kautz</strong>. (2020). <a href="documents/Chen_etal_2020_Sensitivity.pdf">"Sensitivity of Self-Reported Non-Cognitive Skills to Survey Administration Conditions."</a> <em>Proceedings of the National Academy of Sciences</em>, 117(2): 931-935.
-                    </li>
-                    <li class="cv-publication">
-                        Heckman, James J. and <strong>Tim Kautz</strong>. (2012). <a href="documents/Heckman_Kautz_2012_Hard Evidence.pdf">"Hard Evidence on Soft Skills."</a> <em>Labour Economics</em>, 19(4): 451-464.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, Eran Bendavid, Jay Bhattacharya, and Grant Miller. (2010). <a href="documents/Kautz_etal_2010_AIDS Declining.pdf">"AIDS and Declining Support for Dependent Elderly People in Africa: Retrospective Analysis Using Demographic and Health Surveys."</a> <em>British Medical Journal</em>, 340: c2841.
-                    </li>
-                </ul>
+                <details class="details-cv" open>
+                    <summary>Journal Articles</summary>
+                    <ul class="cv-publications">
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong> and Wladimir Zanoni. (2024). <a href="documents/Kautz_Zanoni_2024_Measurement and Development.pdf">"Measurement and Development of Noncognitive Skills in Adolescence: Evidence from Chicago Public Schools and the OneGoal Program."</a> <em>Journal of Human Capital</em>, 18(2): 272-303.
+                        </li>
+                        <li class="cv-publication">
+                            Feng, Shuaizhang, Yu Gan, Yujie Han, and <strong>Tim Kautz</strong>. (2024). <a href="documents/Feng_etal_2024_Shorter Can Be Better.pdf">"Shorter Can Be Better: Balancing Length and Predictive Power when Measuring Noncognitive Skills to Predict Academic Outcomes."</a> <em>Economics Letters</em>, 236: 111598.
+                        </li>
+                        <li class="cv-publication">
+                            Lira, Benjamin, Joseph M. O'Brien, Pablo A. Peña, Brian M. Galla, Sidney D'Mello, David S. Yeager, Amy Defnet, <strong>Tim Kautz</strong>, Kate Munkacsy, and Angela L. Duckworth. (2022). <a href="documents/Lira_etal_2022_Large Studies Reveal.pdf">"Large Studies Reveal How Reference Bias Limits Policy Applications of Self-Report Measures.''</a> <em>Scientific Reports</em>, 12: 19189.
+                        </li>
+                        <li class="cv-publication">
+                            Feng, Shuaizhang, Yujie Han, James J. Heckman, and <strong>Tim Kautz</strong>. (2022). <a href="documents/Feng_etal_2022_Comparing the reliability and predictive power.pdf">"Comparing the Reliability and Predictive Power of Child, Teacher, and Guardian Reports of Noncognitive Skills."</a> <em>Proceedings of the National Academy of Sciences</em>, 119(6): e2113992119.
+                        </li>
+                        <li class="cv-publication">
+                            Schochet, Peter Z., Nicole E. Pashley, Luke W. Miratrix, and <strong>Tim Kautz</strong>. (2022). <a href="documents/Schochet_etal_2022_Design-Based Ratio Estimators.pdf">"Design-Based Ratio Estimators and Central Limit Theorems for Clustered, Blocked RCTs."</a> <em>Journal of the American Statistical Association</em>, 117(540): 2135-2146.
+                        </li>
+                        <li class="cv-publication">
+                            Milkman, Katherine L., Dena Gromet, Hung Ho, Joseph S. Kay,..., <strong>Tim Kautz</strong>,..., and Angela L. Duckworth. (2021). <a href="documents/Milkman_etal_2021_Megastudies Improve.pdf">"Megastudies Improve the Impact of Applied Behavioural Science."</a> <em>Nature</em>, 600: 478-483.
+                        </li>
+                        <li class="cv-publication">
+                            Duckworth, Angela L., <strong>Tim Kautz</strong>, Amy Defnet, Emma Satlof-Bedrick, Sean Talamas, Benjamin Lira Luttges, and Laurence Steinberg. (2021). <a href="documents/Duckworth_etal_2021_Students Attending.pdf">"Students Attending School Remotely Suffer Socially, Emotionally, and Academically."</a> <em>Educational Researcher</em>, 50(7): 479-482.
+                        </li>
+                        <li class="cv-publication">
+                            Hock, Heinrich, Dara Lee Luca, <strong>Tim Kautz</strong>, and David Stapleton. (2021). <a href="documents/Hock_etal_2021_Improving the outcomes of youth.pdf">"Improving the Outcomes of Youth with Medical Limitations: Evidence from the National Job Corps Study."</a> <em>Journal of Economics & Management Strategy</em>, 32(3): 636-656.
+                        </li>
+                        <li class="cv-publication">
+                            Deke, John, Thomas Wei, and <strong>Tim Kautz</strong>. (2021). <a href="documents/Deke_Wei_Kautz_2021_Asymdystopia.pdf">"Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts."</a> <em>Journal of Research on Educational Effectiveness</em>, 14(1): 207-240.
+                        </li>
+                        <li class="cv-publication">
+                            Chen, Yuanyuan, Shuaizhang Feng, James J. Heckman, and <strong>Tim Kautz</strong>. (2020). <a href="documents/Chen_etal_2020_Sensitivity.pdf">"Sensitivity of Self-Reported Non-Cognitive Skills to Survey Administration Conditions."</a> <em>Proceedings of the National Academy of Sciences</em>, 117(2): 931-935.
+                        </li>
+                        <li class="cv-publication">
+                            Heckman, James J. and <strong>Tim Kautz</strong>. (2012). <a href="documents/Heckman_Kautz_2012_Hard Evidence.pdf">"Hard Evidence on Soft Skills."</a> <em>Labour Economics</em>, 19(4): 451-464.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, Eran Bendavid, Jay Bhattacharya, and Grant Miller. (2010). <a href="documents/Kautz_etal_2010_AIDS Declining.pdf">"AIDS and Declining Support for Dependent Elderly People in Africa: Retrospective Analysis Using Demographic and Health Surveys."</a> <em>British Medical Journal</em>, 340: c2841.
+                        </li>
+                    </ul>
+                </details>
             </section>
             
             <!-- Book Chapters Section (expanded) -->
             <section id="book-chapters" class="cv-section">
-                <h3>Book Chapters</h3>
-                <ul class="cv-publications">
+                <details class="details-cv" open>
+                    <summary>Book Chapters</summary>
+                    <ul class="cv-publications">
                     <li class="cv-publication">
                         Heckman, James J., Tomas Jagelka, and <strong>Tim Kautz</strong>. (2021). <a href="documents/Heckman_etal_2019_Some Contributions.pdf">"Some Contributions of Economics to the Study of Personality."</a> In <em>Handbook of Personality</em>, Vol. 4, edited by O.P. John and R.W. Robins. New York, NY: Guilford Press. pp. 853-892.
                     </li>
@@ -211,13 +241,15 @@
                     <li class="cv-publication">
                         Almlund, Mathilde, Angela Lee Duckworth, James J. Heckman, and <strong>Tim Kautz</strong>. (2011). <a href="documents/Almlund_etal_2011_Personality Psychology.pdf">"Personality Psychology and Economics,"</a> In <em>Handbook of the Economics of Education</em>, Vol. 4, edited by E. Hanushek, S. Machin, and L. Woessman. Amsterdam: Elsevier. pp. 1-181.
                     </li>
-                </ul>
+                    </ul>
+                </details>
             </section>
             
             <!-- Selected Policy Reports and Briefs Section (EXPANDED with all reports from Version 1) -->
             <section id="policy-reports" class="cv-section">
-                <h3>Selected Policy Reports and Briefs</h3>
-                <ul class="cv-publications">
+                <details class="details-cv" open>
+                    <summary>Selected Policy Reports and Briefs</summary>
+                    <ul class="cv-publications">
                     <li class="cv-publication">
                         Kauff, Jacqueline, Jennifer Herard, <strong>Tim Kautz</strong>, Julia Lyskawa, Gina Lewis, Leah Pranschke, and Martine Reynolds. (2024). <a href="documents/Kauff_etal_2024_Integrating_Employment_Services.pdf">"Integrating Employment and Mental Health Services: Implementation of the Individual Placement and Support Model for Adults with Justice Involvement."</a> OPRE Report 2024-155. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
                     </li>
@@ -275,34 +307,40 @@
                     <li class="cv-publication">
                         Macurdy, Thomas, Jonathan Gibbs, <strong>Tim Kautz</strong>, Thomas Deleire, and Margaret O'Brian-Strain. (2009). <a href="documents/MaCurdy_etal_2009_Geographic Price.pdf">"Geographic Variation in Drug Prices and Spending in the Part D Program."</a> Baltimore: Centers for Medicare and Medicaid Services.
                     </li>
-                </ul>
+                    </ul>
+                </details>
             </section>
             
             <!-- Edited Volumes Section (new) -->
             <section id="edited-volumes" class="cv-section">
-                <h3>Edited Volumes</h3>
-                <ul class="cv-publications">
+                <details class="details-cv" open>
+                    <summary>Edited Volumes</summary>
+                    <ul class="cv-publications">
                     <li class="cv-publication">
                         Heckman, James J., John Eric Humphries, and <strong>Tim Kautz</strong>. (2014).
                         <a href="http://press.uchicago.edu/ucp/books/book/chicago/M/bo17116615.html"><em>The Myth of Achievement Tests: The GED and the Role of Character in American Life</em></a>. Chicago, IL: University of Chicago Press.
                     </li>
-                </ul>
+                    </ul>
+                </details>
             </section>
             
             <!-- Works in Progress Section (new) -->
             <section id="works-in-progress" class="cv-section">
-                <h3>Works in Progress</h3>
-                <ul class="cv-publications">
+                <details class="details-cv" open>
+                    <summary>Works in Progress</summary>
+                    <ul class="cv-publications">
                     <li class="cv-publication">
                         Lira, Benjamin, Maria Bartlett, <strong>Tim Kautz</strong>, and Angela L. Duckworth. "Remote Schooling Depresses Course Grades for the Most Vulnerable Students." Under review.
                     </li>
-                </ul>
+                    </ul>
+                </details>
             </section>          
             
             <!-- Funding, Fellowships, and Awards Section -->
             <section id="funding" class="cv-section">
-                <h3>Funding, Fellowships, and Awards</h3>
-                <ul class="cv-list">
+                <details class="details-cv" open>
+                    <summary>Funding, Fellowships, and Awards</summary>
+                    <ul class="cv-list">
                     <li>Spencer Foundation Grant (Co-PI), "Advancing the Measurement of Non-Cognitive skills" ($490k)</li>
                     <li>ECMC Foundation, "Evaluation of Chicago's OneGoal Program" ($100k)</li>
                     <li>Milgrom Foundation Successful Pathways Initiative, "Evaluation of Chicago's OneGoal Program" ($50k)</li>
@@ -311,13 +349,15 @@
                     <li>National Science Foundation Graduate Fellowship</li>
                     <li>Young Investigator Award, Conference on Retroviruses and Opportunistic Infections (2009)</li>
                     <li>Anna Laura Meyers Award for an Outstanding Economics Honors Thesis, Stanford University</li>
-                </ul>
+                    </ul>
+                </details>
             </section>
             
             <!-- Presentations Section (new) -->
             <section id="presentations" class="cv-section">
-                <h3>Presentations</h3>
-                <ul class="cv-list">
+                <details class="details-cv" open>
+                    <summary>Presentations</summary>
+                    <ul class="cv-list">
                     <li><strong>2023:</strong> Association for Public Policy Analysis & Management Conference</li>
                     <li><strong>2022:</strong> Research and Evaluation Conference on Self-Sufficiency</li>
                     <li><strong>2020:</strong> Association for Public Policy Analysis Management Conference, Society for Research on Educational Effectiveness Conference</li>
@@ -329,13 +369,15 @@
                     <li><strong>2014:</strong> Effects of Socioeconomic Status on Identity and Personality Conference, University of Chicago (Family Economics Workshop), American Economic Association Annual Meeting, World Bank</li>
                     <li><strong>2013:</strong> Personality and Identity Formation in Childhood and Adolescence, University of Zurich</li>
                     <li><strong>2008-2012:</strong> American Economic Association Annual Meeting, University of Chicago (The Spencer Conference), Conference on Retroviruses and Opportunistic Infections, Stanford University (Research in Progress Seminar)</li>
-                </ul>
+                    </ul>
+                </details>
             </section>
             
             <!-- Interviews, Opinion Pieces, and Blogs Section (new) -->
             <section id="media" class="cv-section">
-                <h3>Interviews, Opinion Pieces, and Blogs</h3>
-                <ul class="cv-publications">
+                <details class="details-cv" open>
+                    <summary>Interviews, Opinion Pieces, and Blogs</summary>
+                    <ul class="cv-publications">
                     <li class="cv-publication">
                         <a href="https://ies.ed.gov/ncee/edlabs/regions/midatlantic/app/Blog/Post/1050">Intervening Early: Do Data on SEL and School Climate Help Identify Students at Risk of Poor Academic Outcomes?</a>, <em>RELevant Blog</em>, Sep. 2021
                     </li>
@@ -360,7 +402,8 @@
                     <li class="cv-publication">
                         <a href="http://americanradioworks.publicradio.org/features/ged/">Second-Chance Diploma: Examining the GED</a>, <em>American Radio Works (Interview)</em>, Sep. 2013
                     </li>
-                </ul>
+                    </ul>
+                </details>
             </section>
             
             <!-- Professional Service Section -->
@@ -447,6 +490,7 @@
         </div>
     </footer>
 
+
     <!-- Back to top button -->
     <button id="back-to-top" aria-label="Back to top">↑</button>
 
@@ -472,6 +516,55 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+
+        // Expand the corresponding CV section when a table-of-contents link is clicked.
+        document.querySelectorAll('.cv-toc a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                const targetId = this.getAttribute('href').substring(1);
+                /**
+                 * If the link points to the combined "Position & Education" section,
+                 * open the details for current position, affiliations, and education.
+                 * Similarly, the combined "Presentations & Interviews" link opens
+                 * both the presentations and media sections. Otherwise, open the
+                 * target section as usual.
+                 */
+                if (targetId === 'current-position') {
+                    ['current-position', 'affiliations', 'education'].forEach(function(id) {
+                        const sec = document.getElementById(id);
+                        if (sec) {
+                            const det = sec.querySelector('.details-cv');
+                            if (det && !det.open) det.open = true;
+                        }
+                    });
+                } else if (targetId === 'presentations') {
+                    // Expand both presentations and media sections
+                    ['presentations', 'media'].forEach(function(id) {
+                        const sec = document.getElementById(id);
+                        if (sec) {
+                            const det = sec.querySelector('.details-cv');
+                            if (det && !det.open) det.open = true;
+                        }
+                    });
+                } else if (targetId === 'service') {
+                    // Expand the service, previous positions and skills sections for the "Other" link
+                    ['service', 'previous-positions', 'skills'].forEach(function(id) {
+                        const sec = document.getElementById(id);
+                        if (sec) {
+                            const det = sec.querySelector('.details-cv');
+                            if (det && !det.open) det.open = true;
+                        }
+                    });
+                } else {
+                    const section = document.getElementById(targetId);
+                    if (section) {
+                        const detail = section.querySelector('.details-cv');
+                        if (detail && !detail.open) {
+                            detail.open = true;
+                        }
+                    }
+                }
             });
         });
     </script>

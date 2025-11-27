@@ -60,15 +60,47 @@
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="research.html" class="active" aria-current="page">RESEARCH</a></li>
                         <li><a href="cv.html">CV</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
                     </ul>
                 </nav>
             </div>
+
         </div>
     </header>
     
     <main id="main-content" class="research-page">
         <div class="container">
-            <h1 class="page-title">Research</h1>
+        <div class="research-header">
+                <h1 class="page-title">Research</h1>
+                <!-- Container for search and year filter tools -->
+                <div class="research-tools">
+                    <div class="search-bar">
+                        <!-- Hidden label for accessibility -->
+                        <label for="search-input" class="visually-hidden">Search publications</label>
+                        <input type="text" id="search-input" placeholder="Search publications..." aria-label="Search publications" list="publication-suggestions">
+                        <datalist id="publication-suggestions"></datalist>
+                    </div>
+                    <div class="year-filter">
+                        <label for="year-filter" class="visually-hidden">Filter by year</label>
+                        <select id="year-filter" aria-label="Filter by year">
+                            <option value="all">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2014">2014</option>
+                            <option value="2012">2012</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="unknown">No Year</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             
             <div class="research-filter">
                 <button class="filter-button active" data-filter="all">All Publications</button>
@@ -774,6 +806,7 @@
         </div>
     </footer>
 
+
     <!-- Back to top button -->
     <button id="back-to-top" aria-label="Back to top">↑</button>
     
@@ -810,62 +843,35 @@
             });
         }
         
-        // Filter functionality
-        document.querySelectorAll('.filter-button').forEach(button => {
-            button.addEventListener('click', function() {
-                // Update active button
-                document.querySelectorAll('.filter-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // Get filter value
-                const filter = this.getAttribute('data-filter');
-                
-                // Filter research items
-                document.querySelectorAll('.research-item').forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-type') === filter) {
-                        item.style.display = 'grid';
+        /*
+         * All site interaction is wrapped in a DOMContentLoaded event listener to ensure
+         * the DOM elements are available before attaching handlers. This prevents
+         * reference errors and ensures variables are defined prior to use. It also
+         * consolidates functionality (filtering, citation copying, search and year
+         * filtering, back‑to‑top behaviour) into a single scope so variables such
+         * as currentFilter, currentYear and searchQuery remain in context.
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top functionality
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('visible');
                     } else {
-                        item.style.display = 'none';
+                        backToTopButton.classList.remove('visible');
                     }
                 });
-                
-                // Show/hide sections
-                document.querySelectorAll('.research-section').forEach(section => {
-                    if (filter === 'all') {
-                        section.style.display = 'block';
-                    } else {
-                        // Check if this section has visible items
-                        const hasVisibleItems = Array.from(section.querySelectorAll('.research-item')).some(
-                            item => item.style.display !== 'none'
-                        );
-                        section.style.display = hasVisibleItems ? 'block' : 'none';
-                    }
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
                 });
-            });
-        });
-        
-        // Back to top functionality
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
             }
-        });
-        
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Citation copying functionality
-        const citations = {
+
+            // Citation copying functionality
+            const citations = {
             'Kautz_Zanoni_2024': 'Kautz, Tim, and Wladimir Zanoni. 2024. "Measurement and Development of Noncognitive Skills in Adolescence: Evidence from Chicago Public Schools and the OneGoal Program." Journal of Human Capital 18 (2): 272-303.',
             'Feng_etal_2024': 'Feng, Shuaizhang, Yu Gan, Yujie Han, and Tim Kautz. 2024. "Shorter Can Be Better: Balancing Length and Predictive Power when Measuring Noncognitive Skills to Predict Academic Outcomes." Economics Letters 236: 111598.',
             'Lira_etal_2022': 'Lira, Benjamin, Joseph M. O\'Brien, Pablo A. Peña, Brian M. Galla, Sidney D\'Mello, David S. Yeager, Amy Defnet, Tim Kautz, Kate Munkacsy, and Angela L. Duckworth. 2022. "Large Studies Reveal How Reference Bias Limits Policy Applications of Self-Report Measures." Scientific Reports 12: 19189.',
@@ -909,25 +915,174 @@
             'Deke_Wei_Kautz_2021': 'Deke, John, Thomas Wei, and Tim Kautz. 2021. "Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts." Journal of Research on Educational Effectiveness, 14(1): 207-240.'
         };
         
-        document.querySelectorAll('.btn-cite').forEach(button => {
-            button.addEventListener('click', function() {
-                const citationId = this.getAttribute('data-id');
-                const citation = citations[citationId];
-                
-                if (citation) {
-                    navigator.clipboard.writeText(citation).then(function() {
-                        // Show toast notification
-                        const toast = document.getElementById('toast');
-                        toast.classList.add('visible');
-                        
-                        // Hide toast after 3 seconds
-                        setTimeout(function() {
-                            toast.classList.remove('visible');
-                        }, 3000);
+            // Copy citations to clipboard with toast feedback
+            document.querySelectorAll('.btn-cite').forEach(button => {
+                button.addEventListener('click', function() {
+                    const citationId = this.getAttribute('data-id');
+                    const citation = citations[citationId];
+                    if (citation) {
+                        navigator.clipboard.writeText(citation).then(function() {
+                            const toast = document.getElementById('toast');
+                            if (toast) {
+                                toast.classList.add('visible');
+                                setTimeout(function() {
+                                    toast.classList.remove('visible');
+                                }, 3000);
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Unified filtering logic variables
+            let currentFilter = 'all';
+            let currentYear = 'all';
+            let searchQuery = '';
+
+            /**
+             * Update the visibility of research items based on the current filter,
+             * search query and year selection. Also update section visibility.
+             */
+            function updateResearchItems() {
+                document.querySelectorAll('.research-item').forEach(item => {
+                    const type = item.getAttribute('data-type');
+                    const year = item.getAttribute('data-year');
+                    const text = item.textContent.toLowerCase();
+                    const matchesType = currentFilter === 'all' || type === currentFilter;
+                    const matchesYear = currentYear === 'all' || year === currentYear;
+                    const matchesSearch = searchQuery === '' || text.includes(searchQuery);
+                    if (matchesType && matchesYear && matchesSearch) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                document.querySelectorAll('.research-section').forEach(section => {
+                    const hasVisible = Array.from(section.querySelectorAll('.research-item'))
+                        .some(item => item.style.display !== 'none');
+                    section.style.display = hasVisible ? 'block' : 'none';
+                });
+
+                // Show or hide year headings depending on whether any items in that year are visible
+                document.querySelectorAll('.year-heading').forEach(heading => {
+                    let sibling = heading.nextElementSibling;
+                    let anyVisible = false;
+                    while (sibling && !sibling.classList.contains('year-heading')) {
+                        if (sibling.style.display !== 'none') {
+                            anyVisible = true;
+                            break;
+                        }
+                        sibling = sibling.nextElementSibling;
+                    }
+                    heading.style.display = anyVisible ? '' : 'none';
+                });
+            }
+
+            // Assign data-year attributes to each research item based on the year in the authors text
+            const yearFilterElement = document.getElementById('year-filter');
+            if (yearFilterElement) {
+                document.querySelectorAll('.research-item').forEach(item => {
+                    const authorsEl = item.querySelector('.paper-authors');
+                    let year = 'unknown';
+                    if (authorsEl) {
+                        const match = authorsEl.textContent.match(/\((\d{4})\)/);
+                        if (match) {
+                            year = match[1];
+                        }
+                    }
+                    item.setAttribute('data-year', year);
+                });
+                // Listen for changes on the year filter
+                yearFilterElement.addEventListener('change', function() {
+                    currentYear = this.value;
+                    updateResearchItems();
+                });
+            }
+
+            /**
+             * Group research items within each section by their year. This inserts a
+             * heading before each group of items with the same year (descending order),
+             * which improves scannability. Items with no year are grouped under
+             * a blank heading at the end. This function should be called once after
+             * data-year attributes are assigned and before any filtering occurs.
+             */
+            function groupItemsByYear() {
+                document.querySelectorAll('.research-section').forEach(section => {
+                    const items = Array.from(section.querySelectorAll('.research-item'));
+                    // Remove existing year headings if re-grouping
+                    section.querySelectorAll('.year-heading').forEach(h => h.remove());
+                    // Build groups by year
+                    const groups = {};
+                    items.forEach(item => {
+                        const year = item.getAttribute('data-year') || 'unknown';
+                        if (!groups[year]) groups[year] = [];
+                        groups[year].push(item);
+                    });
+                    // Sort years descending; unknown last
+                    const sortedYears = Object.keys(groups).sort((a, b) => {
+                        if (a === 'unknown') return 1;
+                        if (b === 'unknown') return -1;
+                        return b.localeCompare(a);
+                    });
+                    // Append groups back into section
+                    sortedYears.forEach(year => {
+                        const heading = document.createElement('h3');
+                        heading.className = 'year-heading';
+                        heading.textContent = year === 'unknown' ? '' : year;
+                        section.appendChild(heading);
+                        groups[year].forEach(item => {
+                            section.appendChild(item);
+                        });
+                    });
+                });
+            }
+
+            // Filter buttons: update current filter and refresh items
+            document.querySelectorAll('.filter-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-filter');
+                    updateResearchItems();
+                });
+            });
+
+            // Search functionality: update search query and filter items
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    searchQuery = this.value.trim().toLowerCase();
+                    updateResearchItems();
+                });
+            }
+
+            // Autocomplete suggestions for the search bar using datalist
+            (function() {
+                const datalist = document.getElementById('publication-suggestions');
+                if (datalist) {
+                    const suggestions = new Set();
+                    document.querySelectorAll('.paper-title, .paper-authors').forEach(el => {
+                        const words = el.textContent.split(/\s+|,|\.|:/);
+                        words.forEach(word => {
+                            const clean = word.trim();
+                            if (clean.length > 3) {
+                                suggestions.add(clean);
+                            }
+                        });
+                    });
+                    suggestions.forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item;
+                        datalist.appendChild(option);
                     });
                 }
-            });
-        });
+            })();
+
+            // Initial call to display items correctly on page load
+            // Group items by year (only once on load) before initial filtering
+            groupItemsByYear();
+            updateResearchItems();
+        }); // end of DOMContentLoaded wrapper
     </script>
 </body>
 </html>
