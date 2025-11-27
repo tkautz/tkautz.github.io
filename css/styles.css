@@ -519,8 +519,10 @@ footer {
 .research-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  /* Reduce bottom margin in featured research to pull call‑to‑action closer */
+  /* Increase the vertical gap between rows to give each featured research card more breathing room */
+  column-gap: 2.5rem;
+  row-gap: 3rem;
+  /* Slight bottom margin to keep the call‑to‑action within view without crowding */
   margin-bottom: 2rem;
 }
 
@@ -566,62 +568,77 @@ footer {
 /* Improved paper actions styling for featured research cards */
 .paper-actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  /* Align actions to the left with consistent gaps between buttons */
+  justify-content: flex-start;
   gap: 0.5rem;
   margin-top: auto;
   width: 100%;
 }
-
-.btn-abstract, .btn-download, .btn-cite {
+/*
+ * Style the "Abstract", "PDF" and "Cite" controls as pill-shaped buttons to improve
+ * visibility and consistency with other interactive elements. Use flex sizing that
+ * allows the buttons to wrap naturally without stretching to fill the row.
+ */
+.paper-actions .btn-abstract,
+.paper-actions .btn-download,
+.paper-actions .btn-cite {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  border-radius: 3px;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
   cursor: pointer;
   transition: var(--transition);
-  font-weight: 600;
   white-space: nowrap;
-  flex: 1;
-  height: 38px; /* Fixed height for consistency */
+  flex: 0 0 auto;
   text-align: center;
+  border-width: 2px;
+
+  /* Ensure all pill buttons have the same height regardless of element type (button or anchor). */
+  height: 2.35rem;
 }
 
-.btn-abstract {
+/* Outline pill for Abstract button */
+.paper-actions .btn-abstract {
   background-color: transparent;
   color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  border-style: solid;
+  border-color: var(--primary-color);
 }
 
-.btn-abstract:hover {
+.paper-actions .btn-abstract:hover {
   background-color: rgba(46, 93, 140, 0.05);
 }
 
-.btn-download {
+/* Filled pill for PDF button */
+.paper-actions .btn-download {
   background-color: var(--primary-color);
-  color: white;
-  border: 1px solid var(--primary-color);
+  color: #ffffff;
+  border-style: solid;
+  border-color: var(--primary-color);
   text-decoration: none;
 }
 
-.btn-download:hover {
+.paper-actions .btn-download:hover {
   background-color: #254b73;
   border-color: #254b73;
   text-decoration: none;
 }
 
-/* Updated cite button to better match color scheme */
-.btn-cite {
-  background-color: rgba(77, 149, 211, 0.1);
+/* Subtle filled pill for Cite button */
+.paper-actions .btn-cite {
+  background-color: rgba(77, 149, 211, 0.15);
   color: var(--secondary-color);
-  border: 1px solid var(--secondary-color);
+  border-style: solid;
+  border-color: var(--secondary-color);
 }
 
-.btn-cite:hover {
-  background-color: rgba(77, 149, 211, 0.2);
+.paper-actions .btn-cite:hover {
+  background-color: rgba(77, 149, 211, 0.25);
 }
 
 /* Improved abstract styling */
@@ -1481,6 +1498,9 @@ footer {
   color: var(--primary-color);
   transition: var(--transition);
   white-space: nowrap;
+
+  /* Ensure navigation pills show a pointer cursor to reinforce interactivity */
+  cursor: pointer;
 }
 
 .cv-quick-nav .cv-nav-link:hover {
