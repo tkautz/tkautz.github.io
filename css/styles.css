@@ -20,7 +20,7 @@
 }
 
 /* Font imports with optimization */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+/* Removed unused Inter and Manrope font imports. Lato and Roboto are loaded via <link> tags in the HTML. */
 
 /* Accessibility improvements */
 .skip-link {
@@ -67,6 +67,14 @@ body {
   scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
+/* Increase the base font size on very large viewports (wide desktops).
+   This enhancement improves readability without affecting mobile or tablet users. */
+@media (min-width: 1140px) {
+  body {
+    font-size: 18px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   /* Use Roboto for headings with system fallbacks */
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -84,22 +92,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.75rem;
+  /* Slightly reduce the main heading size to maintain hierarchy with increased base font size */
+  font-size: 2.6rem;
   letter-spacing: -0.5px;
 }
 
 h2 {
-  font-size: 2.25rem;
+  /* Slightly reduce the second-level heading size */
+  font-size: 2.1rem;
   letter-spacing: -0.3px;
 }
 
 h3 {
-  font-size: 1.75rem;
+  /* Slightly reduce the third-level heading size */
+  font-size: 1.6rem;
   letter-spacing: -0.2px;
 }
 
 p {
   margin-bottom: 1.25rem;
+  /* A consistent line height across paragraphs enhances readability */
+  line-height: 1.7;
 }
 
 a {
@@ -110,6 +123,7 @@ a {
 
 a:hover {
   color: var(--primary-color);
+  text-decoration: underline;
 }
 
 /*
@@ -161,8 +175,10 @@ ul, ol {
  */
 .research-page .section-title {
   text-align: left;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  /* Reduce the size of section headings so they do not compete with the main page title */
+  font-size: 1.35rem;
+  /* Tighten spacing below section headings to save vertical space */
+  margin-bottom: 0.75rem;
 }
 
 /* Hide the decorative underline bar for research section headings */
@@ -358,6 +374,8 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  /* Show a pointer cursor to indicate these links are clickable */
+  cursor: pointer;
 }
 
 /* Underline indicator uses the accent colour to remain visible on dark backgrounds */
@@ -446,7 +464,8 @@ footer {
 
 /* Hero Section */
 .hero {
-  padding: 4rem 0;
+  /* Increase top padding slightly to give the hero more breathing room */
+  padding: 4.5rem 0 4rem;
   /* Use light background colour to distinguish the hero from the white body background */
   background-color: var(--bg-light);
   overflow-x: hidden; /* Prevent horizontal scroll */
@@ -544,6 +563,57 @@ footer {
 .research-item:hover {
   transform: translateY(-5px);
   box-shadow: var(--hover-shadow);
+  /* Apply a subtle background tint on hover to reinforce interactivity */
+  background-color: var(--bg-light);
+}
+
+/* Apply the same subtle tint on hover for featured research cards to unify hover feedback */
+.featured-research .research-item:hover {
+  background-color: var(--bg-light);
+}
+
+/* Label each research card with its publication type for easier scanning. The labels
+   are generated from the data-type attribute on .research-item elements. */
+.research-item {
+  position: relative;
+}
+
+.research-item::before {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+  content: '';
+  color: var(--primary-color);
+  background-color: rgba(46, 93, 140, 0.1);
+}
+
+.research-item[data-type="journal"]::before {
+  content: 'Journal article';
+}
+
+.research-item[data-type="book"]::before {
+  content: 'Book chapter';
+}
+
+.research-item[data-type="report"]::before {
+  content: 'Policy report';
+}
+
+.research-item[data-type="edited"]::before {
+  content: 'Edited volume';
+}
+
+.research-item[data-type="working"]::before {
+  content: 'Work in progress';
+}
+
+.research-item .paper-title {
+  /* Provide space above the title for the badge */
+  margin-top: 0.25rem;
 }
 
 .paper-title {
@@ -655,7 +725,9 @@ footer {
 
 .view-all {
   text-align: center;
-  margin-top: 3rem;
+  /* Add a bit of separation between the grid of cards and the call to action */
+  /* Provide extra breathing room above the call-to-action on the home page */
+  margin-top: 2.5rem;
 }
 
 /* Research Page Styles */
@@ -726,8 +798,9 @@ footer {
 }
 
 .research-header .year-filter select {
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
+  /* Harmonize padding and font size of the year dropdown with the search input */
+  padding: 0.55rem 0.9rem;
+  font-size: 0.95rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background-color: #ffffff;
@@ -736,11 +809,10 @@ footer {
   max-width: 140px;
 }
 
-/* Harmonize the height and padding of search and year inputs within the research header */
-.research-header .search-bar input,
-.research-header .year-filter select {
-  padding: 0.65rem 1rem;
-  font-size: 1rem;
+/* Harmonize padding and font size of search input to align with the page title */
+.research-header .search-bar input {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.95rem;
 }
 
 .research-header .year-filter select:focus {
@@ -763,8 +835,9 @@ footer {
 .filter-button {
   background-color: transparent;
   border: 2px solid var(--primary-color);
-  padding: 0.65rem 1.5rem;
-  border-radius: 50px;
+  /* Increase the touch target of filter buttons and soften their shape */
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
   cursor: pointer;
   transition: var(--transition);
   font-weight: 600;
@@ -775,12 +848,13 @@ footer {
 .filter-button:hover,
 .filter-button.active {
   background-color: var(--primary-color);
-  color: white;
+  color: #ffffff;
   border-color: var(--primary-color);
 }
 
 .research-section {
-  margin-bottom: 4rem;
+  /* Reduce vertical spacing between research sections to shorten the page */
+  margin-bottom: 3rem;
   scroll-margin-top: 100px; /* Added for smooth scrolling */
 }
 
@@ -932,6 +1006,15 @@ footer {
   color: var(--text-light);
 }
 
+/* Additional note about form delivery and contact information on the contact page */
+.contact-note {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
 .contact-layout {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
@@ -1032,6 +1115,8 @@ footer {
   color: var(--primary-color);
   text-decoration: none;
   transition: var(--transition);
+  /* Ensure CV table of contents links display a pointer cursor */
+  cursor: pointer;
 }
 
 .cv-toc a:hover {
@@ -1310,7 +1395,8 @@ footer {
   }
   
   .profile-info h2 {
-    font-size: 2.25rem;
+    /* Reduce hero heading size slightly on medium screens for better balance */
+    font-size: 2.1rem;
   }
   
   .profile-info p {
@@ -1363,12 +1449,23 @@ footer {
   }
   
   .profile-info h2 {
-    font-size: 1.875rem;
+    /* Further reduce hero heading size on narrow screens */
+    font-size: 1.65rem;
+  }
+
+  /* Increase spacing between hero buttons when stacked vertically */
+  .profile-links .btn + .btn {
+    margin-top: 0.75rem;
   }
   
   .profile-info p {
     font-size: 0.95rem;
     line-height: 1.5;
+  }
+
+  .cv-publication {
+    /* On very narrow screens, reduce font size slightly for citations */
+    font-size: 0.95rem;
   }
   
   .cv-header {
@@ -1420,7 +1517,8 @@ footer {
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 0.5rem;
+    /* Add some horizontal padding so first and last buttons don't touch the viewport edges */
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   }
 
   .filter-button {
@@ -1456,7 +1554,9 @@ footer {
 
   /* Reduce vertical spacing between publication entries and list items */
   .cv-publication {
-    margin-bottom: 0.5rem;
+    /* Increase spacing and line-height for easier reading on mobile */
+    margin-bottom: 1.2rem;
+    line-height: 1.75;
   }
 
   .cv-list li {
