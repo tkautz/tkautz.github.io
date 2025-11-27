@@ -21,8 +21,9 @@
     <!-- Font imports with optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap">
+    <!-- Update font imports: Lato for body and Roboto for headings (weights 300–700) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;500;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;500;700&display=swap">
     
     <!-- Structured Data for Academic Profile -->
     <script type="application/ld+json">
@@ -64,32 +65,15 @@
                     </ul>
                 </nav>
             </div>
+
         </div>
     </header>
     
     <main id="main-content" class="cv-page">
         <div class="container">
             <div class="cv-header">
-            <h1 class="page-title">Curriculum Vitae</h1>
-
-            <!-- Table of contents for quick navigation between CV sections -->
-            <nav class="cv-toc" aria-label="CV sections navigation">
-                <!-- Consolidate the first three sections into a single link and
-                     reorder the remaining links to follow the order of the CV. -->
-                <!-- Simplify the navigation bar by combining related sections.
-                     The Position & Education link scrolls to the top of the
-                     current position section and covers affiliations and education.
-                     Publications jumps to the journal articles section. Funding & Awards
-                     remains its own link. Presentations & Interviews links to the
-                     presentations section and covers the media section. Finally,
-                     the Other link directs to the service section and encompasses
-                     service, previous positions, and skills. -->
-                <a href="#current-position">Position &amp; Education</a>
-                <a href="#journal-articles">Publications</a>
-                <a href="#funding">Funding &amp; Awards</a>
-                <a href="#presentations">Presentations &amp; Interviews</a>
-                <a href="#service">Other</a>
-            </nav>
+            <div class="cv-header-row">
+                <h1 class="page-title">Curriculum Vitae</h1>
                 <a href="documents/TimKautz_CV.pdf" class="btn primary cv-download">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: text-bottom;">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -99,6 +83,16 @@
                   DOWNLOAD CV
                 </a>
             </div>
+            </div>
+
+            <!-- Insert the quick navigation bar below the CV header -->
+            <nav class="cv-quick-nav" aria-label="CV sections">
+                <a href="#current-position" class="cv-nav-link active">Position &amp; Education</a>
+                <a href="#journal-articles" class="cv-nav-link">Publications</a>
+                <a href="#funding-awards" class="cv-nav-link">Funding &amp; Awards</a>
+                <a href="#presentations-interviews" class="cv-nav-link">Presentations &amp; Interviews</a>
+                <a href="#other" class="cv-nav-link">Other</a>
+            </nav>
             
             <!-- Current Position Section -->
             <section id="current-position" class="cv-section">
@@ -174,6 +168,8 @@
             <section id="journal-articles" class="cv-section">
                 <details class="details-cv" open>
                     <summary>Journal Articles</summary>
+                    <!-- Break the long list into recent and earlier work for improved readability -->
+                    <div class="cv-subheading">Recent</div>
                     <ul class="cv-publications">
                         <li class="cv-publication">
                             <strong>Kautz, Tim</strong> and Wladimir Zanoni. (2024). <a href="documents/Kautz_Zanoni_2024_Measurement and Development.pdf">"Measurement and Development of Noncognitive Skills in Adolescence: Evidence from Chicago Public Schools and the OneGoal Program."</a> <em>Journal of Human Capital</em>, 18(2): 272-303.
@@ -182,7 +178,7 @@
                             Feng, Shuaizhang, Yu Gan, Yujie Han, and <strong>Tim Kautz</strong>. (2024). <a href="documents/Feng_etal_2024_Shorter Can Be Better.pdf">"Shorter Can Be Better: Balancing Length and Predictive Power when Measuring Noncognitive Skills to Predict Academic Outcomes."</a> <em>Economics Letters</em>, 236: 111598.
                         </li>
                         <li class="cv-publication">
-                            Lira, Benjamin, Joseph M. O'Brien, Pablo A. Peña, Brian M. Galla, Sidney D'Mello, David S. Yeager, Amy Defnet, <strong>Tim Kautz</strong>, Kate Munkacsy, and Angela L. Duckworth. (2022). <a href="documents/Lira_etal_2022_Large Studies Reveal.pdf">"Large Studies Reveal How Reference Bias Limits Policy Applications of Self-Report Measures.''</a> <em>Scientific Reports</em>, 12: 19189.
+                            Lira, Benjamin, Joseph M. O'Brien, Pablo A. Peña, Brian M. Galla, Sidney D'Mello, David S. Yeager, Amy Defnet, <strong>Tim Kautz</strong>, Kate Munkacsy, and Angela L. Duckworth. (2022). <a href="documents/Lira_etal_2022_Large Studies Reveal.pdf">"Large Studies Reveal How Reference Bias Limits Policy Applications of Self-Report Measures."</a> <em>Scientific Reports</em>, 12: 19189.
                         </li>
                         <li class="cv-publication">
                             Feng, Shuaizhang, Yujie Han, James J. Heckman, and <strong>Tim Kautz</strong>. (2022). <a href="documents/Feng_etal_2022_Comparing the reliability and predictive power.pdf">"Comparing the Reliability and Predictive Power of Child, Teacher, and Guardian Reports of Noncognitive Skills."</a> <em>Proceedings of the National Academy of Sciences</em>, 119(6): e2113992119.
@@ -191,7 +187,7 @@
                             Schochet, Peter Z., Nicole E. Pashley, Luke W. Miratrix, and <strong>Tim Kautz</strong>. (2022). <a href="documents/Schochet_etal_2022_Design-Based Ratio Estimators.pdf">"Design-Based Ratio Estimators and Central Limit Theorems for Clustered, Blocked RCTs."</a> <em>Journal of the American Statistical Association</em>, 117(540): 2135-2146.
                         </li>
                         <li class="cv-publication">
-                            Milkman, Katherine L., Dena Gromet, Hung Ho, Joseph S. Kay,..., <strong>Tim Kautz</strong>,..., and Angela L. Duckworth. (2021). <a href="documents/Milkman_etal_2021_Megastudies Improve.pdf">"Megastudies Improve the Impact of Applied Behavioural Science."</a> <em>Nature</em>, 600: 478-483.
+                            Milkman, Katherine L., Dena Gromet, Hung Ho, Joseph S. Kay, …, <strong>Tim Kautz</strong>, …, and Angela L. Duckworth. (2021). <a href="documents/Milkman_etal_2021_Megastudies Improve.pdf">"Megastudies Improve the Impact of Applied Behavioural Science."</a> <em>Nature</em>, 600: 478-483.
                         </li>
                         <li class="cv-publication">
                             Duckworth, Angela L., <strong>Tim Kautz</strong>, Amy Defnet, Emma Satlof-Bedrick, Sean Talamas, Benjamin Lira Luttges, and Laurence Steinberg. (2021). <a href="documents/Duckworth_etal_2021_Students Attending.pdf">"Students Attending School Remotely Suffer Socially, Emotionally, and Academically."</a> <em>Educational Researcher</em>, 50(7): 479-482.
@@ -205,6 +201,9 @@
                         <li class="cv-publication">
                             Chen, Yuanyuan, Shuaizhang Feng, James J. Heckman, and <strong>Tim Kautz</strong>. (2020). <a href="documents/Chen_etal_2020_Sensitivity.pdf">"Sensitivity of Self-Reported Non-Cognitive Skills to Survey Administration Conditions."</a> <em>Proceedings of the National Academy of Sciences</em>, 117(2): 931-935.
                         </li>
+                    </ul>
+                    <div class="cv-subheading">Earlier work</div>
+                    <ul class="cv-publications">
                         <li class="cv-publication">
                             Heckman, James J. and <strong>Tim Kautz</strong>. (2012). <a href="documents/Heckman_Kautz_2012_Hard Evidence.pdf">"Hard Evidence on Soft Skills."</a> <em>Labour Economics</em>, 19(4): 451-464.
                         </li>
@@ -249,64 +248,69 @@
             <section id="policy-reports" class="cv-section">
                 <details class="details-cv" open>
                     <summary>Selected Policy Reports and Briefs</summary>
+                    <!-- Break the long list into recent and earlier reports for improved readability -->
+                    <div class="cv-subheading">Recent reports</div>
                     <ul class="cv-publications">
-                    <li class="cv-publication">
-                        Kauff, Jacqueline, Jennifer Herard, <strong>Tim Kautz</strong>, Julia Lyskawa, Gina Lewis, Leah Pranschke, and Martine Reynolds. (2024). <a href="documents/Kauff_etal_2024_Integrating_Employment_Services.pdf">"Integrating Employment and Mental Health Services: Implementation of the Individual Placement and Support Model for Adults with Justice Involvement."</a> OPRE Report 2024-155. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, Charles Tilley, and David Stapleton. (2024). <a href="documents/Kautz_etal_2024_Exploring How Peoples.pdf">"Exploring How People's Characteristics, Contexts, and Life Events Predict Early Adult Participation in Supplemental Security Income."</a> OPRE Report 2024-076. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        Moore, Quinn, April Wu, <strong>Tim Kautz</strong>, Christina Kent, Sheena McConnell, Nicardo McInnis, Ankita Patnaik, and Owen Schochet. (2024). <a href="documents/Moore_etal_2024_Can A Participant.pdf">"Can a Participant-Centered Approach to Setting and Pursuing Goals Help Adults with Low Incomes Become Economically Stable? Impacts of Four Employment Coaching Programs 21 Months after Enrollment."</a> OPRE Report 2024-061. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, Christina Kent, and Dan Thal. (2024). <a href="documents/Kautz_etal_2024_Using Bayesian Methods.pdf">"Using Bayesian Methods to Conduct Subgroup Analysis in Evaluations of Employment Programs."</a> OPRE Report 2024-027. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong> and Julius Anastasio. (2024). <a href="documents/Kautz_Anastasio_2024_The Predictive Power.pdf">"The Predictive Power of Measures of Self-Regulation Skills Among Adults with Low Incomes."</a> OPRE Report 2024-008. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        Moore, Quinn, <strong>Tim Kautz</strong>, Sheena McConnell, Owen Schochet, and April Wu. (2023). <a href="documents/Moore_etal_2023_Can a Participant-Centered Approach.pdf">"Can a Participant-Centered Approach to Setting and Pursuing Goals Help Adults with Low Incomes Become Economically Stable?"</a> OPRE Report 2023-139. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, Kathleen Feeney, Hanley Chiang, Sarah Lauffer, Maria Bartlett, and Charles Tilley. (2021). <a href="documents/Kautz_etal_2021_Using A Survey.pdf">"Using a Survey of Social and Emotional Learning and School Climate to Inform Decisionmaking."</a> Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, and Quinn Moore. (2020). <a href="documents/Kautz_Moore_2020_Selecting and Testing.pdf">"Selecting and Testing Measures of Self-Regulation Skills Among Low-Income Populations."</a> OPRE Report 2020-138. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        Goldring, Ellen, Melissa A. Clark, Mollie Rubin, Laura K. Rogers, Jason A. Grissom, Brian Gill, <strong>Tim Kautz</strong>, Moira McCullough, Michael Neel, and Alyson Burnett. (2020). <a href="documents/Goldring_etal_2020_Changing.pdf">"Changing the Principal Supervisor Role to Better Support Principals: Evidence from the Principal Supervisor Initiative."</a> Princeton, NJ: Mathematica.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, Charles Tilley, Christine Ross, and Natalie Larkin. (2020). <a href="documents/Kautz_etal_2020_Development.pdf">"Development of a School Survey and Index as a School Performance Measure in Maryland: A REL-MSDE Research Partnership."</a> Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
-                    </li>
-                    <li class="cv-publication">
-                        Herrmann, Mariesa, Melissa Clark, Susanne James-Burdumy, Christina Tuttle, <strong>Tim Kautz</strong>, Virginia Knechtel, Dallas Dotter, Claire Smither Wulsin, and John Deke. (2019). <a href="documents/Herrmann_etal_2019_The Effects.pdf">"The Effects of a Principal Professional Development Program Focused on Instructional Leadership."</a> NCEE Report 2020-0002. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
-                    </li>
-                    <li class="cv-publication">
-                        Heckman, James J., <strong>Tim Kautz</strong>, and Charles Tilley. (2019). <a href="#">"Advancing the Measurement of Non-Cognitive Skills: Evidence from Chicago Public Schools."</a> Princeton, NJ: Mathematica.
-                    </li>
-                    <li class="cv-publication">
-                        Moore, Quinn, Sheena McConnell, Alan Werner, <strong>Tim Kautz</strong>, Kristen Joyce, Kelley Borradaile, and Bethany Bolland. (2019). <a href="documents/Moore_etal_2019_Evaluation of Employment Coaching.pdf">"Evaluation of Employment Coaching for TANF and Related Populations: Evaluation Design Report."</a> OPRE Report 2019-65. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, and Quinn Moore. (2018). <a href="documents/Kautz_Moore_2018_Measuring Self-Regulation.pdf">"Measuring Self-Regulation Skills in Evaluations of Employment Programs for Low-Income Populations: Challenges and Recommendations."</a> OPRE Report 2018-83. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, and Russel Cole. (2017). <a href="documents/Kautz_Cole_2017_Selecting Benchmark.pdf">"Selecting Benchmark and Sensitivity Analyses."</a> Evaluation Technical Assistance Brief. Rockville, MD: Office of Adolescent Health, U.S. Department of Health and Human Services.
-                    </li>
-                    <li class="cv-publication">
-                        Deke, John, Thomas Wei, and <strong>Tim Kautz</strong>. (2017). <a href="documents/Deke_etal_2017_Asymdystopia.pdf">"Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts."</a> NCEE Report 2018-4002. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, Peter Z. Schochet, and Charles Tilley. (2017). <a href="documents/Kautz_etal_2017_Comparing Impact.pdf">"Comparing Impact Findings from Design-based and Model-based Methods: An Empirical Investigation."</a> NCEE Report 2017-4026. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
-                    </li>
-                    <li class="cv-publication">
-                        <strong>Kautz, Tim</strong>, James J. Heckman, Ron Diris, Bas ter Weel, and Lex Borghans. (2014). <a href="documents/Kautz_etal_2014_Fostering.pdf">"Fostering and Measuring Skills: Improving Cognitive and Non-Cognitive Skills to Promote Lifetime Success."</a> Paris, France: Organisation of Economic Co-operation and Development.
-                    </li>
-                    <li class="cv-publication">
-                        Macurdy, Thomas, Jonathan Gibbs, <strong>Tim Kautz</strong>, Thomas Deleire, and Margaret O'Brian-Strain. (2009). <a href="documents/MaCurdy_etal_2009_Geographic Price.pdf">"Geographic Variation in Drug Prices and Spending in the Part D Program."</a> Baltimore: Centers for Medicare and Medicaid Services.
-                    </li>
+                        <li class="cv-publication">
+                            Kauff, Jacqueline, Jennifer Herard, <strong>Tim Kautz</strong>, Julia Lyskawa, Gina Lewis, Leah Pranschke, and Martine Reynolds. (2024). <a href="documents/Kauff_etal_2024_Integrating_Employment_Services.pdf">"Integrating Employment and Mental Health Services: Implementation of the Individual Placement and Support Model for Adults with Justice Involvement."</a> OPRE Report 2024-155. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, Charles Tilley, and David Stapleton. (2024). <a href="documents/Kautz_etal_2024_Exploring How Peoples.pdf">"Exploring How People's Characteristics, Contexts, and Life Events Predict Early Adult Participation in Supplemental Security Income."</a> OPRE Report 2024-076. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            Moore, Quinn, April Wu, <strong>Tim Kautz</strong>, Christina Kent, Sheena McConnell, Nicardo McInnis, Ankita Patnaik, and Owen Schochet. (2024). <a href="documents/Moore_etal_2024_Can A Participant.pdf">"Can a Participant-Centered Approach to Setting and Pursuing Goals Help Adults with Low Incomes Become Economically Stable? Impacts of Four Employment Coaching Programs 21 Months after Enrollment."</a> OPRE Report 2024-061. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, Christina Kent, and Dan Thal. (2024). <a href="documents/Kautz_etal_2024_Using Bayesian Methods.pdf">"Using Bayesian Methods to Conduct Subgroup Analysis in Evaluations of Employment Programs."</a> OPRE Report 2024-027. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong> and Julius Anastasio. (2024). <a href="documents/Kautz_Anastasio_2024_The Predictive Power.pdf">"The Predictive Power of Measures of Self-Regulation Skills Among Adults with Low Incomes."</a> OPRE Report 2024-008. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            Moore, Quinn, <strong>Tim Kautz</strong>, Sheena McConnell, Owen Schochet, and April Wu. (2023). <a href="documents/Moore_etal_2023_Can a Participant-Centered Approach.pdf">"Can a Participant-Centered Approach to Setting and Pursuing Goals Help Adults with Low Incomes Become Economically Stable?"</a> OPRE Report 2023-139. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, Kathleen Feeney, Hanley Chiang, Sarah Lauffer, Maria Bartlett, and Charles Tilley. (2021). <a href="documents/Kautz_etal_2021_Using A Survey.pdf">"Using a Survey of Social and Emotional Learning and School Climate to Inform Decisionmaking."</a> Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, and Quinn Moore. (2020). <a href="documents/Kautz_Moore_2020_Selecting and Testing.pdf">"Selecting and Testing Measures of Self-Regulation Skills Among Low-Income Populations."</a> OPRE Report 2020-138. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            Goldring, Ellen, Melissa A. Clark, Mollie Rubin, Laura K. Rogers, Jason A. Grissom, Brian Gill, <strong>Tim Kautz</strong>, Moira McCullough, Michael Neel, and Alyson Burnett. (2020). <a href="documents/Goldring_etal_2020_Changing.pdf">"Changing the Principal Supervisor Role to Better Support Principals: Evidence from the Principal Supervisor Initiative."</a> Princeton, NJ: Mathematica.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, Charles Tilley, Christine Ross, and Natalie Larkin. (2020). <a href="documents/Kautz_etal_2020_Development.pdf">"Development of a School Survey and Index as a School Performance Measure in Maryland: A REL-MSDE Research Partnership."</a> Washington, DC: Regional Educational Laboratory Mid-Atlantic, National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
+                        </li>
+                        <li class="cv-publication">
+                            Herrmann, Mariesa, Melissa Clark, Susanne James-Burdumy, Christina Tuttle, <strong>Tim Kautz</strong>, Virginia Knechtel, Dallas Dotter, Claire Smither Wulsin, and John Deke. (2019). <a href="documents/Herrmann_etal_2019_The Effects.pdf">"The Effects of a Principal Professional Development Program Focused on Instructional Leadership."</a> NCEE Report 2020-0002. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
+                        </li>
+                        <li class="cv-publication">
+                            Heckman, James J., <strong>Tim Kautz</strong>, and Charles Tilley. (2019). <a href="#">"Advancing the Measurement of Non-Cognitive Skills: Evidence from Chicago Public Schools."</a> Princeton, NJ: Mathematica.
+                        </li>
+                        <li class="cv-publication">
+                            Moore, Quinn, Sheena McConnell, Alan Werner, <strong>Tim Kautz</strong>, Kristen Joyce, Kelley Borradaile, and Bethany Bolland. (2019). <a href="documents/Moore_etal_2019_Evaluation of Employment Coaching.pdf">"Evaluation of Employment Coaching for TANF and Related Populations: Evaluation Design Report."</a> OPRE Report 2019-65. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, and Quinn Moore. (2018). <a href="documents/Kautz_Moore_2018_Measuring Self-Regulation.pdf">"Measuring Self-Regulation Skills in Evaluations of Employment Programs for Low-Income Populations: Challenges and Recommendations."</a> OPRE Report 2018-83. Washington, DC: Office of Planning, Research, and Evaluation, Administration for Children and Families, U.S. Department of Health and Human Services.
+                        </li>
+                    </ul>
+                    <div class="cv-subheading">Earlier reports</div>
+                    <ul class="cv-publications">
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, and Russel Cole. (2017). <a href="documents/Kautz_Cole_2017_Selecting Benchmark.pdf">"Selecting Benchmark and Sensitivity Analyses."</a> Evaluation Technical Assistance Brief. Rockville, MD: Office of Adolescent Health, U.S. Department of Health and Human Services.
+                        </li>
+                        <li class="cv-publication">
+                            Deke, John, Thomas Wei, and <strong>Tim Kautz</strong>. (2017). <a href="documents/Deke_etal_2017_Asymdystopia.pdf">"Asymdystopia: The Threat of Small Biases in Evaluations of Education Interventions that Need to be Powered to Detect Small Impacts."</a> NCEE Report 2018-4002. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, Peter Z. Schochet, and Charles Tilley. (2017). <a href="documents/Kautz_etal_2017_Comparing Impact.pdf">"Comparing Impact Findings from Design-based and Model-based Methods: An Empirical Investigation."</a> NCEE Report 2017-4026. Washington, DC: National Center for Education Evaluation and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
+                        </li>
+                        <li class="cv-publication">
+                            <strong>Kautz, Tim</strong>, James J. Heckman, Ron Diris, Bas ter Weel, and Lex Borghans. (2014). <a href="documents/Kautz_etal_2014_Fostering.pdf">"Fostering and Measuring Skills: Improving Cognitive and Non-Cognitive Skills to Promote Lifetime Success."</a> Paris, France: Organisation of Economic Co-operation and Development.
+                        </li>
+                        <li class="cv-publication">
+                            Macurdy, Thomas, Jonathan Gibbs, <strong>Tim Kautz</strong>, Thomas Deleire, and Margaret O'Brian-Strain. (2009). <a href="documents/MaCurdy_etal_2009_Geographic Price.pdf">"Geographic Variation in Drug Prices and Spending in the Part D Program."</a> Baltimore: Centers for Medicare and Medicaid Services.
+                        </li>
                     </ul>
                 </details>
             </section>
@@ -337,7 +341,7 @@
             </section>          
             
             <!-- Funding, Fellowships, and Awards Section -->
-            <section id="funding" class="cv-section">
+            <section id="funding-awards" class="cv-section">
                 <details class="details-cv" open>
                     <summary>Funding, Fellowships, and Awards</summary>
                     <ul class="cv-list">
@@ -354,7 +358,7 @@
             </section>
             
             <!-- Presentations Section (new) -->
-            <section id="presentations" class="cv-section">
+            <section id="presentations-interviews" class="cv-section">
                 <details class="details-cv" open>
                     <summary>Presentations</summary>
                     <ul class="cv-list">
@@ -407,7 +411,7 @@
             </section>
             
             <!-- Professional Service Section -->
-            <section id="service" class="cv-section">
+            <section id="other" class="cv-section">
                 <h3>Professional Service</h3>
                 <p><strong>Referee:</strong> American Economic Journal: Economic Policy, Education Finance and Policy, Forum for Health Economics and Policy, Journal of Applied Econometrics, Journal of Economic Behavior and Organization, Journal of Health Economics, Journal of Human Capital, Journal of Labor Economics, Journal of Policy Analysis and Management, Journal of Political Economy, Labour Economics, Learning and Individual Differences, Oxford Bulletin of Economics and Statistics, Proceedings of the National Academy of Sciences, SAGE Open, Science</p>
                 <p><strong>Member:</strong> Council of Distinguished Scientists, National Commission on Social, Emotional, and Academic Development</p>
@@ -519,9 +523,14 @@
             });
         });
 
-        // Expand the corresponding CV section when a table-of-contents link is clicked.
-        document.querySelectorAll('.cv-toc a').forEach(function(link) {
+        // Expand the corresponding CV section when a quick-nav link is clicked.
+        document.querySelectorAll('.cv-quick-nav .cv-nav-link').forEach(function(link) {
             link.addEventListener('click', function() {
+                // Remove active class from all nav links and set it on the clicked link
+                document.querySelectorAll('.cv-quick-nav .cv-nav-link').forEach(function(nav) {
+                    nav.classList.remove('active');
+                });
+                this.classList.add('active');
                 const targetId = this.getAttribute('href').substring(1);
                 /**
                  * If the link points to the combined "Position & Education" section,
@@ -538,18 +547,18 @@
                             if (det && !det.open) det.open = true;
                         }
                     });
-                } else if (targetId === 'presentations') {
-                    // Expand both presentations and media sections
-                    ['presentations', 'media'].forEach(function(id) {
+                } else if (targetId === 'presentations-interviews') {
+                    // Expand both presentations & interviews and media sections
+                    ['presentations-interviews', 'media'].forEach(function(id) {
                         const sec = document.getElementById(id);
                         if (sec) {
                             const det = sec.querySelector('.details-cv');
                             if (det && !det.open) det.open = true;
                         }
                     });
-                } else if (targetId === 'service') {
-                    // Expand the service, previous positions and skills sections for the "Other" link
-                    ['service', 'previous-positions', 'skills'].forEach(function(id) {
+                } else if (targetId === 'other') {
+                    // Expand the other, previous positions and skills sections for the "Other" link
+                    ['other', 'previous-positions', 'skills'].forEach(function(id) {
                         const sec = document.getElementById(id);
                         if (sec) {
                             const det = sec.querySelector('.details-cv');
@@ -565,6 +574,39 @@
                         }
                     }
                 }
+            });
+        });
+
+        // Highlight the active nav link as the user scrolls through sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.cv-quick-nav .cv-nav-link');
+            const sections = [];
+            navLinks.forEach(function(link) {
+                const id = link.getAttribute('href').substring(1);
+                const section = document.getElementById(id);
+                if (section) {
+                    sections.push({ id: id, element: section, link: link });
+                }
+            });
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -70% 0px',
+                threshold: 0
+            };
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.getAttribute('id');
+                        navLinks.forEach(function(nav) { nav.classList.remove('active'); });
+                        const activeEntry = sections.find(function(sec) { return sec.id === targetId; });
+                        if (activeEntry) {
+                            activeEntry.link.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            sections.forEach(function(sec) {
+                observer.observe(sec.element);
             });
         });
     </script>

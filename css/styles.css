@@ -54,23 +54,31 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Use Lato as the primary body font with system fallbacks */
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--text-color);
   line-height: 1.8;
   background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+  /* Slightly increase base font size for improved readability */
+  font-size: 17px;
   overflow-x: hidden; /* Prevent horizontal scroll */
   scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Use Roboto for headings with system fallbacks */
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   margin-bottom: 1rem;
   line-height: 1.3;
   color: var(--primary-color);
   font-weight: 600;
+}
+
+/* Ensure page titles are formatted in title case automatically */
+.page-title {
+  text-transform: capitalize;
 }
 
 h1 {
@@ -140,6 +148,13 @@ ul, ol {
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
+}
+
+/* On the research page, reduce the size of section headings slightly
+   so they don't compete with the main page title */
+.research-page .section-title {
+  font-size: 1.9rem;
+  margin-bottom: 2rem;
 }
 
 .section-title::after {
@@ -235,7 +250,8 @@ ul, ol {
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
-  letter-spacing: 0.5px;
+  /* Reduce letter spacing slightly for a more refined look */
+  letter-spacing: 0.3px;
   text-transform: uppercase;
   font-size: 0.9rem;
 }
@@ -271,17 +287,13 @@ ul, ol {
 /* Header and Navigation */
 header {
   /*
-   * Use a very light background colour for the header so it stands apart from
-   * the rest of the page. The slight tint distinguishes the navigation area
-   * without being distracting. A stronger drop shadow improves separation and
-   * ensures the header remains visible when scrolling. Sticky positioning
-   * keeps the header fixed to the top of the viewport.
+   * Match the header bar to the primary site colour to create a consistent
+   * band with the footer. Use a strong drop shadow to distinguish it from
+   * page content. Sticky positioning keeps the header fixed to the viewport.
    */
-  background-color: var(--bg-light);
-  /* Add a subtle border and slightly stronger shadow to ensure the header
-     stands out from the page content. */
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  background-color: var(--primary-color);
+  border-bottom: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -294,21 +306,23 @@ header {
   padding: 1.25rem 0;
 }
 
+/* Style the site title in uppercase and white to match the header bar */
 .logo h1 {
   font-size: 1.75rem;
   margin: 0;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* Added clickable logo */
 .logo h1 a {
-  color: var(--primary-color);
+  color: #ffffff;
   text-decoration: none;
   transition: var(--transition);
 }
 
 .logo h1 a:hover {
-  color: var(--secondary-color);
+  color: #e5ecf5;
 }
 
 .main-nav .nav-links {
@@ -321,8 +335,9 @@ header {
   margin-left: 2.5rem;
 }
 
+/* Style the navigation links for a dark header: white text with subtle hover colour */
 .nav-links a {
-  color: var(--primary-color);
+  color: #ffffff;
   font-weight: 600;
   text-decoration: none;
   position: relative;
@@ -332,6 +347,7 @@ header {
   transition: all 0.3s ease;
 }
 
+/* Underline indicator uses the accent colour to remain visible on dark backgrounds */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -339,14 +355,16 @@ header {
   height: 2px;
   bottom: -6px;
   left: 0;
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   transition: width 0.3s ease;
 }
 
+/* On hover, links shift to the secondary colour */
 .nav-links a:hover {
   color: var(--secondary-color);
 }
 
+/* Expand underline on hover or when active */
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
@@ -359,12 +377,13 @@ header {
   cursor: pointer;
 }
 
+/* Hamburger icon bars also white on dark header */
 .bar {
   display: block;
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  background-color: var(--primary-color);
+  background-color: #ffffff;
   transition: var(--transition);
 }
 
@@ -413,7 +432,8 @@ footer {
 /* Hero Section */
 .hero {
   padding: 4rem 0;
-  background-color: white;
+  /* Use light background colour to distinguish the hero from the white body background */
+  background-color: var(--bg-light);
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
@@ -476,7 +496,8 @@ footer {
 /* Featured Research Section */
 .featured-research {
   padding: var(--section-spacing) 0;
-  background-color: var(--bg-light);
+  /* Use a pure white background for contrast against the light hero section */
+  background-color: #fff;
 }
 
 /* Updated research grid - fixed width columns for better layout */
@@ -484,7 +505,8 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  margin-bottom: 3rem;
+  /* Reduce bottom margin in featured research to pull call‑to‑action closer */
+  margin-bottom: 2rem;
 }
 
 .research-item {
@@ -854,6 +876,83 @@ footer {
   background-color: #254b73;
 }
 
+/* Enhanced contact page layout and form styling */
+.contact-intro {
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.contact-details a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Card style for contact form to match research cards */
+.contact-form {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2.25rem;
+  border: 1px solid var(--border-color);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.form-group input,
+.form-group textarea {
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(77, 149, 211, 0.15);
+}
+
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* CV Page Styles */
 .cv-page {
   padding: 4rem 0 6rem;
@@ -991,6 +1090,17 @@ footer {
   height: 6px;
   border-radius: 50%;
   background-color: var(--secondary-color);
+}
+
+/* Subheadings for splitting long CV sections into Recent/Earlier groups */
+.cv-subheading {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
 }
 
 .skills-grid {
@@ -1310,6 +1420,64 @@ footer {
   .cv-item {
     margin-bottom: 0.5rem;
   }
+}
+
+/*
+ * CV Quick Navigation
+ *
+ * The CV quick‑navigation bar uses pill‑style links similar to the
+ * filter chips on the research page. These styles ensure the
+ * navigation reads as a deliberate UI element rather than plain
+ * hyperlinks. The links wrap as needed on larger screens and
+ * scroll horizontally on narrow screens.
+ */
+.cv-quick-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2.5rem;
+  justify-content: center;
+}
+
+.cv-quick-nav .cv-nav-link {
+  border-radius: 999px;
+  border: 2px solid var(--primary-color);
+  padding: 0.45rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.cv-quick-nav .cv-nav-link:hover {
+  background-color: rgba(46, 93, 140, 0.04);
+}
+
+.cv-quick-nav .cv-nav-link.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  /* Allow the CV quick navigation to scroll horizontally on small screens */
+  .cv-quick-nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.75rem;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Layout for the CV page header row containing the title and download button */
+.cv-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 /* Print Styles */
