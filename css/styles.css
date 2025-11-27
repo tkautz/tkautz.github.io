@@ -154,9 +154,20 @@ ul, ol {
 
 /* On the research page, reduce the size of section headings slightly
    so they don't compete with the main page title */
+/*
+ * On the research page, make section headings smaller and left-aligned to reduce
+ * visual weight and better distinguish them from the page title. Remove the
+ * centered underline for these subheadings to save vertical space.
+ */
 .research-page .section-title {
-  font-size: 1.9rem;
-  margin-bottom: 2rem;
+  text-align: left;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Hide the decorative underline bar for research section headings */
+.research-page .section-title::after {
+  display: none;
 }
 
 .section-title::after {
@@ -357,7 +368,9 @@ header {
   height: 2px;
   bottom: -6px;
   left: 0;
-  background-color: var(--accent-color);
+  /* Use a light blue underline that complements the dark header instead of the green accent.
+     This creates a softer contrast and ties into the overall blue palette. */
+  background-color: #9cc3e6;
   transition: width 0.3s ease;
 }
 
@@ -643,7 +656,8 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 3rem;
+  /* Reduce the gap below the category filters for better alignment with other page headers */
+  margin-bottom: 2rem;
   justify-content: center;
 }
 
@@ -651,7 +665,8 @@ footer {
 .year-filter {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  /* Decrease space below the year filter to reduce vertical whitespace */
+  margin-bottom: 1.5rem;
 }
 
 .year-filter select {
@@ -678,6 +693,8 @@ footer {
   flex-wrap: wrap;
   /* push tools to the right on wider screens */
   margin-left: auto;
+  /* Remove vertical offset so the tools align centrally with the page title */
+  margin-top: 0;
 }
 
 /* Remove extra bottom margin on search bar when inside research header */
@@ -700,6 +717,13 @@ footer {
   color: var(--text-color);
   cursor: pointer;
   max-width: 140px;
+}
+
+/* Harmonize the height and padding of search and year inputs within the research header */
+.research-header .search-bar input,
+.research-header .year-filter select {
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
 }
 
 .research-header .year-filter select:focus {
@@ -788,12 +812,16 @@ footer {
 /* Header for research page: aligns title and search bar */
 .research-header {
   display: flex;
+  /* Center align the page title and tools vertically so the search bar and year filter
+   * sit on the same baseline as the heading. This ensures the header looks balanced.
+   */
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
+  /* Reduce the gap between the title and tools; no extra margin on the right */
+  gap: 0.75rem;
   /* Reduce bottom margin so the header sits closer to the filter bar */
-  margin-bottom: 1.75rem;
+  margin-bottom: 1rem;
 }
 
 /* Remove bottom margin when search bar is inside the research header */
@@ -1438,7 +1466,8 @@ footer {
   flex-wrap: wrap;
   gap: 0.75rem;
   /* Reduce spacing above and below the navigation bar to tighten layout */
-  margin: 0.5rem 0 1.5rem;
+  /* Tighten spacing above and below the quick navigation to better align with page headings */
+  margin: 0.5rem 0 1rem;
   justify-content: center;
 }
 
@@ -1475,23 +1504,47 @@ footer {
 }
 
 /* Layout for the CV page header row containing the title and download button */
+/*
+ * CV header row layout
+ * Use a flex container that places the page title on the left and the
+ * download button on the far right. Avoid having the title fill the
+ * available space so it aligns naturally with the left margin of the
+ * content. The flex-wrap property ensures the layout still behaves
+ * gracefully on narrow screens.
+ */
+/*
+ * CV header row layout
+ * Align the page title to the left and push the download button to the far right using
+ * margin-left: auto. Using flex-start avoids additional space distribution that would
+ * leave the button floating away from the right margin. Gap provides a bit of breathing
+ * room between the title and the button.
+ */
 .cv-header-row {
+  /*
+   * Use flex layout to align the page title on the left and the download button on the right.
+   * Space is distributed evenly between the two items via space-between so the right edge
+   * of the button aligns flush with the container. Remove the automatic gap so there
+   * is no extra offset on the right. When the row wraps, items will stack naturally.
+   */
   display: flex;
-  /* Let items grow naturally; margin-left on the download button will push it to the far right */
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 0;
 }
 
-/* Push the CV download button to the far right of its row */
-.cv-header-row .cv-download {
-  margin-left: auto;
-}
-
-/* Allow the CV page title to flex so the download button aligns to the right */
+/* Keep the page title from stretching and ensure it stays left aligned */
 .cv-header-row .page-title {
-  flex: 1;
+  flex: 0 0 auto;
+  text-align: left;
+}
+
+/* Push the download button to the far right of its row */
+.cv-header-row .cv-download {
+  /* Ensure the download button sits at the far right when space-between is in use. */
+  flex: 0 0 auto;
+  /* Remove any left margin so the button's right edge aligns flush with the container */
+  margin-left: 0;
 }
 
 /* Print Styles */
