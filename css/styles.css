@@ -79,6 +79,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Ensure page titles are formatted in title case automatically */
 .page-title {
   text-transform: capitalize;
+  /* Remove default bottom margin when inside header rows */
+  margin-bottom: 0;
 }
 
 h1 {
@@ -790,7 +792,8 @@ footer {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2rem;
+  /* Reduce bottom margin so the header sits closer to the filter bar */
+  margin-bottom: 1.75rem;
 }
 
 /* Remove bottom margin when search bar is inside the research header */
@@ -959,9 +962,8 @@ footer {
 }
 
 .cv-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* Stack the header row and navigation on top of each other */
+  display: block;
   margin-bottom: 3rem;
 }
 
@@ -1435,7 +1437,8 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 1.5rem 0 2.5rem;
+  /* Reduce spacing above and below the navigation bar to tighten layout */
+  margin: 0.5rem 0 1.5rem;
   justify-content: center;
 }
 
@@ -1474,10 +1477,21 @@ footer {
 /* Layout for the CV page header row containing the title and download button */
 .cv-header-row {
   display: flex;
-  justify-content: space-between;
+  /* Let items grow naturally; margin-left on the download button will push it to the far right */
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
+}
+
+/* Push the CV download button to the far right of its row */
+.cv-header-row .cv-download {
+  margin-left: auto;
+}
+
+/* Allow the CV page title to flex so the download button aligns to the right */
+.cv-header-row .page-title {
+  flex: 1;
 }
 
 /* Print Styles */
