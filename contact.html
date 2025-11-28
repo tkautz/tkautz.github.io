@@ -69,6 +69,7 @@
 
     <main id="main-content" class="contact-page">
         <div class="container">
+            <!-- Update title case: prepositions like “in” should be lowercase -->
             <h1 class="page-title">Get in Touch</h1>
             <!-- Introduction text styled consistently across pages -->
             <p class="contact-intro">
@@ -146,9 +147,20 @@
     <!-- Back to top button -->
     <button id="back-to-top" aria-label="Scroll back to top">↑</button>
 
-    <!-- Script to toggle visibility of back-to-top button and enable smooth scroll -->
+    <!-- Script to toggle mobile navigation and back-to-top button -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Mobile navigation toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileToggle && navLinks) {
+          mobileToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.classList.toggle('active');
+          });
+        }
+
+        // Back to top functionality
         const backToTop = document.getElementById('back-to-top');
         window.addEventListener('scroll', function() {
           if (window.scrollY > 300) {
