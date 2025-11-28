@@ -166,6 +166,18 @@ ul, ol {
   position: relative;
 }
 
+/* Section subtitles provide a short description or framing line under
+   primary section headings. They should be understated so they don't compete
+   with the main heading, using a lighter colour and smaller size. */
+.section-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
 /* On the research page, reduce the size of section headings slightly
    so they don't compete with the main page title */
 /*
@@ -176,9 +188,11 @@ ul, ol {
 .research-page .section-title {
   text-align: left;
   /* Reduce the size of section headings so they do not compete with the main page title */
-  font-size: 1.35rem;
+  /* Reduce the size of research section headings further to distinguish them from the page title */
+  font-size: 1.25rem;
   /* Tighten spacing below section headings to save vertical space */
-  margin-bottom: 0.75rem;
+  /* Tighten spacing below research section headings */
+  margin-bottom: 0.5rem;
 }
 
 /* Hide the decorative underline bar for research section headings */
@@ -311,6 +325,15 @@ ul, ol {
 .btn.secondary:hover {
   background-color: rgba(46, 93, 140, 0.05);
   text-decoration: none;
+}
+
+/* On the home page, enlarge the secondary button used to download the CV to give it
+   greater visual prominence. This adjustment does not affect other secondary
+   buttons. */
+.profile-links .cv-download-home {
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+  border-width: 2px;
 }
 
 /* Header and Navigation */
@@ -495,8 +518,9 @@ footer {
 }
 
 .profile-image {
-  flex: 0 0 210px; /* Fixed width to match paragraph height */
-  max-width: 210px;
+  /* Slightly enlarge the headshot for better visual balance */
+  flex: 0 0 230px;
+  max-width: 230px;
 }
 
 .profile-text {
@@ -620,6 +644,8 @@ footer {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   line-height: 1.4;
+  /* Make publication titles more prominent by increasing weight */
+  font-weight: 700;
 }
 
 .paper-authors {
@@ -631,7 +657,8 @@ footer {
 .paper-journal {
   font-size: 0.9rem;
   font-style: italic;
-  color: var(--text-light);
+  /* Use a softer colour for journal names to distinguish them from titles */
+  color: #6c757d;
   margin-bottom: 1.5rem;
 }
 
@@ -860,7 +887,8 @@ footer {
 
 /* Fix for research items on the research page */
 .research-list .research-item {
-  margin-bottom: 2rem;
+  /* Increase spacing between research items for improved scanability */
+  margin-bottom: 2.6rem;
   padding: 2rem;
   display: block; /* Changed from grid to block for filtering to work properly */
 }
@@ -1180,7 +1208,8 @@ footer {
 
 .cv-publication {
   /* Further reduce vertical spacing between publication entries. */
-  margin-bottom: 0.6rem;
+  /* Increase vertical spacing between publication entries on the CV page */
+  margin-bottom: 0.8rem;
   padding-left: 1.75rem;
   position: relative;
   /* Slightly tighter line height for publication entries to reduce vertical space
@@ -1355,6 +1384,23 @@ footer {
     height: calc(100vh - 80px);
     overflow-y: auto;
   }
+
+  /* On small screens, ensure the navigation links remain visible against the white mobile menu
+     background by using the primary colour for text and the secondary colour for hover/active
+     underline indicators. Without this override, the desktop styles (white text on dark header)
+     would leave the links invisible on the white mobile menu. */
+  .nav-links a {
+    /* Font size for mobile nav items; colour defined in the unified block below */
+    font-size: 1.1rem;
+  }
+
+  .nav-links a:hover {
+    color: var(--secondary-color);
+  }
+
+  .nav-links a::after {
+    background-color: var(--secondary-color);
+  }
   
   .nav-links.active {
     transform: translateY(0);
@@ -1372,10 +1418,13 @@ footer {
     border-bottom: none;
   }
   
+  /* Define mobile navigation links as block-level and apply the primary colour
+     so they are visible on the white slide‑out menu. */
   .nav-links a {
     display: block;
     padding: 0.75rem 0;
     width: 100%;
+    color: var(--primary-color);
   }
   
   .research-grid {
@@ -1569,6 +1618,23 @@ footer {
   }
 }
 
+/* Override navigation link colours inside the mobile menu.
+   The header uses white text on a dark background, but the mobile
+   navigation panel has a white background, so links need to be dark.
+   This block ensures that nav links and their hover/active states are
+   legible when the menu slides down on small screens. */
+@media (max-width: 768px) {
+  .nav-links a {
+    color: var(--primary-color);
+  }
+  .nav-links a:hover {
+    color: var(--secondary-color);
+  }
+  .nav-links a::after {
+    background-color: var(--secondary-color);
+  }
+}
+
 /*
  * CV Quick Navigation
  *
@@ -1611,6 +1677,16 @@ footer {
   background-color: var(--primary-color);
   color: #fff;
   border-color: var(--primary-color);
+}
+
+/* Label preceding the CV quick navigation pills. Use a muted colour and
+   modest spacing so it doesn't compete with the navigation controls. */
+.cv-nav-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-right: 0.75rem;
+  align-self: center;
 }
 
 @media (max-width: 768px) {
@@ -1665,6 +1741,12 @@ footer {
   flex: 0 0 auto;
   /* Remove any left margin so the button's right edge aligns flush with the container */
   margin-left: 0;
+}
+
+/* Make the CV download button slightly larger and more prominent */
+.cv-header-row .cv-download .btn {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
 }
 
 /* Print Styles */
