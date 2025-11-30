@@ -85,11 +85,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Ensure page titles are formatted in title case automatically */
-.page-title {
-  text-transform: capitalize;
-  /* Remove default bottom margin when inside header rows */
-  margin-bottom: 0;
-}
+    .page-title {
+      /* Allow manual control of capitalization. Removing automatic title-case
+         ensures prepositions like “in” remain lowercase when desired. */
+      text-transform: none;
+      /* Remove default bottom margin when inside header rows */
+      margin-bottom: 0;
+    }
 
 h1 {
   /* Slightly reduce the main heading size to maintain hierarchy with increased base font size */
