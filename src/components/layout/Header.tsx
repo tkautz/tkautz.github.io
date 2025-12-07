@@ -69,7 +69,7 @@ export function Header() {
               className={cn(
                 "text-sm font-medium transition-colors link-underline pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm",
                 location.pathname === link.href
-                  ? "text-primary"
+                  ? "text-primary link-underline-active"
                   : "text-muted-foreground hover:text-foreground"
               )}
               aria-current={location.pathname === link.href ? "page" : undefined}

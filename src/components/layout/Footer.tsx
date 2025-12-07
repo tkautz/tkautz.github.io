@@ -1,20 +1,29 @@
 import { Mail, Linkedin, GraduationCap } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const socialLinks = [
   {
     href: "mailto:tkautz@mathematica-mpr.com",
     icon: Mail,
     label: "Email",
+    tooltip: "Send me an email",
   },
   {
     href: "https://www.linkedin.com/in/tkautz",
     icon: Linkedin,
     label: "LinkedIn",
+    tooltip: "Visit my LinkedIn profile",
   },
   {
     href: "https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en",
     icon: GraduationCap,
     label: "Google Scholar",
+    tooltip: "View my Google Scholar profile",
   },
 ];
 
@@ -34,23 +43,33 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Social links">
-            <ul className="flex items-center gap-4">
-              {socialLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-background/10 hover:bg-background/20 transition-colors inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
-                    aria-label={link.label}
-                  >
-                    <link.icon className="h-5 w-5" aria-hidden="true" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <TooltipProvider>
+            <nav aria-label="Social links">
+              <ul className="flex items-center gap-4">
+                {socialLinks.map((link) => (
+                  <li key={link.label}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={link.tooltip}
+                          className="p-3 rounded-full bg-background/20 text-background hover:bg-background/30 transition-colors inline-flex focus:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+                          aria-label={link.tooltip}
+                        >
+                          <link.icon className="h-5 w-5" aria-hidden="true" />
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="bg-background text-foreground">
+                        {link.tooltip}
+                      </TooltipContent>
+                    </Tooltip>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </TooltipProvider>
         </div>
 
         <div className="mt-8 pt-8 border-t border-background/20 text-center">

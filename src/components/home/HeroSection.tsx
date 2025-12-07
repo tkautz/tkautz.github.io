@@ -90,11 +90,12 @@ export function HeroSection() {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-2xl transform rotate-6"></div>
-              <img
-                src="/images/headshot-2.jpg"
-                alt="Tim Kautz - Senior Researcher"
-                className="relative w-64 sm:w-80 rounded-2xl shadow-xl"
-              />
+            <img
+              src="/images/headshot-2.jpg"
+              alt="Portrait of Tim Kautz"
+              loading="eager"
+              className="relative w-64 sm:w-80 rounded-2xl shadow-xl"
+            />
             </div>
           </motion.div>
         </div>

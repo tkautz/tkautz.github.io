@@ -77,7 +77,9 @@ export function ResearchCard({ publication }: ResearchCardProps) {
           <div className="hidden sm:block flex-shrink-0">
             <img
               src={journalImage}
-              alt=""
+              alt={`Cover of ${publication.title}`}
+              loading="lazy"
+              decoding="async"
               className="w-20 h-28 object-cover rounded-lg shadow-sm"
             />
           </div>

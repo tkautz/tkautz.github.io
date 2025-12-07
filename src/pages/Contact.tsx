@@ -93,6 +93,14 @@ export default function Contact() {
           name="description"
           content="Get in touch with Tim Kautz for research collaborations, speaking engagements, or other inquiries."
         />
+        {/* Open Graph */}
+        <meta property="og:title" content="Contact Tim Kautz" />
+        <meta property="og:description" content="Get in touch with Tim Kautz for research collaborations, speaking engagements, or other inquiries." />
+        <meta property="og:type" content="website" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Contact Tim Kautz" />
+        <meta name="twitter:description" content="Get in touch with Tim Kautz for research collaborations, speaking engagements, or other inquiries." />
       </Helmet>
       <Layout>
         <section className="section-padding">

@@ -342,6 +342,14 @@ export default function CV() {
           name="description"
           content="View Tim Kautz's curriculum vitae, including education at Stanford and University of Chicago, employment at Mathematica, publications, and professional service."
         />
+        {/* Open Graph */}
+        <meta property="og:title" content="Curriculum Vitae | Tim Kautz" />
+        <meta property="og:description" content="View Tim Kautz's curriculum vitae, including education at Stanford and University of Chicago, employment at Mathematica, publications, and professional service." />
+        <meta property="og:type" content="website" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Curriculum Vitae | Tim Kautz" />
+        <meta name="twitter:description" content="View Tim Kautz's curriculum vitae, including education at Stanford and University of Chicago, employment at Mathematica, publications, and professional service." />
       </Helmet>
       <Layout>
         <section className="section-padding">

@@ -15,9 +15,9 @@
     --primary: 220 60% 35%;
     --primary-foreground: 0 0% 100%;
     --secondary: 45 30% 90%;
-    --secondary-foreground: 220 20% 25%;
+    --secondary-foreground: 220 25% 20%;
     --muted: 45 15% 92%;
-    --muted-foreground: 220 10% 45%;
+    --muted-foreground: 220 15% 35%;
     --accent: 35 80% 55%;
     --accent-foreground: 220 20% 15%;
     --destructive: 0 84% 60%;
@@ -79,6 +79,9 @@
   }
   .link-underline {
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+  .link-underline-active {
+    @apply after:w-full;
   }
 }
 

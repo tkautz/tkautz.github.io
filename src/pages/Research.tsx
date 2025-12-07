@@ -122,6 +122,14 @@ export default function Research() {
           name="description"
           content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation."
         />
+        {/* Open Graph */}
+        <meta property="og:title" content="Research & Publications | Tim Kautz" />
+        <meta property="og:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation." />
+        <meta property="og:type" content="website" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Research & Publications | Tim Kautz" />
+        <meta name="twitter:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation." />
       </Helmet>
       <PublicationsStructuredData />
       <Layout>
@@ -209,12 +217,17 @@ export default function Research() {
                       key={type}
                       onClick={() => scrollToSection(type)}
                       className={cn(
-                        "flex justify-between",
-                        activeSection === type && "bg-primary/10 text-primary"
+                        "flex justify-between cursor-pointer",
+                        activeSection === type 
+                          ? "bg-primary text-primary-foreground font-medium" 
+                          : "hover:bg-muted"
                       )}
                     >
                       {typeLabels[type as Publication["type"]]}
-                      <span className="text-xs text-muted-foreground">
+                      <span className={cn(
+                        "text-xs",
+                        activeSection === type ? "text-primary-foreground/80" : "text-muted-foreground"
+                      )}>
                         ({groupedPublications[type].length})
                       </span>
                     </DropdownMenuItem>
@@ -236,14 +249,17 @@ export default function Research() {
                       key={type}
                       onClick={() => scrollToSection(type)}
                       className={cn(
-                        "block w-full text-left text-sm py-1.5 px-3 rounded-md transition-colors",
+                        "block w-full text-left text-sm py-2 px-3 rounded-md transition-all",
                         activeSection === type
-                          ? "bg-primary/10 text-primary font-medium"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                          ? "bg-primary text-primary-foreground font-medium shadow-sm"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
                       )}
                     >
                       {typeLabels[type as Publication["type"]]}
-                      <span className="ml-2 text-xs opacity-60">
+                      <span className={cn(
+                        "ml-2 text-xs",
+                        activeSection === type ? "text-primary-foreground/80" : "opacity-60"
+                      )}>
                         ({groupedPublications[type].length})
                       </span>
                     </button>
