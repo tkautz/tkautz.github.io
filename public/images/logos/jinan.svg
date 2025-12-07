@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+  <!-- Jinan University Logo - Stylized circular emblem with Chinese characters motif -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3"/>
+  <circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <!-- Stylized torch/book symbol -->
+  <path d="M50 15 L55 30 L50 28 L45 30 Z" fill="currentColor"/>
+  <rect x="42" y="32" width="16" height="4" rx="1"/>
+  <!-- Open book base -->
+  <path d="M30 50 Q50 40 70 50 L70 75 Q50 65 30 75 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <line x1="50" y1="42" x2="50" y2="72" stroke="currentColor" stroke-width="1.5"/>
+  <!-- 1906 founding date -->
+  <text x="50" y="88" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="currentColor">1906</text>
+</svg>

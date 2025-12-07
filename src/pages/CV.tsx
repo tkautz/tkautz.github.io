@@ -47,13 +47,16 @@ const cvSections: CVSection[] = [
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 className="font-medium text-foreground">Senior Fellow</h3>
-              <p className="text-sm text-primary">
-                <a href="https://bcfg.wharton.upenn.edu/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  Behavior Change for Good Initiative
-                </a>, University of Pennsylvania
-              </p>
+            <div className="flex items-start gap-3">
+              <img src="/images/logos/upenn.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <div>
+                <h3 className="font-medium text-foreground">Senior Fellow</h3>
+                <p className="text-sm text-primary">
+                  <a href="https://bcfg.wharton.upenn.edu/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    Behavior Change for Good Initiative
+                  </a>, University of Pennsylvania
+                </p>
+              </div>
             </div>
             <span className="text-sm text-muted-foreground whitespace-nowrap">Aug. 2019 – Present</span>
           </div>
@@ -61,13 +64,16 @@ const cvSections: CVSection[] = [
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 className="font-medium text-foreground">Adjunct Professor</h3>
-              <p className="text-sm text-primary">
-                <a href="https://iesr.jnu.edu.cn/Home/main.htm" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  Institute for Economic and Social Research
-                </a>, Jinan University
-              </p>
+            <div className="flex items-start gap-3">
+              <img src="/images/logos/jinan.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <div>
+                <h3 className="font-medium text-foreground">Adjunct Professor</h3>
+                <p className="text-sm text-primary">
+                  <a href="https://iesr.jnu.edu.cn/Home/main.htm" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    Institute for Economic and Social Research
+                  </a>, Jinan University
+                </p>
+              </div>
             </div>
             <span className="text-sm text-muted-foreground whitespace-nowrap">Sep. 2016 – Present</span>
           </div>
@@ -75,13 +81,16 @@ const cvSections: CVSection[] = [
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 className="font-medium text-foreground">Network Leader</h3>
-              <p className="text-sm text-primary">
-                <a href="https://hceconomics.uchicago.edu/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  Human Capital and Economic Opportunity Global Working Group
-                </a>, University of Chicago
-              </p>
+            <div className="flex items-start gap-3">
+              <img src="/images/logos/uchicago.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <div>
+                <h3 className="font-medium text-foreground">Network Leader</h3>
+                <p className="text-sm text-primary">
+                  <a href="https://hceconomics.uchicago.edu/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    Human Capital and Economic Opportunity Global Working Group
+                  </a>, University of Chicago
+                </p>
+              </div>
             </div>
             <span className="text-sm text-muted-foreground whitespace-nowrap">Jun. 2015 – Present</span>
           </div>
@@ -89,13 +98,16 @@ const cvSections: CVSection[] = [
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 className="font-medium text-foreground">Senior Visiting Fellow</h3>
-              <p className="text-sm text-primary">
-                <a href="https://www.iza.org/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  IZA – Institute of Labor Economics
-                </a> (formerly briq), Bonn, Germany
-              </p>
+            <div className="flex items-start gap-3">
+              <img src="/images/logos/iza.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <div>
+                <h3 className="font-medium text-foreground">Senior Visiting Fellow</h3>
+                <p className="text-sm text-primary">
+                  <a href="https://www.iza.org/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    IZA – Institute of Labor Economics
+                  </a> (formerly briq), Bonn, Germany
+                </p>
+              </div>
             </div>
             <span className="text-sm text-muted-foreground whitespace-nowrap">Apr. 2019</span>
           </div>
@@ -112,9 +124,12 @@ const cvSections: CVSection[] = [
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 className="font-medium text-foreground">Ph.D. Economics</h3>
-              <p className="text-sm text-primary">University of Chicago</p>
+            <div className="flex items-start gap-3">
+              <img src="/images/logos/uchicago.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <div>
+                <h3 className="font-medium text-foreground">Ph.D. Economics</h3>
+                <p className="text-sm text-primary">University of Chicago</p>
+              </div>
             </div>
             <span className="text-sm text-muted-foreground whitespace-nowrap">Jun. 2015</span>
           </div>
@@ -122,9 +137,12 @@ const cvSections: CVSection[] = [
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 className="font-medium text-foreground">M.A. Economics</h3>
-              <p className="text-sm text-primary">University of Chicago</p>
+            <div className="flex items-start gap-3">
+              <img src="/images/logos/uchicago.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <div>
+                <h3 className="font-medium text-foreground">M.A. Economics</h3>
+                <p className="text-sm text-primary">University of Chicago</p>
+              </div>
             </div>
             <span className="text-sm text-muted-foreground whitespace-nowrap">Jun. 2012</span>
           </div>
@@ -132,9 +150,12 @@ const cvSections: CVSection[] = [
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-            <div>
-              <h3 className="font-medium text-foreground">B.A. Economics (with Honors)</h3>
-              <p className="text-sm text-primary">Stanford University</p>
+            <div className="flex items-start gap-3">
+              <img src="/images/logos/stanford.ico" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <div>
+                <h3 className="font-medium text-foreground">B.A. Economics (with Honors)</h3>
+                <p className="text-sm text-primary">Stanford University</p>
+              </div>
             </div>
             <span className="text-sm text-muted-foreground whitespace-nowrap">Jun. 2008</span>
           </div>

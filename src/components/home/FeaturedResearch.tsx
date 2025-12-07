@@ -2,26 +2,31 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { publications } from "@/data/publications";
-import { ResearchCard } from "@/components/research/ResearchCard";
+import { FeaturedResearchCard } from "./FeaturedResearchCard";
 import { ScrollReveal, StaggerChildren, StaggerItem } from "@/components/ui/scroll-reveal";
 
 export function FeaturedResearch() {
   const featuredPubs = publications.filter((pub) => pub.featured).slice(0, 4);
 
   return (
-    <section className="section-padding bg-secondary/30">
-      <div className="container-wide">
+    <section className="relative bg-muted/50 overflow-hidden">
+      {/* Subtle decorative gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
+      
+      <div className="container-wide section-padding relative">
         <ScrollReveal>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
             <div>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-2">
+              {/* Section title with decorative underline */}
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-3 relative inline-block">
                 Featured Research
+                <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full" />
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mt-4 max-w-lg">
                 Selected publications on skills, education, and employment
               </p>
             </div>
-            <Button asChild variant="ghost" className="group self-start sm:self-auto min-h-[44px]">
+            <Button asChild variant="outline" className="group self-start sm:self-auto h-11 px-5">
               <Link to="/research">
                 View all publications
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -30,10 +35,14 @@ export function FeaturedResearch() {
           </div>
         </ScrollReveal>
 
-        <StaggerChildren className="grid md:grid-cols-2 gap-6" staggerDelay={0.15}>
+        {/* Cards grid - horizontal on desktop, stacked on mobile */}
+        <StaggerChildren 
+          className="grid grid-cols-1 md:grid-cols-2 gap-6" 
+          staggerDelay={0.1}
+        >
           {featuredPubs.map((pub) => (
             <StaggerItem key={pub.id}>
-              <ResearchCard publication={pub} />
+              <FeaturedResearchCard publication={pub} />
             </StaggerItem>
           ))}
         </StaggerChildren>

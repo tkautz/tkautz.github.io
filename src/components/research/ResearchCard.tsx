@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Download, Copy, Check, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Publication, publicationTypes } from "@/data/publications";
@@ -24,13 +24,58 @@ const journalImages: Record<string, string> = {
   "British Medical Journal": "/images/journals/bmj.png",
 };
 
-// Function to get journal image
-function getJournalImage(journal?: string): string | null {
-  if (!journal) return null;
+// Function to get cover image - prioritizes publication.coverImage, then journal mapping
+function getCoverImage(publication: Publication): string | null {
+  if (publication.coverImage) return publication.coverImage;
+  if (!publication.journal) return null;
   for (const [key, url] of Object.entries(journalImages)) {
-    if (journal.includes(key)) return url;
+    if (publication.journal.includes(key)) return url;
   }
   return null;
+}
+
+// Optimized image component with intersection observer for lazy loading
+function CoverImage({ src, alt }: { src: string; alt: string }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const imgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // Start loading 200px before visible
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={imgRef}
+      className="w-20 h-28 rounded-lg shadow-sm bg-muted overflow-hidden flex-shrink-0"
+    >
+      {isInView && (
+        <img
+          src={src}
+          alt={alt}
+          onLoad={() => setIsLoaded(true)}
+          className={cn(
+            "w-full h-full object-cover transition-opacity duration-300",
+            isLoaded ? "opacity-100" : "opacity-0"
+          )}
+        />
+      )}
+    </div>
+  );
 }
 
 // Function to render authors with bold Tim Kautz
@@ -55,7 +100,7 @@ export function ResearchCard({ publication }: ResearchCardProps) {
   const { toast } = useToast();
 
   const typeInfo = publicationTypes[publication.type];
-  const journalImage = getJournalImage(publication.journal);
+  const coverImage = getCoverImage(publication);
 
   const handleCopyCitation = () => {
     const cleanAuthors = publication.authors.replace(/\*\*/g, "");
@@ -70,18 +115,15 @@ export function ResearchCard({ publication }: ResearchCardProps) {
   };
 
   return (
-    <article className="bg-card rounded-xl border border-border/50 p-6 card-hover h-full flex flex-col">
+    <article 
+      id={`pub-${publication.id}`}
+      className="bg-card rounded-xl border border-border/50 p-6 card-hover h-full flex flex-col scroll-mt-24"
+    >
       <div className="flex gap-4">
-        {/* Journal Cover Image */}
-        {journalImage && (
-          <div className="hidden sm:block flex-shrink-0">
-            <img
-              src={journalImage}
-              alt={`Cover of ${publication.title}`}
-              loading="lazy"
-              decoding="async"
-              className="w-20 h-28 object-cover rounded-lg shadow-sm"
-            />
+        {/* Cover Image - with optimized lazy loading */}
+        {coverImage && (
+          <div className="hidden sm:block">
+            <CoverImage src={coverImage} alt={`Cover of ${publication.title}`} />
           </div>
         )}
 
