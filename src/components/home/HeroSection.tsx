@@ -32,7 +32,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(var(--primary)/0.05),_transparent_50%)]" />
       
       <div className="container-wide section-padding relative">
-        <div className="grid sm:grid-cols-[1.3fr_0.7fr] gap-6 sm:gap-8 items-center">
+        <div className="grid sm:grid-cols-[1fr_auto] gap-6 sm:gap-8 items-center">
           {/* Text Content */}
           <div className="space-y-8">
             {/* Role badge */}
@@ -61,7 +61,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-xl"
+              className="space-y-5 text-muted-foreground text-lg leading-relaxed"
             >
               <p>
                 I am a Senior Researcher (Economist and Data Scientist) at{" "}
