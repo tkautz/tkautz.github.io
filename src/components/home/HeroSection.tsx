@@ -32,9 +32,9 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(var(--primary)/0.05),_transparent_50%)]" />
       
       <div className="container-wide section-padding relative">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid sm:grid-cols-[1.3fr_0.7fr] gap-6 sm:gap-8 items-center">
           {/* Text Content */}
-          <div className="order-2 lg:order-1 space-y-8">
+          <div className="space-y-8">
             {/* Role badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground tracking-tight"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight"
             >
               Tim Kautz
             </motion.h1>
@@ -146,16 +146,16 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+            className="flex justify-center"
           >
             <div className="relative">
               {/* Decorative background blur */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 rounded-3xl blur-2xl" />
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 rounded-2xl blur-xl" />
               <img
                 src="/images/headshot-2.jpg"
                 alt="Portrait of Tim Kautz"
                 loading="eager"
-                className="relative w-72 sm:w-80 lg:w-96 rounded-2xl shadow-xl ring-1 ring-border/50"
+                className="relative w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-lg ring-1 ring-border/40"
               />
             </div>
           </motion.div>
