@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, GraduationCap, BookOpen, FileCheck, Library } from "lucide-react";
+import { ArrowRight, FileText, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { publications } from "@/data/publications";
 
 const affiliations = [
   {
@@ -24,6 +23,14 @@ const affiliations = [
     org: "UChicago",
     logo: "/images/logos/uchicago.png",
   },
+];
+
+const expertise = [
+  "Noncognitive skills",
+  "Education economics",
+  "Program evaluation",
+  "Causal inference",
+  "Data science",
 ];
 
 export function HeroSection() {
@@ -124,28 +131,26 @@ export function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Publication Stats */}
+            {/* Expertise Tags */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
-              className="flex flex-wrap gap-6"
+              className="space-y-3"
             >
-              {[
-                { icon: BookOpen, count: publications.filter(p => p.type === "journal").length, label: "Journal Articles" },
-                { icon: Library, count: publications.filter(p => p.type === "book-chapter" || p.type === "edited-volume").length, label: "Books & Chapters" },
-                { icon: FileCheck, count: publications.filter(p => p.type === "report").length, label: "Policy Reports" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <stat.icon className="h-4 w-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-lg font-bold text-foreground leading-tight">{stat.count}</p>
-                    <p className="text-xs text-muted-foreground">{stat.label}</p>
-                  </div>
-                </div>
-              ))}
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                Areas of Expertise
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {expertise.map((area) => (
+                  <span
+                    key={area}
+                    className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs font-medium text-foreground shadow-sm"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
             </motion.div>
 
             {/* CTA Buttons */}

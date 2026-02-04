@@ -40,6 +40,14 @@ const typeOrder: Publication["type"][] = ["journal", "book-chapter", "edited-vol
 // Get unique years from publications
 const uniqueYears = [...new Set(publications.map((pub) => pub.year))].sort((a, b) => b - a);
 
+const researchAreas = [
+  "Noncognitive skills",
+  "Education economics",
+  "Employment programs",
+  "Program evaluation",
+  "Causal inference",
+];
+
 export default function Research() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedType, setSelectedType] = useState<PublicationType>("all");
@@ -154,8 +162,18 @@ export default function Research() {
                 className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
               >
                 <GraduationCap className="h-4 w-4" />
-                View my Google Scholar profile for citation metrics
+                View my Google Scholar profile
               </a>
+              <div className="mt-6 flex flex-wrap justify-center gap-2">
+                {researchAreas.map((area) => (
+                  <span
+                    key={area}
+                    className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs font-medium text-foreground shadow-sm"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
             </ScrollReveal>
 
             {/* Filters */}
