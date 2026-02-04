@@ -144,7 +144,7 @@ export default function Research() {
       </Helmet>
       <PublicationsStructuredData />
       <Layout>
-        <section className="section-padding">
+        <section className="section-padding bg-muted/30">
           <div className="container-wide">
             {/* Header */}
             <ScrollReveal className="text-center mb-12">

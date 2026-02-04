@@ -373,7 +373,7 @@ export default function CV() {
         <meta name="twitter:description" content="View Tim Kautz's curriculum vitae, including education at Stanford and University of Chicago, employment at Mathematica, publications, and professional service." />
       </Helmet>
       <Layout>
-        <section className="section-padding">
+        <section className="section-padding bg-muted/30">
           <div className="container-narrow">
             {/* Header */}
             <ScrollReveal className="text-center mb-12">
