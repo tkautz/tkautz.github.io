@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Download, Copy, Check, ExternalLink } from "lucide-react";
+import { ChevronDown, Download, Copy, Check, ExternalLink, BookOpen, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Publication, publicationTypes } from "@/data/publications";
 import { cn } from "@/lib/utils";
@@ -38,6 +38,7 @@ function getCoverImage(publication: Publication): string | null {
 function CoverImage({ src, alt }: { src: string; alt: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,7 +49,7 @@ function CoverImage({ src, alt }: { src: string; alt: string }) {
           observer.disconnect();
         }
       },
-      { rootMargin: "200px" } // Start loading 200px before visible
+      { rootMargin: "300px" } // Start loading 300px before visible for smoother scrolling
     );
 
     if (imgRef.current) {
@@ -63,16 +64,26 @@ function CoverImage({ src, alt }: { src: string; alt: string }) {
       ref={imgRef}
       className="w-20 h-28 rounded-lg shadow-sm bg-muted overflow-hidden flex-shrink-0"
     >
-      {isInView && (
+      {isInView && !hasError && (
         <img
           src={src}
           alt={alt}
+          width={80}
+          height={112}
+          loading="lazy"
+          decoding="async"
           onLoad={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
           className={cn(
             "w-full h-full object-cover transition-opacity duration-300",
             isLoaded ? "opacity-100" : "opacity-0"
           )}
         />
+      )}
+      {hasError && (
+        <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+          <BookOpen className="h-6 w-6 opacity-40" />
+        </div>
       )}
     </div>
   );
@@ -114,6 +125,15 @@ export function ResearchCard({ publication }: ResearchCardProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleShareLink = () => {
+    const url = `${window.location.origin}/research#pub-${publication.id}`;
+    navigator.clipboard.writeText(url);
+    toast({
+      title: "Link copied!",
+      description: "A direct link to this publication has been copied.",
+    });
+  };
+
   return (
     <article 
       id={`pub-${publication.id}`}
@@ -146,9 +166,23 @@ export function ResearchCard({ publication }: ResearchCardProps) {
           </p>
 
           {publication.journal && (
-            <p className="text-sm text-primary font-medium mb-4 italic">
+            <p className="text-sm text-primary font-medium mb-3 italic">
               {publication.journal}
             </p>
+          )}
+
+          {/* Keyword Tags */}
+          {publication.keywords && publication.keywords.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-1">
+              {publication.keywords.map((keyword) => (
+                <span
+                  key={keyword}
+                  className="px-2 py-0.5 text-[11px] font-medium rounded-md bg-secondary/80 text-secondary-foreground/80"
+                >
+                  {keyword}
+                </span>
+              ))}
+            </div>
           )}
         </div>
       </div>
@@ -211,6 +245,10 @@ export function ResearchCard({ publication }: ResearchCardProps) {
               Cite
             </>
           )}
+        </Button>
+        <Button variant="ghost" size="sm" onClick={handleShareLink} className="min-h-[36px]">
+          <Share2 className="h-3.5 w-3.5 mr-1.5" />
+          Share
         </Button>
       </div>
     </article>

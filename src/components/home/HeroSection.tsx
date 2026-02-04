@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, FileText, GraduationCap, BookOpen, FileCheck, Library } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { publications } from "@/data/publications";
 
 const affiliations = [
   {
@@ -105,9 +106,13 @@ export function HeroSection() {
                       variant="outline" 
                       className="px-3 py-1.5 text-sm bg-card hover:bg-secondary hover:border-primary/30 transition-all duration-200 cursor-pointer flex items-center gap-2"
                     >
-                      <img 
-                        src={affiliation.logo} 
-                        alt="" 
+                      <img
+                        src={affiliation.logo}
+                        alt=""
+                        width={16}
+                        height={16}
+                        loading="lazy"
+                        decoding="async"
                         className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity"
                       />
                       <span className="text-foreground group-hover:text-primary transition-colors">
@@ -119,12 +124,36 @@ export function HeroSection() {
               </div>
             </motion.div>
 
+            {/* Publication Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="flex flex-wrap gap-6"
+            >
+              {[
+                { icon: BookOpen, count: publications.filter(p => p.type === "journal").length, label: "Journal Articles" },
+                { icon: Library, count: publications.filter(p => p.type === "book-chapter" || p.type === "edited-volume").length, label: "Books & Chapters" },
+                { icon: FileCheck, count: publications.filter(p => p.type === "report").length, label: "Policy Reports" },
+              ].map((stat) => (
+                <div key={stat.label} className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <stat.icon className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-foreground leading-tight">{stat.count}</p>
+                    <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-4 pt-2"
+              className="flex flex-wrap gap-3 pt-2"
             >
               <Button asChild size="lg" className="group h-12 px-6 text-base">
                 <Link to="/research">
@@ -136,6 +165,12 @@ export function HeroSection() {
                 <a href="/documents/TimKautz_CV.pdf" target="_blank" rel="noopener noreferrer">
                   <FileText className="mr-2 h-4 w-4" />
                   Download CV
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
+                <a href="https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  <GraduationCap className="mr-2 h-4 w-4" />
+                  Google Scholar
                 </a>
               </Button>
             </motion.div>
@@ -154,7 +189,11 @@ export function HeroSection() {
               <img
                 src="/images/headshot-2.jpg"
                 alt="Portrait of Tim Kautz"
+                width={256}
+                height={256}
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="relative w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-lg ring-1 ring-border/40"
               />
             </div>

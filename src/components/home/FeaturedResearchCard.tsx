@@ -57,9 +57,11 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
             <img
               src={journalImage}
               alt={`Cover of ${publication.title}`}
+              width={64}
+              height={88}
               loading="lazy"
               decoding="async"
-              className="w-16 h-22 object-cover rounded-lg shadow-sm transition-transform duration-300 group-hover:scale-105"
+              className="w-16 h-[88px] object-cover rounded-lg shadow-sm transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         )}
