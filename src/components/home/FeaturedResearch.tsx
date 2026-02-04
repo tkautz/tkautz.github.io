@@ -23,7 +23,7 @@ export function FeaturedResearch() {
                 <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full" />
               </h2>
               <p className="text-muted-foreground mt-4 max-w-lg">
-                Selected publications on skills, education, and employment
+                Selected publications on skills development, education, and employment.
               </p>
             </div>
             <Button asChild variant="outline" className="group self-start sm:self-auto h-11 px-5">

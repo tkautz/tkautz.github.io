@@ -5,22 +5,22 @@ const highlights = [
   {
     icon: BookOpen,
     title: "Noncognitive Skills",
-    description: "Measuring and fostering character skills, self-regulation, and their role in life outcomes.",
+    description: "Measuring and fostering character skills, self-regulation, and their role in long-term outcomes.",
   },
   {
     icon: Users,
     title: "Employment Programs",
-    description: "Evaluating interventions that improve employment outcomes for disadvantaged populations.",
+    description: "Evaluating interventions that improve employment outcomes for underserved populations.",
   },
   {
     icon: TrendingUp,
     title: "Quantitative Methods",
-    description: "Applying rigorous econometric and statistical methods to policy-relevant research questions.",
+    description: "Applying rigorous econometric and statistical methods to policy-relevant research.",
   },
   {
     icon: Award,
     title: "Policy Impact",
-    description: "Translating research findings into actionable insights for policymakers and practitioners.",
+    description: "Translating research findings into actionable insights for decision-makers and practitioners.",
   },
 ];
 
@@ -33,8 +33,8 @@ export function AboutSection() {
             Research Focus
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            My research aims to understand the skills and interventions that 
-            help individuals succeed in education, employment, and life.
+            My research focuses on the skills and interventions that help people
+            succeed in education, employment, and life.
           </p>
         </ScrollReveal>
 
