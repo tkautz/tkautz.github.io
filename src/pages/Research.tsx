@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Search, ChevronDown, Calendar } from "lucide-react";
+import { Search, ChevronDown, Calendar, GraduationCap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { ResearchCard } from "@/components/research/ResearchCard";
@@ -49,10 +49,13 @@ export default function Research() {
 
   const filteredPublications = useMemo(() => {
     return publications.filter((pub) => {
+      const query = searchQuery.toLowerCase();
       const matchesSearch =
         searchQuery === "" ||
-        pub.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        pub.authors.toLowerCase().includes(searchQuery.toLowerCase());
+        pub.title.toLowerCase().includes(query) ||
+        pub.authors.toLowerCase().includes(query) ||
+        pub.journal?.toLowerCase().includes(query) ||
+        pub.keywords?.some(k => k.toLowerCase().includes(query));
 
       const matchesType = selectedType === "all" || pub.type === selectedType;
       const matchesYear = selectedYear === "all" || pub.year.toString() === selectedYear;
@@ -140,10 +143,19 @@ export default function Research() {
               <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4">
                 Research
               </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                A collection of my research on skills development, education, 
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
+                A collection of my research on skills development, education,
                 employment programs, and quantitative methods.
               </p>
+              <a
+                href="https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
+              >
+                <GraduationCap className="h-4 w-4" />
+                View my Google Scholar profile for citation metrics
+              </a>
             </ScrollReveal>
 
             {/* Filters */}

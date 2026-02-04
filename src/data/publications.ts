@@ -10,6 +10,7 @@ export interface Publication {
   externalUrl?: string;
   featured?: boolean;
   coverImage?: string;
+  keywords?: string[];
 }
 
 export const publications: Publication[] = [
@@ -24,6 +25,7 @@ export const publications: Publication[] = [
     abstract: "Using administrative data, we develop measures of noncognitive skills and evaluate OneGoal, an intervention designed to help disadvantaged students complete college by teaching them noncognitive skills. We (1) compare the outcomes of participants and nonparticipants with similar characteristics and (2) use a difference-in-differences approach exploiting that OneGoal was introduced into different schools at different times. We estimate that OneGoal increases college enrollment by 10–20 percentage points for males and females and reduces arrest rates by 5 percentage points for males. Through a mediation analysis, we find that improvements in noncognitive skills account for 13%–32% of these effects.",
     pdfUrl: "/documents/Kautz_Zanoni_2024_Measurement and Development.pdf",
     featured: true,
+    keywords: ["noncognitive skills", "education", "program evaluation"],
   },
   {
     id: "feng-etal-2024",
@@ -34,6 +36,7 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "We develop shorter versions of a Big Five survey designed to measure students' noncognitive skills and predict students' later academic outcomes. We find that measures with fewer items can better predict students' outcomes, suggesting that using shorter versions of a Big Five Inventory may be cost-effective in large-scale social surveys.",
     pdfUrl: "/documents/Feng_etal_2024_Shorter Can Be Better.pdf",
+    keywords: ["noncognitive skills", "measurement", "Big Five"],
   },
   {
     id: "lira-etal-2022",
@@ -44,6 +47,7 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "There is growing policy interest in identifying contexts that cultivate self-regulation. Doing so often entails comparing groups of individuals (e.g., from different schools). We show that self-report questionnaires—the most prevalent modality for assessing self-regulation—are prone to reference bias, defined as systematic error arising from differences in the implicit standards by which individuals evaluate behavior. In three studies, adolescents (N = 229,685) whose peers performed better academically rated themselves lower in self-regulation and held higher standards for self-regulation. This effect was not observed for task measures of self-regulation and led to paradoxical predictions of college persistence 6 years later.",
     pdfUrl: "/documents/Lira_etal_2022_Large Studies Reveal.pdf",
+    keywords: ["self-regulation", "measurement", "reference bias"],
   },
   {
     id: "feng-etal-2022",
@@ -55,6 +59,7 @@ export const publications: Publication[] = [
     abstract: "Children's noncognitive or socioemotional skills (e.g., persistence and self-control) are typically measured using surveys in which either children rate their own skills or adults rate the skills of children. For many purposes—including program evaluation and monitoring school systems—ratings are often collected from multiple perspectives about a single child. Collecting data from multiple perspectives is costly, and there is limited evidence on the benefits of this approach. Using a longitudinal survey, this study compares children's noncognitive skills as reported by themselves, their guardians, and their teachers. Teacher reports have the highest internal consistency and are the most predictive of children's later cognitive outcomes and behavior in school.",
     pdfUrl: "/documents/Feng_etal_2022_Comparing the reliability and predictive power.pdf",
     featured: true,
+    keywords: ["noncognitive skills", "measurement", "child development"],
   },
   {
     id: "schochet-etal-2022",
@@ -65,6 +70,7 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "This article develops design-based ratio estimators for clustered, blocked randomized controlled trials (RCTs), with an application to a federally funded, school-based RCT testing the effects of behavioral health interventions. We consider finite population weighted least-square estimators for average treatment effects (ATEs), allowing for general weighting schemes and covariates.",
     pdfUrl: "/documents/Schochet_etal_2022_Design-Based Ratio Estimators.pdf",
+    keywords: ["causal inference", "RCT", "statistical methods"],
   },
   {
     id: "milkman-etal-2021",
@@ -77,6 +83,7 @@ export const publications: Publication[] = [
     pdfUrl: "/documents/Milkman_etal_2021_Megastudies Improve.pdf",
     coverImage: "/images/journals/nature-600.png",
     featured: true,
+    keywords: ["behavioral science", "field experiment", "health"],
   },
   {
     id: "duckworth-etal-2021",
@@ -87,6 +94,7 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "What is the social, emotional, and academic impact of attending school remotely rather than in person? We address this urgent policy issue using survey data collected from N = 6,576 high school students in a large, demographically diverse school district that allowed families to choose either format in fall 2020. Controlling for baseline measures of well-being, students who attended school remotely reported lower levels of social, emotional, and academic well-being than classmates who attended school in person.",
     pdfUrl: "/documents/Duckworth_etal_2021_Students Attending.pdf",
+    keywords: ["education", "COVID-19", "well-being"],
   },
   {
     id: "hock-etal-2021",
@@ -97,6 +105,7 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "Improving work outcomes for youth with disabilities and reducing their reliance on disability benefits are important policy priorities. We provide new evidence by re-analyzing data from the 1990s National Job Corps Study, a randomized field experiment conducted nationwide in the United States. We examine youth who had medical limitations when they enrolled in the experiment. During the 4 years after random assignment, participation in Job Corps increased the earnings of youth with medical limitations—substantially more so than for youth without medical limitations—and additionally reduced their receipt of disability cash benefits.",
     pdfUrl: "/documents/Hock_etal_2021_Improving the outcomes of youth.pdf",
+    keywords: ["employment", "disability", "program evaluation"],
   },
   {
     id: "deke-wei-kautz-2021",
@@ -107,6 +116,7 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "Evaluators of education interventions are increasingly designing studies to detect impacts much smaller than the 0.20 standard deviations that Cohen characterized as \"small.\" While the need to detect smaller impacts is based on compelling arguments that such impacts are substantively meaningful, the drive to detect smaller impacts may create a new challenge for researchers: the need to guard against smaller biases.",
     pdfUrl: "/documents/Deke_Wei_Kautz_2021_Asymdystopia.pdf",
+    keywords: ["statistical methods", "education", "research design"],
   },
   {
     id: "chen-etal-2020",
@@ -117,6 +127,7 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "Noncognitive skills are typically measured using self-reported questionnaires. However, self-reports might capture other dimensions aside from the skill, such as aspects of a respondent's situation. This study conducted 2 experiments to estimate the extent to which survey administration conditions can affect student responses on noncognitive skill questionnaires. Both experiments suggest that self-reports of noncognitive skills are sensitive to survey conditions.",
     pdfUrl: "/documents/Chen_etal_2020_Sensitivity.pdf",
+    keywords: ["noncognitive skills", "measurement", "survey methods"],
   },
   {
     id: "heckman-kautz-2012",
@@ -128,6 +139,7 @@ export const publications: Publication[] = [
     abstract: "This paper summarizes recent evidence on what achievement tests measure; how achievement tests relate to other measures of \"cognitive ability\" like IQ and grades; the important skills that achievement tests miss or mismeasure, and how much these skills matter in life. Achievement tests miss soft skills—personality traits, goals, motivations, and preferences—that are valued in the labor market, in school, and in many other domains.",
     pdfUrl: "/documents/Heckman_Kautz_2012_Hard Evidence.pdf",
     featured: true,
+    keywords: ["noncognitive skills", "labor economics", "personality"],
   },
   {
     id: "kautz-etal-2010",
@@ -138,6 +150,7 @@ export const publications: Publication[] = [
     type: "journal",
     pdfUrl: "/documents/Kautz_etal_2010_AIDS Declining.pdf",
     coverImage: "/images/journals/bmj-340.jpg",
+    keywords: ["health", "global development", "Africa"],
   },
   // Book Chapters
   {
@@ -150,6 +163,7 @@ export const publications: Publication[] = [
     abstract: "This chapter synthesizes recent research in economics and psychology on the measurement and empirical importance of personality skills and preferences. They predict and cause important life outcomes such as wages, health, and longevity. Skills develop over the life cycle and can be enhanced by education, parenting, and environmental influences to different degrees at different ages. Economic analysis clarifies psychological studies by establishing that personality is measured by performance on tasks which depends on incentives and multiple skills. Identification of any single skill therefore requires isolation of confounding factors, accounting for measurement error using rich data and application of appropriate statistical techniques.",
     pdfUrl: "/documents/Heckman_etal_2019_Some Contributions.pdf",
     coverImage: "/images/covers/handbook-of-personality.jpg",
+    keywords: ["personality", "economics", "skill development"],
   },
   {
     id: "heckman-kautz-2014-achievement",
@@ -216,6 +230,7 @@ export const publications: Publication[] = [
     abstract: "This chapter explores the power of personality traits both as predictors and as causes of academic and economic success, health, and criminal activity. Measured personality is interpreted as a construct derived from an economic model of preferences, constraints, and information. Evidence is reviewed about the \"situational specificity\" of personality traits and preferences. The biological and evolutionary origins of personality traits are explored. Personality measurement systems and relationships among the measures used by psychologists are examined.",
     pdfUrl: "/documents/Almlund_etal_2011_Personality Psychology.pdf",
     coverImage: "/images/covers/handbook-economics-education.jpg",
+    keywords: ["personality", "economics", "education"],
   },
   // Edited Volumes
   {
@@ -239,6 +254,7 @@ export const publications: Publication[] = [
     abstract: "Individual Placement and Support (IPS) is an evidence-based model that aims to help people with serious mental illness find and work at competitive jobs of their choosing. Given the success of IPS for adults with serious mental illness and the prevalence of mental health issues among adults with justice involvement, the Next Generation of Enhanced Employment Strategies (NextGen) Project is examining the implementation and effectiveness of IPS for adults with justice involvement and mental health challenges. This report describes the design of the IPS-AJI program; the context in which it has been implemented; who it serves; key aspects of its implementation; and the cost of the program.",
     pdfUrl: "/documents/Kauff_etal_2024_Integrating_Employment_Services.pdf",
     coverImage: "/images/covers/opre-2024-155.jpg",
+    keywords: ["employment", "mental health", "program evaluation"],
   },
   {
     id: "kautz-tilley-stapleton-2024",
@@ -250,6 +266,7 @@ export const publications: Publication[] = [
     abstract: "This research aims to inform those who study, develop, or provide technical assistance to programs offering employment services to young adults who are potential SSI participants. We used long-term longitudinal data for youth and young adults to determine which factors predict their later participation in SSI. Several aspects of people's lives stood out as especially predictive, including low scores on an achievement test in adolescence, fair or poor health, recent unemployment, SSI participation as a child, mother's education, and family structure.",
     pdfUrl: "/documents/Kautz_etal_2024_Exploring How Peoples.pdf",
     coverImage: "/images/covers/opre-2024-076.png",
+    keywords: ["disability", "SSI", "youth"],
   },
   {
     id: "moore-etal-2024",
@@ -261,6 +278,7 @@ export const publications: Publication[] = [
     abstract: "This report presents findings from the Evaluation of Employment Coaching for TANF and Related Populations. It describes four coaching programs and presents the impacts of each program 21 months after participants enrolled in the study. The report also includes findings from an implementation study that assessed how well each program implemented the coaching approach. The programs coached participants to identify and set employment-related goals, develop detailed action plans to reach those goals, complete the actions toward achieving the goals, and later create new goals.",
     pdfUrl: "/documents/Moore_etal_2024_Can A Participant.pdf",
     coverImage: "/images/covers/opre-2024-061.jpg",
+    keywords: ["employment coaching", "TANF", "program evaluation"],
   },
   {
     id: "kautz-kent-thal-2024",
@@ -272,6 +290,7 @@ export const publications: Publication[] = [
     abstract: "Many Temporary Assistance for Needy Families (TANF) recipients and other individuals with low incomes seek employment and training programs to help them find jobs or improve their earnings. However, these programs do not necessarily benefit all participants equally. Program evaluations that include subgroup analysis can inform how employment programs provide their services and help them improve equity by identifying who needs more tailored services. This report details new and promising approaches to subgroup analysis for evaluators of employment programs.",
     pdfUrl: "/documents/Kautz_etal_2024_Using Bayesian Methods.pdf",
     coverImage: "/images/covers/opre-2024-027.png",
+    keywords: ["Bayesian methods", "subgroup analysis", "statistical methods"],
   },
   {
     id: "kautz-anastasio-2024",
@@ -283,6 +302,7 @@ export const publications: Publication[] = [
     abstract: "The purpose of this study is to examine how measures of self-regulation skills relate to future outcomes. The results can inform researchers who work with employment programs on how to promote self-regulation skills or who plan to use measures of self-regulation skills in evaluations of employment programs. The study provides evidence on (1) how individual self-regulation measures relate to longer-term outcomes; (2) how using multiple self-regulation measures predicts longer-term outcomes compared to using individual measures; and (3) the extent to which using self-regulation measures can improve the prediction of longer-term outcomes above and beyond using only sociodemographic characteristics.",
     pdfUrl: "/documents/Kautz_Anastasio_2024_The Predictive Power.pdf",
     coverImage: "/images/covers/opre-2024-008.jpg",
+    keywords: ["self-regulation", "measurement", "employment"],
   },
   {
     id: "moore-etal-2023",
@@ -415,6 +435,7 @@ export const publications: Publication[] = [
     abstract: "IQ tests and achievement tests do not adequately capture non-cognitive skills — personality traits, goals, character, motivations, and preferences that are valued in the labor market, in school, and in many other domains. For many outcomes, their predictive power rivals or exceeds that of cognitive skills. Skills are stable across situations with different incentives, although manifestations of skills vary with incentives. Skills are not immutable over the life cycle; they have a genetic basis but are also shaped by environments, including families, schools, and peers.",
     pdfUrl: "/documents/Kautz_etal_2014_Fostering.pdf",
     coverImage: "/images/covers/oecd-2014-fostering.jpg",
+    keywords: ["noncognitive skills", "skill development", "OECD"],
   },
   {
     id: "macurdy-etal-2009",
