@@ -103,7 +103,7 @@ export default function Contact() {
         <meta name="twitter:description" content="Get in touch with Tim Kautz for research collaborations, speaking engagements, or other inquiries." />
       </Helmet>
       <Layout>
-        <section className="section-padding">
+        <section className="section-padding bg-muted/30">
           <div className="container-narrow">
             {/* Header */}
             <ScrollReveal className="text-center mb-12">
