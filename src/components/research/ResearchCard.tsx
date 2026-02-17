@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Publication, publicationTypes } from "@/data/publications";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { toWebP } from "@/lib/image-utils";
 
 interface ResearchCardProps {
   publication: Publication;
@@ -65,20 +66,23 @@ function CoverImage({ src, alt }: { src: string; alt: string }) {
       className="w-20 h-28 rounded-lg shadow-sm bg-muted overflow-hidden flex-shrink-0"
     >
       {isInView && !hasError && (
-        <img
-          src={src}
-          alt={alt}
-          width={80}
-          height={112}
-          loading="lazy"
-          decoding="async"
-          onLoad={() => setIsLoaded(true)}
-          onError={() => setHasError(true)}
-          className={cn(
-            "w-full h-full object-cover transition-opacity duration-300",
-            isLoaded ? "opacity-100" : "opacity-0"
-          )}
-        />
+        <picture>
+          <source srcSet={toWebP(src)} type="image/webp" />
+          <img
+            src={src}
+            alt={alt}
+            width={80}
+            height={112}
+            loading="lazy"
+            decoding="async"
+            onLoad={() => setIsLoaded(true)}
+            onError={() => setHasError(true)}
+            className={cn(
+              "w-full h-full object-cover transition-opacity duration-300",
+              isLoaded ? "opacity-100" : "opacity-0"
+            )}
+          />
+        </picture>
       )}
       {hasError && (
         <div className="w-full h-full flex items-center justify-center text-muted-foreground">
