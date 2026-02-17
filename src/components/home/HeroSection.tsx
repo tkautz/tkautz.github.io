@@ -3,6 +3,7 @@ import { ArrowRight, FileText, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { toWebP } from "@/lib/image-utils";
 
 const affiliations = [
   {
@@ -113,15 +114,18 @@ export function HeroSection() {
                       variant="outline" 
                       className="px-3 py-1.5 text-sm bg-card hover:bg-secondary hover:border-primary/30 transition-all duration-200 cursor-pointer flex items-center gap-2"
                     >
-                      <img
-                        src={affiliation.logo}
-                        alt=""
-                        width={16}
-                        height={16}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity"
-                      />
+                      <picture>
+                        <source srcSet={toWebP(affiliation.logo)} type="image/webp" />
+                        <img
+                          src={affiliation.logo}
+                          alt=""
+                          width={16}
+                          height={16}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity"
+                        />
+                      </picture>
                       <span className="text-foreground group-hover:text-primary transition-colors">
                         {affiliation.org}
                       </span>
@@ -191,16 +195,19 @@ export function HeroSection() {
             <div className="relative">
               {/* Decorative background blur */}
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 rounded-2xl blur-xl" />
-              <img
-                src="/images/headshot-2.jpg"
-                alt="Portrait of Tim Kautz"
-                width={256}
-                height={256}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="relative w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-lg ring-1 ring-border/40"
-              />
+              <picture>
+                <source srcSet="/images/headshot-2.webp" type="image/webp" />
+                <img
+                  src="/images/headshot-2.jpg"
+                  alt="Portrait of Tim Kautz"
+                  width={256}
+                  height={256}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="relative w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-lg ring-1 ring-border/40"
+                />
+              </picture>
             </div>
           </motion.div>
         </div>

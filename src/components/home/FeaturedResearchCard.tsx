@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Publication, publicationTypes } from "@/data/publications";
 import { cn } from "@/lib/utils";
+import { toWebP } from "@/lib/image-utils";
 
 interface FeaturedResearchCardProps {
   publication: Publication;
@@ -54,15 +55,18 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
         {/* Journal Cover Image */}
         {journalImage && (
           <div className="hidden sm:block flex-shrink-0">
-            <img
-              src={journalImage}
-              alt={`Cover of ${publication.title}`}
-              width={64}
-              height={88}
-              loading="lazy"
-              decoding="async"
-              className="w-16 h-[88px] object-cover rounded-lg shadow-sm transition-transform duration-300 group-hover:scale-105"
-            />
+            <picture>
+              <source srcSet={toWebP(journalImage)} type="image/webp" />
+              <img
+                src={journalImage}
+                alt={`Cover of ${publication.title}`}
+                width={64}
+                height={88}
+                loading="lazy"
+                decoding="async"
+                className="w-16 h-[88px] object-cover rounded-lg shadow-sm transition-transform duration-300 group-hover:scale-105"
+              />
+            </picture>
           </div>
         )}
 
