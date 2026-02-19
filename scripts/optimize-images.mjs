@@ -124,11 +124,10 @@ async function optimizeHeadshot() {
 
   console.log("\nHeadshot:");
 
-  // Resize and compress JPEG
+  // Resize and compress JPEG (preserve original aspect ratio, only constrain width)
   const tempPath = inputPath + ".tmp";
   await processImage(inputPath, tempPath, {
     width: HEADSHOT_WIDTH,
-    height: HEADSHOT_WIDTH,
     format: "jpeg",
   });
   const { rename } = await import("fs/promises");
@@ -139,7 +138,6 @@ async function optimizeHeadshot() {
   const webpPath = changeExt(inputPath, ".webp");
   await processImage(inputPath, webpPath, {
     width: HEADSHOT_WIDTH,
-    height: HEADSHOT_WIDTH,
     format: "webp",
   });
   const webpSize = await getFileSize(webpPath);

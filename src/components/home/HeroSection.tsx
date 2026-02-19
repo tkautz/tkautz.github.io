@@ -201,11 +201,11 @@ export function HeroSection() {
                   src="/images/headshot-2.jpg"
                   alt="Portrait of Tim Kautz"
                   width={256}
-                  height={284}
+                  height={384}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
-                  className="relative w-40 sm:w-48 md:w-56 lg:w-64 aspect-[9/10] object-cover object-[center_15%] rounded-xl shadow-lg ring-1 ring-border/40"
+                  className="relative w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-lg ring-1 ring-border/40"
                 />
               </picture>
             </div>
