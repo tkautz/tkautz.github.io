@@ -54,21 +54,26 @@ export function HeroSection() {
               className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl"
             >
               <p>
-                I am a Senior Researcher (Economist and Data Scientist) at{" "}
-                <a 
-                  href="https://www.mathematica.org/" 
-                  className="text-primary font-medium hover:underline underline-offset-4" 
-                  target="_blank" 
+                I am an economist and Senior Researcher at{" "}
+                <a
+                  href="https://www.mathematica.org/"
+                  className="text-primary font-medium hover:underline underline-offset-4"
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   Mathematica
-                </a>{" "}
-                with extensive experience in causal inference and advanced statistical modeling. 
-                I design experiments, analyze complex datasets, communicate findings to broad audiences, and lead teams.
+                </a>
+                . I study the skills that drive success in school, work, and life — especially
+                noncognitive (social and emotional) skills like perseverance and self-control.
+                My research asks which skills matter, how to measure them well, and how schools
+                and programs can foster them.
               </p>
               <p>
-                I study approaches to measuring non-cognitive skills like perseverance and emotional control, 
-                and evaluate interventions designed to improve these skills.
+                I have pursued these questions for more than a decade through large-scale experiments,
+                new measurement approaches, and analyses of administrative data, leading teams that turn
+                findings into guidance for educators and policymakers. I am increasingly focused on how
+                a changing economy — including advances in AI — is reshaping the skills young people
+                need, and how to teach them.
               </p>
             </motion.div>
 
