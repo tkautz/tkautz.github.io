@@ -17,12 +17,10 @@ export function FeaturedResearch() {
         <ScrollReveal>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
             <div>
-              {/* Section title with decorative underline */}
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-3 relative inline-block">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-3">
                 Featured Research
-                <span className="absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full" />
               </h2>
-              <p className="text-muted-foreground mt-4 max-w-lg">
+              <p className="text-muted-foreground max-w-lg">
                 Selected publications on skills development, education, and employment.
               </p>
             </div>

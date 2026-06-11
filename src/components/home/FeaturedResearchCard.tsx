@@ -50,7 +50,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
   const journalImage = getJournalImage(publication.journal);
 
   return (
-    <article className="group bg-card rounded-xl border border-border/50 p-6 h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 hover:border-border">
+    <article className="group bg-card rounded-xl border border-border/50 p-6 h-full flex flex-col card-hover">
       <div className="flex gap-4 flex-1">
         {/* Journal Cover Image */}
         {journalImage && (
@@ -59,7 +59,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
               <source srcSet={toWebP(journalImage)} type="image/webp" />
               <img
                 src={journalImage}
-                alt={`Cover of ${publication.title}`}
+                alt={publication.journal ? `${publication.journal} cover` : ""}
                 width={64}
                 height={88}
                 loading="lazy"
@@ -76,7 +76,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
             <span className={cn("px-2.5 py-1 text-xs font-medium rounded-full", typeInfo.color)}>
               {typeInfo.label}
             </span>
-            <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-muted text-muted-foreground">
+            <span className="text-xs font-medium text-muted-foreground self-center">
               {publication.year}
             </span>
           </div>
@@ -93,7 +93,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
 
           {/* Journal */}
           {publication.journal && (
-            <p className="text-sm text-primary font-medium italic line-clamp-1">
+            <p className="text-sm italic text-foreground/75 line-clamp-1">
               {publication.journal}
             </p>
           )}

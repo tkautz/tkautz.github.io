@@ -10,13 +10,13 @@ const affiliations = [
     name: "Behavior Change for Good",
     url: "https://bcfg.wharton.upenn.edu/",
     org: "UPenn",
-    logo: "/images/logos/upenn.png",
+    logo: "/images/logos/upenn.svg",
   },
   {
     name: "Institute for Economic and Social Research",
     url: "https://iesr.jnu.edu.cn/Home/main.htm",
     org: "Jinan University",
-    logo: "/images/logos/jinan.png",
+    logo: "/images/logos/jinan.svg",
   },
   {
     name: "Human Capital and Economic Opportunity",
@@ -24,14 +24,6 @@ const affiliations = [
     org: "UChicago",
     logo: "/images/logos/uchicago.png",
   },
-];
-
-const expertise = [
-  "Noncognitive skills",
-  "Education economics",
-  "Program evaluation",
-  "Causal inference",
-  "Data science",
 ];
 
 export function HeroSection() {
@@ -43,23 +35,12 @@ export function HeroSection() {
       <div className="container-wide section-padding relative">
         <div className="grid sm:grid-cols-[1fr_auto] gap-6 sm:gap-8 items-center">
           {/* Text Content */}
-          <div className="space-y-8">
-            {/* Role badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Badge variant="secondary" className="px-4 py-1.5 text-sm font-medium">
-                Senior Researcher at Mathematica
-              </Badge>
-            </motion.div>
-
+          <div className="space-y-6">
             {/* Name - prominent serif styling */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.5 }}
               className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight"
             >
               Tim Kautz
@@ -69,8 +50,8 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-5 text-muted-foreground text-lg leading-relaxed"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl"
             >
               <p>
                 I am a Senior Researcher (Economist and Data Scientist) at{" "}
@@ -95,7 +76,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="space-y-3"
             >
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
@@ -114,18 +95,33 @@ export function HeroSection() {
                       variant="outline" 
                       className="px-3 py-1.5 text-sm bg-card hover:bg-secondary hover:border-primary/30 transition-all duration-200 cursor-pointer flex items-center gap-2"
                     >
-                      <picture>
-                        <source srcSet={toWebP(affiliation.logo)} type="image/webp" />
+                      {/* Logos are decorative: the institution name follows as text */}
+                      {affiliation.logo.endsWith(".svg") ? (
                         <img
                           src={affiliation.logo}
                           alt=""
+                          aria-hidden="true"
                           width={16}
                           height={16}
                           loading="lazy"
                           decoding="async"
                           className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity"
                         />
-                      </picture>
+                      ) : (
+                        <picture>
+                          <source srcSet={toWebP(affiliation.logo)} type="image/webp" />
+                          <img
+                            src={affiliation.logo}
+                            alt=""
+                            aria-hidden="true"
+                            width={16}
+                            height={16}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity"
+                          />
+                        </picture>
+                      )}
                       <span className="text-foreground group-hover:text-primary transition-colors">
                         {affiliation.org}
                       </span>
@@ -135,53 +131,36 @@ export function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Expertise Tags */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="space-y-3"
-            >
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-                Areas of Expertise
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {expertise.map((area) => (
-                  <span
-                    key={area}
-                    className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs font-medium text-foreground shadow-sm"
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-3 pt-2"
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="pt-2"
             >
-              <Button asChild size="lg" className="group h-12 px-6 text-base">
-                <Link to="/research">
-                  View My Research
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
-                <a href="/documents/TimKautz_CV.pdf" target="_blank" rel="noopener noreferrer">
-                  <FileText className="mr-2 h-4 w-4" />
-                  Download CV
-                </a>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
-                <a href="https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
-                  <GraduationCap className="mr-2 h-4 w-4" />
-                  Google Scholar
-                </a>
-              </Button>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild size="lg" className="group h-12 px-6 text-base">
+                  <Link to="/research">
+                    View My Research
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
+                  <a href="/documents/TimKautz_CV.pdf" target="_blank" rel="noopener noreferrer">
+                    <FileText className="mr-2 h-4 w-4" />
+                    Download CV
+                  </a>
+                </Button>
+              </div>
+              <a
+                href="https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                <GraduationCap className="h-4 w-4" />
+                View my Google Scholar profile
+              </a>
             </motion.div>
           </div>
 

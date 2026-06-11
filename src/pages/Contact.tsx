@@ -97,6 +97,8 @@ export default function Contact() {
         <meta property="og:title" content="Contact Tim Kautz" />
         <meta property="og:description" content="Get in touch with Tim Kautz for research collaborations, speaking engagements, or other inquiries." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://tkautz.github.io/contact" />
+        <link rel="canonical" href="https://tkautz.github.io/contact" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Contact Tim Kautz" />

@@ -8,6 +8,7 @@ import { toWebP } from "@/lib/image-utils";
 
 interface ResearchCardProps {
   publication: Publication;
+  highlighted?: boolean;
 }
 
 // Journal cover image mappings - using downloaded covers where available, fallbacks for others
@@ -109,7 +110,7 @@ function renderAuthors(authors: string) {
   });
 }
 
-export function ResearchCard({ publication }: ResearchCardProps) {
+export function ResearchCard({ publication, highlighted = false }: ResearchCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
@@ -139,15 +140,18 @@ export function ResearchCard({ publication }: ResearchCardProps) {
   };
 
   return (
-    <article 
+    <article
       id={`pub-${publication.id}`}
-      className="bg-card rounded-xl border border-border/50 p-6 card-hover h-full flex flex-col scroll-mt-24"
+      className={cn(
+        "bg-card rounded-xl border border-border/50 p-6 card-hover h-full flex flex-col scroll-mt-24",
+        highlighted && "ring-2 ring-primary/40"
+      )}
     >
       <div className="flex gap-4">
         {/* Cover Image - with optimized lazy loading */}
         {coverImage && (
           <div className="hidden sm:block">
-            <CoverImage src={coverImage} alt={`Cover of ${publication.title}`} />
+            <CoverImage src={coverImage} alt={publication.journal ? `${publication.journal} cover` : ""} />
           </div>
         )}
 
@@ -156,7 +160,7 @@ export function ResearchCard({ publication }: ResearchCardProps) {
             <span className={cn("px-2.5 py-1 text-xs font-medium rounded-full", typeInfo.color)}>
               {typeInfo.label}
             </span>
-            <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-muted text-muted-foreground">
+            <span className="text-xs font-medium text-muted-foreground self-center">
               {publication.year}
             </span>
           </div>
@@ -170,7 +174,7 @@ export function ResearchCard({ publication }: ResearchCardProps) {
           </p>
 
           {publication.journal && (
-            <p className="text-sm text-primary font-medium mb-3 italic">
+            <p className="text-sm italic text-foreground/75 mb-3">
               {publication.journal}
             </p>
           )}
@@ -181,7 +185,7 @@ export function ResearchCard({ publication }: ResearchCardProps) {
               {publication.keywords.map((keyword) => (
                 <span
                   key={keyword}
-                  className="px-2 py-0.5 text-[11px] font-medium rounded-md bg-secondary/80 text-secondary-foreground/80"
+                  className="px-2 py-0.5 text-xs font-medium rounded-md bg-secondary/80 text-secondary-foreground/90"
                 >
                   {keyword}
                 </span>
