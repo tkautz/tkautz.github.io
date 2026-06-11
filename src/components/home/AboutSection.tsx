@@ -4,23 +4,23 @@ import { ScrollReveal, StaggerChildren, StaggerItem } from "@/components/ui/scro
 const highlights = [
   {
     icon: BookOpen,
-    title: "Noncognitive Skills",
-    description: "Measuring and fostering character skills, self-regulation, and their role in long-term outcomes.",
-  },
-  {
-    icon: Users,
-    title: "Employment Programs",
-    description: "Evaluating interventions that improve employment outcomes for underserved populations.",
+    title: "Which Skills Matter",
+    description: "Documenting how noncognitive skills — perseverance, self-control, social skills — shape education, employment, health, and other life outcomes.",
   },
   {
     icon: TrendingUp,
-    title: "Quantitative Methods",
-    description: "Applying rigorous econometric and statistical methods to policy-relevant research.",
+    title: "Measuring Skills",
+    description: "Comparing self-reports, teacher reports, and administrative data — and documenting pitfalls like reference bias — to measure skills credibly at scale.",
+  },
+  {
+    icon: Users,
+    title: "Developing Skills",
+    description: "Testing whether schools and programs can teach these skills, with randomized trials and quasi-experiments from Chicago classrooms to federal employment programs.",
   },
   {
     icon: Award,
-    title: "Policy Impact",
-    description: "Translating research findings into actionable insights for decision-makers and practitioners.",
+    title: "Evidence for Practice",
+    description: "Helping districts, states, and federal agencies measure skills and act on evidence, including social and emotional learning surveys.",
   },
 ];
 
@@ -33,8 +33,10 @@ export function AboutSection() {
             Research Focus
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            My research focuses on the skills and interventions that help people
-            succeed in education, employment, and life.
+            For more than a decade, my research has pursued three connected questions:
+            Which skills matter for success in school, work, and life? How can we
+            measure them credibly? And how can schools and programs help people
+            develop them?
           </p>
         </ScrollReveal>
 

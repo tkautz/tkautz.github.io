@@ -46,7 +46,7 @@ export function Footer() {
               Tim Kautz
             </h3>
             <p className="text-muted-foreground text-sm">
-              Senior Researcher at Mathematica
+              Economist studying the skills that drive success in school, work, and life
             </p>
           </div>
 
