@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Search, ChevronDown, Calendar, GraduationCap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -40,20 +41,33 @@ const typeOrder: Publication["type"][] = ["journal", "book-chapter", "edited-vol
 // Get unique years from publications
 const uniqueYears = [...new Set(publications.map((pub) => pub.year))].sort((a, b) => b - a);
 
-const researchAreas = [
-  "Noncognitive skills",
-  "Education economics",
-  "Employment programs",
-  "Program evaluation",
-  "Causal inference",
-];
-
 export default function Research() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedType, setSelectedType] = useState<PublicationType>("all");
   const [selectedYear, setSelectedYear] = useState<string>("all");
   const [activeSection, setActiveSection] = useState<string>("");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const location = useLocation();
+
+  // React Router doesn't scroll to #hash targets (e.g. /research#pub-xyz from
+  // featured cards), so handle it after the entry animations have started.
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    const scrollTimeout = setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        setHighlightedId(id);
+      }
+    }, 150);
+    const highlightTimeout = setTimeout(() => setHighlightedId(null), 2500);
+    return () => {
+      clearTimeout(scrollTimeout);
+      clearTimeout(highlightTimeout);
+    };
+  }, [location.hash]);
 
   const filteredPublications = useMemo(() => {
     return publications.filter((pub) => {
@@ -122,8 +136,11 @@ export default function Research() {
     { value: "journal", label: "Journal Articles" },
     { value: "working-paper", label: "Working Papers" },
     { value: "book-chapter", label: "Book Chapters" },
+    { value: "edited-volume", label: "Edited Volumes" },
     { value: "report", label: "Reports" },
   ];
+
+  const hasActiveFilters = searchQuery !== "" || selectedType !== "all" || selectedYear !== "all";
 
   return (
     <>
@@ -137,6 +154,8 @@ export default function Research() {
         <meta property="og:title" content="Research & Publications | Tim Kautz" />
         <meta property="og:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://tkautz.github.io/research" />
+        <link rel="canonical" href="https://tkautz.github.io/research" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Research & Publications | Tim Kautz" />
@@ -164,16 +183,6 @@ export default function Research() {
                 <GraduationCap className="h-4 w-4" />
                 View my Google Scholar profile
               </a>
-              <div className="mt-6 flex flex-wrap justify-center gap-2">
-                {researchAreas.map((area) => (
-                  <span
-                    key={area}
-                    className="rounded-full border border-border/60 bg-card px-3 py-1 text-xs font-medium text-foreground shadow-sm"
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
             </ScrollReveal>
 
             {/* Filters */}
@@ -222,10 +231,12 @@ export default function Research() {
               </div>
             </ScrollReveal>
 
-            {/* Results count */}
-            <p className="text-sm text-muted-foreground mb-6 text-center">
-              Showing {filteredPublications.length} of {publications.length} publications
-            </p>
+            {/* Results count - only shown while filtering */}
+            {hasActiveFilters && (
+              <p className="text-sm text-muted-foreground mb-6 text-center">
+                Showing {filteredPublications.length} of {publications.length} publications
+              </p>
+            )}
 
             {/* Mobile TOC Dropdown */}
             <div className="lg:hidden mb-6">
@@ -315,7 +326,10 @@ export default function Research() {
                             exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.3, delay: index * 0.03 }}
                           >
-                            <ResearchCard publication={pub} />
+                            <ResearchCard
+                              publication={pub}
+                              highlighted={highlightedId === `pub-${pub.id}`}
+                            />
                           </motion.div>
                         ))}
                       </AnimatePresence>

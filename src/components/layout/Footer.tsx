@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Mail, Linkedin, GraduationCap } from "lucide-react";
 import {
   Tooltip,
@@ -27,14 +28,19 @@ const socialLinks = [
   },
 ];
 
+const footerNavLinks = [
+  { href: "/research", label: "Research" },
+  { href: "/cv", label: "CV" },
+  { href: "/contact", label: "Contact" },
+];
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-muted/60 text-foreground py-12 border-t border-border/60" role="contentinfo">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/70" />
+    <footer className="bg-muted/40 text-foreground py-12 border-t border-border/60" role="contentinfo">
       <div className="container-wide">
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <h3 className="font-display text-xl font-semibold mb-2">
               Tim Kautz
@@ -43,6 +49,21 @@ export function Footer() {
               Senior Researcher at Mathematica
             </p>
           </div>
+
+          <nav aria-label="Footer navigation">
+            <ul className="flex items-center gap-6">
+              {footerNavLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           <TooltipProvider>
             <nav aria-label="Social links">
@@ -73,9 +94,9 @@ export function Footer() {
           </TooltipProvider>
         </div>
 
-        <div className="relative mt-8 pt-8 border-t border-border/60 text-center">
+        <div className="mt-8 pt-6 border-t border-border/60 text-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Tim Kautz. All rights reserved.
+            © {currentYear} Tim Kautz
           </p>
         </div>
       </div>

@@ -18,12 +18,14 @@ export default function Home() {
         <meta property="og:title" content="Tim Kautz | Senior Researcher at Mathematica" />
         <meta property="og:description" content="Tim Kautz is a Senior Researcher at Mathematica, specializing in noncognitive skills, education economics, and employment program evaluation." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/images/headshot-2.jpg" />
+        <meta property="og:url" content="https://tkautz.github.io/" />
+        <meta property="og:image" content="https://tkautz.github.io/images/headshot-2.jpg" />
+        <link rel="canonical" href="https://tkautz.github.io/" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Tim Kautz | Senior Researcher at Mathematica" />
         <meta name="twitter:description" content="Tim Kautz is a Senior Researcher at Mathematica, specializing in noncognitive skills, education economics, and employment program evaluation." />
-        <meta name="twitter:image" content="/images/headshot-2.jpg" />
+        <meta name="twitter:image" content="https://tkautz.github.io/images/headshot-2.jpg" />
       </Helmet>
       <PersonStructuredData />
       <WebsiteStructuredData />

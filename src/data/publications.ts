@@ -175,6 +175,7 @@ export const publications: Publication[] = [
     abstract: "This chapter discusses the predictive power of achievement tests. It shows that achievement tests do not explain much variation in meaningful later-life outcomes, partly because achievement tests miss character skills, such as persistence, curiosity, and self-control. It reviews the history of achievement tests and the role of character in American education. It discusses the GED, a prominent achievement test that is used to certify high school equivalency. It provides an overview of the characteristics of GED recipients and the returns to the GED.",
     pdfUrl: "/documents/Heckman_Kautz_2014_Achievement Tests.pdf",
     coverImage: "/images/covers/myth-of-achievement-tests.jpg",
+    keywords: ["achievement tests", "character skills", "GED"],
   },
   {
     id: "heckman-etal-2014-who",
@@ -186,6 +187,7 @@ export const publications: Publication[] = [
     abstract: "This chapter discusses the characteristics of GED recipients. It shows that they are smart (relative to high school graduates who do not go on to college) but lack character skills. They come from more disadvantaged backgrounds than ordinary high school graduates. Their deficits in character emerge as early as age six. It also examines the life events surrounding GED certification.",
     pdfUrl: "/documents/Heckman_etal_2014_Who GEDs.pdf",
     coverImage: "/images/covers/myth-of-achievement-tests.jpg",
+    keywords: ["GED", "character skills", "education"],
   },
   {
     id: "heckman-etal-2014-economic",
@@ -197,6 +199,7 @@ export const publications: Publication[] = [
     abstract: "This chapter surveys the previous literature on the effectiveness of the GED. It also conducts original empirical studies using seven data sets collected in different time periods to evaluate the effectiveness of the GED testing program using a variety of outcome measures. All data show that GED recipients do not perform at the level of high school graduates. After controlling for cognition and background, the vast majority of male GED recipients do no better than uncertified dropouts.",
     pdfUrl: "/documents/Heckman_etal_2014_Economic Social.pdf",
     coverImage: "/images/covers/myth-of-achievement-tests.jpg",
+    keywords: ["GED", "education", "labor economics"],
   },
   {
     id: "heckman-kautz-2014-fostering",
@@ -208,6 +211,7 @@ export const publications: Publication[] = [
     abstract: "This chapter reviews the recent literature on measuring and boosting cognitive and noncognitive skills. The literature establishes that achievement tests do not adequately capture character skills—personality traits, goals, motivations, and preferences—that are valued in the labor market, in school, and in many other domains. Their predictive power rivals that of cognitive skills. Reliable measures of character have been developed. All measures of character and cognition are measures of performance on some task.",
     pdfUrl: "/documents/Heckman_Kautz_2014_Fostering Measuring.pdf",
     coverImage: "/images/covers/myth-of-achievement-tests.jpg",
+    keywords: ["character skills", "skill development", "interventions"],
   },
   {
     id: "heckman-etal-2014-what",
@@ -219,6 +223,7 @@ export const publications: Publication[] = [
     abstract: "This chapter presents policy recommendations about the GED program and the more general problem of promoting skills in the American economy. It argues that any successful approach going forward should recognize the power of character skills. They can be measured, and effective interventions are available to shape them.",
     pdfUrl: "/documents/Heckman_etal_2014_What Should.pdf",
     coverImage: "/images/covers/myth-of-achievement-tests.jpg",
+    keywords: ["education policy", "character skills", "GED"],
   },
   {
     id: "almlund-etal-2011",
@@ -242,6 +247,7 @@ export const publications: Publication[] = [
     type: "edited-volume",
     externalUrl: "http://press.uchicago.edu/ucp/books/book/chicago/M/bo17116615.html",
     coverImage: "/images/covers/myth-of-achievement-tests.jpg",
+    keywords: ["achievement tests", "GED", "character skills"],
   },
   // Selected Policy Reports
   {
@@ -314,6 +320,7 @@ export const publications: Publication[] = [
     abstract: "Policy makers, practitioners, researchers, and others are interested in the potential of employment coaching to help Temporary Assistance for Needy Families (TANF) recipients and other adults with low incomes to become economically secure. Employment coaching is based on the idea that coaches can help people use and strengthen the skills that enable them to stay organized, finish tasks, and control emotions. Improving these skills, which we refer to as self-regulation skills, can in turn help them improve their economic security.",
     pdfUrl: "/documents/Moore_etal_2023_Can a Participant-Centered Approach.pdf",
     coverImage: "/images/covers/opre-2023-139.jpg",
+    keywords: ["employment coaching", "self-regulation", "TANF"],
   },
   {
     id: "kautz-etal-2021-survey",
@@ -325,6 +332,7 @@ export const publications: Publication[] = [
     abstract: "The District of Columbia Public Schools (DCPS) has prioritized efforts to support students' social and emotional learning (SEL) competencies, such as perseverance and social awareness. To measure students' SEL competencies and the school experiences that promote SEL competencies (school climate), DCPS began administering annual surveys to students, teachers, and parents in 2017/18. DCPS partnered with the Mid-Atlantic Regional Educational Laboratory to study how the district could use these surveys to improve students' outcomes. The study found the following: Students' SEL competencies and school experiences are the most favorable in elementary school and the least favorable in middle school and the beginning of high school.",
     pdfUrl: "/documents/Kautz_etal_2021_Using A Survey.pdf",
     coverImage: "/images/covers/rel-2021-sel-survey.png",
+    keywords: ["social and emotional learning", "school climate", "education"],
   },
   {
     id: "kautz-moore-2020",
@@ -336,6 +344,7 @@ export const publications: Publication[] = [
     abstract: "This report discusses issues related to selecting and testing measures of self-regulation skills in evaluations of employment programs for low-income populations. First, it presents an overview of criteria for selecting measures of self-regulation skills. Second, through a presentation of empirical evidence, this report demonstrates a process for developing and testing self-regulation measures in the context of an impact evaluation of employment coaching programs for low-income populations. Third, it discusses how the process could be adapted to other studies.",
     pdfUrl: "/documents/Kautz_Moore_2020_Selecting and Testing.pdf",
     coverImage: "/images/covers/opre-2020-138.jpg",
+    keywords: ["self-regulation", "measurement", "employment"],
   },
   {
     id: "goldring-etal-2020",
@@ -347,6 +356,7 @@ export const publications: Publication[] = [
     abstract: "In 2014, The Wallace Foundation launched the Principal Supervisor Initiative (PSI), a four-year, $24 million effort to redefine principal supervision in six urban school districts. The PSI aimed to help districts overhaul a position traditionally focused on administration, operations, and compliance to one dedicated to developing and supporting principals to be effective instructional leaders who had the skills to foster high quality instruction and learning. In this study report, researchers from Mathematica and Vanderbilt University describe the PSI experiences of districts, principal supervisors, and principals; the PSI's effects on teachers' perceptions of principals' performance; and lessons learned from the initiative.",
     pdfUrl: "/documents/Goldring_etal_2020_Changing.pdf",
     coverImage: "/images/covers/mathematica-2020-psi.jpg",
+    keywords: ["school leadership", "principals", "education"],
   },
   {
     id: "kautz-etal-2020-development",
@@ -358,6 +368,7 @@ export const publications: Publication[] = [
     abstract: "Fueled by evidence on the strong relationships between school climate and academic achievement, teacher satisfaction, health outcomes, and social-emotional skills, states and districts are increasingly trying to measure school climate. School climate encompasses both tangible and intangible attributes, including relationships among students and staff, school discipline, student engagement, and safety. The Maryland State Department of Education (MSDE) partnered with Regional Educational Laboratory (REL) Mid-Atlantic to co-develop, validate, and benchmark a school climate index based upon the Maryland School Survey.",
     pdfUrl: "/documents/Kautz_etal_2020_Development.pdf",
     coverImage: "/images/covers/rel-2020-school-climate.png",
+    keywords: ["school climate", "measurement", "education"],
   },
   {
     id: "herrmann-etal-2019",
@@ -369,6 +380,7 @@ export const publications: Publication[] = [
     abstract: "Principals can play a key role in improving instruction and student achievement. The Institute of Education Sciences conducted a random assignment study of a professional development program for elementary school principals to support state and local efforts to improve school leadership. The program focused on helping principals conduct structured observations of teachers' classroom instruction and provide targeted feedback. Key findings include: (1) Despite substantially increasing the amount of professional development principals received, the program did not affect student achievement or most teacher or school outcomes. (2) The program did not have the intended effects on principal practices that it targeted.",
     pdfUrl: "/documents/Herrmann_etal_2019_The Effects.pdf",
     coverImage: "/images/covers/ncee-2020-0002.jpg",
+    keywords: ["school leadership", "professional development", "program evaluation"],
   },
   {
     id: "moore-etal-2019",
@@ -380,6 +392,7 @@ export const publications: Publication[] = [
     abstract: "This report describes the design of the Evaluation of Employment Coaching. It identifies the types of employment coaching interventions that are the focus of this evaluation and how coaching is expected to affect participants' economic security. Next, it discusses the process for selecting employment coaching interventions to study in the evaluation. It provides details on the design of the impact study, including the process for conducting random assignment, data needs and sources, and the analytic approach to estimating intervention impacts.",
     pdfUrl: "/documents/Moore_etal_2019_Evaluation of Employment Coaching.pdf",
     coverImage: "/images/covers/opre-2019-65.jpg",
+    keywords: ["employment coaching", "research design", "TANF"],
   },
   {
     id: "kautz-moore-2018",
@@ -391,6 +404,7 @@ export const publications: Publication[] = [
     abstract: "Four challenges arise when measuring self-regulation skills in evaluations of employment programs for low-income populations. First, measures of self-regulation skills can reflect aspects of a person's situation (for example, his or her background or financial resources) in addition to his or her skills. Second, most existing measures were developed for purposes other than program evaluation. Third, most existing measures were not designed for use with low-income populations. Fourth, some measures take a long time to administer or require special technology.",
     pdfUrl: "/documents/Kautz_Moore_2018_Measuring Self-Regulation.pdf",
     coverImage: "/images/covers/opre-2018-83.jpg",
+    keywords: ["self-regulation", "measurement", "program evaluation"],
   },
   {
     id: "kautz-cole-2017",
@@ -402,6 +416,7 @@ export const publications: Publication[] = [
     abstract: "Despite best efforts to be independent and impartial, and to let the data speak clearly, researchers must make difficult decisions that play a role in the findings that they produce from their impact evaluations. After specifying a research question about the effectiveness of a program, researchers face many decisions about how to operationalize the analysis—for example, how to clean contradictory data or which statistical approach they should use to estimate the program's impact.",
     pdfUrl: "/documents/Kautz_Cole_2017_Selecting Benchmark.pdf",
     coverImage: "/images/covers/oah-2017-benchmark.png",
+    keywords: ["sensitivity analysis", "statistical methods", "program evaluation"],
   },
   {
     id: "deke-etal-2017",
@@ -413,6 +428,7 @@ export const publications: Publication[] = [
     abstract: "Evaluators of education interventions are increasingly designing studies to detect impacts much smaller than the 0.20 standard deviations that Cohen (1988) characterized as \"small.\" While the need to detect smaller impacts is based on compelling arguments that such impacts are substantively meaningful, the drive to detect smaller impacts may create a new challenge for researchers: the need to guard against smaller biases. The purpose of this paper is twofold. First, we examine the potential for small biases to increase the risk of making false inferences as studies are powered to detect smaller impacts, a phenomenon we refer to as asymdystopia.",
     pdfUrl: "/documents/Deke_etal_2017_Asymdystopia.pdf",
     coverImage: "/images/covers/ncee-2018-4002.jpg",
+    keywords: ["statistical methods", "research design", "education"],
   },
   {
     id: "kautz-etal-2017",
@@ -424,6 +440,7 @@ export const publications: Publication[] = [
     abstract: "A new design-based theory has recently been developed to estimate impacts for randomized controlled trials (RCTs) and basic quasi-experimental designs (QEDs) for a wide range of designs used in social policy research. These methods use the potential outcomes framework and known features of study designs to connect statistical methods to the building blocks of causal inference. They differ from model-based methods that have commonly been used in education research.",
     pdfUrl: "/documents/Kautz_etal_2017_Comparing Impact.pdf",
     coverImage: "/images/covers/ncee-2017-4026.png",
+    keywords: ["causal inference", "RCT", "statistical methods"],
   },
   {
     id: "kautz-etal-2014-fostering",
@@ -447,6 +464,7 @@ export const publications: Publication[] = [
     abstract: "This report investigates the extent to which there is regional variation in drug prices in Medicare's Part D Program. We construct regional price indices for different drug classifications. We examine different percentiles of the price distribution across regions, distinguishing between best available prices and typical prices for each region. There is little evidence of regional price variation in either best available or typical prices. There is some evidence of regional variation in average per-capita drug expenditures.",
     pdfUrl: "/documents/MaCurdy_etal_2009_Geographic Price.pdf",
     coverImage: "/images/covers/cms-2009-drug-prices.jpg",
+    keywords: ["health", "Medicare", "drug prices"],
   },
   // Works in Progress
   {
@@ -456,13 +474,14 @@ export const publications: Publication[] = [
     year: 2024,
     journal: "Under review",
     type: "working-paper",
+    keywords: ["education", "COVID-19", "remote schooling"],
   },
 ];
 
 export const publicationTypes = {
   journal: { label: "Journal Article", color: "bg-primary/10 text-primary" },
-  "working-paper": { label: "Working Paper", color: "bg-accent/20 text-accent-foreground" },
+  "working-paper": { label: "Working Paper", color: "bg-accent/15 text-accent-foreground dark:text-accent" },
   "book-chapter": { label: "Book Chapter", color: "bg-secondary text-secondary-foreground" },
   report: { label: "Report", color: "bg-muted text-muted-foreground" },
-  "edited-volume": { label: "Edited Volume", color: "bg-primary/20 text-primary" },
+  "edited-volume": { label: "Edited Volume", color: "bg-primary/10 text-primary" },
 };

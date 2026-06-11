@@ -48,7 +48,8 @@ const cvSections: CVSection[] = [
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
             <div className="flex items-start gap-3">
-              <img src="/images/logos/upenn.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              {/* Institution logos are decorative (alt="") — the name follows as text */}
+              <img src="/images/logos/upenn.png" alt="" aria-hidden="true" className="w-5 h-5 mt-0.5 object-contain" />
               <div>
                 <h3 className="font-medium text-foreground">Senior Fellow</h3>
                 <p className="text-sm text-primary">
@@ -65,7 +66,7 @@ const cvSections: CVSection[] = [
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
             <div className="flex items-start gap-3">
-              <img src="/images/logos/jinan.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <img src="/images/logos/jinan.png" alt="" aria-hidden="true" className="w-5 h-5 mt-0.5 object-contain" />
               <div>
                 <h3 className="font-medium text-foreground">Adjunct Professor</h3>
                 <p className="text-sm text-primary">
@@ -82,7 +83,7 @@ const cvSections: CVSection[] = [
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
             <div className="flex items-start gap-3">
-              <img src="/images/logos/uchicago.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <img src="/images/logos/uchicago.png" alt="" aria-hidden="true" className="w-5 h-5 mt-0.5 object-contain" />
               <div>
                 <h3 className="font-medium text-foreground">Network Leader</h3>
                 <p className="text-sm text-primary">
@@ -99,7 +100,7 @@ const cvSections: CVSection[] = [
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
             <div className="flex items-start gap-3">
-              <img src="/images/logos/iza.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <img src="/images/logos/iza.png" alt="" aria-hidden="true" className="w-5 h-5 mt-0.5 object-contain" />
               <div>
                 <h3 className="font-medium text-foreground">Senior Visiting Fellow</h3>
                 <p className="text-sm text-primary">
@@ -109,7 +110,7 @@ const cvSections: CVSection[] = [
                 </p>
               </div>
             </div>
-            <span className="text-sm text-muted-foreground whitespace-nowrap">Apr. 2019</span>
+            <span className="text-sm text-muted-foreground whitespace-nowrap">Apr. 2019 (visiting appointment)</span>
           </div>
         </div>
       </div>
@@ -125,7 +126,7 @@ const cvSections: CVSection[] = [
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
             <div className="flex items-start gap-3">
-              <img src="/images/logos/uchicago.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <img src="/images/logos/uchicago.png" alt="" aria-hidden="true" className="w-5 h-5 mt-0.5 object-contain" />
               <div>
                 <h3 className="font-medium text-foreground">Ph.D. Economics</h3>
                 <p className="text-sm text-primary">University of Chicago</p>
@@ -138,7 +139,7 @@ const cvSections: CVSection[] = [
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
             <div className="flex items-start gap-3">
-              <img src="/images/logos/uchicago.png" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <img src="/images/logos/uchicago.png" alt="" aria-hidden="true" className="w-5 h-5 mt-0.5 object-contain" />
               <div>
                 <h3 className="font-medium text-foreground">M.A. Economics</h3>
                 <p className="text-sm text-primary">University of Chicago</p>
@@ -151,7 +152,7 @@ const cvSections: CVSection[] = [
           <div className="absolute left-0 top-1.5 w-2 h-2 -translate-x-[5px] rounded-full bg-primary/50" />
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
             <div className="flex items-start gap-3">
-              <img src="/images/logos/stanford.ico" alt="" className="w-5 h-5 mt-0.5 object-contain" />
+              <img src="/images/logos/stanford.png" alt="" aria-hidden="true" className="w-5 h-5 mt-0.5 object-contain" />
               <div>
                 <h3 className="font-medium text-foreground">B.A. Economics (with Honors)</h3>
                 <p className="text-sm text-primary">Stanford University</p>
@@ -343,7 +344,7 @@ function CollapsibleSection({ section, index }: { section: CVSection; index: num
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="px-5 pb-5">
+              <div className="pl-5 pr-5 pb-5 sm:pl-[3.25rem]">
                 {section.content}
               </div>
             </motion.div>
@@ -367,6 +368,8 @@ export default function CV() {
         <meta property="og:title" content="Curriculum Vitae | Tim Kautz" />
         <meta property="og:description" content="View Tim Kautz's curriculum vitae, including education at Stanford and University of Chicago, employment at Mathematica, publications, and professional service." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://tkautz.github.io/cv" />
+        <link rel="canonical" href="https://tkautz.github.io/cv" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Curriculum Vitae | Tim Kautz" />
