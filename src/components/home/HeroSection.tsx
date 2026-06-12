@@ -108,8 +108,7 @@ export function HeroSection() {
                 The next big question I want to tackle is how AI changes this picture: which
                 skills matter most for young people when AI can handle more of the routine
                 cognitive work, how to measure those skills, and whether AI tools can actually
-                help develop them. These are questions my research on measurement and program
-                evaluation has prepared me to answer.
+                help develop them.
               </p>
             </div>
 
