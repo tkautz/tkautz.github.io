@@ -6,6 +6,8 @@ export interface Publication {
   journal?: string;
   type: "journal" | "working-paper" | "book-chapter" | "report" | "edited-volume";
   abstract?: string;
+  /** One plain-English sentence on the main finding, for non-academic readers. */
+  inBrief?: string;
   pdfUrl?: string;
   externalUrl?: string;
   featured?: boolean;
@@ -23,6 +25,7 @@ export const publications: Publication[] = [
     journal: "Journal of Human Capital, 18(2): 272-303",
     type: "journal",
     abstract: "Using administrative data, we develop measures of noncognitive skills and evaluate OneGoal, an intervention designed to help disadvantaged students complete college by teaching them noncognitive skills. We (1) compare the outcomes of participants and nonparticipants with similar characteristics and (2) use a difference-in-differences approach exploiting that OneGoal was introduced into different schools at different times. We estimate that OneGoal increases college enrollment by 10–20 percentage points for males and females and reduces arrest rates by 5 percentage points for males. Through a mediation analysis, we find that improvements in noncognitive skills account for 13%–32% of these effects.",
+    inBrief: "A Chicago program that teaches skills like perseverance raised college enrollment by 10 to 20 percentage points, partly by improving those skills.",
     pdfUrl: "/documents/Kautz_Zanoni_2024_Measurement and Development.pdf",
     featured: true,
     keywords: ["noncognitive skills", "education", "program evaluation"],
@@ -57,6 +60,7 @@ export const publications: Publication[] = [
     journal: "Proceedings of the National Academy of Sciences, 119(6): e2113992119",
     type: "journal",
     abstract: "Children's noncognitive or socioemotional skills (e.g., persistence and self-control) are typically measured using surveys in which either children rate their own skills or adults rate the skills of children. For many purposes—including program evaluation and monitoring school systems—ratings are often collected from multiple perspectives about a single child. Collecting data from multiple perspectives is costly, and there is limited evidence on the benefits of this approach. Using a longitudinal survey, this study compares children's noncognitive skills as reported by themselves, their guardians, and their teachers. Teacher reports have the highest internal consistency and are the most predictive of children's later cognitive outcomes and behavior in school.",
+    inBrief: "Teachers' ratings of children's skills were more consistent and better at predicting later outcomes than ratings from the children or their parents.",
     pdfUrl: "/documents/Feng_etal_2022_Comparing the reliability and predictive power.pdf",
     featured: true,
     keywords: ["noncognitive skills", "measurement", "child development"],
@@ -80,6 +84,7 @@ export const publications: Publication[] = [
     journal: "Nature, 600: 478-483",
     type: "journal",
     abstract: "This study introduces the megastudy—a massive field experiment in which the effects of many different interventions are compared in the same population on the same objectively measured outcome for the same duration. In a megastudy targeting physical exercise among 61,293 members of an American fitness chain, 30 scientists from 15 different US universities worked in small independent teams to design a total of 54 different four-week digital programmes encouraging exercise. The top-performing intervention offered microrewards for returning to the gym after a missed workout.",
+    inBrief: "Testing 54 nudges at once on more than 60,000 gym members showed which small interventions actually get people to exercise more.",
     pdfUrl: "/documents/Milkman_etal_2021_Megastudies Improve.pdf",
     coverImage: "/images/journals/nature-600.png",
     featured: true,
@@ -244,6 +249,7 @@ export const publications: Publication[] = [
     year: 2014,
     journal: "Chicago, IL: University of Chicago Press",
     type: "edited-volume",
+    inBrief: "Achievement tests like the GED miss character skills that matter as much as knowledge for success in school, work, and life.",
     externalUrl: "http://press.uchicago.edu/ucp/books/book/chicago/M/bo17116615.html",
     coverImage: "/images/covers/myth-of-achievement-tests.jpg",
     featured: true,

@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { PublicationsStructuredData } from "@/components/seo/StructuredData";
+import { SCHOLAR_URL, scholarLabel } from "@/lib/scholar";
 import { cn } from "@/lib/utils";
 import {
   Select,
@@ -175,13 +176,13 @@ export default function Research() {
                 schools and employment programs can develop them.
               </p>
               <a
-                href="https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en"
+                href={SCHOLAR_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
               >
                 <GraduationCap className="h-4 w-4" />
-                View my Google Scholar profile
+                {scholarLabel()}
               </a>
             </ScrollReveal>
 

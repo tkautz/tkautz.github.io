@@ -6,6 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { SCHOLAR_URL, scholarLabel } from "@/lib/scholar";
 
 const socialLinks = [
   {
@@ -21,10 +22,10 @@ const socialLinks = [
     tooltip: "Visit my LinkedIn profile",
   },
   {
-    href: "https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en",
+    href: SCHOLAR_URL,
     icon: GraduationCap,
     label: "Google Scholar",
-    tooltip: "View my Google Scholar profile",
+    tooltip: scholarLabel(),
   },
 ];
 
