@@ -171,8 +171,8 @@ export default function Research() {
                 Research
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
-                Research on which skills matter, how to measure them, and how to
-                develop them — in schools, employment programs, and beyond.
+                Research on which skills matter, how to measure them, and how
+                schools and employment programs can develop them.
               </p>
               <a
                 href="https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en"
