@@ -64,7 +64,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
                 height={88}
                 loading="lazy"
                 decoding="async"
-                className="w-16 h-[88px] object-cover rounded-lg shadow-sm transition-transform duration-300 group-hover:scale-105"
+                className="w-16 h-[88px] object-cover rounded-lg shadow-sm"
               />
             </picture>
           </div>
@@ -98,6 +98,14 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
             </p>
           )}
 
+          {/* Plain-English summary */}
+          {publication.inBrief && (
+            <p className="text-sm text-muted-foreground mt-3">
+              <span className="font-medium text-foreground/80">In brief: </span>
+              {publication.inBrief}
+            </p>
+          )}
+
           {/* Spacer */}
           <div className="flex-1 min-h-4" />
 
@@ -107,7 +115,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
             className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mt-4 pt-4 border-t border-border/50"
           >
             Learn more
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </div>

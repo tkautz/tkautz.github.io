@@ -195,6 +195,13 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
 
       <div className="flex-1" />
 
+      {publication.inBrief && (
+        <p className="text-sm text-muted-foreground mb-3">
+          <span className="font-medium text-foreground/80">In brief: </span>
+          {publication.inBrief}
+        </p>
+      )}
+
       {publication.abstract && (
         <div className="mb-4">
           <button

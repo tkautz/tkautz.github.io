@@ -1,0 +1,49 @@
+# Refreshes the Google Scholar citation count shown in the site's Scholar
+# links. Runs weekly; can be triggered manually from the Actions tab
+# ("Update citation count" -> Run workflow). The script fails safe: if the
+# fetch fails or the value looks implausible, scholar.json is left untouched.
+name: Update citation count
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Mondays 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch citation count
+        run: python scripts/update_citations.py
+
+      - name: Commit and trigger deploy if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet src/data/scholar.json; then
+            echo "No change to scholar.json; skipping commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/scholar.json
+          git commit -m "Update Google Scholar citation count"
+          git push
+          # Pushes made with GITHUB_TOKEN do not trigger push workflows, so
+          # kick the Pages deploy explicitly.
+          gh workflow run "Build and deploy Vite site" --ref master

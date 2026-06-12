@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { ScrollReveal, StaggerChildren, StaggerItem } from "@/components/ui/scroll-reveal";
+import { SCHOLAR_URL, scholarCitationText } from "@/lib/scholar";
 
 const contactInfo = [
   {
@@ -26,8 +27,8 @@ const contactInfo = [
   {
     icon: GraduationCap,
     label: "Google Scholar",
-    value: "View Profile",
-    href: "https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en",
+    value: scholarCitationText() ?? "View profile",
+    href: SCHOLAR_URL,
   },
   {
     icon: MapPin,

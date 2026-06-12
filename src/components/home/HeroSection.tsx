@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toWebP } from "@/lib/image-utils";
+import { SCHOLAR_URL, scholarLabel } from "@/lib/scholar";
 
 const affiliations = [
   {
@@ -32,9 +33,7 @@ const affiliations = [
 function Headshot({ variant }: { variant: "mobile" | "desktop" }) {
   const isMobile = variant === "mobile";
   return (
-    <div className={isMobile ? "relative w-full max-w-sm" : "relative"}>
-      {/* Decorative background blur */}
-      <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 rounded-2xl blur-xl" />
+    <div className={isMobile ? "w-full max-w-sm" : undefined}>
       <picture>
         <source srcSet="/images/headshot-2.webp" type="image/webp" />
         <img
@@ -47,8 +46,8 @@ function Headshot({ variant }: { variant: "mobile" | "desktop" }) {
           decoding="async"
           className={
             isMobile
-              ? "relative w-full aspect-[4/5] object-cover object-top rounded-xl shadow-lg ring-1 ring-border/40"
-              : "relative w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-lg ring-1 ring-border/40"
+              ? "w-full aspect-[4/5] object-cover object-top rounded-xl shadow-md ring-1 ring-border/40"
+              : "w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-md ring-1 ring-border/40"
           }
         />
       </picture>
@@ -58,21 +57,19 @@ function Headshot({ variant }: { variant: "mobile" | "desktop" }) {
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-muted via-secondary/30 to-background">
-      {/* Subtle decorative element */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(var(--primary)/0.05),_transparent_50%)]" />
-
-      <div className="container-wide section-padding relative">
-        <div className="grid sm:grid-cols-[1fr_auto] gap-6 sm:gap-8 items-center">
+    <section className="bg-muted/40">
+      <div className="container-wide section-padding">
+        {/* Single subtle fade; the rest of the page renders still. */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          className="grid sm:grid-cols-[1fr_auto] gap-6 sm:gap-8 items-center"
+        >
           {/* Text Content */}
           <div className="space-y-6">
             {/* Name and tagline */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="space-y-3"
-            >
+            <div className="space-y-3">
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
                 Tim Kautz
               </h1>
@@ -87,48 +84,37 @@ export function HeroSection() {
                   Mathematica
                 </a>
               </p>
-            </motion.div>
+            </div>
 
-            {/* Mobile photo: high on the page, wide, like the text-first desktop
-                layout doesn't allow on small screens */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="sm:hidden flex justify-center pt-2"
-            >
+            {/* Mobile photo: high on the page, wide */}
+            <div className="sm:hidden flex justify-center pt-2">
               <Headshot variant="mobile" />
-            </motion.div>
+            </div>
 
             {/* Bio paragraphs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl"
-            >
+            <div className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl">
               <p>
-                I study social and emotional skills (also called noncognitive skills), like
-                perseverance and self-control, that help people succeed in education, employment,
-                and life. My work looks at which skills matter, how to measure them, and how
-                schools and programs can improve them.
+                I study social and emotional skills, sometimes called noncognitive skills.
+                These are skills like perseverance and self-control that help people succeed
+                in education, employment, and life. My work looks at which skills matter,
+                how to measure them, and how schools and programs can improve them.
               </p>
               <p>
-                I have worked on these questions for more than a decade, designing experiments,
-                building new measures, and analyzing administrative data. Much of my job involves
-                leading research teams and making findings useful for policymakers and practitioners.
-                More recently, I have become interested in how new technologies, including AI, are
-                changing the skills young people need and how schools can teach them.
+                I have worked on these questions for more than a decade. I design experiments,
+                build new measures, and analyze administrative data. Much of my job is leading
+                research teams and making findings useful for policymakers and practitioners.
               </p>
-            </motion.div>
+              <p>
+                The next big question I want to tackle is how AI changes this picture: which
+                skills matter most for young people when AI can handle more of the routine
+                cognitive work, how to measure those skills, and whether AI tools can actually
+                help develop them. These are questions my research on measurement and program
+                evaluation has prepared me to answer.
+              </p>
+            </div>
 
             {/* Affiliation badges */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-3"
-            >
+            <div className="space-y-3">
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                 Affiliations
               </p>
@@ -143,7 +129,7 @@ export function HeroSection() {
                   >
                     <Badge
                       variant="outline"
-                      className="px-3 py-1.5 text-sm bg-card hover:bg-secondary hover:border-primary/30 transition-all duration-200 cursor-pointer flex items-center gap-2"
+                      className="px-3 py-1.5 text-sm bg-card hover:bg-secondary hover:border-primary/30 transition-colors duration-200 cursor-pointer flex items-center gap-2"
                     >
                       {/* Logos are decorative: the institution name follows as text */}
                       {affiliation.logo.endsWith(".svg") ? (
@@ -179,20 +165,15 @@ export function HeroSection() {
                   </a>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="pt-2"
-            >
+            <div className="pt-2">
               <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg" className="group h-12 px-6 text-base">
+                <Button asChild size="lg" className="h-12 px-6 text-base">
                   <Link to="/research">
                     View My Research
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
@@ -203,27 +184,22 @@ export function HeroSection() {
                 </Button>
               </div>
               <a
-                href="https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en"
+                href={SCHOLAR_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 <GraduationCap className="h-4 w-4" />
-                View my Google Scholar profile
+                {scholarLabel()}
               </a>
-            </motion.div>
+            </div>
           </div>
 
           {/* Profile Image (desktop) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden sm:flex justify-center"
-          >
+          <div className="hidden sm:flex justify-center">
             <Headshot variant="desktop" />
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
