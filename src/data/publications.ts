@@ -25,7 +25,7 @@ export const publications: Publication[] = [
     journal: "Journal of Human Capital, 18(2): 272-303",
     type: "journal",
     abstract: "Using administrative data, we develop measures of noncognitive skills and evaluate OneGoal, an intervention designed to help disadvantaged students complete college by teaching them noncognitive skills. We (1) compare the outcomes of participants and nonparticipants with similar characteristics and (2) use a difference-in-differences approach exploiting that OneGoal was introduced into different schools at different times. We estimate that OneGoal increases college enrollment by 10–20 percentage points for males and females and reduces arrest rates by 5 percentage points for males. Through a mediation analysis, we find that improvements in noncognitive skills account for 13%–32% of these effects.",
-    inBrief: "A Chicago program that teaches skills like perseverance raised college enrollment by 10 to 20 percentage points, partly by improving those skills.",
+    inBrief: "A Chicago program that teaches skills like perseverance raised college enrollment by 10 to 20 percentage points, and improved skills explain part of the effect.",
     pdfUrl: "/documents/Kautz_Zanoni_2024_Measurement and Development.pdf",
     featured: true,
     keywords: ["noncognitive skills", "education", "program evaluation"],

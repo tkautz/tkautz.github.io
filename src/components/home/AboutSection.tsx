@@ -62,8 +62,8 @@ export function AboutSection() {
           <p className="text-muted-foreground leading-relaxed max-w-3xl">
             AI is changing which skills matter for young people, and it is breaking some
             of the ways we measure those skills. New tools promise to teach skills with AI
-            as well. Whether any of this actually helps kids is a question that careful
-            measurement and evaluation can answer.
+            as well. Whether any of this actually helps kids is still an open question —
+            and one worth getting right.
           </p>
         </div>
       </div>
