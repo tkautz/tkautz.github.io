@@ -5,7 +5,9 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  // `tests/` holds Playwright specs (Node/test context, not React), so the
+  // React-oriented rules below don't apply — they are linted by Playwright/tsc.
+  { ignores: ["dist", "tests", "playwright.config.ts"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],

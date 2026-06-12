@@ -118,25 +118,53 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
   const typeInfo = publicationTypes[publication.type];
   const coverImage = getCoverImage(publication);
 
-  const handleCopyCitation = () => {
-    const cleanAuthors = publication.authors.replace(/\*\*/g, "");
-    const citation = `${cleanAuthors} (${publication.year}). "${publication.title}."${publication.journal ? ` ${publication.journal}.` : ""}`;
-    navigator.clipboard.writeText(citation);
-    setCopied(true);
-    toast({
-      title: "Citation copied!",
-      description: "The citation has been copied to your clipboard.",
-    });
-    setTimeout(() => setCopied(false), 2000);
+  // Copy helper that tolerates browsers/contexts where the Clipboard API is
+  // unavailable or permission is denied, so a rejected promise can never bubble
+  // up as an unhandled rejection.
+  const copyToClipboard = async (text: string): Promise<boolean> => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      return false;
+    }
   };
 
-  const handleShareLink = () => {
+  const handleCopyCitation = async () => {
+    const cleanAuthors = publication.authors.replace(/\*\*/g, "");
+    const citation = `${cleanAuthors} (${publication.year}). "${publication.title}."${publication.journal ? ` ${publication.journal}.` : ""}`;
+    const ok = await copyToClipboard(citation);
+    if (ok) {
+      setCopied(true);
+      toast({
+        title: "Citation copied!",
+        description: "The citation has been copied to your clipboard.",
+      });
+      setTimeout(() => setCopied(false), 2000);
+    } else {
+      toast({
+        title: "Couldn't copy",
+        description: "Your browser blocked clipboard access. Please copy manually.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleShareLink = async () => {
     const url = `${window.location.origin}/research#pub-${publication.id}`;
-    navigator.clipboard.writeText(url);
-    toast({
-      title: "Link copied!",
-      description: "A direct link to this publication has been copied.",
-    });
+    const ok = await copyToClipboard(url);
+    toast(
+      ok
+        ? {
+            title: "Link copied!",
+            description: "A direct link to this publication has been copied.",
+          }
+        : {
+            title: "Couldn't copy",
+            description: "Your browser blocked clipboard access. Please copy manually.",
+            variant: "destructive",
+          },
+    );
   };
 
   return (
@@ -207,6 +235,8 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            aria-expanded={isExpanded}
+            aria-controls={`abstract-${publication.id}`}
           >
             <ChevronDown
               className={cn(
@@ -217,6 +247,7 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
             {isExpanded ? "Hide abstract" : "Show abstract"}
           </button>
           <div
+            id={`abstract-${publication.id}`}
             className={cn(
               "overflow-hidden transition-all duration-300",
               isExpanded ? "max-h-[500px] mt-3" : "max-h-0"
