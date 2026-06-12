@@ -72,7 +72,7 @@ export default function Research() {
 
   const filteredPublications = useMemo(() => {
     return publications.filter((pub) => {
-      const query = searchQuery.toLowerCase();
+      const query = searchQuery.toLowerCase().trim();
       const matchesSearch =
         searchQuery === "" ||
         pub.title.toLowerCase().includes(query) ||
@@ -202,7 +202,7 @@ export default function Research() {
                   />
                 </div>
                 <Select value={selectedYear} onValueChange={setSelectedYear}>
-                  <SelectTrigger className="w-full sm:w-36 min-h-[44px]">
+                  <SelectTrigger className="w-full sm:w-36 min-h-[44px]" aria-label="Filter by year">
                     <Calendar className="h-4 w-4 mr-2 text-muted-foreground" />
                     <SelectValue placeholder="Year" />
                   </SelectTrigger>

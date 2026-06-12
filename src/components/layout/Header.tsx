@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,6 +17,8 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+  const mobileNavRef = useRef<HTMLElement>(null);
 
   // Check initial dark mode preference
   useEffect(() => {
@@ -61,6 +63,54 @@ export function Header() {
     }
     return () => {
       document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  // Modal behavior for the mobile drawer: close on Escape, move focus into the
+  // panel on open, keep Tab focus trapped inside it, and restore focus to the
+  // toggle button on close.
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const toggleButton = menuToggleRef.current;
+
+    const focusables = () =>
+      Array.from(
+        mobileNavRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled])'
+        ) ?? []
+      );
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setIsMobileMenuOpen(false);
+        return;
+      }
+      if (e.key === "Tab") {
+        const items = focusables();
+        if (items.length === 0) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        const active = document.activeElement;
+        if (e.shiftKey && (active === first || !mobileNavRef.current?.contains(active))) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    // Defer to let the slide-in animation mount the panel before focusing.
+    const focusTimer = window.setTimeout(() => focusables()[0]?.focus(), 50);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      window.clearTimeout(focusTimer);
+      // Return focus to the trigger when the drawer closes.
+      toggleButton?.focus();
     };
   }, [isMobileMenuOpen]);
 
@@ -151,12 +201,14 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <Button
+              ref={menuToggleRef}
               variant="ghost"
               size="icon"
               className="min-h-[44px] min-w-[44px]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
+              aria-haspopup="dialog"
             >
               <AnimatePresence mode="wait">
                 {isMobileMenuOpen ? (
@@ -204,12 +256,15 @@ export function Header() {
 
             {/* Slide-in Menu */}
             <motion.nav
+              ref={mobileNavRef}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               className="fixed top-0 right-0 bottom-0 w-72 bg-background border-l border-border shadow-2xl md:hidden z-50"
               aria-label="Mobile navigation"
+              role="dialog"
+              aria-modal="true"
             >
               <div className="flex flex-col h-full">
                 {/* Panel header */}
