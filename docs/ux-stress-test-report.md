@@ -14,9 +14,12 @@
 | Severity | Count | Status |
 |----------|-------|--------|
 | High     | 1     | Fixed |
-| Medium   | 4     | 3 fixed, 1 deferred (×2 rules) |
+| Medium   | 4     | Fixed |
 | Low      | 2     | Fixed |
 | Info     | 1     | Deferred (env-limited) |
+
+All functional and accessibility findings are fixed; the only open item is an
+optional Lighthouse performance pass that can't run in this sandbox.
 
 Exploratory + scripted adversarial testing hammered every interactive feature
 (theme, mobile drawer, search/filters, research cards, clipboard, hash deep-links,
@@ -77,24 +80,32 @@ ones were fixed on this branch and locked in with regression specs.
 - **Fix:** `src/pages/Research.tsx` — `searchQuery.toLowerCase().trim()`.
 - **Regression spec:** `tests/e2e/research-filters.spec.ts` (case/whitespace match).
 
+### [MEDIUM] Brand color contrast failed WCAG AA — _Fixed_
+- **Area:** Affiliation links + publication type badges + TOC counts (Home, Research),
+  both themes.
+- **Detail (at rest):** The dark-mode primary `#5c85d6` measured **4.0–4.49:1** on dark
+  card/badge backgrounds; one dark type badge (`bg-muted text-muted-foreground`) sat at
+  **4.47:1**; the desktop TOC count used `opacity-60` (down to **2.74:1**); and the hero
+  affiliation link was distinguished from body text by color only (`link-in-text-block`,
+  ~1.18:1). All just under the AA thresholds.
+- **Important nuance:** the *first* scan reported far more "failures" — those were
+  **transient**, caught while research cards and the mobile drawer were mid fade/slide-in
+  (blended colors). Re-scanning at rest (reduced motion / settled animation) isolated the
+  real issues above. The a11y suite now scans with `reducedMotion: "reduce"` and waits for
+  the drawer's slide to settle, so it measures real colors deterministically.
+- **Fix:**
+  - `src/index.css` — dark `--primary` `60% → 68%` lightness (and matching `--ring`);
+    dark `--muted-foreground` `60% → 64%`.
+  - `src/components/home/HeroSection.tsx` — inline affiliation link is now always
+    underlined (not just on hover).
+  - `src/pages/Research.tsx` — desktop TOC count uses `text-muted-foreground` instead of
+    `opacity-60`.
+- **Result:** axe `color-contrast` and `link-in-text-block` are **re-enabled and enforced**
+  across all pages × both themes (plus the open mobile drawer) with zero violations.
+
 ---
 
 ## Deferred (reported, not changed)
-
-### [MEDIUM] Brand primary color fails WCAG AA contrast — _Deferred (design decision)_
-- **Area:** Links / accents on Home and Research, **both light and dark**.
-- **Detail:** The primary blue `#5c85d6` measures **~4.49:1** on light backgrounds and
-  as low as **4.0:1** for 12px text — just under the 4.5:1 AA threshold (axe
-  `color-contrast`, ~36–44 nodes on /research). On Home, inline links are also
-  distinguishable only by color (axe `link-in-text-block`).
-- **Why deferred:** Darkening the primary token or underlining inline links is a
-  site-wide brand/visual change, not a localized bug fix — it warrants an owner
-  decision. **Recommendation:** nudge `--primary` darker (≈`#4a6fc0` or lower) until
-  body-size text clears 4.5:1, and add an underline to inline text links.
-- **Suite handling:** `tests/a11y/accessibility.spec.ts` disables exactly these two
-  rules (`color-contrast`, `link-in-text-block`) via a documented `DEFERRED_RULES`
-  list so the scan still enforces every other WCAG rule as a regression guard.
-  Re-enable once the palette is adjusted.
 
 ### [INFO] Lighthouse performance pass not run — _Deferred (environment)_
 - A one-shot Lighthouse audit was planned but not run: installing/launching it needs
