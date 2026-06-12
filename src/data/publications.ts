@@ -138,7 +138,6 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "This paper summarizes recent evidence on what achievement tests measure; how achievement tests relate to other measures of \"cognitive ability\" like IQ and grades; the important skills that achievement tests miss or mismeasure, and how much these skills matter in life. Achievement tests miss soft skills—personality traits, goals, motivations, and preferences—that are valued in the labor market, in school, and in many other domains.",
     pdfUrl: "/documents/Heckman_Kautz_2012_Hard Evidence.pdf",
-    featured: true,
     keywords: ["noncognitive skills", "labor economics", "personality"],
   },
   {
@@ -247,6 +246,7 @@ export const publications: Publication[] = [
     type: "edited-volume",
     externalUrl: "http://press.uchicago.edu/ucp/books/book/chicago/M/bo17116615.html",
     coverImage: "/images/covers/myth-of-achievement-tests.jpg",
+    featured: true,
     keywords: ["achievement tests", "GED", "character skills"],
   },
   // Selected Policy Reports

@@ -12,11 +12,11 @@ export default function Home() {
         <title>Tim Kautz | Economist & Education Researcher</title>
         <meta
           name="description"
-          content="Tim Kautz is an economist and Senior Researcher at Mathematica. He studies noncognitive (social and emotional) skills: which skills matter for success in education, employment, and life, how to measure them, and how schools and programs can improve them."
+          content="Tim Kautz is an economist and Senior Researcher at Mathematica. He studies social and emotional (noncognitive) skills: which skills matter for success in education, employment, and life, how to measure them, and how schools and programs can improve them."
         />
         {/* Open Graph */}
         <meta property="og:title" content="Tim Kautz | Economist & Education Researcher" />
-        <meta property="og:description" content="Tim Kautz is an economist and Senior Researcher at Mathematica. He studies noncognitive (social and emotional) skills: which skills matter for success in education, employment, and life, how to measure them, and how schools and programs can improve them." />
+        <meta property="og:description" content="Tim Kautz is an economist and Senior Researcher at Mathematica. He studies social and emotional (noncognitive) skills: which skills matter for success in education, employment, and life, how to measure them, and how schools and programs can improve them." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tkautz.github.io/" />
         <meta property="og:image" content="https://tkautz.github.io/images/headshot-2.jpg" />
@@ -24,7 +24,7 @@ export default function Home() {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Tim Kautz | Economist & Education Researcher" />
-        <meta name="twitter:description" content="Tim Kautz is an economist and Senior Researcher at Mathematica. He studies noncognitive (social and emotional) skills: which skills matter for success in education, employment, and life, how to measure them, and how schools and programs can improve them." />
+        <meta name="twitter:description" content="Tim Kautz is an economist and Senior Researcher at Mathematica. He studies social and emotional (noncognitive) skills: which skills matter for success in education, employment, and life, how to measure them, and how schools and programs can improve them." />
         <meta name="twitter:image" content="https://tkautz.github.io/images/headshot-2.jpg" />
       </Helmet>
       <PersonStructuredData />

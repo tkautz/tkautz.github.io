@@ -5,22 +5,22 @@ const highlights = [
   {
     icon: BookOpen,
     title: "Which Skills Matter",
-    description: "Documenting how noncognitive skills like perseverance and self-control affect education, employment, health, and other life outcomes.",
+    description: "Showing how skills like perseverance and self-control shape success in school, at work, and in life, sometimes as much as test scores do.",
   },
   {
     icon: TrendingUp,
     title: "Measuring Skills",
-    description: "Developing and comparing skill measures based on self-reports, teacher reports, and administrative data, including research on problems like reference bias.",
+    description: "Building practical ways to measure these skills, and showing where common tools like student surveys can go wrong.",
   },
   {
     icon: Users,
     title: "Developing Skills",
-    description: "Evaluating school and employment programs designed to improve these skills, using randomized trials and quasi-experimental methods.",
+    description: "Testing whether programs in schools and job training actually build these skills.",
   },
   {
     icon: Award,
     title: "Evidence for Practice",
-    description: "Helping school districts and government agencies measure skills and apply research evidence, including work on social and emotional learning surveys.",
+    description: "Working with school districts and government agencies to put this evidence into practice.",
   },
 ];
 
@@ -33,9 +33,10 @@ export function AboutSection() {
             Research Focus
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            My research focuses on three related questions: Which skills matter for
-            success in education, employment, and life? How can we measure them? And
-            how can schools and programs help people develop them?
+            Success in school and work depends on more than test scores. My research
+            asks three questions about social and emotional skills: Which ones matter?
+            How can we measure them well? And how can schools and programs help people
+            build them?
           </p>
         </ScrollReveal>
 

@@ -26,25 +26,79 @@ const affiliations = [
   },
 ];
 
+// Rendered twice (mobile and desktop) so the photo can sit high on the page on
+// phones while keeping the side-by-side desktop layout. Same URL, so the
+// browser only downloads the image once.
+function Headshot({ variant }: { variant: "mobile" | "desktop" }) {
+  const isMobile = variant === "mobile";
+  return (
+    <div className={isMobile ? "relative w-full max-w-sm" : "relative"}>
+      {/* Decorative background blur */}
+      <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 rounded-2xl blur-xl" />
+      <picture>
+        <source srcSet="/images/headshot-2.webp" type="image/webp" />
+        <img
+          src="/images/headshot-2.jpg"
+          alt="Portrait of Tim Kautz"
+          width={256}
+          height={384}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className={
+            isMobile
+              ? "relative w-full aspect-[4/5] object-cover object-top rounded-xl shadow-lg ring-1 ring-border/40"
+              : "relative w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-lg ring-1 ring-border/40"
+          }
+        />
+      </picture>
+    </div>
+  );
+}
+
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-muted via-secondary/30 to-background">
       {/* Subtle decorative element */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(var(--primary)/0.05),_transparent_50%)]" />
-      
+
       <div className="container-wide section-padding relative">
         <div className="grid sm:grid-cols-[1fr_auto] gap-6 sm:gap-8 items-center">
           {/* Text Content */}
           <div className="space-y-6">
-            {/* Name - prominent serif styling */}
-            <motion.h1
+            {/* Name and tagline */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight"
+              className="space-y-3"
             >
-              Tim Kautz
-            </motion.h1>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+                Tim Kautz
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground font-medium">
+                Economist and Senior Researcher at{" "}
+                <a
+                  href="https://www.mathematica.org/"
+                  className="text-primary hover:underline underline-offset-4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Mathematica
+                </a>
+              </p>
+            </motion.div>
+
+            {/* Mobile photo: high on the page, wide, like the text-first desktop
+                layout doesn't allow on small screens */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="sm:hidden flex justify-center pt-2"
+            >
+              <Headshot variant="mobile" />
+            </motion.div>
 
             {/* Bio paragraphs */}
             <motion.div
@@ -54,18 +108,10 @@ export function HeroSection() {
               className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl"
             >
               <p>
-                I am an economist and Senior Researcher at{" "}
-                <a
-                  href="https://www.mathematica.org/"
-                  className="text-primary font-medium hover:underline underline-offset-4"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Mathematica
-                </a>
-                . I study noncognitive skills, like perseverance and self-control, that help
-                people succeed in education, employment, and life. My work looks at which skills
-                matter, how to measure them, and how schools and programs can improve them.
+                I study social and emotional skills (also called noncognitive skills), like
+                perseverance and self-control, that help people succeed in education, employment,
+                and life. My work looks at which skills matter, how to measure them, and how
+                schools and programs can improve them.
               </p>
               <p>
                 I have worked on these questions for more than a decade, designing experiments,
@@ -95,8 +141,8 @@ export function HeroSection() {
                     rel="noopener noreferrer"
                     className="group"
                   >
-                    <Badge 
-                      variant="outline" 
+                    <Badge
+                      variant="outline"
                       className="px-3 py-1.5 text-sm bg-card hover:bg-secondary hover:border-primary/30 transition-all duration-200 cursor-pointer flex items-center gap-2"
                     >
                       {/* Logos are decorative: the institution name follows as text */}
@@ -168,30 +214,14 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Profile Image */}
+          {/* Profile Image (desktop) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center"
+            className="hidden sm:flex justify-center"
           >
-            <div className="relative">
-              {/* Decorative background blur */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/20 rounded-2xl blur-xl" />
-              <picture>
-                <source srcSet="/images/headshot-2.webp" type="image/webp" />
-                <img
-                  src="/images/headshot-2.jpg"
-                  alt="Portrait of Tim Kautz"
-                  width={256}
-                  height={384}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="relative w-40 sm:w-48 md:w-56 lg:w-64 rounded-xl shadow-lg ring-1 ring-border/40"
-                />
-              </picture>
-            </div>
+            <Headshot variant="desktop" />
           </motion.div>
         </div>
       </div>
