@@ -64,7 +64,7 @@ function CoverImage({ src, alt }: { src: string; alt: string }) {
   return (
     <div
       ref={imgRef}
-      className="w-20 h-28 rounded-lg shadow-sm bg-muted overflow-hidden flex-shrink-0"
+      className="w-16 h-[88px] sm:w-20 sm:h-28 rounded-lg shadow-sm bg-muted overflow-hidden flex-shrink-0"
     >
       {isInView && !hasError && (
         <picture>
@@ -150,9 +150,7 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
       <div className="flex gap-4">
         {/* Cover Image - with optimized lazy loading */}
         {coverImage && (
-          <div className="hidden sm:block">
-            <CoverImage src={coverImage} alt={publication.journal ? `${publication.journal} cover` : ""} />
-          </div>
+          <CoverImage src={coverImage} alt={publication.journal ? `${publication.journal} cover` : ""} />
         )}
 
         <div className="flex-1 min-w-0">

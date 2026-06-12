@@ -54,7 +54,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
       <div className="flex gap-4 flex-1">
         {/* Journal Cover Image */}
         {journalImage && (
-          <div className="hidden sm:block flex-shrink-0">
+          <div className="flex-shrink-0">
             <picture>
               <source srcSet={toWebP(journalImage)} type="image/webp" />
               <img

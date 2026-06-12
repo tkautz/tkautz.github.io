@@ -63,17 +63,16 @@ export function HeroSection() {
                 >
                   Mathematica
                 </a>
-                . I study the skills that help people succeed in education, employment, and life,
-                especially noncognitive skills like perseverance and self-control (also called
-                social and emotional skills). My work focuses on which skills matter, how to
-                measure them, and how schools and programs can improve them.
+                . I study noncognitive skills, like perseverance and self-control, that help
+                people succeed in education, employment, and life. My work looks at which skills
+                matter, how to measure them, and how schools and programs can improve them.
               </p>
               <p>
                 I have worked on these questions for more than a decade, designing experiments,
-                developing new measures, and analyzing administrative data. I also lead research
-                teams and communicate findings to policymakers and practitioners. More recently,
-                I have become interested in how new technologies, including AI, are changing the
-                skills that young people need and how schools can teach them.
+                building new measures, and analyzing administrative data. Much of my job involves
+                leading research teams and making findings useful for policymakers and practitioners.
+                More recently, I have become interested in how new technologies, including AI, are
+                changing the skills young people need and how schools can teach them.
               </p>
             </motion.div>
 
