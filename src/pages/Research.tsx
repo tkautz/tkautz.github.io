@@ -149,18 +149,18 @@ export default function Research() {
         <title>Research & Publications | Tim Kautz</title>
         <meta
           name="description"
-          content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation."
+          content="Browse Tim Kautz's research publications on noncognitive skills, education economics, employment program evaluation, and how AI is changing the skills young people need."
         />
         {/* Open Graph */}
         <meta property="og:title" content="Research & Publications | Tim Kautz" />
-        <meta property="og:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation." />
+        <meta property="og:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, employment program evaluation, and how AI is changing the skills young people need." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tkautz.github.io/research" />
         <link rel="canonical" href="https://tkautz.github.io/research" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Research & Publications | Tim Kautz" />
-        <meta name="twitter:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation." />
+        <meta name="twitter:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, employment program evaluation, and how AI is changing the skills young people need." />
       </Helmet>
       <PublicationsStructuredData />
       <Layout>
@@ -173,7 +173,8 @@ export default function Research() {
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
                 Research on which skills matter, how to measure them, and how
-                schools and employment programs can develop them.
+                schools and employment programs can develop them. Increasingly,
+                that includes how AI is changing all three.
               </p>
               <a
                 href={SCHOLAR_URL}
