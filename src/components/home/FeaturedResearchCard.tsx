@@ -47,7 +47,7 @@ function renderAuthors(authors: string) {
 
 export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps) {
   const typeInfo = publicationTypes[publication.type];
-  const journalImage = getJournalImage(publication.journal);
+  const journalImage = publication.coverImage ?? getJournalImage(publication.journal);
 
   return (
     <article className="group bg-card rounded-xl border border-border/50 p-6 h-full flex flex-col card-hover">
