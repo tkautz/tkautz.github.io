@@ -77,7 +77,7 @@ export function HeroSection() {
                 Economist and Senior Researcher at{" "}
                 <a
                   href="https://www.mathematica.org/"
-                  className="text-primary hover:underline underline-offset-4"
+                  className="text-primary underline underline-offset-4"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

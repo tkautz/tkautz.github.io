@@ -301,7 +301,7 @@ export default function Research() {
                       {typeLabels[type as Publication["type"]]}
                       <span className={cn(
                         "ml-2 text-xs",
-                        activeSection === type ? "text-primary-foreground/80" : "opacity-60"
+                        activeSection === type ? "text-primary-foreground/80" : "text-muted-foreground"
                       )}>
                         ({groupedPublications[type].length})
                       </span>

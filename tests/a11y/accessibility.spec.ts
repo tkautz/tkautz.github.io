@@ -9,24 +9,19 @@ const pages = [
   { name: "contact", path: routes.contact },
 ];
 
-/**
- * Two violations are design-level and tracked as deferred findings in
- * docs/ux-stress-test-report.md (they stem from the brand primary blue
- * #5c85d6 sitting at ~4.49:1, just under WCAG AA's 4.5:1). They require a
- * brand-color decision, so we exclude them here to keep the suite enforcing
- * every OTHER rule (button-name, aria, landmarks, labels, …) as a regression
- * guard. Remove these once the palette is adjusted.
- */
-const DEFERRED_RULES = ["color-contrast", "link-in-text-block"];
-
 test.describe("accessibility (axe WCAG 2a/2aa)", () => {
+  // Scan with reduced motion so framer-motion renders final (at-rest) colors
+  // immediately. Otherwise the scan can catch cards mid fade-in and report
+  // transient, blended color-contrast values that don't reflect the real UI.
+  test.use({ reducedMotion: "reduce" });
+
   for (const { name, path } of pages) {
     for (const theme of ["light", "dark"] as const) {
       test(`${name} has no violations (${theme})`, async ({ page, makeAxe }, testInfo) => {
         if (theme === "dark") await seedTheme(page, "dark");
         await page.goto(path);
         await page.waitForLoadState("networkidle");
-        const results = await makeAxe(page).disableRules(DEFERRED_RULES).analyze();
+        const results = await makeAxe(page).analyze();
         await testInfo.attach(`axe-${name}-${theme}.json`, {
           body: JSON.stringify(results.violations, null, 2),
           contentType: "application/json",
@@ -43,8 +38,21 @@ test.describe("accessibility (axe WCAG 2a/2aa)", () => {
     test.skip(!isMobile, "drawer is mobile only");
     await page.goto(routes.home);
     await page.getByRole("button", { name: "Toggle menu" }).click();
-    await expect(page.getByRole("dialog", { name: "Mobile navigation" })).toBeVisible();
-    const results = await makeAxe(page).disableRules(DEFERRED_RULES).analyze();
+    const drawer = page.getByRole("dialog", { name: "Mobile navigation" });
+    await expect(drawer).toBeVisible();
+    // Wait for the slide-in spring to settle (translateX ~0) so axe measures the
+    // final colors, not blended values from the in-flight transform.
+    await expect
+      .poll(() =>
+        drawer.evaluate((el) => {
+          const t = getComputedStyle(el).transform;
+          if (t === "none") return 0;
+          const m = t.match(/matrix\(([^)]+)\)/);
+          return m ? Math.abs(Number(m[1].split(",")[4]) || 0) : 0;
+        }),
+      )
+      .toBeLessThan(1);
+    const results = await makeAxe(page).analyze();
     expect(
       results.violations,
       results.violations.map((v) => `${v.id}: ${v.help}`).join("\n"),
