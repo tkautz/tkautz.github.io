@@ -5,22 +5,22 @@ const highlights = [
   {
     icon: BookOpen,
     title: "Which Skills Matter",
-    description: "Documenting how noncognitive skills — perseverance, self-control, social skills — shape education, employment, health, and other life outcomes.",
+    description: "Documenting how noncognitive skills like perseverance and self-control affect education, employment, health, and other life outcomes.",
   },
   {
     icon: TrendingUp,
     title: "Measuring Skills",
-    description: "Comparing self-reports, teacher reports, and administrative data — and documenting pitfalls like reference bias — to measure skills credibly at scale.",
+    description: "Developing and comparing skill measures based on self-reports, teacher reports, and administrative data, including research on problems like reference bias.",
   },
   {
     icon: Users,
     title: "Developing Skills",
-    description: "Testing whether schools and programs can teach these skills, with randomized trials and quasi-experiments from Chicago classrooms to federal employment programs.",
+    description: "Evaluating school and employment programs designed to improve these skills, using randomized trials and quasi-experimental methods.",
   },
   {
     icon: Award,
     title: "Evidence for Practice",
-    description: "Helping districts, states, and federal agencies measure skills and act on evidence, including social and emotional learning surveys.",
+    description: "Helping school districts and government agencies measure skills and apply research evidence, including work on social and emotional learning surveys.",
   },
 ];
 
@@ -33,10 +33,9 @@ export function AboutSection() {
             Research Focus
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            For more than a decade, my research has pursued three connected questions:
-            Which skills matter for success in school, work, and life? How can we
-            measure them credibly? And how can schools and programs help people
-            develop them?
+            My research focuses on three related questions: Which skills matter for
+            success in education, employment, and life? How can we measure them? And
+            how can schools and programs help people develop them?
           </p>
         </ScrollReveal>
 

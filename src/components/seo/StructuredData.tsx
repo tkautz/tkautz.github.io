@@ -113,7 +113,7 @@ export function WebsiteStructuredData() {
     "@type": "WebSite",
     name: "Tim Kautz",
     url: "https://tkautz.github.io/",
-    description: "Professional website of Tim Kautz, economist and Senior Researcher at Mathematica, studying noncognitive (social and emotional) skills — which skills matter, how to measure them, and how to teach them.",
+    description: "Professional website of Tim Kautz, an economist and Senior Researcher at Mathematica who studies noncognitive (social and emotional) skills: which skills matter, how to measure them, and how to improve them.",
     author: {
       "@type": "Person",
       name: "Tim Kautz",

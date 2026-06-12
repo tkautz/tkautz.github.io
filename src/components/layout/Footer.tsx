@@ -46,7 +46,7 @@ export function Footer() {
               Tim Kautz
             </h3>
             <p className="text-muted-foreground text-sm">
-              Economist studying the skills that drive success in school, work, and life
+              Economist studying the skills that help people succeed in education, employment, and life
             </p>
           </div>
 
