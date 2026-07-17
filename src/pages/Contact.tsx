@@ -62,6 +62,9 @@ export default function Contact() {
           email: formData.get("email"),
           _subject: formData.get("subject"),
           message: formData.get("message"),
+          // FormSubmit honeypot: hidden field bots fill in, causing the
+          // submission to be silently discarded.
+          _honey: formData.get("_honey"),
         }),
       });
 
@@ -114,7 +117,8 @@ export default function Contact() {
                 Get in Touch
               </h1>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                I welcome inquiries about research collaborations or other professional opportunities.
+                I welcome inquiries about research collaborations, evaluation partnerships,
+                speaking engagements, and other professional opportunities.
               </p>
             </ScrollReveal>
 
@@ -171,6 +175,15 @@ export default function Contact() {
                     </motion.div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-5">
+                      {/* Honeypot field for spam bots; hidden from real users */}
+                      <input
+                        type="text"
+                        name="_honey"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        aria-hidden="true"
+                        className="hidden"
+                      />
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div className="space-y-2">
                           <Label htmlFor="name">Name</Label>

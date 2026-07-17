@@ -113,7 +113,7 @@
     @apply py-16 sm:py-20 lg:py-24;
   }
   .card-hover {
-    @apply transition-all duration-200 hover:border-primary/30 hover:shadow-md;
+    @apply transition-all duration-200 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5;
   }
   .link-underline {
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;

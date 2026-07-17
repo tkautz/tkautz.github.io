@@ -128,9 +128,17 @@ export function Header() {
         <div className="container-wide flex items-center justify-between">
           <Link
             to="/"
-            className="font-display text-xl sm:text-2xl font-semibold text-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            className="flex items-center gap-2.5 font-display text-xl sm:text-2xl font-semibold text-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             aria-label="Tim Kautz - Home"
           >
+            <img
+              src="/images/tk-icon.svg"
+              alt=""
+              aria-hidden="true"
+              width={28}
+              height={28}
+              className="h-7 w-7 rounded-full"
+            />
             Tim Kautz
           </Link>
 

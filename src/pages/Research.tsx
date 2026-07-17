@@ -92,7 +92,11 @@ export default function Research() {
     const groups: Record<string, typeof filteredPublications> = {};
     
     typeOrder.forEach((type) => {
-      const pubs = filteredPublications.filter((pub) => pub.type === type);
+      // Newest first; the sort is stable, so the manual ordering in
+      // publications.ts still breaks ties within a year.
+      const pubs = filteredPublications
+        .filter((pub) => pub.type === type)
+        .sort((a, b) => b.year - a.year);
       if (pubs.length > 0) {
         groups[type] = pubs;
       }
@@ -138,7 +142,7 @@ export default function Research() {
     { value: "working-paper", label: "Working Papers" },
     { value: "book-chapter", label: "Book Chapters" },
     { value: "edited-volume", label: "Edited Volumes" },
-    { value: "report", label: "Reports" },
+    { value: "report", label: "Policy Reports" },
   ];
 
   const hasActiveFilters = searchQuery !== "" || selectedType !== "all" || selectedYear !== "all";
@@ -196,6 +200,7 @@ export default function Research() {
                   <Input
                     type="search"
                     placeholder="Search publications..."
+                    aria-label="Search publications"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10 min-h-[44px]"
@@ -225,6 +230,7 @@ export default function Research() {
                     variant={selectedType === filter.value ? "default" : "outline"}
                     size="sm"
                     onClick={() => setSelectedType(filter.value)}
+                    aria-pressed={selectedType === filter.value}
                     className="transition-all min-h-[40px]"
                   >
                     {filter.label}
@@ -259,6 +265,7 @@ export default function Research() {
                     <DropdownMenuItem
                       key={type}
                       onClick={() => scrollToSection(type)}
+                      aria-current={activeSection === type ? "true" : undefined}
                       className={cn(
                         "flex justify-between cursor-pointer",
                         activeSection === type 
@@ -291,6 +298,7 @@ export default function Research() {
                     <button
                       key={type}
                       onClick={() => scrollToSection(type)}
+                      aria-current={activeSection === type ? "true" : undefined}
                       className={cn(
                         "block w-full text-left text-sm py-2 px-3 rounded-md transition-all",
                         activeSection === type

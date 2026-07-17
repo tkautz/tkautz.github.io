@@ -453,7 +453,7 @@ export const publications: Publication[] = [
     title: "Fostering and Measuring Skills: Improving Cognitive and Non-Cognitive Skills to Promote Lifetime Success",
     authors: "**Kautz, Tim**, James J. Heckman, Ron Diris, Bas ter Weel, and Lex Borghans",
     year: 2014,
-    journal: "Paris, France: Organisation of Economic Co-operation and Development",
+    journal: "Paris, France: Organisation for Economic Co-operation and Development",
     type: "report",
     abstract: "IQ tests and achievement tests do not adequately capture non-cognitive skills — personality traits, goals, character, motivations, and preferences that are valued in the labor market, in school, and in many other domains. For many outcomes, their predictive power rivals or exceeds that of cognitive skills. Skills are stable across situations with different incentives, although manifestations of skills vary with incentives. Skills are not immutable over the life cycle; they have a genetic basis but are also shaped by environments, including families, schools, and peers.",
     pdfUrl: "/documents/Kautz_etal_2014_Fostering.pdf",
@@ -488,6 +488,6 @@ export const publicationTypes = {
   journal: { label: "Journal Article", color: "bg-primary/10 text-primary" },
   "working-paper": { label: "Working Paper", color: "bg-accent/15 text-accent-foreground dark:text-accent" },
   "book-chapter": { label: "Book Chapter", color: "bg-secondary text-secondary-foreground" },
-  report: { label: "Report", color: "bg-muted text-muted-foreground" },
+  report: { label: "Policy Report", color: "bg-muted text-muted-foreground" },
   "edited-volume": { label: "Edited Volume", color: "bg-primary/10 text-primary" },
 };

@@ -37,7 +37,7 @@ export const research = {
     "Working Papers",
     "Book Chapters",
     "Edited Volumes",
-    "Reports",
+    "Policy Reports",
   ],
 } as const;
 
