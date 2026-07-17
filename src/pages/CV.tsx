@@ -276,15 +276,15 @@ const cvSections: CVSection[] = [
     content: (
       <div className="grid sm:grid-cols-3 gap-6 text-sm">
         <div>
-          <h4 className="font-medium text-foreground mb-2">Computer Skills</h4>
-          <p className="text-muted-foreground">Stata, Python, R, Git, Mplus, MatLab, Mathematica, LaTeX</p>
+          <h3 className="font-medium text-foreground mb-2">Computer Skills</h3>
+          <p className="text-muted-foreground">Stata, Python, R, Git, Mplus, MATLAB, Mathematica, LaTeX</p>
         </div>
         <div>
-          <h4 className="font-medium text-foreground mb-2">Languages</h4>
+          <h3 className="font-medium text-foreground mb-2">Languages</h3>
           <p className="text-muted-foreground">Spanish (intermediate), Swahili (very basic)</p>
         </div>
         <div>
-          <h4 className="font-medium text-foreground mb-2">Interests</h4>
+          <h3 className="font-medium text-foreground mb-2">Interests</h3>
           <p className="text-muted-foreground">Photography, Hiking</p>
         </div>
       </div>
@@ -299,7 +299,7 @@ const cvSections: CVSection[] = [
         <p><strong className="text-foreground">2023:</strong> Association for Public Policy Analysis & Management Conference</p>
         <p><strong className="text-foreground">2022:</strong> Research and Evaluation Conference on Self-Sufficiency</p>
         <p><strong className="text-foreground">2020:</strong> APPAM Conference, Society for Research on Educational Effectiveness</p>
-        <p><strong className="text-foreground">2019:</strong> NCES STATS-DC Data Conference, briq Bonn University</p>
+        <p><strong className="text-foreground">2019:</strong> NCES STATS-DC Data Conference, briq / University of Bonn</p>
         <p><strong className="text-foreground">2017:</strong> Society of Labor Economics, University of Chicago, Jinan University, APPAM</p>
         <p><strong className="text-foreground">2016:</strong> University of Oxford (RISE Annual Conference)</p>
         <p><strong className="text-foreground">2015:</strong> UVA Batten School, Columbia Teachers College, Stanford, SUNY Binghamton</p>
@@ -396,7 +396,7 @@ export default function CV() {
 
             {/* Quick Navigation */}
             <ScrollReveal delay={0.1} className="flex flex-wrap justify-center gap-2 mb-10">
-              {cvSections.slice(0, 4).map((section) => (
+              {cvSections.map((section) => (
                 <Button
                   key={section.id}
                   variant="outline"

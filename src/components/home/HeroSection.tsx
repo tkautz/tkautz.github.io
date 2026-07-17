@@ -11,7 +11,8 @@ const affiliations = [
     name: "Behavior Change for Good",
     url: "https://bcfg.wharton.upenn.edu/",
     org: "UPenn",
-    logo: "/images/logos/upenn.svg",
+    // .png (with .webp source) rather than the 42 KB upenn.svg — it renders at 16px
+    logo: "/images/logos/upenn.png",
   },
   {
     name: "Institute for Economic and Social Research",
@@ -57,8 +58,13 @@ function Headshot({ variant }: { variant: "mobile" | "desktop" }) {
 
 export function HeroSection() {
   return (
-    <section className="bg-muted/40">
-      <div className="container-wide section-padding">
+    <section className="relative bg-muted/40">
+      {/* Faint dot-grid "data" texture, fading out toward the bottom */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none bg-[radial-gradient(hsl(var(--foreground)/0.06)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
+      />
+      <div className="relative container-wide section-padding">
         {/* Single subtle fade; the rest of the page renders still. */}
         <motion.div
           initial={{ opacity: 0 }}
