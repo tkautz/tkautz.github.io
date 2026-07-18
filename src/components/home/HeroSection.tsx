@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, GraduationCap } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
+import { ScholarIcon } from "@/components/icons/site-icons";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -110,12 +111,6 @@ export function HeroSection() {
                 build new measures, and analyze administrative data. Much of my job is leading
                 research teams and making findings useful for policymakers and practitioners.
               </p>
-              <p>
-                The next big question I want to tackle is how AI changes this picture: which
-                skills matter most for young people when AI can handle more of the routine
-                cognitive work, how to measure those skills, and whether AI tools can actually
-                help develop them.
-              </p>
             </div>
 
             {/* Affiliation badges */}
@@ -194,7 +189,7 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
-                <GraduationCap className="h-4 w-4" />
+                <ScholarIcon className="h-4 w-4" />
                 {scholarLabel()}
               </a>
             </div>

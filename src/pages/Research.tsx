@@ -1,7 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Search, ChevronDown, Calendar, GraduationCap } from "lucide-react";
+import { Search, ChevronDown, Calendar } from "lucide-react";
+import { ScholarIcon } from "@/components/icons/site-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { ResearchCard } from "@/components/research/ResearchCard";
@@ -153,18 +154,18 @@ export default function Research() {
         <title>Research & Publications | Tim Kautz</title>
         <meta
           name="description"
-          content="Browse Tim Kautz's research publications on noncognitive skills, education economics, employment program evaluation, and how AI is changing the skills young people need."
+          content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation."
         />
         {/* Open Graph */}
         <meta property="og:title" content="Research & Publications | Tim Kautz" />
-        <meta property="og:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, employment program evaluation, and how AI is changing the skills young people need." />
+        <meta property="og:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tkautz.github.io/research" />
         <link rel="canonical" href="https://tkautz.github.io/research" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Research & Publications | Tim Kautz" />
-        <meta name="twitter:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, employment program evaluation, and how AI is changing the skills young people need." />
+        <meta name="twitter:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation." />
       </Helmet>
       <PublicationsStructuredData />
       <Layout>
@@ -177,8 +178,7 @@ export default function Research() {
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
                 Research on which skills matter, how to measure them, and how
-                schools and employment programs can develop them. Increasingly,
-                that includes how AI is changing all three.
+                schools and employment programs can develop them.
               </p>
               <a
                 href={SCHOLAR_URL}
@@ -186,7 +186,7 @@ export default function Research() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
               >
-                <GraduationCap className="h-4 w-4" />
+                <ScholarIcon className="h-4 w-4" />
                 {scholarLabel()}
               </a>
             </ScrollReveal>

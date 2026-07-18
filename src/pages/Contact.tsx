@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Mail, Linkedin, GraduationCap, MapPin, Send, CheckCircle } from "lucide-react";
+import { Linkedin, Send, CheckCircle } from "lucide-react";
+import { MailIcon, ScholarIcon, MapPinIcon } from "@/components/icons/site-icons";
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -13,7 +14,7 @@ import { SCHOLAR_URL, scholarCitationText } from "@/lib/scholar";
 
 const contactInfo = [
   {
-    icon: Mail,
+    icon: MailIcon,
     label: "Email",
     value: "tkautz@mathematica-mpr.com",
     href: "mailto:tkautz@mathematica-mpr.com",
@@ -25,13 +26,13 @@ const contactInfo = [
     href: "https://www.linkedin.com/in/tkautz",
   },
   {
-    icon: GraduationCap,
+    icon: ScholarIcon,
     label: "Google Scholar",
     value: scholarCitationText() ?? "View profile",
     href: SCHOLAR_URL,
   },
   {
-    icon: MapPin,
+    icon: MapPinIcon,
     label: "Location",
     value: "Boulder, Colorado",
     href: null,

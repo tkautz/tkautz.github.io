@@ -41,7 +41,7 @@ export function AboutSection() {
             Success in school and work depends on more than test scores. My research
             asks three questions about social and emotional skills: Which ones matter?
             How can we measure them well? And how can schools and programs help people
-            build them? Increasingly, I am asking how AI reshapes all three.
+            build them?
           </p>
         </ScrollReveal>
 
@@ -63,19 +63,6 @@ export function AboutSection() {
             </StaggerItem>
           ))}
         </StaggerChildren>
-
-        {/* Forward-looking callout, deliberately distinct from the cards above */}
-        <div className="mt-8 rounded-xl border border-border/60 border-l-4 border-l-accent bg-accent/5 p-6 sm:p-8">
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
-            Where this is heading
-          </p>
-          <p className="text-muted-foreground leading-relaxed max-w-3xl">
-            AI is changing which skills matter for young people, and it is breaking some
-            of the ways we measure those skills. New tools promise to teach skills with AI
-            as well. Whether any of this actually helps kids is still an open question —
-            and one worth getting right.
-          </p>
-        </div>
       </div>
     </section>
   );
