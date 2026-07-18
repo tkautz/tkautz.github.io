@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Download, ChevronDown, GraduationCap, Briefcase, Award, BookOpen, Users, Mic, Code, History } from "lucide-react";
+import { Download, ChevronDown } from "lucide-react";
+import {
+  PositionIcon,
+  AffiliationsIcon,
+  ScholarIcon,
+  TimelineIcon,
+  AwardsIcon,
+  ServiceIcon,
+  SkillsIcon,
+  PresentationsIcon,
+} from "@/components/icons/site-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -18,7 +28,7 @@ const cvSections: CVSection[] = [
   {
     id: "position",
     title: "Current Position",
-    icon: Briefcase,
+    icon: PositionIcon,
     content: (
       <div className="space-y-4">
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
@@ -41,7 +51,7 @@ const cvSections: CVSection[] = [
   {
     id: "affiliations",
     title: "Affiliations",
-    icon: Users,
+    icon: AffiliationsIcon,
     content: (
       <div className="space-y-4">
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
@@ -119,7 +129,7 @@ const cvSections: CVSection[] = [
   {
     id: "education",
     title: "Education",
-    icon: GraduationCap,
+    icon: ScholarIcon,
     content: (
       <div className="space-y-4">
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
@@ -167,7 +177,7 @@ const cvSections: CVSection[] = [
   {
     id: "previous",
     title: "Previous Positions",
-    icon: History,
+    icon: TimelineIcon,
     content: (
       <div className="space-y-4">
         <div className="relative pl-6 border-l-2 border-border/50 hover:border-primary/50 transition-colors">
@@ -206,7 +216,7 @@ const cvSections: CVSection[] = [
   {
     id: "awards",
     title: "Funding, Fellowships & Awards",
-    icon: Award,
+    icon: AwardsIcon,
     content: (
       <ul className="space-y-2 text-sm">
         <li className="flex items-start gap-2">
@@ -247,7 +257,7 @@ const cvSections: CVSection[] = [
   {
     id: "service",
     title: "Professional Service",
-    icon: BookOpen,
+    icon: ServiceIcon,
     content: (
       <div className="space-y-4 text-sm">
         <div>
@@ -272,7 +282,7 @@ const cvSections: CVSection[] = [
   {
     id: "skills",
     title: "Skills",
-    icon: Code,
+    icon: SkillsIcon,
     content: (
       <div className="grid sm:grid-cols-3 gap-6 text-sm">
         <div>
@@ -293,7 +303,7 @@ const cvSections: CVSection[] = [
   {
     id: "presentations",
     title: "Selected Presentations",
-    icon: Mic,
+    icon: PresentationsIcon,
     content: (
       <div className="space-y-2 text-sm text-muted-foreground">
         <p><strong className="text-foreground">2023:</strong> Association for Public Policy Analysis & Management Conference</p>

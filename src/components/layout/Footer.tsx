@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, Linkedin, GraduationCap } from "lucide-react";
+import { Linkedin } from "lucide-react";
+import { MailIcon, ScholarIcon } from "@/components/icons/site-icons";
 import {
   Tooltip,
   TooltipContent,
@@ -11,7 +12,7 @@ import { SCHOLAR_URL, scholarLabel } from "@/lib/scholar";
 const socialLinks = [
   {
     href: "mailto:tkautz@mathematica-mpr.com",
-    icon: Mail,
+    icon: MailIcon,
     label: "Email",
     tooltip: "Send me an email",
   },
@@ -23,7 +24,7 @@ const socialLinks = [
   },
   {
     href: SCHOLAR_URL,
-    icon: GraduationCap,
+    icon: ScholarIcon,
     label: "Google Scholar",
     tooltip: scholarLabel(),
   },
