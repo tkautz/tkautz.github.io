@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://tkautz.github.io/sitemap.xml
+Sitemap: https://timkautz.org/sitemap.xml

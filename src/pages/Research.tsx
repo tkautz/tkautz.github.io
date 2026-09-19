@@ -160,8 +160,8 @@ export default function Research() {
         <meta property="og:title" content="Research & Publications | Tim Kautz" />
         <meta property="og:description" content="Browse Tim Kautz's research publications on noncognitive skills, education economics, and employment program evaluation." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tkautz.github.io/research" />
-        <link rel="canonical" href="https://tkautz.github.io/research" />
+        <meta property="og:url" content="https://timkautz.org/research" />
+        <link rel="canonical" href="https://timkautz.org/research" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Research & Publications | Tim Kautz" />

@@ -16,7 +16,7 @@ export function PersonStructuredData({
   jobTitle = "Senior Researcher",
   organization = "Mathematica",
   email = "tkautz@mathematica-mpr.com",
-  url = "https://tkautz.github.io/",
+  url = "https://timkautz.org/",
   sameAs = [
     "https://www.linkedin.com/in/tkautz",
     "https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en",
@@ -112,7 +112,7 @@ export function WebsiteStructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Tim Kautz",
-    url: "https://tkautz.github.io/",
+    url: "https://timkautz.org/",
     description: "Professional website of Tim Kautz, an economist and Senior Researcher at Mathematica who studies social and emotional (noncognitive) skills: which skills matter, how to measure them, and how to improve them.",
     author: {
       "@type": "Person",

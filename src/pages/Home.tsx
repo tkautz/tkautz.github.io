@@ -18,14 +18,14 @@ export default function Home() {
         <meta property="og:title" content="Tim Kautz | Economist & Education Researcher" />
         <meta property="og:description" content="Tim Kautz is an economist and Senior Researcher at Mathematica. He studies social and emotional (noncognitive) skills: which skills matter for success in education, employment, and life, how to measure them, and how schools and programs can improve them." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://tkautz.github.io/" />
-        <meta property="og:image" content="https://tkautz.github.io/images/headshot-2.jpg" />
-        <link rel="canonical" href="https://tkautz.github.io/" />
+        <meta property="og:url" content="https://timkautz.org/" />
+        <meta property="og:image" content="https://timkautz.org/images/headshot-2.jpg" />
+        <link rel="canonical" href="https://timkautz.org/" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Tim Kautz | Economist & Education Researcher" />
         <meta name="twitter:description" content="Tim Kautz is an economist and Senior Researcher at Mathematica. He studies social and emotional (noncognitive) skills: which skills matter for success in education, employment, and life, how to measure them, and how schools and programs can improve them." />
-        <meta name="twitter:image" content="https://tkautz.github.io/images/headshot-2.jpg" />
+        <meta name="twitter:image" content="https://timkautz.org/images/headshot-2.jpg" />
       </Helmet>
       <PersonStructuredData />
       <WebsiteStructuredData />
