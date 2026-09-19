@@ -50,11 +50,16 @@ test.describe("research filters", () => {
       page,
       consoleErrors,
     }) => {
-      for (const q of [".*", "[", "(?:", "\\d+", "^$"]) {
+      for (const q of [".*", "(?:", "\\d+", "^$"]) {
         await searchbox(page).fill(q);
         // Literal interpretation => these match nothing.
         await expect(page.getByText(research.emptyState)).toBeVisible();
       }
+      // The full remote-schooling abstract contains the literal notation [ES].
+      // An unmatched bracket must find that text without becoming a regex.
+      await searchbox(page).fill("[");
+      await expect(page.locator("article[id^='pub-']")).toHaveCount(1);
+      await expect(page.locator("#pub-duckworth-etal-2021")).toBeVisible();
       expect(consoleErrors, consoleErrors.join("\n")).toEqual([]);
     });
 

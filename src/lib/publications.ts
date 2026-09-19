@@ -1,4 +1,5 @@
 import { Publication } from "@/data/publications";
+import { publicationDescription } from "@/lib/publication-abstracts";
 
 export const SITE_URL = "https://timkautz.org";
 export const publicationPath = (pub: Publication) => `/publications/${pub.id}/`;
@@ -43,7 +44,7 @@ const normalize = (value: string) => value.toLowerCase().normalize("NFD")
   .replace(/[\u0300-\u036f]/g, "").replace(/[-–—]/g, " ");
 
 export function matchesPublication(pub: Publication, query: string): boolean {
-  const text = normalize([pub.title, pub.authors, pub.journal, pub.abstract, pub.inBrief,
+  const text = normalize([pub.title, pub.authors, pub.journal, publicationDescription(pub), pub.inBrief,
     ...(pub.keywords ?? []), ...publicationTopics(pub).map(topic => topics[topic])].join(" "));
   return normalize(query).trim().split(/\s+/).filter(Boolean).every(term => {
     if (abbreviations[term]) {

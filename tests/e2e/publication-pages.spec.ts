@@ -2,6 +2,20 @@ import { test, expect } from "../fixtures/test-fixtures";
 import { publications } from "../../src/data/publications";
 import { publicationAuthors, publicationPath, publicationUrl } from "../../src/lib/publications";
 import { freshCitationCount } from "../../src/lib/scholar-freshness";
+import { publicationDescription } from "../../src/lib/publication-abstracts";
+
+test("Scholar pages include complete source abstracts and distinguish summaries", async ({ page }) => {
+  await page.goto("/publications/kautz-etal-2010/");
+  await expect(page.getByRole("heading", { name: "Abstract", exact: true })).toBeVisible();
+  await expect(page.locator("article")).toContainText("benefits for elderly people in Africa.");
+  await page.goto("/publications/milkman-etal-2021/");
+  await expect(page.locator("article")).toContainText("Only 8% of interventions");
+  await expect(page.locator("article")).toContainText("evidentiary value of behavioural science.");
+  await page.goto("/publications/kautz-cole-2017/");
+  await expect(page.getByRole("heading", { name: "Summary", exact: true })).toBeVisible();
+  const schema = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent() ?? "{}");
+  expect(schema.abstract).toBeUndefined();
+});
 
 test("every publication is complete and correctly identified without JavaScript", async ({ browser, baseURL }) => {
   test.setTimeout(90_000);
@@ -18,7 +32,8 @@ test("every publication is complete and correctly identified without JavaScript"
     const authors = await page.locator(`meta[name="${pub.type === "edited-volume" ? "citation_editor" : "citation_author"}"]`).evaluateAll(nodes => nodes.map(node => node.getAttribute("content")));
     expect(authors).toEqual(publicationAuthors(pub));
     await expect(page.locator('meta[name="citation_journal_title"]')).toHaveCount(pub.type === "journal" ? 1 : 0);
-    if (pub.abstract) await expect(page.getByText(pub.abstract, { exact: true })).toBeVisible();
+    const description = publicationDescription(pub);
+    if (description) await expect(page.getByText(description, { exact: true })).toBeVisible();
     if (pub.pdfUrl) await expect(page.getByRole("link", { name: "PDF", exact: true })).toHaveAttribute("href", pub.pdfUrl);
   }
   await context.close();

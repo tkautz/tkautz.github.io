@@ -33,7 +33,8 @@ This repository uses a custom Actions deployment, so GitHub Pages does not requi
 ## Content
 
 - Publications are maintained in `src/data/publications.ts`.
-- Published PDFs live in `public/documents/`; do not edit the originals. The build keeps those URLs and makes byte-identical `paper.pdf` copies beside publication pages for Google Scholar's same-directory metadata requirement.
+- Published PDFs live in `public/documents/`; do not edit the originals. The build keeps those URLs and makes `paper.pdf` copies beside publication pages for Google Scholar's same-directory metadata requirement. The one oversized Asymdystopia paper uses a losslessly compressed copy from `public/scholar-pdfs/`, declared with original/output hashes in `src/data/scholar-pdfs.json`. All other copies remain byte-identical, and every Scholar copy must be below 5 MB.
+- Complete author-written abstracts transcribed from 15 linked PDFs are in `src/data/publication-abstracts.json`, with source PDF/page provenance. The original catalog is preserved. Records without a verified complete abstract retain their existing text, labeled Summary rather than Abstract. The linked 2019 working-paper version of the 2021 personality chapter is explicitly identified.
 - Journal covers, book covers, and logos live in `public/images/`.
 - Publication pages and sitemap entries are generated automatically from the existing records. Topic labels and search abbreviations are in `src/lib/publications.ts`; DOI links verified from the existing journal PDFs are in `src/data/publication-dois.ts`. No new publication summaries are generated.
 

@@ -33,6 +33,8 @@ def main():
     ids = re.findall(r'\bid: "([^"]+)"', (ROOT / "src/data/publications.ts").read_text(encoding="utf-8"))
     expected = {"/", "/research/", "/cv/", "/contact/", *(f"/publications/{uid}/" for uid in ids)}
     assert len(ids) == len(set(ids)), "Duplicate publication IDs"
+    scholar_pdfs = json.loads((ROOT / "src/data/scholar-pdfs.json").read_text(encoding="utf-8"))
+    assert set(scholar_pdfs) <= set(ids), "Unknown Scholar PDF publication"
     urls = [node.text for node in ElementTree.parse(DIST / "sitemap.xml").iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
     assert len(urls) == len(set(urls)) and set(urls) == {ORIGIN + path for path in expected}, "Sitemap mismatch"
     pdf_count = 0
@@ -59,10 +61,20 @@ def main():
             assert copied.parent == file.parent, "Scholar PDF must share the abstract's directory"
             legacy_url = next(a["href"] for a in page.attrs("a") if a.get("href", "").startswith("/documents/"))
             relative = unquote(legacy_url).lstrip("/")
-            assert sha(copied) == sha(DIST / relative) == sha(ROOT / "public" / relative), legacy_url
+            assert sha(DIST / relative) == sha(ROOT / "public" / relative), legacy_url
+            uid = route.strip("/").split("/")[-1]
+            optimized = scholar_pdfs.get(uid)
+            if optimized:
+                assert legacy_url == optimized["originalUrl"], uid
+                assert sha(ROOT / "public" / relative) == optimized["originalSha256"], uid
+                optimized_file = ROOT / "public" / optimized["optimizedUrl"].lstrip("/")
+                assert sha(copied) == sha(optimized_file) == optimized["optimizedSha256"], uid
+            else:
+                assert sha(copied) == sha(ROOT / "public" / relative), legacy_url
+            assert copied.stat().st_size < 5_000_000, f"Scholar PDF exceeds 5 MB: {uid}"
             pdf_count += 1
     assert 'content="noindex"' in (DIST / "404.html").read_text(encoding="utf-8"), "404 must be noindex"
-    print(f"Verified {len(expected)} pages, sitemap, local links, JSON-LD and {pdf_count} unchanged publication PDFs.")
+    print(f"Verified {len(expected)} pages, sitemap, links, JSON-LD, {pdf_count} Scholar PDFs under 5 MB and unchanged original PDFs.")
 
 
 if __name__ == "__main__":
