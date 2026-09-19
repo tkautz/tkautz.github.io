@@ -4,8 +4,8 @@ src/data/scholar.json.
 
 Fails safe by design: on any fetch problem, parse failure, or implausible
 value (non-positive, or more than 50% different from the last known value),
-the JSON is left untouched and the script exits 0, so the site keeps showing
-the last known good number.
+the JSON is left untouched and the script exits 1 so Actions reports failure.
+The site hides counts that have not been verified within 30 days.
 """
 
 import json
@@ -56,14 +56,14 @@ def read_previous() -> int | None:
         value = json.loads(JSON_PATH.read_text()).get("citations")
     except (json.JSONDecodeError, OSError):
         return None
-    return value if isinstance(value, int) and value > 0 else None
+    return value if type(value) is int and value > 0 else None
 
 
 def main() -> int:
     new_count = fetch_count()
     if new_count is None or new_count <= 0:
         print("No plausible citation count fetched; leaving scholar.json untouched")
-        return 0
+        return 1
 
     previous = read_previous()
     if previous is not None:
@@ -72,10 +72,9 @@ def main() -> int:
                 f"Implausible change {previous} -> {new_count}; "
                 "leaving scholar.json untouched"
             )
-            return 0
-        if new_count == previous:
-            print(f"Citation count unchanged ({previous}); nothing to do")
-            return 0
+            return 1
+
+    # An unchanged count is still a successful verification. Refresh its date.
 
     JSON_PATH.write_text(
         json.dumps(

@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/research", label: "Research" },
-  { href: "/cv", label: "CV" },
-  { href: "/contact", label: "Contact" },
+  { href: "/research/", label: "Research" },
+  { href: "/cv/", label: "CV" },
+  { href: "/contact/", label: "Contact" },
 ];
 
 export function Header() {
@@ -17,6 +17,9 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
+  const currentPath = location.pathname.replace(/\/$/, "") || "/";
+  const isActive = (href: string) => currentPath === (href.replace(/\/$/, "") || "/") ||
+    (href === "/research/" && currentPath.startsWith("/publications/"));
   const menuToggleRef = useRef<HTMLButtonElement>(null);
   const mobileNavRef = useRef<HTMLElement>(null);
 
@@ -128,7 +131,7 @@ export function Header() {
         <div className="container-wide flex items-center justify-between">
           <Link
             to="/"
-            className="flex items-center gap-2.5 font-display text-xl sm:text-2xl font-semibold text-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            className="min-w-0 flex items-center gap-2.5 font-display text-xl sm:text-2xl font-semibold text-foreground hover:text-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             aria-label="Tim Kautz - Home"
           >
             <img
@@ -137,7 +140,7 @@ export function Header() {
               aria-hidden="true"
               width={28}
               height={28}
-              className="h-7 w-7 rounded-full"
+              className="shrink-0 rounded-full"
             />
             Tim Kautz
           </Link>
@@ -150,11 +153,11 @@ export function Header() {
                 to={link.href}
                 className={cn(
                   "text-sm font-medium transition-colors link-underline pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm",
-                  location.pathname === link.href
+                  isActive(link.href)
                     ? "text-primary link-underline-active"
                     : "text-muted-foreground hover:text-foreground"
                 )}
-                aria-current={location.pathname === link.href ? "page" : undefined}
+                aria-current={isActive(link.href) ? (currentPath.startsWith("/publications/") ? "location" : "page") : undefined}
               >
                 {link.label}
               </Link>
@@ -195,13 +198,13 @@ export function Header() {
           </nav>
 
           {/* Mobile Controls */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex shrink-0 items-center gap-2 md:hidden">
             {/* Dark Mode Toggle - Mobile */}
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleDarkMode}
-              className="min-h-[44px] min-w-[44px]"
+              className="h-[44px] w-[44px] p-0"
               aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -212,7 +215,7 @@ export function Header() {
               ref={menuToggleRef}
               variant="ghost"
               size="icon"
-              className="min-h-[44px] min-w-[44px]"
+              className="h-[44px] w-[44px] p-0"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
@@ -304,11 +307,11 @@ export function Header() {
                         to={link.href}
                         className={cn(
                           "block text-lg font-medium py-3 px-4 rounded-lg transition-colors min-h-[48px] flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                          location.pathname === link.href
+                          isActive(link.href)
                             ? "text-primary bg-primary/10"
                             : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                         )}
-                        aria-current={location.pathname === link.href ? "page" : undefined}
+                        aria-current={isActive(link.href) ? (currentPath.startsWith("/publications/") ? "location" : "page") : undefined}
                       >
                         {link.label}
                       </Link>

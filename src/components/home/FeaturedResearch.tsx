@@ -22,7 +22,7 @@ export function FeaturedResearch() {
               </p>
             </div>
             <Button asChild variant="outline" className="self-start sm:self-auto h-11 px-5">
-              <Link to="/research">
+              <Link to="/research/">
                 View all publications
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

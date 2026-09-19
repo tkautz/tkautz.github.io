@@ -47,7 +47,7 @@ test.describe("research card", () => {
     await card.getByRole("button", { name: "Share" }).click();
     await expect(page.getByText(toasts.linkCopied).first()).toBeVisible();
     const clip = await page.evaluate(() => navigator.clipboard.readText());
-    expect(clip).toBe(`${baseURL}/research#pub-${id}`);
+    expect(clip).toBe(`https://timkautz.org/publications/${id}/`);
   });
 
   test("adversarial: clipboard denial still toasts and never throws (fixed)", async ({

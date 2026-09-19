@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/postbuild-pages.mjs",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir node_modules/.cache/site-ssr && node scripts/postbuild-pages.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",

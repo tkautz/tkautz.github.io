@@ -30,7 +30,7 @@ test.describe("global UX", () => {
         .getByRole("link", { name: "CV" })
         .click();
     }
-    await expect(page).toHaveURL(/\/cv$/);
+    await expect(page).toHaveURL(/\/cv\/?$/);
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(50);
   });
 
@@ -64,11 +64,11 @@ test.describe("global UX", () => {
     await page.goto(routes.research);
     await page.goto(routes.cv);
     await page.goBack();
-    await expect(page).toHaveURL(/\/research$/);
+    await expect(page).toHaveURL(/\/research\/?$/);
     await page.goBack();
     await expect(page).toHaveURL(/\/$/);
     await page.goForward();
-    await expect(page).toHaveURL(/\/research$/);
+    await expect(page).toHaveURL(/\/research\/?$/);
   });
 
   test("no horizontal overflow at 320px width", async ({ page, isMobile }) => {

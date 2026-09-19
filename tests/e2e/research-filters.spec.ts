@@ -29,7 +29,7 @@ test.describe("research filters", () => {
   });
 
   test("year filter (Radix select) combines with type filter", async ({ page }) => {
-    await page.getByRole("combobox").click();
+    await page.getByRole("combobox", { name: "Filter by year" }).click();
     await page.getByRole("option", { name: "2024" }).click();
     await expect(page.getByText(research.resultsCounter)).toBeVisible();
     const visibleYears = await page

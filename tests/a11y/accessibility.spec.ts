@@ -7,6 +7,7 @@ const pages = [
   { name: "research", path: routes.research },
   { name: "cv", path: routes.cv },
   { name: "contact", path: routes.contact },
+  { name: "publication", path: "/publications/kautz-zanoni-2024/" },
 ];
 
 test.describe("accessibility (axe WCAG 2a/2aa)", () => {

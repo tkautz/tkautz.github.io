@@ -10,14 +10,14 @@ test.describe("header navigation", () => {
       const nav = page.getByRole("navigation", { name: "Main navigation" });
 
       await nav.getByRole("link", { name: "Research" }).click();
-      await expect(page).toHaveURL(/\/research$/);
+      await expect(page).toHaveURL(/\/research\/?$/);
       await expect(nav.getByRole("link", { name: "Research" })).toHaveAttribute(
         "aria-current",
         "page",
       );
 
       await nav.getByRole("link", { name: "CV" }).click();
-      await expect(page).toHaveURL(/\/cv$/);
+      await expect(page).toHaveURL(/\/cv\/?$/);
       await expect(nav.getByRole("link", { name: "Research" })).not.toHaveAttribute(
         "aria-current",
         "page",
@@ -46,7 +46,7 @@ test.describe("header navigation", () => {
       await expect.poll(() => page.evaluate(() => document.body.style.overflow)).toBe("hidden");
 
       await drawer.getByRole("link", { name: "Contact" }).click();
-      await expect(page).toHaveURL(/\/contact$/);
+      await expect(page).toHaveURL(/\/contact\/?$/);
       await expect(drawer).toBeHidden();
       await expect.poll(() => page.evaluate(() => document.body.style.overflow)).toBe("");
     });
