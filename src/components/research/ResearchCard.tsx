@@ -7,6 +7,7 @@ import { Authors } from "./Authors";
 import { PublicationActions } from "./PublicationActions";
 import { publicationPath } from "@/lib/publications";
 import { toWebP } from "@/lib/image-utils";
+import { publicationDescription, verifiedAbstract } from "@/lib/publication-abstracts";
 
 interface ResearchCardProps {
   publication: Publication;
@@ -54,6 +55,9 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
   const [isExpanded, setIsExpanded] = useState(false);
   const typeInfo = publicationTypes[publication.type];
   const coverImage = getCoverImage(publication);
+  const bodyText = publicationDescription(publication);
+  const abstract = verifiedAbstract(publication);
+  const textLabel = abstract ? "abstract" : "summary";
 
   return (
     <article
@@ -119,7 +123,7 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
         </p>
       )}
 
-      {publication.abstract && (
+      {bodyText && (
         <div className="mb-4">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
@@ -133,7 +137,7 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
                 isExpanded && "rotate-180"
               )}
             />
-            {isExpanded ? "Hide abstract" : "Show abstract"}
+            {isExpanded ? `Hide ${textLabel}` : `Show ${textLabel}`}
           </button>
           <div
             id={`abstract-${publication.id}`}
@@ -141,8 +145,9 @@ export function ResearchCard({ publication, highlighted = false }: ResearchCardP
             className="mt-3"
           >
             <p className="text-sm text-muted-foreground leading-relaxed bg-muted/50 p-4 rounded-lg">
-              {publication.abstract}
+              {bodyText}
             </p>
+            {abstract?.sourceNote && <p className="text-sm text-muted-foreground mt-2">{abstract.sourceNote}</p>}
           </div>
         </div>
       )}

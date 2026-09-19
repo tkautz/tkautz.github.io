@@ -8,6 +8,7 @@ import { publications, publicationTypes } from "@/data/publications";
 import { publicationAuthors, publicationUrl, publicationPdfPath, SITE_URL } from "@/lib/publications";
 import NotFound from "./NotFound";
 import { publicationDois } from "@/data/publication-dois";
+import { publicationDescription, verifiedAbstract } from "@/lib/publication-abstracts";
 
 export default function Publication() {
   const { id } = useParams();
@@ -16,13 +17,15 @@ export default function Publication() {
   const url = publicationUrl(pub);
   const authors = publicationAuthors(pub);
   const doi = publicationDois[pub.id];
-  const description = pub.abstract ?? `${pub.title}. ${pub.authors.replace(/\*\*/g, "")}. ${pub.year}.${pub.journal ? ` ${pub.journal}.` : ""}`;
+  const abstract = verifiedAbstract(pub);
+  const bodyText = publicationDescription(pub);
+  const description = bodyText ?? `${pub.title}. ${pub.authors.replace(/\*\*/g, "")}. ${pub.year}.${pub.journal ? ` ${pub.journal}.` : ""}`;
   const schema = {
     "@context": "https://schema.org",
     "@type": pub.type === "edited-volume" ? "Book" : pub.type === "report" ? "Report" : "ScholarlyArticle",
     name: pub.title, headline: pub.title, url,
     [pub.type === "edited-volume" ? "editor" : "author"]: authors.map(name => ({ "@type": "Person", name })),
-    datePublished: String(pub.year), abstract: pub.abstract,
+    datePublished: String(pub.year), abstract: abstract?.text,
     ...(doi ? { sameAs: `https://doi.org/${doi}`, identifier: { "@type": "PropertyValue", propertyID: "DOI", value: doi } } : {}),
     ...(pub.pdfUrl ? { encoding: { "@type": "MediaObject", encodingFormat: "application/pdf", contentUrl: `${SITE_URL}${publicationPdfPath(pub)}` } } : {}),
   };
@@ -54,9 +57,10 @@ export default function Publication() {
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-6">{pub.title}</h1>
           <p className="text-muted-foreground mb-4"><Authors text={pub.authors} /></p>
           {pub.journal && <p className="italic text-foreground/75 mb-8">{pub.journal}</p>}
-          {pub.abstract && <section aria-labelledby="abstract-heading" className="mb-8">
-            <h2 id="abstract-heading" className="font-display text-2xl font-semibold mb-4">Abstract</h2>
-            <p className="text-muted-foreground leading-relaxed">{pub.abstract}</p>
+          {bodyText && <section aria-labelledby="abstract-heading" className="mb-8">
+            <h2 id="abstract-heading" className="font-display text-2xl font-semibold mb-4">{abstract ? "Abstract" : "Summary"}</h2>
+            <p className="text-muted-foreground leading-relaxed">{bodyText}</p>
+            {abstract?.sourceNote && <p className="text-sm text-muted-foreground mt-3">{abstract.sourceNote}</p>}
           </section>}
           <PublicationActions publication={pub} />
         </article>
