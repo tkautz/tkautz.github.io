@@ -3,10 +3,10 @@ import { routes, expectedTitles } from "../fixtures/selectors";
 
 test.describe("SEO / metadata", () => {
   const cases = [
-    { path: routes.home, title: expectedTitles.home, canonical: "https://tkautz.github.io/" },
-    { path: routes.research, title: expectedTitles.research, canonical: "https://tkautz.github.io/research" },
-    { path: routes.cv, title: expectedTitles.cv, canonical: "https://tkautz.github.io/cv" },
-    { path: routes.contact, title: expectedTitles.contact, canonical: "https://tkautz.github.io/contact" },
+    { path: routes.home, title: expectedTitles.home, canonical: "https://timkautz.org/" },
+    { path: routes.research, title: expectedTitles.research, canonical: "https://timkautz.org/research" },
+    { path: routes.cv, title: expectedTitles.cv, canonical: "https://timkautz.org/cv" },
+    { path: routes.contact, title: expectedTitles.contact, canonical: "https://timkautz.org/contact" },
   ];
 
   for (const c of cases) {
@@ -19,19 +19,22 @@ test.describe("SEO / metadata", () => {
         "content",
         /.+/,
       );
-      if (c.path !== routes.home) {
-        // Home's canonical lives in index.html head differently; sub-pages set it via Helmet.
-        await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", c.canonical);
-      }
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", c.canonical);
+      await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", c.canonical);
       await expect(page.locator('meta[property="og:title"]').first()).toHaveCount(1);
     });
   }
 
   test("JSON-LD structured data is present on home and research", async ({ page }) => {
     await page.goto(routes.home);
-    expect(await page.locator('script[type="application/ld+json"]').count()).toBeGreaterThan(0);
+    const structuredData = page.locator('script[type="application/ld+json"]');
+    // Helmet adds metadata after React renders; wait for it before inspecting it.
+    await expect(structuredData).toHaveCount(2);
+    for (const json of await structuredData.allTextContents()) {
+      expect(JSON.parse(json).url).toBe("https://timkautz.org/");
+    }
     await page.goto(routes.research);
-    expect(await page.locator('script[type="application/ld+json"]').count()).toBeGreaterThan(0);
+    await expect(structuredData).toHaveCount(1);
   });
 
   test("title reverts when navigating back to home (Helmet cleanup)", async ({ page }) => {
