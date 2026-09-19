@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toWebP } from "@/lib/image-utils";
-import { SCHOLAR_URL, scholarLabel } from "@/lib/scholar";
+import { SCHOLAR_URL, useScholarCitation } from "@/lib/scholar";
 
 const affiliations = [
   {
@@ -57,6 +57,37 @@ function Headshot({ variant }: { variant: "mobile" | "desktop" }) {
   );
 }
 
+function HeroActions() {
+  const { label: scholarLabel } = useScholarCitation();
+  return (
+    <div className="pt-2">
+      <div className="flex flex-wrap gap-3">
+        <Button asChild size="lg" className="h-12 px-6 text-base">
+          <Link to="/research/">
+            View My Research
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+        <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
+          <a href="/documents/TimKautz_CV.pdf" target="_blank" rel="noopener noreferrer">
+            <FileText className="mr-2 h-4 w-4" />
+            Download CV
+          </a>
+        </Button>
+      </div>
+      <a
+        href={SCHOLAR_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+      >
+        <ScholarIcon className="h-4 w-4" />
+        {scholarLabel}
+      </a>
+    </div>
+  );
+}
+
 export function HeroSection() {
   return (
     <section className="relative bg-muted/40">
@@ -66,9 +97,9 @@ export function HeroSection() {
         className="absolute inset-0 pointer-events-none bg-[radial-gradient(hsl(var(--foreground)/0.06)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
       />
       <div className="relative container-wide section-padding">
-        {/* Single subtle fade; the rest of the page renders still. */}
+        {/* Visible in the generated HTML before React hydrates. */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
           className="grid sm:grid-cols-[1fr_auto] gap-6 sm:gap-8 items-center"
@@ -92,6 +123,8 @@ export function HeroSection() {
                 </a>
               </p>
             </div>
+
+            <div className="sm:hidden"><HeroActions /></div>
 
             {/* Mobile photo: high on the page, wide */}
             <div className="sm:hidden flex justify-center pt-2">
@@ -167,32 +200,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="pt-2">
-              <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg" className="h-12 px-6 text-base">
-                  <Link to="/research">
-                    View My Research
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="h-12 px-6 text-base">
-                  <a href="/documents/TimKautz_CV.pdf" target="_blank" rel="noopener noreferrer">
-                    <FileText className="mr-2 h-4 w-4" />
-                    Download CV
-                  </a>
-                </Button>
-              </div>
-              <a
-                href={SCHOLAR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
-                <ScholarIcon className="h-4 w-4" />
-                {scholarLabel()}
-              </a>
-            </div>
+            <div className="hidden sm:block"><HeroActions /></div>
           </div>
 
           {/* Profile Image (desktop) */}

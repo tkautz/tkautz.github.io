@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Publication, publicationTypes } from "@/data/publications";
 import { cn } from "@/lib/utils";
 import { toWebP } from "@/lib/image-utils";
+import { publicationPath } from "@/lib/publications";
 
 interface FeaturedResearchCardProps {
   publication: Publication;
@@ -83,7 +84,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
 
           {/* Title */}
           <h3 className="font-display text-lg font-semibold text-foreground mb-2 leading-snug line-clamp-2">
-            {publication.title}
+            <Link to={publicationPath(publication)} className="hover:text-primary">{publication.title}</Link>
           </h3>
 
           {/* Authors */}
@@ -111,7 +112,7 @@ export function FeaturedResearchCard({ publication }: FeaturedResearchCardProps)
 
           {/* Learn More Link */}
           <Link
-            to={`/research#pub-${publication.id}`}
+            to={publicationPath(publication)}
             className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mt-4 pt-4 border-t border-border/50"
           >
             Learn more

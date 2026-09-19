@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { ScrollReveal, StaggerChildren, StaggerItem } from "@/components/ui/scroll-reveal";
-import { SCHOLAR_URL, scholarCitationText } from "@/lib/scholar";
+import { SCHOLAR_URL, useScholarCitation } from "@/lib/scholar";
 
 const contactInfo = [
   {
@@ -28,7 +28,7 @@ const contactInfo = [
   {
     icon: ScholarIcon,
     label: "Google Scholar",
-    value: scholarCitationText() ?? "View profile",
+    value: "View profile",
     href: SCHOLAR_URL,
   },
   {
@@ -40,6 +40,8 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+  const { text: citationText } = useScholarCitation();
+  const contacts = contactInfo.map(item => item.href === SCHOLAR_URL ? { ...item, value: citationText ?? "View profile" } : item);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
@@ -102,8 +104,8 @@ export default function Contact() {
         <meta property="og:title" content="Contact Tim Kautz" />
         <meta property="og:description" content="Get in touch with Tim Kautz for research collaborations, speaking engagements, or other inquiries." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timkautz.org/contact" />
-        <link rel="canonical" href="https://timkautz.org/contact" />
+        <meta property="og:url" content="https://timkautz.org/contact/" />
+        <link rel="canonical" href="https://timkautz.org/contact/" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Contact Tim Kautz" />
@@ -126,7 +128,7 @@ export default function Contact() {
             <div className="grid lg:grid-cols-5 gap-10">
               {/* Contact Info Cards */}
               <StaggerChildren className="lg:col-span-2 space-y-4">
-                {contactInfo.map((item) => (
+                {contacts.map((item) => (
                   <StaggerItem key={item.label}>
                     <div className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border/50 card-hover min-h-[72px]">
                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">

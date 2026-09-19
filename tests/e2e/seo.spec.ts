@@ -4,17 +4,16 @@ import { routes, expectedTitles } from "../fixtures/selectors";
 test.describe("SEO / metadata", () => {
   const cases = [
     { path: routes.home, title: expectedTitles.home, canonical: "https://timkautz.org/" },
-    { path: routes.research, title: expectedTitles.research, canonical: "https://timkautz.org/research" },
-    { path: routes.cv, title: expectedTitles.cv, canonical: "https://timkautz.org/cv" },
-    { path: routes.contact, title: expectedTitles.contact, canonical: "https://timkautz.org/contact" },
+    { path: routes.research, title: expectedTitles.research, canonical: "https://timkautz.org/research/" },
+    { path: routes.cv, title: expectedTitles.cv, canonical: "https://timkautz.org/cv/" },
+    { path: routes.contact, title: expectedTitles.contact, canonical: "https://timkautz.org/contact/" },
   ];
 
   for (const c of cases) {
     test(`${c.path} has title, description, canonical, and OG tags`, async ({ page }) => {
       await page.goto(c.path);
       await expect(page).toHaveTitle(c.title);
-      // Both the static index.html meta and the Helmet-managed one can coexist;
-      // assert the Helmet (route-specific) description is non-empty.
+      await expect(page.locator('meta[name="description"]')).toHaveCount(1);
       await expect(page.locator('meta[name="description"]').last()).toHaveAttribute(
         "content",
         /.+/,

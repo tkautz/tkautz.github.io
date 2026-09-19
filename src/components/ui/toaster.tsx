@@ -18,7 +18,8 @@ export function Toaster() {
           </Toast>
         );
       })}
-      <ToastViewport />
+      {/* Radix toasts have role=status, so the container is not a semantic list. */}
+      <ToastViewport role="presentation" data-toast-viewport="" />
     </ToastProvider>
   );
 }

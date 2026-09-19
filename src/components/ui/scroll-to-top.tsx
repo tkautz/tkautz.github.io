@@ -18,12 +18,12 @@ export function ScrollToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
     });
     // Focus on the main content for screen readers
     const mainContent = document.getElementById("main-content");
     if (mainContent) {
-      mainContent.focus();
+      mainContent.focus({ preventScroll: true });
     }
   };
 

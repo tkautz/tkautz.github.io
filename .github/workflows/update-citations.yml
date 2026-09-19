@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Fetch citation count
+      - name: Verify citation count
         run: python scripts/update_citations.py
 
       - name: Commit and trigger deploy if changed
@@ -42,7 +42,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/scholar.json
-          git commit -m "Update Google Scholar citation count"
+          git commit -m "Verify Google Scholar citation count"
           git push
           # Pushes made with GITHUB_TOKEN do not trigger push workflows, so
           # kick the Pages deploy explicitly.

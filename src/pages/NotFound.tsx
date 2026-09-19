@@ -31,7 +31,7 @@ const NotFound = () => {
                 </Link>
               </Button>
               <Link
-                to="/research"
+                to="/research/"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 Browse my research

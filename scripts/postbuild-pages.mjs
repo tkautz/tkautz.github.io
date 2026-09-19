@@ -1,21 +1,26 @@
-// GitHub Pages serves static files only: without these copies, a direct
-// visit to /research, /cv, or /contact returns GitHub's default 404
-// instead of the app (BrowserRouter routes exist only client-side).
-// Each route gets a real index.html (HTTP 200), and 404.html catches
-// everything else so unknown URLs still load the app's NotFound page.
-import { copyFileSync, mkdirSync } from "node:fs";
+// Render the same React pages at build time. GitHub Pages needs no Node server.
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+process.env.NODE_ENV = "production";
+const { render, publications, publicationPath, publicationPdfPath, SITE_URL } = await import("../node_modules/.cache/site-ssr/entry-server.js");
 
 const dist = path.resolve(import.meta.dirname, "../dist");
-const index = path.join(dist, "index.html");
-
-const routes = ["research", "cv", "contact"];
-
-copyFileSync(index, path.join(dist, "404.html"));
-for (const route of routes) {
-  const dir = path.join(dist, route);
-  mkdirSync(dir, { recursive: true });
-  copyFileSync(index, path.join(dir, "index.html"));
+const template = readFileSync(path.join(dist, "index.html"), "utf8")
+  .replace(/<title>[^<]*<\/title>/, "")
+  .replace(/<meta name="description"[^>]*>/, "");
+const routes = ["/", "/research/", "/cv/", "/contact/", ...publications.map(publicationPath)];
+if (new Set(routes).size !== routes.length) throw new Error("Duplicate page paths");
+for (const route of [...routes, "/404.html"]) {
+  const { head, body } = render(route);
+  const html = template.replace('<html lang="en">', `<html lang="en" data-build-year="${new Date().getFullYear()}" data-rendered-path="${route.replace(/\/$/, "") || "/"}">`)
+    .replace("</head>", `${head}</head>`)
+    .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`);
+  const file = path.join(dist, route === "/404.html" ? "404.html" : `${route.slice(1)}index.html`);
+  mkdirSync(path.dirname(file), { recursive: true });
+  writeFileSync(file, html);
 }
-
-console.log(`postbuild: wrote 404.html and ${routes.map((r) => `${r}/index.html`).join(", ")}`);
+for (const pub of publications) {
+  if (pub.pdfUrl) copyFileSync(path.join(dist, decodeURI(pub.pdfUrl)), path.join(dist, publicationPdfPath(pub)));
+}
+writeFileSync(path.join(dist, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(route => `  <url><loc>${SITE_URL}${route}</loc></url>`).join("\n")}\n</urlset>\n`);
+console.log(`postbuild: rendered ${routes.length} pages, 404.html, publication PDF copies, and sitemap.xml`);

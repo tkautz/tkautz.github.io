@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { publications } from "@/data/publications";
+import { publicationUrl } from "@/lib/publications";
 
 interface PersonStructuredDataProps {
   name?: string;
@@ -21,7 +22,7 @@ export function PersonStructuredData({
     "https://www.linkedin.com/in/tkautz",
     "https://scholar.google.com/citations?user=lf96MecAAAAJ&hl=en",
   ],
-  image = "/images/headshot-2.jpg",
+  image = "https://timkautz.org/images/headshot-2.jpg",
 }: PersonStructuredDataProps) {
   const structuredData = {
     "@context": "https://schema.org",
@@ -68,32 +69,20 @@ export function PersonStructuredData({
 }
 
 export function PublicationsStructuredData() {
-  const journalArticles = publications.filter((pub) => pub.type === "journal");
   
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Research Publications by Tim Kautz",
+    url: "https://timkautz.org/research/",
     description: "Academic publications on noncognitive skills, education economics, and employment program evaluation.",
     mainEntity: {
       "@type": "ItemList",
-      itemListElement: journalArticles.slice(0, 10).map((pub, index) => ({
+      itemListElement: publications.map((pub, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        item: {
-          "@type": "ScholarlyArticle",
-          headline: pub.title,
-          author: pub.authors.replace(/\*\*/g, "").split(", ").map((author) => ({
-            "@type": "Person",
-            name: author.trim(),
-          })),
-          datePublished: pub.year.toString(),
-          isPartOf: pub.journal ? {
-            "@type": "Periodical",
-            name: pub.journal.split(",")[0],
-          } : undefined,
-          description: pub.abstract,
-        },
+        url: publicationUrl(pub),
+        name: pub.title,
       })),
     },
   };

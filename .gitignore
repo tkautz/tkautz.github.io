@@ -18,6 +18,9 @@ dist-ssr
 /blob-report/
 /playwright/.cache/
 
+# Python tooling caches
+__pycache__/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -23,7 +23,7 @@ test.describe("footer", () => {
       .getByRole("navigation", { name: "Footer navigation" })
       .getByRole("link", { name: "CV" })
       .click();
-    await expect(page).toHaveURL(/\/cv$/);
+    await expect(page).toHaveURL(/\/cv\/?$/);
   });
 
   test("copyright shows the current year dynamically", async ({ page }) => {

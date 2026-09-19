@@ -5,7 +5,7 @@ test.describe("home page", () => {
   test("primary CTA routes to research", async ({ page }) => {
     await page.goto(routes.home);
     await page.getByRole("link", { name: /View My Research/i }).click();
-    await expect(page).toHaveURL(/\/research$/);
+    await expect(page).toHaveURL(/\/research\/?$/);
   });
 
   test("Download CV opens the PDF in a new tab", async ({ page }) => {
@@ -22,15 +22,15 @@ test.describe("home page", () => {
       .evaluateAll((els) =>
         els
           .map((e) => (e as HTMLAnchorElement).getAttribute("href") ?? "")
-          .filter((h) => h.includes("/research#pub-")),
+          .filter((h) => h.startsWith("/publications/")),
       );
     expect(hrefs.length).toBeGreaterThan(0);
 
-    // Data-integrity: every featured hash must resolve to a real card on /research.
-    for (const href of hrefs) {
-      const id = href.split("#")[1];
-      await page.goto(`/research#${id}`);
-      await expect(page.locator(`#${id}`)).toHaveCount(1);
+    // Each featured title/action resolves to a permanent publication page.
+    for (const href of new Set(hrefs)) {
+      await page.goto(href);
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      await expect(page.locator('meta[name="citation_title"]')).toHaveCount(1);
     }
   });
 

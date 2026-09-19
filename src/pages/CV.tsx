@@ -378,8 +378,8 @@ export default function CV() {
         <meta property="og:title" content="Curriculum Vitae | Tim Kautz" />
         <meta property="og:description" content="View Tim Kautz's curriculum vitae, including education at Stanford and University of Chicago, employment at Mathematica, publications, and professional service." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timkautz.org/cv" />
-        <link rel="canonical" href="https://timkautz.org/cv" />
+        <meta property="og:url" content="https://timkautz.org/cv/" />
+        <link rel="canonical" href="https://timkautz.org/cv/" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Curriculum Vitae | Tim Kautz" />
@@ -412,7 +412,9 @@ export default function CV() {
                   variant="outline"
                   size="sm"
                   onClick={() => {
-                    document.getElementById(section.id)?.scrollIntoView({ behavior: "smooth" });
+                    const target = document.getElementById(section.id);
+                    target?.focus({ preventScroll: true });
+                    target?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
                   }}
                   className="min-h-[40px]"
                 >
@@ -425,7 +427,7 @@ export default function CV() {
             {/* CV Sections */}
             <div className="space-y-4">
               {cvSections.map((section, index) => (
-                <div key={section.id} id={section.id}>
+                <div key={section.id} id={section.id} tabIndex={-1} className="scroll-mt-24">
                   <CollapsibleSection section={section} index={index} />
                 </div>
               ))}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Linkedin } from "lucide-react";
 import { MailIcon, ScholarIcon } from "@/components/icons/site-icons";
 import {
@@ -7,7 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { SCHOLAR_URL, scholarLabel } from "@/lib/scholar";
+import { SCHOLAR_URL, useScholarCitation } from "@/lib/scholar";
 
 const socialLinks = [
   {
@@ -26,18 +27,25 @@ const socialLinks = [
     href: SCHOLAR_URL,
     icon: ScholarIcon,
     label: "Google Scholar",
-    tooltip: scholarLabel(),
+    tooltip: "Google Scholar",
   },
 ];
 
 const footerNavLinks = [
-  { href: "/research", label: "Research" },
-  { href: "/cv", label: "CV" },
-  { href: "/contact", label: "Contact" },
+  { href: "/research/", label: "Research" },
+  { href: "/cv/", label: "CV" },
+  { href: "/contact/", label: "Contact" },
 ];
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const { label: scholarLabel } = useScholarCitation();
+  const links = socialLinks.map(link => link.href === SCHOLAR_URL ? { ...link, tooltip: scholarLabel } : link);
+  // Hydrate the year actually shipped in static HTML, then refresh it. A site
+  // built in December must also hydrate cleanly when opened in January.
+  const [currentYear, setCurrentYear] = useState(() => typeof document === "undefined"
+    ? new Date().getFullYear()
+    : Number(document.documentElement.dataset.buildYear) || new Date().getFullYear());
+  useEffect(() => setCurrentYear(new Date().getFullYear()), []);
 
   return (
     <footer className="bg-muted/40 text-foreground py-12 border-t border-border/60" role="contentinfo">
@@ -53,7 +61,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Footer navigation">
-            <ul className="flex items-center gap-6">
+            <ul className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3">
               {footerNavLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -69,8 +77,8 @@ export function Footer() {
 
           <TooltipProvider>
             <nav aria-label="Social links">
-              <ul className="flex items-center gap-4">
-                {socialLinks.map((link) => (
+              <ul className="flex flex-wrap justify-center items-center gap-4">
+                {links.map((link) => (
                   <li key={link.label}>
                     <Tooltip>
                       <TooltipTrigger asChild>
