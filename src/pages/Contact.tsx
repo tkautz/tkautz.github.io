@@ -54,7 +54,7 @@ export default function Contact() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/tkautz@mathematica-mpr.com", {
+      const response = await fetch("https://formsubmit.co/ajax/059de6b047fb0561fd39085d67a691f1", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
